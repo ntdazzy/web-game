@@ -13,12 +13,15 @@
     var submitButtons = {};
 
     function detectStaticPrefix() {
-        var link = document.querySelector('link[href*="st-ms/css/bootstrap"]');
-        if (!link) {
-            return '';
+        if (typeof window.__STATIC_PREFIX__ === 'string') {
+            return window.__STATIC_PREFIX__;
         }
-        var href = link.getAttribute('href') || '';
-        return href.replace(/st-ms\/css\/.*$/i, '');
+        var link = document.querySelector('link[href*="st-ms/css/bootstrap"]');
+        if (link) {
+            var href = link.getAttribute('href') || '';
+            return href.replace(/st-ms\/css\/.*$/i, '');
+        }
+        return '';
     }
 
     var staticPrefix = detectStaticPrefix();
@@ -137,6 +140,307 @@
             }
         }
         return result;
+    }
+
+    function resolveAsset(path) {
+        if (!path) {
+            return '';
+        }
+        if (/^https?:/i.test(path)) {
+            return path;
+        }
+        return staticPrefix + path;
+    }
+
+    function resolvePage(path) {
+        return resolveAsset(path);
+    }
+
+    function buildDesktopHeaderHTML() {
+        return template`
+<div class="container d-flex w-100 h-100">
+    <div class="logo position-relative h-100">
+        <div class="wrap-logo position-absolute d-flex flex-column align-items-center">
+            <a href="${resolvePage('index.html')}"><img src="${resolveAsset('st-ms/imgs/logo.png')}" alt="" class="logo-img"></a>
+        </div>
+    </div>
+    <div class="nav-bar position-relative">
+        <img src="${resolveAsset('st-ms/imgs/menu/bg-menu-nav.png')}" alt="" class="position-absolute top-0">
+        <ul class="main-nav d-flex h-100">
+            <li class="d-flex justify-content-center align-items-center homepage">
+                <a class="nav-item h-100" data-nav-key="home" href="${resolvePage('index.html')}" target="_self" title="Trang chủ"></a>
+            </li>
+            <li class="d-flex justify-content-center align-items-center news">
+                <a class="nav-item h-100" data-nav-key="news" href="${resolvePage('tin-tuc.html')}" target="_self" title="Tin tức"></a>
+            </li>
+            <li class="d-flex justify-content-center align-items-center hero-item">
+                <a class="nav-item h-100" data-nav-key="heroes" href="${resolvePage('danh-sach-tuong.html')}" target="_self" title="Tướng"></a>
+            </li>
+            <li class="d-flex justify-content-center align-items-center fruit">
+                <a class="nav-item h-100 d-flex align-items-center" data-nav-key="fruits" href="javascript:void(0)" title="Trái Ác Quỷ" data-bs-toggle="dropdown">
+                    <i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="${resolvePage('trai-ac-quy.html')}" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
+                    <li><a href="${resolvePage('trai-dung-hop.html')}" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
+                </ul>
+            </li>
+            <li class="d-flex justify-content-center align-items-center support">
+                <a class="nav-item h-100 d-flex align-items-center" data-nav-key="support" href="javascript:void(0)" title="Hỗ trợ" data-bs-toggle="dropdown">
+                    <i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a href="https://www.facebook.com/haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Facebook</a></li>
+                    <li><a href="https://discord.com/invite/pRQaVmUj78" target="_blank" rel="noopener" class="dropdown-item">Discord</a></li>
+                    <li><a href="https://zalo.me/g/snnzqo202" target="_blank" rel="noopener" class="dropdown-item">Zalo</a></li>
+                </ul>
+            </li>
+            <li class="d-flex justify-content-center align-items-center community">
+                <a class="nav-item h-100 d-flex align-items-center" data-nav-key="community" href="javascript:void(0)" title="Cộng Đồng" data-bs-toggle="dropdown">
+                    <i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li class="youtube"><a href="https://www.youtube.com/@haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Youtube</a></li>
+                    <li class="group"><a href="https://www.facebook.com/groups/dechehaitac" target="_blank" rel="noopener" class="dropdown-item">Group cộng đồng</a></li>
+                    <li class="tiktok"><a href="https://www.tiktok.com/@haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Tiktok</a></li>
+                    <li class="discord"><a href="https://discord.com/invite/pRQaVmUj78" target="_blank" rel="noopener" class="dropdown-item">Discord</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="login">
+        <div class="wrap-login position-absolute h-100">
+            <div class="user-info h-100 d-flex align-items-center d-none">
+                <div class="btn-group">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="display-name"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item d-flex align-items-center">
+                            <a href="${resolvePage('id.html')}"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <a href="${resolvePage('qua-nap-web.html')}" class="d-flex justify-content-between">
+                                <i><span class="payment-unit">GEM</span><span class="display-balance">0</span></i> <button>Nạp</button>
+                            </a>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <a href="${resolvePage('lich-su-nap.html')}"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <a href="${resolvePage('id/doi-mat-khau.html')}"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <a href="${resolvePage('index.html')}"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="btn-login login-required" data-redirect="${resolvePage('qua-nap-web.html')}"></a>
+        </div>
+    </div>
+</div>`;
+    }
+
+    function buildMobileHeaderHTML() {
+        return template`
+<div class="wrap-logo position-relative">
+    <a href="${resolvePage('index.html')}" class="logo position-absolute"></a>
+</div>
+<ul class="btn-group d-flex align-items-center position-relative">
+    <li>
+        <a href="${resolvePage('qua-nap-web.html')}" target="_self" class="btn-pay" title="Nạp Thẻ"></a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" target="_self" class="btn-download link-download-client" title="Tải game"></a>
+    </li>
+    <li class="position-relative">
+        <button class="btn swap-menu-id" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-expanded="false" aria-controls="mobileMenu"></button>
+        <ul class="collapse menu-mobile position-absolute" id="mobileMenu">
+            <li class="nav-item">
+                <a class="nav-link homepage" data-nav-key="home" href="${resolvePage('index.html')}" title="Trang chủ">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link news" data-nav-key="news" href="${resolvePage('tin-tuc.html')}" title="Tin tức">Tin tức</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link hero-item" data-nav-key="heroes" href="${resolvePage('danh-sach-tuong.html')}" title="Tướng">Tướng</a>
+            </li>
+            <li class="menu-mobile-bottom">
+                <a class="btn btn-link position-relative fruit" data-nav-key="fruits" href="javascript:void(0)" title="Trái Ác Quỷ" data-bs-toggle="collapse" data-bs-target="#mobileFruit" aria-expanded="false" aria-controls="mobileFruit">
+                    Trái Ác Quỷ<i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="collapse social row collapse-normal" id="mobileFruit">
+                    <li class="d-flex justify-content-center col-4"><a href="${resolvePage('trai-ac-quy.html')}" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
+                    <li class="d-flex justify-content-center col-4"><a href="${resolvePage('trai-dung-hop.html')}" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
+                </ul>
+            </li>
+            <li class="menu-mobile-bottom">
+                <a class="btn btn-link position-relative support" href="javascript:void(0)" title="Hỗ trợ" data-bs-toggle="collapse" data-bs-target="#mobileSupport" aria-expanded="false" aria-controls="mobileSupport">
+                    Hỗ trợ<i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="collapse social row collapse-normal" id="mobileSupport">
+                    <li class="d-flex justify-content-center col-4"><a href="https://www.facebook.com/haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Facebook</a></li>
+                    <li class="d-flex justify-content-center col-4"><a href="https://discord.com/invite/pRQaVmUj78" target="_blank" rel="noopener" class="dropdown-item">Discord</a></li>
+                    <li class="d-flex justify-content-center col-4"><a href="https://zalo.me/g/snnzqo202" target="_blank" rel="noopener" class="dropdown-item">Zalo</a></li>
+                </ul>
+            </li>
+            <li class="menu-mobile-bottom">
+                <a class="btn btn-link position-relative community" href="javascript:void(0)" title="Cộng Đồng" data-bs-toggle="collapse" data-bs-target="#mobileCommunity" aria-expanded="false" aria-controls="mobileCommunity">
+                    Cộng Đồng<i class="dropdown-icon position-absolute"></i>
+                </a>
+                <ul class="collapse social row collapse-normal collapse-community" id="mobileCommunity">
+                    <li class="d-flex justify-content-center col-4 youtube"><a href="https://www.youtube.com/@haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Youtube</a></li>
+                    <li class="d-flex justify-content-center col-4 group"><a href="https://www.facebook.com/groups/dechehaitac" target="_blank" rel="noopener" class="dropdown-item">Group cộng đồng</a></li>
+                    <li class="d-flex justify-content-center col-4 tiktok"><a href="https://www.tiktok.com/@haitacmanhnhat" target="_blank" rel="noopener" class="dropdown-item">Tiktok</a></li>
+                    <li class="d-flex justify-content-center col-4 discord"><a href="https://discord.com/invite/pRQaVmUj78" target="_blank" rel="noopener" class="dropdown-item">Discord</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<div class="wrap-login-mobile wrap-login position-absolute h-100">
+    <div class="user-info h-100 d-flex align-items-center d-none">
+        <div class="btn-group">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+                <span class="display-name"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item d-flex align-items-center"><a href="${resolvePage('id.html')}"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                <li class="dropdown-item d-flex align-items-center">
+                    <a href="${resolvePage('qua-nap-web.html')}" class="d-flex justify-content-between">
+                        <i><span>GEM</span><span class="display-balance">0</span></i> <button>Nạp</button>
+                    </a>
+                </li>
+                <li class="dropdown-item d-flex align-items-center"><a href="${resolvePage('lich-su-nap.html')}"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                <li class="dropdown-item d-flex align-items-center"><a href="${resolvePage('id/doi-mat-khau.html')}"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                <li class="dropdown-item d-flex align-items-center"><a href="${resolvePage('index.html')}"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
+            </ul>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="btn-login login-required" data-redirect="${resolvePage('qua-nap-web.html')}"></a>
+</div>`;
+    }
+
+    function buildFooterHTML() {
+        return template`
+<div class="wrap-content container d-flex align-items-center justify-content-center">
+    <a href="${resolvePage('index.html')}" class="logo"></a>
+    <div class="info-group">
+        <ul class="d-flex">
+            <li><a href="${resolvePage('tin-tuc/dieu-khoan-dich-vu.html')}" title="Điều khoản sử dụng" target="_self">Điều khoản sử dụng</a></li>
+            <li><a href="${resolvePage('tin-tuc/cai-dat-go-bo.html')}" title="Cài đặt &amp; gỡ bỏ" target="_self">Cài đặt &amp; gỡ bỏ</a></li>
+        </ul>
+        <p>Giấy phép cung cấp dịch vụ trò chơi điện tử G1 trên mạng số 73/GP-PTTH&amp;TTĐT<br>do Cục Phát Thanh Truyền Hình và Thông Tin Điện Tử cấp ngày 09/05/2025</p>
+        <p>Quyết định phê duyệt nội dung kịch bản trò chơi điện tử G1 trên mạng số: 112/QĐ-PTTH&amp;TTĐT <br> do Bộ Thông tin và Truyền thông cấp ngày 15/04/2025</p>
+    </div>
+</div>`;
+    }
+
+    function buildLeftMenuHTML() {
+        return template`
+<div class="position-relative container">
+    <div class="left-menu position-absolute">
+        <ul>
+            <li class="menu-page-1 active d-flex align-items-center"></li>
+            <li class="menu-page-2 d-flex align-items-center"></li>
+            <li class="menu-page-3 d-flex align-items-center"></li>
+        </ul>
+    </div>
+</div>`;
+    }
+
+    function buildRightMenuHTML() {
+        return template`
+<div class="position-relative">
+    <div class="right-menu position-absolute">
+        <ul class="menu-group">
+            <li class="menu-item">
+                <a href="javascript:void(0)" class="link-download-client" target="_self">Tải game</a>
+            </li>
+            <li class="menu-item">
+                <a href="${resolvePage('qua-nap-web.html')}" class="btn-payment btn-pay" target="_self">Nạp thẻ</a>
+            </li>
+            <li class="menu-item">
+                <a href="${resolvePage('tin-tuc/huong-dan-tai-va-cai-dat-game.html')}" target="_self">Hướng dẫn tải</a>
+            </li>
+            <li class="menu-item">
+                <a href="${resolvePage('giftcode.html')}" target="_self">Nhận code</a>
+            </li>
+            <li class="menu-item social d-flex row m-0">
+                <div class="col-12 d-flex flex-wrap justify-content-center">
+                    <a href="https://www.facebook.com/haitacmanhnhat" class="facebook" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://www.tiktok.com/@haitacmanhnhat" class="tiktok" target="_blank" rel="noopener">Tiktok</a>
+                    <a href="https://www.youtube.com/@haitacmanhnhat" class="youtube" target="_blank" rel="noopener">Youtube</a>
+                    <a href="https://www.facebook.com/groups/dechehaitac" class="group" target="_blank" rel="noopener">Facebook group</a>
+                    <a href="https://discord.com/invite/pRQaVmUj78" class="discord" target="_blank" rel="noopener">Discord</a>
+                    <a href="https://zalo.me/g/snnzqo202" class="zalo" target="_blank" rel="noopener">Zalo</a>
+                </div>
+            </li>
+        </ul>
+        <button class="position-absolute turn-in"></button>
+        <button class="position-absolute turn-out"></button>
+        <button class="position-absolute turn-top"></button>
+    </div>
+</div>`;
+    }
+
+    function setActiveNavigation() {
+        var pathname = window.location.pathname.toLowerCase();
+        var key = 'home';
+        if (pathname.indexOf('/tin-tuc') !== -1 || pathname.indexOf('/su-kien') !== -1 || pathname.indexOf('/update') !== -1) {
+            key = 'news';
+        } else if (pathname.indexOf('/danh-sach-tuong') !== -1) {
+            key = 'heroes';
+        } else if (pathname.indexOf('/trai-ac-quy') !== -1 || pathname.indexOf('/trai-dung-hop') !== -1) {
+            key = 'fruits';
+        }
+
+        document.querySelectorAll('[data-nav-key]').forEach(function (node) {
+            var matches = node.getAttribute('data-nav-key') === key;
+            node.classList.toggle('active', matches);
+            var parent = node.closest('li');
+            if (parent) {
+                parent.classList.toggle('active', matches);
+            }
+        });
+    }
+
+    function renderSharedLayout() {
+        var desktopNav = document.querySelector('.top-nav');
+        if (desktopNav) {
+            desktopNav.innerHTML = buildDesktopHeaderHTML();
+        }
+
+        var mobileNav = document.querySelector('.top-nav-mobile');
+        if (mobileNav) {
+            mobileNav.innerHTML = buildMobileHeaderHTML();
+        }
+
+        var footer = document.querySelector('footer');
+        if (footer) {
+            footer.innerHTML = buildFooterHTML();
+        }
+
+        var leftFixed = document.querySelector('.menu-fixed.left');
+        if (leftFixed) {
+            leftFixed.innerHTML = buildLeftMenuHTML();
+        }
+
+        var rightFixed = document.querySelector('.menu-fixed.right');
+        if (rightFixed) {
+            rightFixed.innerHTML = buildRightMenuHTML();
+        }
+
+        document.querySelectorAll('.wrap-login-mobile').forEach(function (node) {
+            if (!node.closest('.top-nav-mobile')) {
+                node.parentNode.removeChild(node);
+            }
+        });
+
+        setActiveNavigation();
     }
 
     function buildModal() {
@@ -778,6 +1082,7 @@
     function init() {
         fixLegacyAssets();
         overrideLegacyGlobals();
+        renderSharedLayout();
         buildModal();
         bindLoginTriggers();
         bindForgotPasswordForms();
