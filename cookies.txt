@@ -1,0 +1,8 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.haitacmanhnhat.vn	TRUE	/	FALSE	1999999999	udata	0
+.haitacmanhnhat.vn	TRUE	/	FALSE	1999999999	uname	0
+.haitacmanhnhat.vn	TRUE	/	FALSE	1999999999	ubalance	0
+.haitacmanhnhat.vn	TRUE	/	FALSE	1999999999	isRegister	0
+.haitacmanhnhat.vn	TRUE	/	FALSE	1999999999	PHPSESSIONID	eog50oalo48g2qdg5l2ipo3d1f
+
