@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.log
+*.Zone.Identifier
+.vscode/
+.env
+.venv/
+node_modules/

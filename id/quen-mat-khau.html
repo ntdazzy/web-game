@@ -7,6 +7,8 @@
 <head>
     <meta content="charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="api-base" content="http://localhost:3001/api">
 <link rel="dns-prefetch" href="../index.html"/>
 <link rel="dns-prefetch" href="../../cdn-ms.haitacmanhnhat.vn/index.html"/>
 <link rel="preconnect" href="../../fonts.googleapis.com/index.html"/>
@@ -27,6 +29,7 @@
 <link rel="stylesheet" href="../st-ms/css/aos.css">
 <link rel="stylesheet" href="../st-ms/css/style02eb.css">
 <link rel="stylesheet" href="../st-ms/css/responsive02eb.css">
+<link rel="stylesheet" href="../st-ms/css/auth-modal.css">
 <script src="../st-ms/js/jquery-1.11.0.min.js"></script>
 <script src="../st-ms/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -204,7 +207,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <label for="formFile" class="form-label">Email đã đăng ký</label>
                                 <input class="form-control " type="email" name="email" placeholder="Nhập email đã đăng ký" autocomplete="on">
                             </div>
-                            <button type="submit" class="btn btn-secondary  mb-3">Xác nhận</button>
+                            <div class="mb-3">
+                                <label class="form-label" for="newPasswordInput">Mật khẩu mới</label>
+                                <input id="newPasswordInput" class="form-control" type="password" name="newPassword" placeholder="Nhập mật khẩu mới" autocomplete="new-password">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="confirmPasswordInput">Nhập lại mật khẩu mới</label>
+                                <input id="confirmPasswordInput" class="form-control" type="password" name="confirmPassword" placeholder="Nhập lại mật khẩu mới" autocomplete="new-password">
+                            </div>
+                            <div class="alert alert-info d-none form-feedback" role="alert"></div>
+                            <button type="submit" class="btn btn-secondary  mb-3 w-100">Xác nhận</button>
                             <div class="mb-2">
                                 <a href="dat-lai-mat-khau.html" class="text-primary">Tôi đã nhận được mã Đặt lại mật khẩu</a>
                             </div>
@@ -342,6 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="position-absolute turn-top"></button>
         </div>
     </div>
+<script src="../st-ms/js/app-init.js"></script>
 </div></body>
 
 
