@@ -3,6 +3,5 @@ __pycache__/
 *.log
 *.Zone.Identifier
 .vscode/
-.env
 .venv/
 node_modules/
