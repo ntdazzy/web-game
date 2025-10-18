@@ -144,62 +144,109 @@
         var modalHtml = template`
 <div class="auth-overlay" id="htmnAuthOverlay" aria-hidden="true">
     <div class="auth-modal" role="dialog" aria-modal="true">
-        <button class="auth-close" type="button" aria-label="Đóng">&times;</button>
-        <div class="auth-tabs">
-            <button class="auth-tab is-active" data-auth-tab="login" type="button">Đăng nhập</button>
-            <button class="auth-tab" data-auth-tab="register" type="button">Đăng ký</button>
-        </div>
-        <div class="auth-alert" id="htmnAuthAlert" role="alert"></div>
-        <div class="auth-view is-active" data-auth-view="login">
-            <h2>Đăng Nhập</h2>
-            <form id="htmnLoginForm" autocomplete="off">
-                <div class="form-group">
-                    <label for="htmnLoginUsername">Tên đăng nhập</label>
-                    <input id="htmnLoginUsername" name="username" type="text" placeholder="Tên đăng nhập" required>
+        <button class="auth-close" type="button" aria-label="Đóng"><span aria-hidden="true">&times;</span></button>
+        <div class="auth-header">
+            <div class="auth-brand">
+                <span class="auth-logo">HT</span>
+                <div class="auth-heading">
+                    <h3>Xin chào, Thuyền trưởng!</h3>
+                    <p>Đăng nhập để mở khóa quà tặng và sự kiện mỗi ngày.</p>
                 </div>
-                <div class="form-group">
-                    <label for="htmnLoginPassword">Mật khẩu</label>
-                    <input id="htmnLoginPassword" name="password" type="password" placeholder="Mật khẩu" required>
-                </div>
-                <div class="auth-checkbox">
-                    <input id="htmnRemember" name="remember" type="checkbox">
-                    <label for="htmnRemember">Lưu thông tin đăng nhập</label>
-                </div>
-                <button type="submit" id="htmnLoginSubmit">Đăng nhập</button>
-            </form>
-            <div class="auth-footer">
-                <span>Chưa có tài khoản? <a href="#" data-switch-view="register">Đăng ký ngay</a></span>
-                <div><a href="` + forgotLink + `">Quên mật khẩu?</a></div>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab is-active" data-auth-tab="login" type="button">Đăng nhập</button>
+                <button class="auth-tab" data-auth-tab="register" type="button">Đăng ký</button>
             </div>
         </div>
-        <div class="auth-view" data-auth-view="register">
-            <h2>Đăng Ký</h2>
-            <form id="htmnRegisterForm" autocomplete="off">
-                <div class="form-group">
-                    <label for="htmnRegisterUsername">Tên đăng nhập</label>
-                    <input id="htmnRegisterUsername" name="username" type="text" placeholder="Tên đăng nhập" required>
+        <div class="auth-body">
+            <div class="auth-alert" id="htmnAuthAlert" role="alert"></div>
+            <div class="auth-view is-active" data-auth-view="login">
+                <div class="auth-title">
+                    <h2>Đăng Nhập</h2>
+                    <p>Tiếp tục hành trình cùng hạm đội của bạn.</p>
                 </div>
-                <div class="form-group">
-                    <label for="htmnRegisterEmail">Email (dùng để khôi phục)</label>
-                    <input id="htmnRegisterEmail" name="email" type="email" placeholder="Email">
+                <form id="htmnLoginForm" autocomplete="off">
+                    <div class="auth-field">
+                        <label for="htmnLoginUsername">Tên đăng nhập</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-user"></i></span>
+                            <input id="htmnLoginUsername" name="username" type="text" placeholder="Tên đăng nhập" required>
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="htmnLoginPassword">Mật khẩu</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-lock"></i></span>
+                            <input id="htmnLoginPassword" name="password" type="password" placeholder="Mật khẩu" required>
+                        </div>
+                    </div>
+                    <div class="auth-checkbox">
+                        <label for="htmnRemember">
+                            <input id="htmnRemember" name="remember" type="checkbox">
+                            <span>Lưu thông tin đăng nhập</span>
+                        </label>
+                    </div>
+                    <button type="submit" id="htmnLoginSubmit" class="auth-submit">Đăng nhập</button>
+                </form>
+                <div class="auth-links">
+                    <span>Chưa có tài khoản? <a href="#" data-switch-view="register">Đăng ký ngay</a></span>
+                    <a href="` + forgotLink + `">Quên mật khẩu?</a>
                 </div>
-                <div class="form-group">
-                    <label for="htmnRegisterPassword">Mật khẩu</label>
-                    <input id="htmnRegisterPassword" name="password" type="password" placeholder="Mật khẩu" required>
+            </div>
+            <div class="auth-view" data-auth-view="register">
+                <div class="auth-title">
+                    <h2>Đăng Ký</h2>
+                    <p>Tạo tài khoản mới để nhận quà, tham gia sự kiện độc quyền.</p>
                 </div>
-                <div class="form-group">
-                    <label for="htmnRegisterConfirm">Nhập lại mật khẩu</label>
-                    <input id="htmnRegisterConfirm" name="passwordConfirm" type="password" placeholder="Nhập lại mật khẩu" required>
+                <form id="htmnRegisterForm" autocomplete="off">
+                    <div class="auth-field">
+                        <label for="htmnRegisterUsername">Tên đăng nhập</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-user"></i></span>
+                            <input id="htmnRegisterUsername" name="username" type="text" placeholder="Tên đăng nhập" required>
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="htmnRegisterEmail">Email (dùng để khôi phục)</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-envelope"></i></span>
+                            <input id="htmnRegisterEmail" name="email" type="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="htmnRegisterPassword">Mật khẩu</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-lock"></i></span>
+                            <input id="htmnRegisterPassword" name="password" type="password" placeholder="Mật khẩu" required>
+                        </div>
+                    </div>
+                    <div class="auth-field">
+                        <label for="htmnRegisterConfirm">Nhập lại mật khẩu</label>
+                        <div class="auth-input">
+                            <span class="auth-input-icon"><i class="fa-solid fa-lock"></i></span>
+                            <input id="htmnRegisterConfirm" name="passwordConfirm" type="password" placeholder="Nhập lại mật khẩu" required>
+                        </div>
+                    </div>
+                    <div class="auth-checkbox">
+                        <label for="htmnAgree">
+                            <input id="htmnAgree" name="agree" type="checkbox" required>
+                            <span>Tôi đồng ý với Điều khoản &amp; Chính sách sử dụng</span>
+                        </label>
+                    </div>
+                    <button type="submit" id="htmnRegisterSubmit" class="auth-submit">Đăng ký</button>
+                </form>
+                <div class="auth-links">
+                    <span>Đã có tài khoản? <a href="#" data-switch-view="login">Đăng nhập</a></span>
+                    <a href="` + forgotLink + `">Quên mật khẩu?</a>
                 </div>
-                <div class="auth-checkbox">
-                    <input id="htmnAgree" name="agree" type="checkbox" required>
-                    <label for="htmnAgree">Tôi đồng ý với Điều khoản &amp; Chính sách sử dụng</label>
+                <div class="auth-benefits">
+                    <p>Lợi ích dành cho Thuyền trưởng mới:</p>
+                    <ul>
+                        <li>Nhận quà chào mừng và thông báo sự kiện sớm nhất.</li>
+                        <li>Quản lý lịch sử nạp và thông tin nhân vật tiện lợi.</li>
+                        <li>Bảo mật tài khoản với email hỗ trợ khôi phục.</li>
+                    </ul>
                 </div>
-                <button type="submit" id="htmnRegisterSubmit">Đăng ký</button>
-            </form>
-            <div class="auth-footer">
-                <span>Đã có tài khoản? <a href="#" data-switch-view="login">Đăng nhập</a></span>
-                <div><a href="` + forgotLink + `">Quên mật khẩu?</a></div>
             </div>
         </div>
     </div>
