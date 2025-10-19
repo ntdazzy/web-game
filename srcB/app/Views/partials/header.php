@@ -5,11 +5,11 @@ $activeNav = $activeNav ?? 'home';
     <div class="container d-flex w-100 h-100">
         <div class="logo position-relative h-100">
             <div class="wrap-logo position-absolute d-flex flex-column align-items-center">
-                <a href="/"><img src="/st-ms/imgs/logo.png" alt="" class="logo-img"></a>
+                <a href="/"><img src="/assets/stms/imgs/logo.png" alt="" class="logo-img"></a>
             </div>
         </div>
         <div class="nav-bar position-relative">
-            <img src="/st-ms/imgs/menu/bg-menu-nav.png" alt="" class="position-absolute top-0">
+            <img src="/assets/stms/imgs/menu/bg-menu-nav.png" alt="" class="position-absolute top-0">
             <ul class="main-nav d-flex h-100">
                 <li class="d-flex justify-content-center align-items-center homepage<?= $activeNav === 'home' ? ' active' : '' ?>">
                     <a class="nav-item h-100<?= $activeNav === 'home' ? ' active' : '' ?>" href="/" target="_self" title="Trang chủ"> </a>

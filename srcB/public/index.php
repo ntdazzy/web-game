@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../app/helpers.php';
+
 spl_autoload_register(function (string $class): void {
     $prefix = 'App\\';
     if (str_starts_with($class, $prefix)) {
@@ -40,17 +42,20 @@ if (preg_match('~^update(?:/)?$~', $uri)) {
 }
 
 if (preg_match('~^tin-tuc/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    (new NewsController())->detail($matches['slug'], 'news');
+    $slug = preg_replace('/\.html$/', '', $matches['slug']);
+    (new NewsController())->detail($slug, 'news');
     return;
 }
 
 if (preg_match('~^su-kien/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    (new NewsController())->detail($matches['slug'], 'event');
+    $slug = preg_replace('/\.html$/', '', $matches['slug']);
+    (new NewsController())->detail($slug, 'event');
     return;
 }
 
 if (preg_match('~^update/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    (new NewsController())->detail($matches['slug'], 'update');
+    $slug = preg_replace('/\.html$/', '', $matches['slug']);
+    (new NewsController())->detail($slug, 'update');
     return;
 }
 
@@ -60,7 +65,8 @@ if ($uri === 'danh-sach-tuong.html' || $uri === 'danh-sach-tuong') {
 }
 
 if (preg_match('~^danh-sach-tuong/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    (new CharacterController())->detail($matches['slug']);
+    $slug = preg_replace('/\.html$/', '', $matches['slug']);
+    (new CharacterController())->detail($slug);
     return;
 }
 

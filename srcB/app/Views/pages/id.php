@@ -4,18 +4,18 @@ $meta = [
     'viewport' => 'width=device-width, initial-scale=1.0',
     'og:title' => 'Thông tin tài khoản | Hải Tặc Mạnh Nhất',
     'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
-    'og:image' => '/st-ms/imgs/600x315.jpg',
+    'og:image' => '/assets/stms/imgs/600x315.jpg',
     'og:image:width' => '600',
     'og:image:height' => '315',
     'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-    'link:shortcut_icon' => '/st-ms/imgs/32x32.png'
+    'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-<img alt="" class="logo-warning position-absolute" src="/st-ms/imgs/logo-warning.png"/>
+<img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png"/>
 <div class="wrap-login-mobile wrap-login position-absolute h-100">
 <div class="user-info h-100 d-flex align-items-center d-none">
 <div class="btn-group">
@@ -61,7 +61,7 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <div class="row align-items-center info-row">
 <div class="col-4 label-text">Hình đại diện</div>
 <div class="col-6 value-text">
-<img alt="Avatar" class="avatar-img" src="/st-ms/imgs/avatar.png"/>
+<img alt="Avatar" class="avatar-img" src="/assets/stms/imgs/avatar.png"/>
 </div>
 <div class="col-2 text-center p-0">
 <!-- <a href="#" class="action-link">Cập nhật</a> -->

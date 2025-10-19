@@ -77,7 +77,7 @@ class NewsController extends Controller
         }
 
         $pageTitle = ($item['title'] ?? 'Nội dung') . ' | Hải Tặc Mạnh Nhất';
-        $primaryImage = $item['images'][0] ?? ($item['thumbnail'] ?? '/st-ms/imgs/600x315.jpg');
+        $primaryImage = $item['images'][0] ?? ($item['thumbnail'] ?? '/assets/stms/imgs/600x315.jpg');
         if ($primaryImage && !str_starts_with($primaryImage, '/')) {
             $primaryImage = '/' . ltrim($primaryImage, '/');
         }

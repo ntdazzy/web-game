@@ -50,7 +50,7 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                        aria-controls="3">Tướng </a>
                 </li>
                 <li class="menu-mobile-bottom">
-                    <a class="btn btn-link position-relative fruit"
+                    <a class="btn btn-link position-relative collapsed fruit"
                        href="#"
                        title="Trái Ác Quỷ"
                        data-bs-toggle="collapse"
@@ -59,7 +59,7 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                        aria-controls="10">
                         Trái Ác Quỷ<i class="dropdown-icon position-absolute"></i>
                     </a>
-                    <ul class="collapse social row show collapse-normal" id="10">
+                    <ul class="collapse social row collapse-normal" id="10">
                         <li class="d-flex justify-content-center col-4">
                             <a class="dropdown-item" href="/trai-ac-quy.html" target="_self">Trái Ác Quỷ</a>
                         </li>
@@ -91,12 +91,16 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                     </ul>
                 </li>
                 <li class="menu-mobile-bottom">
-                    <a class="btn btn-link position-relative community"
+                    <a class="btn btn-link position-relative collapsed community"
                        href="#"
-                       title="Cộng Đồng">
+                       title="Cộng Đồng"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#30"
+                       aria-expanded="false"
+                       aria-controls="30">
                         Cộng Đồng<i class="dropdown-icon position-absolute"></i>
                     </a>
-                    <ul class="collapse social row show collapse-normal collapse-community" id="30">
+                    <ul class="collapse social row collapse-normal collapse-community" id="30">
                         <li class="d-flex justify-content-center col-4 youtube">
                             <a class="dropdown-item" href="https://www.youtube.com/@haitacmanhnhat" target="_blank">Youtube</a>
                         </li>

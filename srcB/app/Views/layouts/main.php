@@ -4,6 +4,9 @@
 <head>
     <?php include __DIR__ . '/../partials/head.php'; ?>
     <link rel="stylesheet" href="/assets/css/vendor.css">
+    <script>
+        window.__APP_CONFIG__ = { origin: <?= json_encode(app_origin()) ?> };
+    </script>
 </head>
 <body <?= $bodyAttributes ?? '' ?>>
     <?php include __DIR__ . '/../partials/gtm-noscript.php'; ?>
@@ -17,5 +20,6 @@
     <?php include __DIR__ . '/../partials/analytics-inline.php'; ?>
     <?php include __DIR__ . '/../partials/global-config-script.php'; ?>
     <script src="/assets/js/vendor.js"></script>
+    <script src="/assets/js/app.js" defer></script>
 </body>
 </html>

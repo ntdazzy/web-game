@@ -21,7 +21,7 @@ $breadcrumbs = [
 ?>
 <?php include __DIR__ . '/../../partials/top-nav-mobile.php'; ?>
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-    <img src="/st-ms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
+    <img src="/assets/stms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -94,7 +94,7 @@ $breadcrumbs = [
                                    title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
                                     <img src="<?= htmlspecialchars($hotThumb, ENT_QUOTES) ?>"
                                          alt="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>"
-                                         onerror="this.onerror=null;this.src='/st-ms/imgs/post-item-example.png';">
+                                         data-fallback-src="/assets/stms/imgs/post-item-example.png">
                                 </a>
                                 <div class="d-flex flex-column justify-content-center h-100 title">
                                     <a class="text-white"

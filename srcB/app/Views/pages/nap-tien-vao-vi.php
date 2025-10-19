@@ -4,18 +4,18 @@ $meta = [
     'viewport' => 'width=device-width, initial-scale=1.0',
     'og:title' => 'Nạp tiền vào ví | Hải Tặc Mạnh Nhất',
     'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
-    'og:image' => '/st-ms/imgs/600x315.jpg',
+    'og:image' => '/assets/stms/imgs/600x315.jpg',
     'og:image:width' => '600',
     'og:image:height' => '315',
     'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-    'link:shortcut_icon' => '/st-ms/imgs/32x32.png'
+    'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-<img alt="" class="logo-warning position-absolute" src="/st-ms/imgs/logo-warning.png"/>
+<img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png"/>
 <div class="wrap-login-mobile wrap-login position-absolute h-100">
 <div class="user-info h-100 d-flex align-items-center d-none">
 <div class="btn-group">
@@ -59,17 +59,17 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <div class="item-list-payment-type">
 <a class="item-type active" data-bonus="0.2" data-rate="50" href="javascript: void(0)">
 <input name="ftype" type="hidden" value="1"/>
-<div class="img img-type-1" style="background-image: url('/st-ms/imgs/payment/icon-payment-atm-2.png');"></div>
+<div class="img img-type-1" style="background-image: url('/assets/stms/imgs/payment/icon-payment-atm-2.png');"></div>
 <h6>ATM</h6>
 <span class="ribbon">KM 20%</span>
 </a><a class="item-type" data-bonus="0.2" data-rate="50" href="javascript: void(0)">
 <input name="ftype" type="hidden" value="2"/>
-<div class="img img-type-2" style="background-image: url('/st-ms/imgs/payment/icon-payment-wallet-2.png');"></div>
+<div class="img img-type-2" style="background-image: url('/assets/stms/imgs/payment/icon-payment-wallet-2.png');"></div>
 <h6>Ví</h6>
 <span class="ribbon">KM 20%</span>
 </a><a class="item-type" data-bonus="0.1" data-rate="50" href="javascript: void(0)">
 <input name="ftype" type="hidden" value="3"/>
-<div class="img img-type-3" style="background-image: url('/st-ms/imgs/payment/icon-payment-momo-2.png');"></div>
+<div class="img img-type-3" style="background-image: url('/assets/stms/imgs/payment/icon-payment-momo-2.png');"></div>
 <h6>Ví MoMo</h6>
 <span class="ribbon">KM 10%</span>
 </a> </div>
