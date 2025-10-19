@@ -1,0 +1,23 @@
+{
+  "generated_at": "2025-10-19T12:39:01.426391+00:00",
+  "partials": [
+    "app/Views/partials/analytics-head.php",
+    "app/Views/partials/analytics-inline.php",
+    "app/Views/partials/global-config-script.php",
+    "app/Views/partials/gtm-noscript.php",
+    "app/Views/partials/menu-fixed.php",
+    "app/Views/partials/page-slider.php",
+    "app/Views/partials/top-nav-mobile.php"
+  ],
+  "views_refactored": [
+    "app/Views/pages/tin-tuc.php",
+    "app/Views/pages/su-kien.php",
+    "app/Views/pages/update.php",
+    "app/Views/pages/news/detail.php",
+    "app/Views/pages/events/detail.php",
+    "app/Views/pages/updates/detail.php",
+    "app/Views/pages/trai-ac-quy.php",
+    "app/Views/pages/trai-dung-hop.php"
+  ],
+  "duplicates_removed": 4
+}
