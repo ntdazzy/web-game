@@ -1,0 +1,84 @@
+{
+  "/api/news": {
+    "method": "GET",
+    "params": {
+      "page": "integer?",
+      "limit": "integer?",
+      "type": "string? (news|event|update)"
+    },
+    "response": {
+      "data": [
+        {
+          "slug": "string",
+          "title": "string",
+          "summary": "string",
+          "thumbnail": "string",
+          "created_at": "string"
+        }
+      ],
+      "page": "integer",
+      "limit": "integer",
+      "total": "integer",
+      "total_pages": "integer"
+    }
+  },
+  "/api/news/{slug}": {
+    "method": "GET",
+    "params": {
+      "type": "string? (news|event|update)"
+    },
+    "response": {
+      "slug": "string",
+      "title": "string",
+      "created_at": "string",
+      "content_html": "string",
+      "images": [
+        "string"
+      ]
+    }
+  },
+  "/api/characters": {
+    "method": "GET",
+    "params": {
+      "page": "integer?",
+      "limit": "integer?",
+      "rank": "string?"
+    },
+    "response": {
+      "data": [
+        {
+          "slug": "string",
+          "name": "string",
+          "rank": "string",
+          "avatar": "string",
+          "particular": "string"
+        }
+      ],
+      "page": "integer",
+      "limit": "integer",
+      "total": "integer",
+      "total_pages": "integer"
+    }
+  },
+  "/api/characters/{slug}": {
+    "method": "GET",
+    "params": {},
+    "response": {
+      "slug": "string",
+      "hero_id": "string",
+      "hero_slug": "string",
+      "content_html": "string",
+      "remote": "object"
+    }
+  },
+  "/get-hero-detail": {
+    "method": "POST",
+    "params": {
+      "heroId": "integer",
+      "heroSlug": "string"
+    },
+    "response": {
+      "...": "object giống API gốc"
+    }
+  }
+}

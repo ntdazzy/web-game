@@ -1,0 +1,34 @@
+{
+  "static": [
+    {
+      "path": "/",
+      "controller": "App\\\\Controllers\\\\HomeController@index"
+    },
+    {
+      "path": "tin-tuc",
+      "controller": "App\\\\Controllers\\\\NewsController@index"
+    },
+    {
+      "path": "danh-sach-tuong",
+      "controller": "App\\\\Controllers\\\\CharacterController@index"
+    }
+  ],
+  "dynamic": [
+    {
+      "pattern": "tin-tuc/{slug}.html",
+      "controller": "App\\\\Controllers\\\\NewsController@detail"
+    },
+    {
+      "pattern": "su-kien/{slug}.html",
+      "controller": "App\\\\Controllers\\\\NewsController@detail"
+    },
+    {
+      "pattern": "update/{slug}.html",
+      "controller": "App\\\\Controllers\\\\NewsController@detail"
+    },
+    {
+      "pattern": "danh-sach-tuong/{slug}.html",
+      "controller": "App\\\\Controllers\\\\CharacterController@detail"
+    }
+  ]
+}

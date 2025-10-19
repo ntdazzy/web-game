@@ -1,16 +1,82 @@
 <?php
 declare(strict_types=1);
 
-require_once dirname(__DIR__) . '/app/core/config.php';
-require_once PATHS['core'] . '/router.php';
-require_once PATHS['core'] . '/view.php';
+spl_autoload_register(function (string $class): void {
+    $prefix = 'App\\';
+    if (str_starts_with($class, $prefix)) {
+        $path = __DIR__ . '/../app/' . str_replace('App\\', '', $class) . '.php';
+        $path = str_replace('\\', '/', $path);
+        if (is_file($path)) {
+            require_once $path;
+        }
+    }
+});
 
-$slug = $_GET['slug'] ?? '';
-$route = match_route($slug);
+use App\Controllers\HomeController;
+use App\Controllers\NewsController;
+use App\Controllers\CharacterController;
+use App\Controllers\PagesController;
 
-if (!empty($route['data']['code']) && is_numeric($route['data']['code'])) {
-    http_response_code((int) $route['data']['code']);
+$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+
+if ($uri === '' || $uri === 'index.html') {
+    (new HomeController())->index();
+    return;
 }
 
-render($route['view'], $route['data']);
+if (preg_match('~^tin-tuc(?:/)?$~', $uri)) {
+    (new NewsController())->index();
+    return;
+}
 
+if (preg_match('~^tin-tuc/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
+    (new NewsController())->detail($matches['slug'], 'news');
+    return;
+}
+
+if (preg_match('~^su-kien/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
+    (new NewsController())->detail($matches['slug'], 'event');
+    return;
+}
+
+if (preg_match('~^update/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
+    (new NewsController())->detail($matches['slug'], 'update');
+    return;
+}
+
+if ($uri === 'danh-sach-tuong.html' || $uri === 'danh-sach-tuong') {
+    (new CharacterController())->index();
+    return;
+}
+
+if (preg_match('~^danh-sach-tuong/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
+    (new CharacterController())->detail($matches['slug']);
+    return;
+}
+
+if (preg_match('~^api/news(?:/)?$~', $uri)) {
+    (new NewsController())->apiList();
+    return;
+}
+
+if (preg_match('~^api/news/(?P<slug>[^/]+)$~', $uri, $matches)) {
+    (new NewsController())->apiDetail($matches['slug']);
+    return;
+}
+
+if (preg_match('~^api/characters(?:/)?$~', $uri)) {
+    (new CharacterController())->apiList();
+    return;
+}
+
+if (preg_match('~^api/characters/(?P<slug>[^/]+)$~', $uri, $matches)) {
+    (new CharacterController())->apiDetail($matches['slug']);
+    return;
+}
+
+if ($uri === 'get-hero-detail' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    (new CharacterController())->legacyDetail();
+    return;
+}
+
+(new PagesController())->show($uri);

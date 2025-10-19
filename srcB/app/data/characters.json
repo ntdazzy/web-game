@@ -1,0 +1,602 @@
+[
+  {
+    "slug": "senor-pink-s2",
+    "name": "Senor Pink-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/senorpink-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/senor-pink-s2.html"
+  },
+  {
+    "slug": "senor-pink-s",
+    "name": "Senor Pink-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/senorpink-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/senor-pink-s.html"
+  },
+  {
+    "slug": "dellinger-s2",
+    "name": "Dellinger-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/dellinger-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/dellinger-s2.html"
+  },
+  {
+    "slug": "dellinger-s",
+    "name": "Dellinger-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/dellinger-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/dellinger-s.html"
+  },
+  {
+    "slug": "niji-s2",
+    "name": "Niji-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/niji-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/niji-s2.html"
+  },
+  {
+    "slug": "yonji-s2",
+    "name": "Yonji-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/yonji-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/yonji-s2.html"
+  },
+  {
+    "slug": "reiju-s2",
+    "name": "Reiju-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/reiju-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/reiju-s2.html"
+  },
+  {
+    "slug": "ichiji-s2",
+    "name": "Ichiji-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/ichiji-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/ichiji-s2.html"
+  },
+  {
+    "slug": "sugar-s2",
+    "name": "Sugar-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/sugar-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/sugar-s2.html"
+  },
+  {
+    "slug": "rau-trang-s2",
+    "name": "Râu Trắng-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/rau-trang-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/rau-trang-s2.html"
+  },
+  {
+    "slug": "luffy-nika",
+    "name": "Luffy-Nika",
+    "rank": "",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/luffy-nika.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/luffy-nika.html"
+  },
+  {
+    "slug": "enel-s",
+    "name": "Enel-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/enel-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/enel-s.html"
+  },
+  {
+    "slug": "jack-s",
+    "name": "Jack-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/jack-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/jack-s.html"
+  },
+  {
+    "slug": "sabo-s",
+    "name": "SaBo-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/sabo-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/sabo-s.html"
+  },
+  {
+    "slug": "benn-beckman-s",
+    "name": "Benn Beckman-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/benn-beckman-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/benn-beckman-s.html"
+  },
+  {
+    "slug": "rau-trang-s",
+    "name": "Râu Trắng-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/rau-trang-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/rau-trang-s.html"
+  },
+  {
+    "slug": "queen-s",
+    "name": "Queen-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/queen-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/queen-s.html"
+  },
+  {
+    "slug": "king-s",
+    "name": "King-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/king-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/king-s.html"
+  },
+  {
+    "slug": "aramaki-s",
+    "name": "Aramaki-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/aramaki-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/aramaki-s.html"
+  },
+  {
+    "slug": "oden-s",
+    "name": "Oden-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/oden-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/oden-s.html"
+  },
+  {
+    "slug": "katakuri-s",
+    "name": "Katakuri-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/katakuri-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/katakuri-s.html"
+  },
+  {
+    "slug": "aokiji-s",
+    "name": "Aokiji-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/aokiji-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/aokiji-s.html"
+  },
+  {
+    "slug": "uta-s",
+    "name": "Uta-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/uta-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/uta-s.html"
+  },
+  {
+    "slug": "luffy-s2",
+    "name": "Luffy-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/luffy-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/luffy-s2.html"
+  },
+  {
+    "slug": "marco-s2",
+    "name": "Marco-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/marco-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/marco-s2.html"
+  },
+  {
+    "slug": "ace-s2",
+    "name": "Ace-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/ace-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/ace-s2.html"
+  },
+  {
+    "slug": "zoro-s2",
+    "name": "Zoro-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/zoro-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/zoro-s2.html"
+  },
+  {
+    "slug": "law-s2",
+    "name": "Law-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/law-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/law-s2.html"
+  },
+  {
+    "slug": "jinbe-s2",
+    "name": "Jinbe-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/jinbei-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/jinbe-s2.html"
+  },
+  {
+    "slug": "nico-robin-s2",
+    "name": "Nico Robin-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/robin-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/nico-robin-s2.html"
+  },
+  {
+    "slug": "sanji-s2",
+    "name": "Sanji-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/sanji-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/sanji-s2.html"
+  },
+  {
+    "slug": "boa-hancock-s2",
+    "name": "Boa Hancock-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/boa-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/boa-hancock-s2.html"
+  },
+  {
+    "slug": "killer-s2",
+    "name": "Killer-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/killer-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/killer-s2.html"
+  },
+  {
+    "slug": "chopper-s2",
+    "name": "Chopper-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/chopper-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/chopper-s2.html"
+  },
+  {
+    "slug": "franky-s2",
+    "name": "Franky-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/franky-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/franky-s2.html"
+  },
+  {
+    "slug": "brook-s2",
+    "name": "Brook-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/brook-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/brook-s2.html"
+  },
+  {
+    "slug": "usopp-s2",
+    "name": "Usopp-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/usopp-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/usopp-s2.html"
+  },
+  {
+    "slug": "nami-s2",
+    "name": "Nami-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/nami-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/nami-s2.html"
+  },
+  {
+    "slug": "doflamingo-s2",
+    "name": "Doflamingo-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/dof-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/doflamingo-s2.html"
+  },
+  {
+    "slug": "oven-s2",
+    "name": "Oven-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/oven-s2.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/oven-s2.html"
+  },
+  {
+    "slug": "shirahoshi-s2",
+    "name": "Shirahoshi-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/shirahoshi-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/shirahoshi-s2.html"
+  },
+  {
+    "slug": "lucci-s2",
+    "name": "Lucci-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/lucci-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/lucci-s2.html"
+  },
+  {
+    "slug": "pudding-s2",
+    "name": "Pudding-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/pudding-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/pudding-s2.html"
+  },
+  {
+    "slug": "smoothie-s2",
+    "name": "Smoothie-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/charlotte-smoothie-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/smoothie-s2.html"
+  },
+  {
+    "slug": "kaya-s2",
+    "name": "Kaya-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/kaya-s2.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/kaya-s2.html"
+  },
+  {
+    "slug": "cracker-s2",
+    "name": "Cracker-S2",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/cracker-s2.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/cracker-s2.html"
+  },
+  {
+    "slug": "kaku-s",
+    "name": "Kaku-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/kaku-s(1",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/kaku-s.html"
+  },
+  {
+    "slug": "chopper-s",
+    "name": "Chopper-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/chopper-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/chopper-s.html"
+  },
+  {
+    "slug": "killer-s",
+    "name": "Killer-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/killer-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/killer-s.html"
+  },
+  {
+    "slug": "boa-hancock-s",
+    "name": "Boa Hancock-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/boa-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/boa-hancock-s.html"
+  },
+  {
+    "slug": "kaya-s",
+    "name": "Kaya-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/kaya-s(1",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/kaya-s.html"
+  },
+  {
+    "slug": "jinbe-s",
+    "name": "Jinbe-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/jinbei-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/jinbe-s.html"
+  },
+  {
+    "slug": "law-s",
+    "name": "Law-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/law-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/law-s.html"
+  },
+  {
+    "slug": "nico-robin-s",
+    "name": "Nico Robin-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/robin-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/nico-robin-s.html"
+  },
+  {
+    "slug": "zoro-s",
+    "name": "Zoro-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/zoro-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/zoro-s.html"
+  },
+  {
+    "slug": "franky-s",
+    "name": "Franky-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/franky-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/franky-s.html"
+  },
+  {
+    "slug": "brook-s",
+    "name": "Brook-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/brook-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/brook-s.html"
+  },
+  {
+    "slug": "sanji-s",
+    "name": "Sanji-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/sanji-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/sanji-s.html"
+  },
+  {
+    "slug": "nami-s",
+    "name": "Nami-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/nami-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/nami-s.html"
+  },
+  {
+    "slug": "usopp-s",
+    "name": "Usopp-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/usopp-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/usopp-s.html"
+  },
+  {
+    "slug": "lucci-s",
+    "name": "Lucci-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/lucci-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/lucci-s.html"
+  },
+  {
+    "slug": "shirahoshi-s",
+    "name": "Shirahoshi-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/shirahoshi-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/shirahoshi-s.html"
+  },
+  {
+    "slug": "doflamingo-s",
+    "name": "Doflamingo-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/dof-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/doflamingo-s.html"
+  },
+  {
+    "slug": "sugar-s",
+    "name": "Sugar-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/sugar-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/sugar-s.html"
+  },
+  {
+    "slug": "yonji-s",
+    "name": "Yonji-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/yonji-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/yonji-s.html"
+  },
+  {
+    "slug": "niji-s",
+    "name": "Niji-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/niji-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/niji-s.html"
+  },
+  {
+    "slug": "ichiji-s",
+    "name": "Ichiji-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/ichiji-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/ichiji-s.html"
+  },
+  {
+    "slug": "reiju-s",
+    "name": "Reiju-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/reiju-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/reiju-s.html"
+  },
+  {
+    "slug": "oven-s",
+    "name": "Oven-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/oven-s(1",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/oven-s.html"
+  },
+  {
+    "slug": "smoothie-s",
+    "name": "Smoothie-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/charlotte-smoothie-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/smoothie-s.html"
+  },
+  {
+    "slug": "marco-s",
+    "name": "Marco-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/marco-s.png",
+    "particular": "s1",
+    "url": "/danh-sach-tuong/marco-s.html"
+  },
+  {
+    "slug": "pudding-s",
+    "name": "Pudding-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/pudding-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/pudding-s.html"
+  },
+  {
+    "slug": "cracker-s",
+    "name": "Cracker-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/cracker-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/cracker-s.html"
+  },
+  {
+    "slug": "luffy-s",
+    "name": "Luffy-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/luffy-s.png",
+    "particular": "s2",
+    "url": "/danh-sach-tuong/luffy-s.html"
+  },
+  {
+    "slug": "ace-s",
+    "name": "Ace-S",
+    "rank": "S",
+    "avatar": "st-ms/files/uploads/images/heros/Avatar%20432x144/ace-s.png",
+    "particular": "s3",
+    "url": "/danh-sach-tuong/ace-s.html"
+  }
+]
