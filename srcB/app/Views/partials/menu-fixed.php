@@ -17,13 +17,13 @@
                     <a class="link-download-client" href="#" target="_self">Tải game</a>
                 </li>
                 <li class="menu-item">
-                    <a class="btn-payment btn-pay" href="/qua-nap-web.html" target="_self">Nạp thẻ</a>
+                    <a class="btn-payment btn-pay" href="/qua-nap-web" target="_self">Nạp thẻ</a>
                 </li>
                 <li class="menu-item">
-                    <a href="/tin-tuc/huong-dan-tai-va-cai-dat-game.html" target="_self">Hướng dẫn tải</a>
+                    <a href="/tin-tuc/huong-dan-tai-va-cai-dat-game" target="_self">Hướng dẫn tải</a>
                 </li>
                 <li class="menu-item">
-                    <a href="/giftcode.html" target="_self">Nhận code</a>
+                    <a href="/giftcode" target="_self">Nhận code</a>
                 </li>
                 <li class="menu-item social d-flex row m-0">
                     <div class="col-12 d-flex flex-wrap justify-content-center">

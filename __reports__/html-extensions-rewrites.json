@@ -1,0 +1,150 @@
+[
+    {
+        "from": "/danh-sach-tuong.html",
+        "to": "/danh-sach-tuong"
+    },
+    {
+        "from": "/giftcode.html",
+        "to": "/giftcode"
+    },
+    {
+        "from": "/id.html",
+        "to": "/id"
+    },
+    {
+        "from": "/id/doi-mat-khau.html",
+        "to": "/id/doi-mat-khau"
+    },
+    {
+        "from": "/lich-su-nap.html",
+        "to": "/lich-su-nap"
+    },
+    {
+        "from": "/qua-nap-web.html",
+        "to": "/qua-nap-web"
+    },
+    {
+        "from": "/su-kien.html",
+        "to": "/su-kien"
+    },
+    {
+        "from": "/su-kien/qua-mung-le-trung-thu-2025-189.html",
+        "to": "/su-kien/qua-mung-le-trung-thu-2025-189"
+    },
+    {
+        "from": "/su-kien/san-dau-gia-lien-sever-lan-2-185.html",
+        "to": "/su-kien/san-dau-gia-lien-sever-lan-2-185"
+    },
+    {
+        "from": "/su-kien/su-kien-tuan-1-thang-10-2025-193.html",
+        "to": "/su-kien/su-kien-tuan-1-thang-10-2025-193"
+    },
+    {
+        "from": "/su-kien/su-kien-tuan-2-thang-10-2025-195.html",
+        "to": "/su-kien/su-kien-tuan-2-thang-10-2025-195"
+    },
+    {
+        "from": "/su-kien/to-doi-chien-hai-tac-chien-dau-lan-2-191.html",
+        "to": "/su-kien/to-doi-chien-hai-tac-chien-dau-lan-2-191"
+    },
+    {
+        "from": "/su-kien/vuong-gia-chien-lan-2-197.html",
+        "to": "/su-kien/vuong-gia-chien-lan-2-197"
+    },
+    {
+        "from": "/tin-tuc.html",
+        "to": "/tin-tuc"
+    },
+    {
+        "from": "/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177.html",
+        "to": "/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177"
+    },
+    {
+        "from": "/tin-tuc/10h-18-10-khai-mo-may-chu-s33-179.html",
+        "to": "/tin-tuc/10h-18-10-khai-mo-may-chu-s33-179"
+    },
+    {
+        "from": "/tin-tuc/cai-dat-go-bo.html",
+        "to": "/tin-tuc/cai-dat-go-bo"
+    },
+    {
+        "from": "/tin-tuc/cap-nhat-dieu-chinh-tuong-thang-10-199.html",
+        "to": "/tin-tuc/cap-nhat-dieu-chinh-tuong-thang-10-199"
+    },
+    {
+        "from": "/tin-tuc/dieu-khoan-dich-vu.html",
+        "to": "/tin-tuc/dieu-khoan-dich-vu"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-chuoi-hoat-dong-server-moi-5.html",
+        "to": "/tin-tuc/huong-dan-chuoi-hoat-dong-server-moi-5"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-khac-phuc-man-hinh-xanh-khi-cai-dat.html",
+        "to": "/tin-tuc/huong-dan-khac-phuc-man-hinh-xanh-khi-cai-dat"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-nap-the-19.html",
+        "to": "/tin-tuc/huong-dan-nap-the-19"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-nhap-code-15.html",
+        "to": "/tin-tuc/huong-dan-nhap-code-15"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-tai-va-cai-dat-game-33.html",
+        "to": "/tin-tuc/huong-dan-tai-va-cai-dat-game-33"
+    },
+    {
+        "from": "/tin-tuc/huong-dan-tai-va-cai-dat-game.html",
+        "to": "/tin-tuc/huong-dan-tai-va-cai-dat-game"
+    },
+    {
+        "from": "/tin-tuc/su-kien-tuan-1-thang-10-2025-193.html",
+        "to": "/tin-tuc/su-kien-tuan-1-thang-10-2025-193"
+    },
+    {
+        "from": "/tin-tuc/su-kien-tuan-2-thang-10-2025-195.html",
+        "to": "/tin-tuc/su-kien-tuan-2-thang-10-2025-195"
+    },
+    {
+        "from": "/tin-tuc/vuong-gia-chien-lan-2-197.html",
+        "to": "/tin-tuc/vuong-gia-chien-lan-2-197"
+    },
+    {
+        "from": "/trai-ac-quy.html",
+        "to": "/trai-ac-quy"
+    },
+    {
+        "from": "/trai-dung-hop.html",
+        "to": "/trai-dung-hop"
+    },
+    {
+        "from": "/update.html",
+        "to": "/update"
+    },
+    {
+        "from": "/update/cap-nhat-dieu-chinh-tuong-thang-10-199.html",
+        "to": "/update/cap-nhat-dieu-chinh-tuong-thang-10-199"
+    },
+    {
+        "from": "/update/cap-nhat-tinh-nang-phien-ban-thang-9-151.html",
+        "to": "/update/cap-nhat-tinh-nang-phien-ban-thang-9-151"
+    },
+    {
+        "from": "/update/cap-nhat-toi-uu-he-thong-va-lo-trinh-dieu-chinh-tuong-dot-2-lan-2-119.html",
+        "to": "/update/cap-nhat-toi-uu-he-thong-va-lo-trinh-dieu-chinh-tuong-dot-2-lan-2-119"
+    },
+    {
+        "from": "/update/thong-ba-o-ca-p-nha-t-die-u-chi-nh-tuo-ng-thang-8-133.html",
+        "to": "/update/thong-ba-o-ca-p-nha-t-die-u-chi-nh-tuo-ng-thang-8-133"
+    },
+    {
+        "from": "/update/thong-tin-va-chi-so-thoi-trang-121.html",
+        "to": "/update/thong-tin-va-chi-so-thoi-trang-121"
+    },
+    {
+        "from": "/update/tinh-nang-tinh-ban-va-chi-so-thien-phu-123.html",
+        "to": "/update/tinh-nang-tinh-ban-va-chi-so-thien-phu-123"
+    }
+]

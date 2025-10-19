@@ -11,6 +11,7 @@ $meta = [
     'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
+$pageScripts[] = '/assets/js/pages/payments.js';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
@@ -24,18 +25,18 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <span class="display-name"></span>
 </button>
 <ul class="dropdown-menu">
-<li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
 <li class="dropdown-item d-flex align-items-center">
-<a class="d-flex justify-content-between" href="/qua-nap-web.html">
+<a class="d-flex justify-content-between" href="/qua-nap-web">
 <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
 </li>
-<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
 <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
 </ul>
 </div>
 </div>
-<a class="btn-login login-required" data-redirect="qua-nap-web.html" href="javascript:void(0)"></a>
+<a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
 </div>
 <div class="subpage-container wrapper-id wrapper-payment">
 <div class="container h-100 position-relative">
@@ -43,9 +44,9 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <h1 class="page-title">Quà nạp web</h1>
 <div class="payment w-100">
 <ul class="payment-tab w-100">
-<li class="link-to-payment"><a href="/nap-tien-vao-vi.html">Nạp tiền vào ví</a></li>
-<li class="link-to-package active"><a href="/qua-nap-web.html">Quà nạp web</a></li>
-<li class="link-to-convert"><a href="/nap-tu-vi-vao-game.html">Nạp từ ví vào game</a></li>
+<li class="link-to-payment"><a href="/nap-tien-vao-vi">Nạp tiền vào ví</a></li>
+<li class="link-to-package active"><a href="/qua-nap-web">Quà nạp web</a></li>
+<li class="link-to-convert"><a href="/nap-tu-vi-vao-game">Nạp từ ví vào game</a></li>
 </ul>
 <div class="payment-userinfo w-100">
 <ul>
@@ -53,9 +54,9 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <li><span class="gem-label color-blue">GEM</span>: <b class="display-balance">0</b></li>
 </ul>
 </div>
-<div class="link-to-history w-100 text-center"><a class="login-required" data-redirect="qua-nap-web.html" href="/lich-su-nap.html">Lịch sử nạp</a></div>
-<div class="server-list w-100 position-relative" id="select2-server-parent">
-<select class="form-control select2 server" id="server-package" name="fserver">
+<div class="link-to-history w-100 text-center"><a class="login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="/lich-su-nap">Lịch sử nạp</a></div>
+<div class="server-list w-100 position-relative">
+<select class="form-control payment-server" id="server-package" name="fserver">
 <option value=""></option>
 <option value="s33">S33</option><option value="s32">S32</option><option value="s31">S31</option><option value="s30">S30</option><option value="s29">S29</option><option value="s28">S28</option><option value="s27">S27</option><option value="s26">S26</option><option value="s25">S25</option><option value="s24">S24</option><option value="s23">S23</option><option value="s22">S22</option><option value="s21">S21</option><option value="s20">S20</option><option value="s19">S19</option><option value="s18">S18</option><option value="s17">S17</option><option value="s16">S16</option><option value="s15">S15</option><option value="s14">S14</option><option value="s13">S13</option><option value="s12">S12</option><option value="s11">S11</option><option value="s10">S10</option><option value="s9">S9</option><option value="s8">S8</option><option value="s7">S7</option><option value="s6">S6</option><option value="s5">S5</option><option value="s4">S4</option><option value="s3">S3</option><option value="s2">S2</option><option value="s1">S1</option> </select>
 </div>
@@ -201,5 +202,3 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 </div>
 
 </div>
-
-

@@ -11,7 +11,7 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
     </div>
     <ul class="btn-group d-flex align-items-center position-relative">
         <li>
-            <a class="btn-pay" href="/qua-nap-web.html" target="_self" title="Nạp Thẻ"></a>
+            <a class="btn-pay" href="/qua-nap-web" target="_self" title="Nạp Thẻ"></a>
         </li>
         <li>
             <a class="btn-download link-download-client" href="#" target="_self" title="Tải game"></a>
@@ -35,7 +35,7 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                 </li>
                 <li class="nav-item<?= $activeNav === 'news' ? ' active' : '' ?>">
                     <a class="nav-link news<?= $activeNav === 'news' ? ' active' : '' ?>"
-                       href="/tin-tuc.html"
+                       href="/tin-tuc"
                        title="Tin tức"
                        data-bs-target="#2"
                        aria-expanded="false"
@@ -43,7 +43,7 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                 </li>
                 <li class="nav-item<?= $activeNav === 'characters' ? ' active' : '' ?>">
                     <a class="nav-link hero-item<?= $activeNav === 'characters' ? ' active' : '' ?>"
-                       href="/danh-sach-tuong.html"
+                       href="/danh-sach-tuong"
                        title="Tướng"
                        data-bs-target="#3"
                        aria-expanded="false"
@@ -61,10 +61,10 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                     </a>
                     <ul class="collapse social row collapse-normal" id="10">
                         <li class="d-flex justify-content-center col-4">
-                            <a class="dropdown-item" href="/trai-ac-quy.html" target="_self">Trái Ác Quỷ</a>
+                            <a class="dropdown-item" href="/trai-ac-quy" target="_self">Trái Ác Quỷ</a>
                         </li>
                         <li class="d-flex justify-content-center col-4">
-                            <a class="dropdown-item" href="/trai-dung-hop.html" target="_self">Trái Dung Hợp</a>
+                            <a class="dropdown-item" href="/trai-dung-hop" target="_self">Trái Dung Hợp</a>
                         </li>
                     </ul>
                 </li>

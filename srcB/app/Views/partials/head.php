@@ -11,6 +11,8 @@ $defaultMeta = [
 ];
 $meta = array_replace($defaultMeta, $meta ?? []);
 $pageTitle = $pageTitle ?? ($meta['og:title'] ?? 'Hải Tặc Mạnh Nhất');
+$currentCanonical = canonical_url();
+$meta['og:url'] = $meta['og:url'] ?? $currentCanonical;
 ?>
 <meta charset="utf-8">
 <meta name="viewport" content="<?= htmlspecialchars($meta['viewport'], ENT_QUOTES) ?>">
@@ -23,10 +25,21 @@ $pageTitle = $pageTitle ?? ($meta['og:title'] ?? 'Hải Tặc Mạnh Nhất');
         <meta property="<?= htmlspecialchars($key, ENT_QUOTES) ?>" content="<?= htmlspecialchars((string) $value, ENT_QUOTES) ?>">
     <?php endif; ?>
 <?php endforeach; ?>
+<link rel="canonical" href="<?= htmlspecialchars($currentCanonical, ENT_QUOTES) ?>">
 <?php if (!empty($meta['facebook-domain-verification'])): ?>
     <meta name="facebook-domain-verification" content="<?= htmlspecialchars($meta['facebook-domain-verification'], ENT_QUOTES) ?>">
 <?php endif; ?>
 <?php if (!empty($meta['link:shortcut_icon'])): ?>
     <link rel="shortcut icon" href="<?= htmlspecialchars($meta['link:shortcut_icon'], ENT_QUOTES) ?>">
+<?php endif; ?>
+<?php if (!empty($structuredData)): ?>
+    <?php
+    $structuredBlocks = is_array($structuredData) && array_is_list($structuredData)
+        ? $structuredData
+        : (array) $structuredData;
+    ?>
+    <?php foreach ($structuredBlocks as $schema): ?>
+        <script type="application/ld+json" nonce="<?= csp_nonce() ?>"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?></script>
+    <?php endforeach; ?>
 <?php endif; ?>
 <?php include __DIR__ . '/analytics-head.php'; ?>

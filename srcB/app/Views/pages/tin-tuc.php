@@ -6,12 +6,12 @@ $items = $pagination['data'] ?? [];
 $pageTitle = $pageTitle ?? 'Tin tức | Hải Tặc Mạnh Nhất';
 $meta = $meta ?? ['og:title' => $pageTitle];
 $bodyAttributes = $bodyAttributes ?? 'class="wrapper-subpage overflow-y-auto"';
-$loginScriptPage = $loginScriptPage ?? 'tin-tuc.html';
-$basePath = $basePath ?? '/tin-tuc';
+$loginScriptPage = $loginScriptPage ?? 'tin-tuc';
+$basePath = rtrim($basePath ?? '/tin-tuc', '/');
 $tabConfig = [
-    'news' => ['label' => 'Tin tức', 'href' => '/tin-tuc.html'],
-    'event' => ['label' => 'Sự kiện', 'href' => '/su-kien.html'],
-    'update' => ['label' => 'Update', 'href' => '/update.html'],
+    'news' => ['label' => 'Tin tức', 'href' => '/tin-tuc'],
+    'event' => ['label' => 'Sự kiện', 'href' => '/su-kien'],
+    'update' => ['label' => 'Update', 'href' => '/update'],
 ];
 ?>
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
@@ -25,19 +25,19 @@ $tabConfig = [
                     <span class="display-name"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a href="/qua-nap-web.html" class="d-flex justify-content-between">
+                        <a href="/qua-nap-web" class="d-flex justify-content-between">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button>
                         </a>
                     </li>
-                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
                     <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
-        <a href="javascript:void(0)" class="btn-login login-required" data-redirect="qua-nap-web.html"></a>
+        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
     </div>
     <div class="subpage-container wrapper-id post">
         <div class="container h-100 position-relative">
@@ -54,7 +54,7 @@ $tabConfig = [
                                     </a>
                                 <?php endforeach; ?>
                             </div>
-                            <form class="search-lite search position-relative post" action="javascript:void(0);">
+                            <form class="search-lite search position-relative post" action="#">
                                 <input type="text" placeholder="Tìm kiếm" id="search" name="search" autocomplete="off">
                                 <button type="submit" class="search-icon position-absolute"></button>
                             </form>
@@ -63,7 +63,7 @@ $tabConfig = [
                             <?php foreach ($items as $item): ?>
                                 <?php
                                 $itemSlug = $item['slug'] ?? '';
-                                $itemUrl = $basePath . '/' . $itemSlug . '.html';
+                                $itemUrl = $basePath . '/' . $itemSlug;
                                 $thumbnail = $item['thumbnail'] ?? '';
                                 if ($thumbnail && !str_starts_with($thumbnail, '/')) {
                                     $thumbnail = '/' . ltrim($thumbnail, '/');

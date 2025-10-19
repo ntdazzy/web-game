@@ -1,98 +1,115 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/../bootstrap/autoload.php';
 require_once __DIR__ . '/../app/helpers.php';
 
-spl_autoload_register(function (string $class): void {
-    $prefix = 'App\\';
-    if (str_starts_with($class, $prefix)) {
-        $path = __DIR__ . '/../app/' . str_replace('App\\', '', $class) . '.php';
-        $path = str_replace('\\', '/', $path);
-        if (is_file($path)) {
-            require_once $path;
-        }
+use App\Core\Config\Config;
+use App\Core\Http\Request;
+use App\Core\Routing\Router;
+use App\Core\Security\CsrfTokenManager;
+use App\Core\Http\Response;
+use App\Modules\Characters\Controllers\CharacterController;
+use App\Modules\Home\Controllers\HomeController;
+use App\Modules\News\Controllers\NewsController;
+use App\Modules\Pages\Controllers\PagesController;
+
+Config::load();
+
+$secureCookie = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || ($_SERVER['SERVER_PORT'] ?? null) === 443;
+if (session_status() === PHP_SESSION_NONE) {
+    session_set_cookie_params([
+        'httponly' => true,
+        'secure' => $secureCookie,
+        'samesite' => 'Lax',
+    ]);
+    session_start();
+}
+
+send_security_headers();
+
+$request = Request::capture();
+
+$path = $request->path();
+
+if (!CsrfTokenManager::isValidRequest($request)) {
+    $accept = (string) $request->header('Accept', '');
+    $wantsJson = str_contains($accept, 'application/json') || str_starts_with($path, '/api/');
+    if ($wantsJson) {
+        Response::json(['error' => 'CSRF token mismatch'], 419);
+    } else {
+        http_response_code(419);
+        echo 'CSRF token mismatch';
     }
+    return;
+}
+
+if ($path === '/robots.txt') {
+    header('Content-Type: text/plain; charset=utf-8');
+    header('Cache-Control: public, max-age=86400');
+    echo "User-agent: *\n";
+    echo "Allow: /\n";
+    echo 'Sitemap: ' . absolute_url('/sitemap.xml') . "\n";
+    return;
+}
+
+if ($path === '/sitemap.xml') {
+    header('Content-Type: application/xml; charset=utf-8');
+    header('Cache-Control: public, max-age=3600');
+    echo render_sitemap_xml(build_sitemap_entries());
+    return;
+}
+
+if ($path !== '/' && str_ends_with($path, '.html')) {
+    $redirectPath = substr($path, 0, -5);
+    if ($redirectPath === '/index') {
+        $redirectPath = '/';
+    }
+    $query = $_SERVER['QUERY_STRING'] ?? '';
+    if ($query !== '') {
+        $redirectPath .= '?' . $query;
+    }
+    header('Location: ' . $redirectPath, true, 301);
+    return;
+}
+
+if ($path === '/index.php') {
+    header('Location: /', true, 301);
+    return;
+}
+
+$router = new Router();
+
+$router->get('/', [HomeController::class, 'index']);
+$router->get('/tin-tuc', [NewsController::class, 'index']);
+$router->get('/su-kien', static function (Request $request): void {
+    (new NewsController())->index($request, 'event');
+});
+$router->get('/update', static function (Request $request): void {
+    (new NewsController())->index($request, 'update');
 });
 
-use App\Controllers\HomeController;
-use App\Controllers\NewsController;
-use App\Controllers\CharacterController;
-use App\Controllers\PagesController;
+$router->get('/tin-tuc/{slug}', [NewsController::class, 'detail']);
+$router->get('/su-kien/{slug}', static function (Request $request, string $slug): void {
+    (new NewsController())->detail($request, $slug, 'event');
+});
+$router->get('/update/{slug}', static function (Request $request, string $slug): void {
+    (new NewsController())->detail($request, $slug, 'update');
+});
 
-$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+$router->get('/danh-sach-tuong', [CharacterController::class, 'index']);
+$router->get('/danh-sach-tuong/{slug}', [CharacterController::class, 'detail']);
 
-if ($uri === '' || $uri === 'index.html') {
-    (new HomeController())->index();
+$router->get('/api/news', [NewsController::class, 'apiList']);
+$router->get('/api/news/{slug}', [NewsController::class, 'apiDetail']);
+$router->get('/api/characters', [CharacterController::class, 'apiList']);
+$router->get('/api/characters/{slug}', [CharacterController::class, 'apiDetail']);
+$router->post('/get-hero-detail', [CharacterController::class, 'legacyDetail']);
+
+if ($router->dispatch($request)) {
     return;
 }
 
-if (preg_match('~^tin-tuc(?:/)?$~', $uri)) {
-    (new NewsController())->index('news');
-    return;
-}
-
-if (preg_match('~^su-kien(?:/)?$~', $uri)) {
-    (new NewsController())->index('event');
-    return;
-}
-
-if (preg_match('~^update(?:/)?$~', $uri)) {
-    (new NewsController())->index('update');
-    return;
-}
-
-if (preg_match('~^tin-tuc/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    $slug = preg_replace('/\.html$/', '', $matches['slug']);
-    (new NewsController())->detail($slug, 'news');
-    return;
-}
-
-if (preg_match('~^su-kien/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    $slug = preg_replace('/\.html$/', '', $matches['slug']);
-    (new NewsController())->detail($slug, 'event');
-    return;
-}
-
-if (preg_match('~^update/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    $slug = preg_replace('/\.html$/', '', $matches['slug']);
-    (new NewsController())->detail($slug, 'update');
-    return;
-}
-
-if ($uri === 'danh-sach-tuong.html' || $uri === 'danh-sach-tuong') {
-    (new CharacterController())->index();
-    return;
-}
-
-if (preg_match('~^danh-sach-tuong/(?P<slug>[^/]+)(?:\.html)?$~', $uri, $matches)) {
-    $slug = preg_replace('/\.html$/', '', $matches['slug']);
-    (new CharacterController())->detail($slug);
-    return;
-}
-
-if (preg_match('~^api/news(?:/)?$~', $uri)) {
-    (new NewsController())->apiList();
-    return;
-}
-
-if (preg_match('~^api/news/(?P<slug>[^/]+)$~', $uri, $matches)) {
-    (new NewsController())->apiDetail($matches['slug']);
-    return;
-}
-
-if (preg_match('~^api/characters(?:/)?$~', $uri)) {
-    (new CharacterController())->apiList();
-    return;
-}
-
-if (preg_match('~^api/characters/(?P<slug>[^/]+)$~', $uri, $matches)) {
-    (new CharacterController())->apiDetail($matches['slug']);
-    return;
-}
-
-if ($uri === 'get-hero-detail' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    (new CharacterController())->legacyDetail();
-    return;
-}
-
-(new PagesController())->show($uri);
+$uri = trim($path, '/');
+$pagesController = new PagesController();
+$pagesController->show($request, $uri);

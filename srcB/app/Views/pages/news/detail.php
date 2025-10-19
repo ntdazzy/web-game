@@ -1,12 +1,17 @@
 <?php
 $article = $article ?? [];
 $hotNews = $hotNews ?? [];
-$basePath = $basePath ?? '/tin-tuc';
+$basePath = rtrim($basePath ?? '/tin-tuc', '/');
 $activeNav = $activeNav ?? 'news';
 $articleTitle = $article['title'] ?? '';
 $articleDate = $article['created_at'] ?? '';
 $articleContent = $article['content_html'] ?? '';
 $dataset = $dataset ?? 'news';
+$articleImage = $article['thumbnail'] ?? ($article['images'][0] ?? '');
+if ($articleImage && !str_starts_with($articleImage, '/')) {
+    $articleImage = '/' . ltrim($articleImage, '/');
+}
+$articleImage = $articleImage ? absolute_url($articleImage) : null;
 $labelConfig = [
     'news' => ['breadcrumb' => 'Tin tức', 'heading' => 'Tin tức sự kiện'],
     'event' => ['breadcrumb' => 'Sự kiện', 'heading' => 'Tin tức sự kiện'],
@@ -15,8 +20,50 @@ $labelConfig = [
 $labels = $labelConfig[$dataset] ?? $labelConfig['news'];
 $breadcrumbs = [
     ['url' => '/', 'label' => 'Trang chủ'],
-    ['url' => $basePath . '.html', 'label' => $labels['breadcrumb']],
+    ['url' => $basePath, 'label' => $labels['breadcrumb']],
     ['url' => null, 'label' => $articleTitle],
+];
+$articleUrl = absolute_url($basePath . '/' . ($article['slug'] ?? ''));
+$structuredData = [
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => array_values(array_map(static function ($index, $crumb) {
+            $element = [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $crumb['label'],
+            ];
+            if (!empty($crumb['url'])) {
+                $element['item'] = absolute_url($crumb['url']);
+            }
+
+            return $element;
+        }, array_keys($breadcrumbs), $breadcrumbs)),
+    ],
+    [
+        '@context' => 'https://schema.org',
+        '@type' => 'NewsArticle',
+        'headline' => $articleTitle,
+        'datePublished' => $article['created_at'] ?? null,
+        'dateModified' => $article['updated_at'] ?? ($article['created_at'] ?? null),
+        'image' => array_filter([$articleImage]),
+        'author' => [
+            '@type' => 'Organization',
+            'name' => 'Hải Tặc Mạnh Nhất',
+        ],
+        'publisher' => [
+            '@type' => 'Organization',
+            'name' => 'Hải Tặc Mạnh Nhất',
+            'logo' => [
+                '@type' => 'ImageObject',
+                'url' => app_origin() . '/assets/stms/imgs/logo.png',
+            ],
+        ],
+        'mainEntityOfPage' => $articleUrl,
+        'url' => $articleUrl,
+        'description' => $article['summary'] ?? null,
+    ],
 ];
 ?>
 <?php include __DIR__ . '/../../partials/top-nav-mobile.php'; ?>
@@ -30,19 +77,19 @@ $breadcrumbs = [
                     <span class="display-name"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a href="/qua-nap-web.html" class="d-flex justify-content-between">
+                        <a href="/qua-nap-web" class="d-flex justify-content-between">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button>
                         </a>
                     </li>
-                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
                     <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
-        <a href="javascript:void(0)" class="btn-login login-required" data-redirect="qua-nap-web.html"></a>
+        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
     </div>
 
     <div class="subpage-container wrapper-id post-detail">
@@ -81,7 +128,7 @@ $breadcrumbs = [
                         <h1 class="hot-news-heading mb-2"></h1>
                         <?php foreach ($hotNews as $hotItem): ?>
                             <?php
-                            $hotUrl = $basePath . '/' . ($hotItem['slug'] ?? '') . '.html';
+                            $hotUrl = $basePath . '/' . ($hotItem['slug'] ?? '');
                             $hotThumb = $hotItem['thumbnail'] ?? '';
                             if ($hotThumb && !str_starts_with($hotThumb, '/')) {
                                 $hotThumb = '/' . ltrim($hotThumb, '/');

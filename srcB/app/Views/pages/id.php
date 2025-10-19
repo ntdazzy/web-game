@@ -24,18 +24,18 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <span class="display-name"></span>
 </button>
 <ul class="dropdown-menu">
-<li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
 <li class="dropdown-item d-flex align-items-center">
-<a class="d-flex justify-content-between" href="/qua-nap-web.html">
+<a class="d-flex justify-content-between" href="/qua-nap-web">
 <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
 </li>
-<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
 <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
 </ul>
 </div>
 </div>
-<a class="btn-login login-required" data-redirect="qua-nap-web.html" href="javascript:void(0)"></a>
+<a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
 </div>
 <div class="subpage-container wrapper-id">
 <div class="container h-100 position-relative">
@@ -44,9 +44,9 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <div class="row content">
 <div class="col-3 wrap-left-side">
 <ul class="left-side">
-<li class="active"><a href="/id.html">Thông tin tài khoản</a></li>
-<li><a href="/id/doi-mat-khau.html">Đổi mật khẩu</a></li>
-<li><a href="/id/doi-email.html">Đổi email</a></li>
+<li class="active"><a href="/id">Thông tin tài khoản</a></li>
+<li><a href="/id/doi-mat-khau">Đổi mật khẩu</a></li>
+<li><a href="/id/doi-email">Đổi email</a></li>
 </ul>
 </div> <div class="col-9 user-box">
 <div class="breadcrumb d-flex flex-column">
@@ -71,35 +71,35 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <div class="col-4 label-text d-flex align-items-center"><i class="fa-light fa-signature"></i>Họ tên</div>
 <div class="col-6 value-text display-name">Guess</div>
 <div class="col-2 text-center p-0">
-<a class="action-link" href="/id/cap-nhat-tai-khoan.html">Cập nhật</a>
+<a class="action-link" href="/id/cap-nhat-tai-khoan">Cập nhật</a>
 </div>
 </div>
 <div class="row align-items-center info-row">
 <div class="col-4 label-text d-flex align-items-center"><i class="fa-light fa-calendar-days"></i>Sinh nhật</div>
 <div class="col-6 value-text display-birthday"></div>
 <div class="col-2 text-center p-0">
-<a class="action-link" href="/id/cap-nhat-tai-khoan.html">Cập nhật</a>
+<a class="action-link" href="/id/cap-nhat-tai-khoan">Cập nhật</a>
 </div>
 </div>
 <div class="row align-items-center info-row">
 <div class="col-4 label-text d-flex align-items-center"><i class="fa-light fa-venus-mars"></i>Giới tính</div>
 <div class="col-6 value-text display-sex"></div>
 <div class="col-2 text-center p-0">
-<a class="action-link" href="/id/cap-nhat-tai-khoan.html">Cập nhật</a>
+<a class="action-link" href="/id/cap-nhat-tai-khoan">Cập nhật</a>
 </div>
 </div>
 <div class="row align-items-center info-row">
 <div class="col-4 label-text d-flex align-items-center"><i class="fa-light fa-envelope"></i>Email</div>
 <div class="col-6 value-text display-email">Guess</div>
 <div class="col-2 text-center p-0">
-<a class="action-link" href="/id/cap-nhat-email.html">Cập nhật</a>
+<a class="action-link" href="/id/cap-nhat-email">Cập nhật</a>
 </div>
 </div>
 <div class="row align-items-center info-row">
 <div class="col-4 label-text d-flex align-items-center"><i class="fa-light fa-phone"></i>Số điện thoại</div>
 <div class="col-6 value-text display-phone"></div>
 <div class="col-2 text-center p-0">
-<a class="action-link" href="/id/dang-nhap.html">Cập nhật</a>
+<a class="action-link" href="/id/dang-nhap">Cập nhật</a>
 </div>
 </div>
 <!-- <div class="row align-items-center info-row">

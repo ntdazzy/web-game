@@ -12,4 +12,4 @@ $meta = [
 ];
 ?>
 
-<h1 style="display:flex;justify-content:center;color:black">Sự kiện đã kết thúc!!!</h1>
+<h1 class="d-flex justify-content-center text-dark">Sự kiện đã kết thúc!!!</h1>

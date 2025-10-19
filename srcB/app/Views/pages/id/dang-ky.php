@@ -24,18 +24,18 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <span class="display-name"></span>
 </button>
 <ul class="dropdown-menu">
-<li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
 <li class="dropdown-item d-flex align-items-center">
-<a class="d-flex justify-content-between" href="/qua-nap-web.html">
+<a class="d-flex justify-content-between" href="/qua-nap-web">
 <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
 </li>
-<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
 <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
 </ul>
 </div>
 </div>
-<a class="btn-login login-required" data-redirect="../qua-nap-web.html" href="javascript:void(0)"></a>
+<a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
 </div>
 <div class="subpage-container wrapper-id">
 <div class="container h-100 position-relative">
@@ -44,9 +44,9 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <div class="row content">
 <div class="col-3">
 <ul class="left-side">
-<li><a href="/id/dang-nhap.html">Đăng nhập</a></li>
-<li class="active"><a href="/id/dang-ky.html">Đăng ký</a></li>
-<li><a href="/id/quen-mat-khau.html">Quên mật khẩu</a></li>
+<li><a href="/id/dang-nhap">Đăng nhập</a></li>
+<li class="active"><a href="/id/dang-ky">Đăng ký</a></li>
+<li><a href="/id/quen-mat-khau">Quên mật khẩu</a></li>
 </ul>
 </div> <div class="col-9 user-box">
 <div class="breadcrumb d-flex flex-column">
@@ -54,6 +54,7 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 </div>
 <div class="col-12 col-sm-6 wrap-form">
 <form class="form-login" method="POST">
+<?= csrf_field('id_register') ?>
 <div class="mb-3">
 <label class="form-label" for="formFile">Tên tài khoản</label>
 <input autocomplete="on" class="form-control" name="username" placeholder="Nhập tên tài khoản" type="text"/>
@@ -79,5 +80,4 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 </div>
 
 </div>
-
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+$GLOBALS['__HTML_EXTENSION_REWRITES__'] = [];
+
 require __DIR__ . '/../srcB/app/helpers.php';
 
 $routes = [
@@ -16,7 +18,7 @@ $routes = [
             'window.__ENDPOINTS__',
         ],
     ],
-    '/tin-tuc/10h-18-10-khai-mo-may-chu-s33-179.html' => [
+    '/tin-tuc/10h-18-10-khai-mo-may-chu-s33-179' => [
         'checks' => [
             'window.__APP_CONFIG__',
             'window.__ENDPOINTS__',
@@ -64,3 +66,19 @@ foreach ($routes as $uri => $spec) {
 }
 
 echo json_encode($results, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . PHP_EOL;
+
+$rewriteReport = $GLOBALS['__HTML_EXTENSION_REWRITES__'] ?? [];
+if (!empty($rewriteReport)) {
+    ksort($rewriteReport);
+    $payload = [];
+    foreach ($rewriteReport as $from => $to) {
+        $payload[] = [
+            'from' => $from,
+            'to' => $to,
+        ];
+    }
+    file_put_contents(
+        __DIR__ . '/../__reports__/html-extensions-rewrites.json',
+        json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+    );
+}

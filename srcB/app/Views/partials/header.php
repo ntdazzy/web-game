@@ -15,18 +15,18 @@ $activeNav = $activeNav ?? 'home';
                     <a class="nav-item h-100<?= $activeNav === 'home' ? ' active' : '' ?>" href="/" target="_self" title="Trang chủ"> </a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center news<?= $activeNav === 'news' ? ' active' : '' ?>">
-                    <a class="nav-item h-100<?= $activeNav === 'news' ? ' active' : '' ?>" href="/tin-tuc.html" target="_self" title="Tin tức"> </a>
+                    <a class="nav-item h-100<?= $activeNav === 'news' ? ' active' : '' ?>" href="/tin-tuc" target="_self" title="Tin tức"> </a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center hero-item<?= $activeNav === 'characters' ? ' active' : '' ?>">
-                    <a class="nav-item h-100<?= $activeNav === 'characters' ? ' active' : '' ?>" href="/danh-sach-tuong.html" target="_self" title="Tướng"> </a>
+                    <a class="nav-item h-100<?= $activeNav === 'characters' ? ' active' : '' ?>" href="/danh-sach-tuong" target="_self" title="Tướng"> </a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center fruit">
                     <a class="nav-item h-100 d-flex align-items-center" href="#" target="_self" title="Trái Ác Quỷ" data-bs-toggle="dropdown">
                         <i class="dropdown-icon position-absolute"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a href="/trai-ac-quy.html" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
-                        <li><a href="/trai-dung-hop.html" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
+                        <li><a href="/trai-ac-quy" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
+                        <li><a href="/trai-dung-hop" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
                     </ul>
                 </li>
                 <li class="d-flex justify-content-center align-items-center support">
@@ -61,20 +61,20 @@ $activeNav = $activeNav ?? 'home';
                             <span class="display-name"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                             <li class="dropdown-item d-flex align-items-center">
-                                <a href="/qua-nap-web.html" class="d-flex justify-content-between">
+                                <a href="/qua-nap-web" class="d-flex justify-content-between">
                                     <i><span class="payment-unit">GEM</span><span class="display-balance">0</span></i>
                                     <button>Nạp</button>
                                 </a>
                             </li>
-                            <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                            <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
                             <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
-                <a href="javascript:void(0)" class="btn-login login-required" data-redirect="qua-nap-web.html"></a>
+                <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
             </div>
         </div>
     </div>

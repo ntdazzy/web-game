@@ -1,0 +1,14 @@
+{
+    "name": "haitacmanhnhat/site",
+    "description": "Modular monolith scaffold for Hải Tặc Mạnh Nhất portal",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

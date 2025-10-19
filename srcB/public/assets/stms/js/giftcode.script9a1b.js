@@ -126,7 +126,7 @@ $.fn.codeType = function() {
 
 function showResult(codeDefault){
     var contentCode = '<p class="content-code">'+codeDefault+'</p>';
-    contentCode += '<a href="javascript:void(0)" class="text-decoration-underline text-secondary btn-copy-code" data-bs-toggle="tooltip" data-bs-placement="top" title="Bấm để sao chép">Bấm để sao chép</a>';
+    contentCode += '<a href="#" class="text-decoration-underline text-secondary btn-copy-code" data-bs-toggle="tooltip" data-bs-placement="top" title="Bấm để sao chép">Bấm để sao chép</a>';
 
     Swal.fire({
         icon: 'success',

@@ -1,4 +1,11 @@
 RewriteEngine On
+
+# Redirect /foo.html -> /foo
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} \.html$
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# Pretty URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [QSA,L]
+RewriteRule ^(.+)$ index.php?route=$1 [QSA,L]

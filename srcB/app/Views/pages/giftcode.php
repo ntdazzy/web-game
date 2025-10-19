@@ -11,6 +11,197 @@ $meta = [
     'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
+$pageStyles[] = '/assets/css/modules/giftcode.css';
+$pageScripts[] = '/assets/js/pages/giftcode.js';
+
+$giftcodeHistoryTables = [
+    [
+        'id' => 'table-his-1',
+        'content' => '<p>Test</p>',
+        'items' => [],
+        'quantities' => [],
+    ],
+    [
+        'id' => 'table-his-2',
+        'condition' => 'Tất cả các người chơi đều có thể nhận',
+        'items' => [
+            'Lực HĐ*100',
+            'C.tích*250000',
+            'Beri *900000',
+            '2000 vàng',
+            'Trái Tim ác ma',
+            'Kho báu ác ma thần bí',
+            'Túi nuôi cá AllBlue random',
+            'TT Giáp Bảo Hộ',
+        ],
+        'quantities' => ['—', '250000', '900000', '1', '100', '1', '300', '1'],
+    ],
+    [
+        'id' => 'table-his-3',
+        'condition' => 'Đạt đủ level 10 có thể nhận code',
+        'items' => [
+            'Lực HĐ*10',
+            'C.tích*50000',
+            'Beri *100000',
+            'Balô vải',
+            'Bảo thụ Adam',
+            '500 đá năng lượng',
+            '500 đá nguyên tố',
+            'Chìa khóa kho',
+        ],
+        'quantities' => ['—', '50000', '100000', '10', '10', '20', '20', '5'],
+    ],
+    [
+        'id' => 'table-his-4',
+        'condition' => 'Đạt đủ level 20 có thể nhận code',
+        'items' => [
+            'Lực HĐ*20',
+            'C.tích*75000',
+            'Beri *200000',
+            'Balô vải',
+            'Bảo thụ Adam',
+            'Túi trái 6 sao',
+            'Chìa khóa kho',
+            'Túi quà random tím cao cấp',
+        ],
+        'quantities' => ['—', '75000', '200000', '20', '30', '1', '10', '10'],
+    ],
+    [
+        'id' => 'table-his-5',
+        'condition' => 'Đạt đủ level 40 có thể nhận code',
+        'items' => [
+            'Lực HĐ*30',
+            'C.tích*100000',
+            'Beri *300000',
+            'Trái Tim ác ma',
+            'Đá Huyết Linh',
+            'Túi K.cương cổ đại',
+            '1500 C.tích C.hội',
+            '300 Tích điểm B.thạch',
+        ],
+        'quantities' => ['—', '100000', '300000', '20', '20', '10', '10', '10'],
+    ],
+    [
+        'id' => 'table-his-7',
+        'condition' => 'Đạt đủ level 60 có thể nhận code',
+        'items' => [
+            'Lực HĐ*40',
+            'C.tích*125000',
+            'Beri *400000',
+            'Trái Tim ác ma',
+            '50 Tinh hoa B.thạch',
+            '125 Đá Khắc Ấn',
+            'Túi trái 7 sao',
+            '1000 Tích điểm B.thạch',
+        ],
+        'quantities' => ['—', '125000', '400000', '40', '20', '10', '1', '10'],
+    ],
+    [
+        'id' => 'table-his-9',
+        'condition' => 'Đạt đủ level 80 có thể nhận code',
+        'items' => [
+            'Lực HĐ*50',
+            'C.tích*150000',
+            'Beri *500000',
+            '100 tử hồn',
+            'Dấu đỏ',
+            'Túi tẩy luyện B.vật hào hoa',
+            '125 Đá Khắc Ấn',
+            '1500 C.tích C.hội',
+        ],
+        'quantities' => ['—', '150000', '500000', '10', '30', '10', '20', '30'],
+    ],
+    [
+        'id' => 'table-his-11',
+        'condition' => 'Đạt đủ level 100 có thể nhận code',
+        'items' => [
+            'Lực HĐ*60',
+            'C.tích*175000',
+            'Beri *600000',
+            '100 tử hồn',
+            'Túi K.cương cổ đại',
+            'Túi tẩy luyện B.thạch hào hoa',
+            '125 Đá Khắc Ấn',
+            '100 N.lượng N.tố',
+        ],
+        'quantities' => ['—', '175000', '600000', '20', '20', '10', '30', '10'],
+    ],
+    [
+        'id' => 'table-his-13',
+        'condition' => 'Đạt đủ level 110 có thể nhận code',
+        'items' => [
+            'Lực HĐ*70',
+            'C.tích*200000',
+            'Beri *700000',
+            '500 Exp Nguyên tố',
+            '500 Đá Hải Hồn',
+            'Ma phấn tinh linh trung cấp',
+            'Túi K.cương cổ đại',
+            '1000 Nhân tố ác quỷ',
+        ],
+        'quantities' => ['—', '200000', '700000', '10', '20', '5', '30', '20'],
+    ],
+    [
+        'id' => 'table-his-15',
+        'condition' => 'Đạt đủ level 120 có thể nhận code',
+        'items' => [
+            'Lực HĐ*80',
+            'C.tích*225000',
+            'Beri *800000',
+            'Túi N.Liệu bá khí',
+            'Túi N.Liệu bá khí thường',
+            'Ma phấn tinh linh trung cấp',
+            'Trái Tim ác ma',
+            '500 Exp Nguyên tố',
+        ],
+        'quantities' => ['—', '225000', '800000', '5', '10', '10', '100', '20'],
+    ],
+    [
+        'id' => 'table-his-16',
+        'condition' => 'Đạt đủ level 130 có thể nhận code',
+        'items' => [
+            'Lực HĐ*90',
+            'C.tích*250000',
+            'Beri *900000',
+            'Túi tăng cấp thiên phú',
+            'Túi N.Liệu bá khí',
+            'Ma phấn tinh linh cao cấp',
+            'Túi N.Liệu bá khí thường',
+            '500 Hoàng Kim B.thạch',
+        ],
+        'quantities' => ['—', '250000', '900000', '5', '10', '5', '20', '5'],
+    ],
+    [
+        'id' => 'table-his-17',
+        'condition' => 'Đạt đủ level 140 có thể nhận code',
+        'items' => [
+            'Lực HĐ*100',
+            'C.tích*275000',
+            'Beri *900000',
+            'Túi N.Liệu bá khí',
+            '1000 Đá Hải Hồn',
+            'Túi nguyên liệu đồ cam thường',
+            '1000 đá năng lượng',
+            '1000 đá nguyên tố',
+        ],
+        'quantities' => ['—', '275000', '900000', '20', '20', '10', '30', '20'],
+    ],
+    [
+        'id' => 'table-his-18',
+        'condition' => 'Đạt đủ level 150 có thể nhận code',
+        'items' => [
+            'Lực HĐ*100',
+            'C.tích*300000',
+            'Beri *900000',
+            'Túi tăng cấp thiên phú',
+            'Dấu đỏ',
+            'Túi nguyên liệu đồ cam thường',
+            'Túi tẩy luyện B.thạch hào hoa',
+            '500 Hoàng Kim B.thạch',
+        ],
+        'quantities' => ['—', '300000', '900000', '10', '50', '20', '20', '10'],
+    ],
+];
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
@@ -24,18 +215,18 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 <span class="display-name"></span>
 </button>
 <ul class="dropdown-menu">
-<li class="dropdown-item d-flex align-items-center"><a href="/id.html"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
 <li class="dropdown-item d-flex align-items-center">
-<a class="d-flex justify-content-between" href="/qua-nap-web.html">
+<a class="d-flex justify-content-between" href="/qua-nap-web">
 <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
 </li>
-<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap.html"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau.html"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
 <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
 </ul>
 </div>
 </div>
-<a class="btn-login login-required" data-redirect="qua-nap-web.html" href="javascript:void(0)"></a>
+<a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
 </div>
 <div class="subpage-container wrapper-id giftcode-page">
 <div class="container h-100 position-relative">
@@ -97,364 +288,41 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
                         Khuyến nghị : Chơi server mới nên tạo tài khoản mới để có thể sử dụng lại code.
                     </div>
 <div class="history">
-<div class="table-his d-none table-responsive" id="table-his-1">
-<p>
-	Test</p>
+<?php foreach ($giftcodeHistoryTables as $table): ?>
+    <div class="table-his table-responsive d-none" id="<?= htmlspecialchars($table['id'], ENT_QUOTES) ?>">
+        <?php if (!empty($table['content'])): ?>
+            <?= $table['content'] ?>
+        <?php else: ?>
+            <table class="giftcode-reward-table">
+                <caption>
+                    Điều kiện nhận:
+                    <span class="giftcode-reward-table__caption-note"><?= htmlspecialchars($table['condition'], ENT_QUOTES) ?></span>
+                </caption>
+                <?php if (!empty($table['items'])): ?>
+                    <thead>
+                        <tr>
+                            <?php foreach ($table['items'] as $item): ?>
+                                <th><?= htmlspecialchars($item, ENT_QUOTES) ?></th>
+                            <?php endforeach; ?>
+                        </tr>
+                    </thead>
+                <?php endif; ?>
+                <?php if (!empty($table['quantities'])): ?>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($table['quantities'] as $value): ?>
+                                <?php $cellValue = trim($value) === '' ? '—' : $value; ?>
+                                <td><?= htmlspecialchars($cellValue, ENT_QUOTES) ?></td>
+                            <?php endforeach; ?>
+                        </tr>
+                    </tbody>
+                <?php endif; ?>
+            </table>
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>
 </div>
-<div class="table-his d-none table-responsive" id="table-his-2">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">Tất cả các người chơi đều có thể nhận</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*100</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*250000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">2000 vàng</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Trái Tim ác ma</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Kho báu ác ma thần bí</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi nuôi cá AllBlue random</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">TT Giáp Bảo Hộ</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">250000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">300</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-3">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 10 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*50000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *100000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Balô vải</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Bảo thụ Adam</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 đá năng lượng</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 đá nguyên tố</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Chìa khóa kho</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">50000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-</tr>
-</tbody>
-</table> </div>
-<div class="table-his d-none table-responsive" id="table-his-4">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 20 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*75000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *200000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Balô vải</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Bảo thụ Adam</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi trái 6 sao</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Chìa khóa kho</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi quà random tím cao cấp</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">75000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">200000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-5">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 40 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*100000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *300000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Trái Tim ác ma</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Đá Huyết Linh</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi K.cương cổ đại</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1500 C.tích C.hội</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">300 Tích điểm B.thạch</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">300000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-7">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 60 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*40</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*125000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *400000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Trái Tim ác ma</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">50 Tinh hoa B.thạch</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">125 Đá Khắc Ấn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi trái 7 sao</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1000 Tích điểm B.thạch</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">125000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">400000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">40</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-9">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 80 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*50</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*150000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *500000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100 tử hồn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Dấu đỏ</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi tẩy luyện B.vật hào hoa</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">125 Đá Khắc Ấn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1500 C.tích C.hội</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">150000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-11">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 100 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*60</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*175000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *600000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100 tử hồn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi K.cương cổ đại</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi tẩy luyện B.thạch hào hoa</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">125 Đá Khắc Ấn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100 N.lượng N.tố</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">175000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">600000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-13">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 110 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*70</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*200000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *700000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 Exp Nguyên tố</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 Đá Hải Hồn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Ma phấn tinh linh trung cấp</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi K.cương cổ đại</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1000 Nhân tố ác quỷ</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">200000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">700000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-15">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 120 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*80</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*225000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *800000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi N.Liệu bá khí</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi N.Liệu bá khí thường</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Ma phấn tinh linh trung cấp</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Trái Tim ác ma</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 Exp Nguyên tố</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">225000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">800000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">100</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-16">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 130 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*90</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*250000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi tăng cấp thiên phú</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi N.Liệu bá khí</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Ma phấn tinh linh cao cấp</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi N.Liệu bá khí thường</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 Hoàng Kim B.thạch</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">250000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">5</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-17">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 140 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*100</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*275000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi N.Liệu bá khí</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1000 Đá Hải Hồn</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi nguyên liệu đồ cam thường</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1000 đá năng lượng</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">1000 đá nguyên tố</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">275000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">30</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-his d-none table-responsive" id="table-his-18">
-<table cellspacing="0" style="border-collapse:collapse; width:1128px">
-<tbody>
-<tr>
-<td colspan="8" style="border-bottom:1px solid black; border-left:1px solid black; border-right:.7px solid black; border-top:1px solid black; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap; width:1126px"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Điều kiện nhận: <span style="font-size:11pt"><strong><span style="font-family:Calibri,sans-serif">đạt đủ level 150 có thể nhận code</span></strong></span></span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Lực HĐ*100</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">C.tích*300000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Beri *900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi tăng cấp thiên phú</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Dấu đỏ</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi nguyên liệu đồ cam thường</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">Túi tẩy luyện B.thạch hào hoa</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">500 Hoàng Kim B.thạch</span></span></td>
-</tr>
-<tr>
-<td style="border-bottom:1px solid black; border-left:1px solid black; border-right:1px solid black; border-top:none; height:20px; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif"> </span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">300000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">900000</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">50</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">20</span></span></td>
-<td style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap"><span style="font-size:15px"><span style="font-family:Calibri,sans-serif">10</span></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="popup popup-history" style="display: none">
+<div class="popup popup-history is-hidden">
 <div class="wrap">
 <div class="content">
 <h3>Lịch sử nhận code</h3>
@@ -472,7 +340,7 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 </table>
 </div>
 </div>
-<a class="close" href="javascript:void(0)"><i class="fa-light fa-xmark"></i></a>
+<a class="close" href="#"><i class="fa-light fa-xmark"></i></a>
 </div>
 </div>
 </div>
@@ -480,5 +348,3 @@ $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 </div>
 
 </div>
-
-
