@@ -3,9 +3,9 @@
 ?>
 <div class="page-content">
 
- Google Tag Manager (noscript) 2025-07-21 
+ Google Tag Manager (noscript) 2025-07-21
 <noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-P3Q6G85M" style="display:none;visibility:hidden" width="0"></iframe></noscript>
- End Google Tag Manager (noscript) 
+ End Google Tag Manager (noscript)
 <div class="top-nav w-100 position-fixed">
 <div class="container d-flex w-100 h-100">
 <div class="logo position-relative h-100">
@@ -147,7 +147,7 @@
 <h1>LỄ BAO HÀNG NGÀY (Gói Nạp Web)</h1>
 <p><strong><span style="color:#3498db">Thời gian  hoạt động:</span></strong> <strong><span style="color:#c0392b">10:00 ngày 23.06.2025 – 23:59 ngày 20.07.2025</span></strong></p>
 <p><strong><span style="color:#3498db">Quy tắc hoạt động:</span></strong></p>
-<p style="margin-left:40px">1. Trong thời gian diễn ra hoạt động, mỗi ngày Thuyền Trưởng mua “Gói Nạp Ngày” tại đường link <a href="../qua-nap-web.html" target="_blank">https://haitacmanhnhat.vn/qua-nap-web</a><br/>
+<p style="margin-left:40px">1. Trong thời gian diễn ra hoạt động, mỗi ngày Thuyền Trưởng mua “Gói Nạp Ngày” tại đường link <a href="../qua-nap-web.html" target="_blank">http://haitacmanhnhat/qua-nap-web</a><br/>
 2. Hoạt động diễn ra trong 30 ngày<br/>
 3. Gói nạp không cộng vào điểm VIP, không tính vào tích lũy nạp trong sự kiện ingame.<br/>
 4. Khi người chơi nhận thưởng, thì qua ngày hôm sau mới có thể tiếp tục mua được</p>

@@ -64,4 +64,16 @@ class NewsModel extends BaseModel
         }
         return $data;
     }
+
+    public static function latest(string $dataset = 'news', int $limit = 5, ?string $excludeSlug = null): array
+    {
+        $list = static::all($dataset);
+        if ($excludeSlug !== null) {
+            $list = array_values(array_filter(
+                $list,
+                static fn ($item) => ($item['slug'] ?? null) !== $excludeSlug
+            ));
+        }
+        return array_slice($list, 0, max(0, $limit));
+    }
 }

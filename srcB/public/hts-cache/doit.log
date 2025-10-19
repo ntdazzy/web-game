@@ -1,4 +1,4 @@
-https://haitacmanhnhat.vn/ -O ./haitac_site +*.haitacmanhnhat.vn/* +fonts.googleapis.com/* +fonts.gstatic.com/* +cdn.jsdelivr.net/* +cdnjs.cloudflare.com/* +unpkg.com/* +ajax.googleapis.com/* -ad.doubleclick.net/* -*.google-analytics.com/* -s0 -v
+http://haitacmanhnhat/ -O ./haitac_site +*.haitacmanhnhat.vn/* +fonts.googleapis.com/* +fonts.gstatic.com/* +cdn.jsdelivr.net/* +cdnjs.cloudflare.com/* +unpkg.com/* +ajax.googleapis.com/* -ad.doubleclick.net/* -*.google-analytics.com/* -s0 -v
 File generated automatically on Sat, 18 Oct 2025 19:40:31, do NOT edit
 
 To update a mirror, just launch httrack without any parameters

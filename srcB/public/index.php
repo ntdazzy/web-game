@@ -25,7 +25,17 @@ if ($uri === '' || $uri === 'index.html') {
 }
 
 if (preg_match('~^tin-tuc(?:/)?$~', $uri)) {
-    (new NewsController())->index();
+    (new NewsController())->index('news');
+    return;
+}
+
+if (preg_match('~^su-kien(?:/)?$~', $uri)) {
+    (new NewsController())->index('event');
+    return;
+}
+
+if (preg_match('~^update(?:/)?$~', $uri)) {
+    (new NewsController())->index('update');
     return;
 }
 

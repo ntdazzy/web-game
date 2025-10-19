@@ -990,7 +990,7 @@ class MVCConverter:
         key = (hero_id, hero_slug)
         if key in self.remote_cache:
             return self.remote_cache[key]
-        url = "https://haitacmanhnhat.vn/get-hero-detail"
+        url = "http://haitacmanhnhat/get-hero-detail"
         try:
             response = requests.post(
                 url,
