@@ -4,26 +4,21 @@ Tài liệu này mô tả chi tiết cách chuẩn bị và chạy `srcB` trên 
 
 ## 1. Công cụ cần có
 
-| Công cụ    | Mục đích                                                                 | Gợi ý cài đặt                    |
-| ---------- | ------------------------------------------------------------------------ | -------------------------------- |
-| Git        | Tải/đồng bộ mã nguồn                                                     | https://git-scm.com/download/win |
-| PHP >= 8.1 | Chạy dự án (yêu cầu extension `mbstring`, `openssl`, `fileinfo`, `json`) |
-
-| - Nếu dùng XAMPP: PHP đã có sẵn trong `C:\xampp\php`
-| - Nếu không dùng XAMPP: tải bản zip từ https://windows.php.net/download/, giải nén (ví dụ `C:\Tools\php-8.2`) rồi thêm đường dẫn vào **Environment Variables → Path** |
+| Công cụ | Mục đích | Gợi ý cài đặt |
+| --- | --- | --- |
+| Git | Tải/đồng bộ mã nguồn | https://git-scm.com/download/win |
+| PHP >= 8.1 | Chạy dự án (yêu cầu extension `mbstring`, `openssl`, `fileinfo`, `json`) | - Nếu dùng XAMPP: PHP đã có sẵn trong `C:\xampp\php` <br>- Nếu không dùng XAMPP: tải bản zip từ https://windows.php.net/download/, giải nén (ví dụ `C:\Tools\php-8.2`) rồi thêm đường dẫn vào **Environment Variables → Path** |
 | Composer | Quản lý thư viện PHP | https://getcomposer.org/Composer-Setup.exe |
 | Trình soạn thảo | VS Code/PhpStorm/... | https://code.visualstudio.com/ |
 | XAMPP (tùy chọn) | Apache + MySQL + PHP tích hợp | https://www.apachefriends.org/download.html |
 
 > **Kiểm tra nhanh**
 > Mở **PowerShell** mới và chạy:
->
 > ```powershell
 > php -v
 > composer --version
 > git --version
 > ```
->
 > Nếu lệnh trả về phiên bản, bạn đã setup công cụ đúng. Khi dùng XAMPP, hãy mở `C:\xampp\php` và chắc chắn `php.exe` hoạt động (có thể chạy `C:\xampp\php\php.exe -v`).
 
 ## 2. Bố trí thư mục dự án
@@ -46,7 +41,6 @@ Tài liệu này mô tả chi tiết cách chuẩn bị và chạy `srcB` trên 
    ```
 
 > Nếu clone bằng Git:
->
 > ```powershell
 > cd C:\Projects
 > git clone <url-repo> haitacmanhnhat
