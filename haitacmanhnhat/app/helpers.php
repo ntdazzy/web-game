@@ -125,7 +125,6 @@ if (!function_exists('send_security_headers')) {
         $styleSrc = [
             "'self'",
             "'unsafe-inline'",
-            "'nonce-{$nonce}'",
             'https://fonts.googleapis.com',
         ];
 

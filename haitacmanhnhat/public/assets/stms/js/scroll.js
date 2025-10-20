@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('home-page')) {
+        return;
+    }
+
     var leftmenu = document.getElementsByClassName('left-menu')[0];
     var rightmenu = document.getElementsByClassName('right-menu')[0];
     var leftmenuItem = document.querySelectorAll('.left-menu ul li');
@@ -22,6 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hàm cập nhật class active cho menu
     var updateActiveMenu = () => {
         pageIndex = Math.round(window.scrollY / pageHeight);
+        if (!leftmenu || !rightmenu) {
+            return;
+        }
         switch (pageIndex) {
             case 0:
                 leftmenu.style.display = 'block';
