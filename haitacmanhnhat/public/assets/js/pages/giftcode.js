@@ -1,4 +1,5 @@
 (function (window, document) {
+  window.__CUSTOM_GIFTCODE__ = true;
   const page = document.querySelector('.giftcode-page');
   if (!page) {
     return;

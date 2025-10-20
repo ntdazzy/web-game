@@ -121,7 +121,7 @@ $structuredData = [
                             <?php endif; ?>
                         </div>
                         <div class="post-content">
-                            <?= $articleContent ?>
+<?= legacy_html($articleContent) ?>
                         </div>
                     </div>
                     <div class="col-4 d-flex flex-column gap-2 hot-news-wrapper align-items-center" data-aos="fade-up">

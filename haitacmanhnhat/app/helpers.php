@@ -353,6 +353,26 @@ if (!function_exists('csp_nonce')) {
     }
 }
 
+if (!function_exists('legacy_html')) {
+    function legacy_html(?string $html): string
+    {
+        if ($html === null || $html === '') {
+            return '';
+        }
+
+        $nonce = csp_nonce();
+        if ($nonce === '') {
+            return $html;
+        }
+
+        return preg_replace_callback(
+            '/<script\b(?![^>]*\bnonce=)([^>]*)>/i',
+            static fn(array $matches) => '<script' . $matches[1] . ' nonce="' . htmlspecialchars($nonce, ENT_QUOTES) . '">',
+            $html
+        ) ?? $html;
+    }
+}
+
 if (!function_exists('should_enable_analytics')) {
     function should_enable_analytics(): bool
     {

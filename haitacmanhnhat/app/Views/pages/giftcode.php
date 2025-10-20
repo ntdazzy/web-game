@@ -12,7 +12,7 @@ $meta = [
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 $pageStyles[] = '/assets/css/modules/giftcode.css';
-$pageScripts[] = '/assets/stms/js/giftcode.script9a1b.js';
+$pageScripts[] = '/assets/js/pages/giftcode.js';
 
 $giftcodeHistoryTables = [
     [

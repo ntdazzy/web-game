@@ -5,4 +5,4 @@ $meta = array_merge([
 ], $meta ?? []);
 $bodyAttributes = $bodyAttributes ?? ($character['body_attributes'] ?? '');
 ?>
-<?= $character['content_html'] ?? '' ?>
+<?= legacy_html($character['content_html'] ?? '') ?>

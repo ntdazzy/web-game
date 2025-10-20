@@ -770,7 +770,7 @@ Made by: Bruno Vieira
 .lms_scroll_track
 {
     background: var(--lms_scrollpath_bg);
-    border-radius: var(--lms_scrollpath_radius);  
+    border-radius: var(--lms_scrollpath_radius);
     width: 8px;
     position: absolute;
     right: 0px;
@@ -863,7 +863,7 @@ li {
 #root {
     max-width: 3840px;
     margin: auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 /*************************** DEFINE ICON ***************************/
 .dropdown-icon {

@@ -42,7 +42,7 @@ li {
 #root {
     max-width: 3840px;
     margin: auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 /*************************** DEFINE ICON ***************************/
 .dropdown-icon {
