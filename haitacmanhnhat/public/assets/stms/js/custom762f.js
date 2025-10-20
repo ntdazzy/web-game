@@ -290,26 +290,24 @@ $(document).ready(function () {
         });
     });
 
-    if (!window.__CUSTOM_GIFTCODE__ && $('#serverSelect').length) {
-        $('#serverSelect').select2({
-            placeholder: "Nhập ID máy chủ",
-            allowClear: true,
-            width: '100%',
-            theme: 'classic',
-            dropdownCssClass: 'serverSelect-dropdown',
-            dropdownParent: $('.select-group .server')
-        });
+    $('#serverSelect').select2({
+        placeholder: "Nhập ID máy chủ",
+        allowClear: true,
+        width: '100%',
+        theme: 'classic',
+        dropdownCssClass: 'serverSelect-dropdown',
+        dropdownParent: $('.select-group .server')
+    });
 
-        $('#serverSelect').on('select2:open', () => {
-            $('.select2-search__field').attr('placeholder', 'Nhập ID máy chủ...');
-            $('.select2-search__field').addClass('server-search-select2');
-        });
-    }
+    $('#serverSelect').on('select2:open', () => {
+        $('.select2-search__field').attr('placeholder', 'Nhập ID máy chủ...');
+        $('.select2-search__field').addClass('server-search-select2');
+    });
 
     $('.search-lite.post').on('submit', function (e) {
         e.preventDefault();
 
-    const text = $(this).find('input[name=\"search\"]').val().trim();
+        const text = $(this).find('#search').val().trim();
         if (!text) return;
 
         const redirectUrl = '/tim-kiem/' + changeAlias(text);

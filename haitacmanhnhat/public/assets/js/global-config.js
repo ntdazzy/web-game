@@ -47,9 +47,12 @@
     window.cookieDomain = normalizedCookieDomain;
   }
 
+  var host = window.location.host || primaryDomain || '';
+  host = (host || '').replace(/^\/*/, '').replace(/\/+$/, '');
+
   var endpoints = {
-    linkAjaxGiftcode: origin + '/giftcode/fetch-code-by-id',
-    historyGiftcode: origin + '/giftcode/fetch-history',
+    linkAjaxGiftcode: host ? host + '/giftcode/fetch-code-by-id' : '/giftcode/fetch-code-by-id',
+    historyGiftcode: host ? host + '/giftcode/fetch-history' : '/giftcode/fetch-history',
     loginWidgetSrc: origin + '/assets/stms/js/widget.login.js'
   };
 
@@ -57,7 +60,7 @@
   window.linkAjaxGiftcode = endpoints.linkAjaxGiftcode;
   window.historyGiftcode = endpoints.historyGiftcode;
   window.loginWidgetSrc = endpoints.loginWidgetSrc;
-  window.MAINSITE_ID = origin;
+  window.MAINSITE_ID = host || origin;
 
   if (!document.getElementById('__login-widget-script')) {
     var script = document.createElement('script');
