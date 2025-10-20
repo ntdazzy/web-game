@@ -3,11 +3,73 @@
 if (!function_exists('env')) {
     function env(string $key, $default = null)
     {
+        static $initialized = false;
+        static $loadedValues = [];
+
         $value = getenv($key);
-        if ($value === false) {
-            return $default;
+        if ($value !== false) {
+            return $value;
         }
-        return $value;
+
+        if (!$initialized) {
+            $initialized = true;
+            $envPath = dirname(__DIR__) . '/.env';
+            if (is_file($envPath) && is_readable($envPath)) {
+                $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+                foreach ($lines as $line) {
+                    $line = trim($line);
+                    if ($line === '' || str_starts_with($line, '#')) {
+                        continue;
+                    }
+                    if (!str_contains($line, '=')) {
+                        continue;
+                    }
+
+                    [$rawKey, $rawValue] = explode('=', $line, 2);
+                    $envKey = trim($rawKey);
+                    if ($envKey === '') {
+                        continue;
+                    }
+
+                    $envValue = trim($rawValue);
+                    $isQuoted = false;
+                    if ($envValue !== '') {
+                        $firstChar = $envValue[0];
+                        $lastChar = $envValue[strlen($envValue) - 1];
+                        if (($firstChar === '"' && $lastChar === '"') || ($firstChar === "'" && $lastChar === "'")) {
+                            $isQuoted = true;
+                            $envValue = substr($envValue, 1, -1);
+                            if ($firstChar === '"') {
+                                $envValue = str_replace(['\\"', '\\n', '\\r'], ['"', "\n", "\r"], $envValue);
+                            }
+                        }
+                    }
+                    if (!$isQuoted && str_contains($envValue, '#')) {
+                        $commentPos = strpos($envValue, '#');
+                        if ($commentPos !== false) {
+                            $envValue = rtrim(substr($envValue, 0, $commentPos));
+                        }
+                    }
+
+                    $loadedValues[$envKey] = $envValue;
+                    if (!array_key_exists($envKey, $_ENV)) {
+                        $_ENV[$envKey] = $envValue;
+                    }
+                    if (!array_key_exists($envKey, $_SERVER)) {
+                        $_SERVER[$envKey] = $envValue;
+                    }
+                    if (getenv($envKey) === false) {
+                        putenv($envKey . '=' . $envValue);
+                    }
+                }
+            }
+        }
+
+        if (array_key_exists($key, $loadedValues)) {
+            return $loadedValues[$key];
+        }
+
+        return $default;
     }
 }
 
