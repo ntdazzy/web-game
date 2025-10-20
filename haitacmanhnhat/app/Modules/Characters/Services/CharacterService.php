@@ -27,7 +27,6 @@ class CharacterService
             'bodyAttributes' => 'class="wrapper-subpage overflow-y-auto subpage-hero"',
             'activeNav' => 'characters',
             'loginScriptPage' => 'danh-sach-tuong',
-            'pageScripts' => ['/assets/js/pages/characters.js'],
             'characters' => $this->all(),
         ];
     }

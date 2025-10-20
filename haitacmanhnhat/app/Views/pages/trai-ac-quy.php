@@ -12,7 +12,7 @@ $meta = [
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 $pageHeadScripts[] = '/assets/js/data/devil-fruits-base-data.js';
-$pageScripts[] = '/assets/js/pages/devil-fruits.js';
+$pageScripts[] = '/assets/stms/js/fruits.js';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>

@@ -3,7 +3,17 @@
 <html lang="vi">
 <head>
     <?php include __DIR__ . '/../partials/head.php'; ?>
-    <link rel="stylesheet" href="/assets/css/vendor.css">
+    <link rel="stylesheet" href="/assets/stms/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stms/css/all.min.css">
+    <link rel="stylesheet" href="/assets/stms/css/slick.css">
+    <link rel="stylesheet" href="/assets/stms/css/slick-theme.css">
+    <link rel="stylesheet" href="/assets/stms/css/daterangepicker.css">
+    <link rel="stylesheet" href="/assets/stms/css/letmescroll.css">
+    <link rel="stylesheet" href="/assets/stms/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/stms/css/aos.css">
+    <link rel="stylesheet" href="/assets/stms/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/assets/stms/css/stylee599.css">
+    <link rel="stylesheet" href="/assets/stms/css/responsive59d6.css">
     <link rel="stylesheet" href="/assets/css/app.css">
     <?php if (!empty($pageStyles) && is_array($pageStyles)): ?>
         <?php foreach ($pageStyles as $style): ?>
@@ -110,10 +120,24 @@
             </form>
         </div>
     </div>
-    <script src="/assets/js/vendor.js"></script>
-    <script src="/assets/js/app.js" defer></script>
-    <script src="/assets/js/app-auth.js" defer></script>
-    <script src="/assets/js/runtime/init-daterangepicker.js" defer></script>
+    <script src="/assets/stms/js/jquery-1.11.0.min.js"></script>
+    <script src="/assets/stms/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/stms/js/slick.min.js"></script>
+    <script src="/assets/stms/js/select2.full.min.js"></script>
+    <script src="/assets/stms/js/aos.js"></script>
+    <script src="/assets/stms/js/moment.min.js"></script>
+    <script src="/assets/stms/js/daterangepicker.min.js"></script>
+    <script src="/assets/stms/js/letmescroll.js"></script>
+    <script src="/assets/stms/js/jquery.mCustomScrollbar.js"></script>
+    <script src="/assets/stms/js/loadingoverlay.min.js"></script>
+    <script src="/assets/stms/js/sweetalert2.all.js"></script>
+    <script src="/assets/stms/js/scroll.js"></script>
+    <script src="/assets/stms/js/global.scriptac4f.js"></script>
+    <script src="/assets/stms/js/custom762f.js"></script>
+    <script src="/assets/stms/js/widget.login.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/app-auth.js"></script>
+    <script src="/assets/js/runtime/init-daterangepicker.js"></script>
     <?php if (!empty($pageScripts) && is_array($pageScripts)): ?>
         <?php foreach ($pageScripts as $script): ?>
             <script src="<?= htmlspecialchars($script, ENT_QUOTES) ?>" defer></script>

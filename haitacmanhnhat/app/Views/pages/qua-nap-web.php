@@ -11,7 +11,6 @@ $meta = [
     'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
-$pageScripts[] = '/assets/js/pages/payments.js';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>

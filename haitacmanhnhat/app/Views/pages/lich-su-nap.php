@@ -12,7 +12,6 @@ $meta = [
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 $pageHeadScripts[] = '/assets/js/data/history-packages-data.js';
-$pageScripts[] = '/assets/js/pages/payments.js';
 ?>
 
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
