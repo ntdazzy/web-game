@@ -5,6 +5,18 @@ return [
         'env' => env('APP_ENV', 'production'),
         'debug' => env('APP_DEBUG', false),
         'url' => env('APP_ORIGIN', 'http://haitacmanhnhat'),
+        'domain' => (static function (): ?string {
+            $explicit = env('APP_PRIMARY_DOMAIN');
+            if (is_string($explicit) && $explicit !== '') {
+                return $explicit;
+            }
+            $originHost = parse_url(env('APP_ORIGIN', ''), PHP_URL_HOST);
+            if (is_string($originHost) && $originHost !== '') {
+                return $originHost;
+            }
+            return null;
+        })(),
+        'cookie_domain' => env('APP_COOKIE_DOMAIN'),
     ],
     'database' => [
         'default' => env('DB_CONNECTION', 'mysql'),

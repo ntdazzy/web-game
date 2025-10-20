@@ -38,8 +38,10 @@ $meta['og:url'] = $meta['og:url'] ?? $currentCanonical;
         ? $structuredData
         : (array) $structuredData;
     ?>
-    <?php foreach ($structuredBlocks as $schema): ?>
+<?php foreach ($structuredBlocks as $schema): ?>
         <script type="application/ld+json" nonce="<?= csp_nonce() ?>"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) ?></script>
     <?php endforeach; ?>
 <?php endif; ?>
-<?php include __DIR__ . '/analytics-head.php'; ?>
+<?php if (should_enable_analytics()): ?>
+    <?php include __DIR__ . '/analytics-head.php'; ?>
+<?php endif; ?>

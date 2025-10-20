@@ -17,19 +17,31 @@
     <?php endif; ?>
     <?php
         $origin = app_origin();
-        $host = parse_url($origin, PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? '');
-        $cookieDomain = $host ? ('.' . ltrim($host, '.')) : null;
+        $primaryDomain = \App\Core\Config\Config::get('app.domain');
+        if (!is_string($primaryDomain) || $primaryDomain === '') {
+            $primaryDomain = parse_url($origin, PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? '');
+        }
+        $cookieDomain = \App\Core\Config\Config::get('app.cookie_domain');
+        if (!is_string($cookieDomain) || $cookieDomain === '') {
+            $cookieDomain = $primaryDomain ? ('.' . ltrim($primaryDomain, '.')) : null;
+        }
+        $analyticsEnabled = should_enable_analytics();
     ?>
     <script id="app-config-data" type="application/json" nonce="<?= csp_nonce() ?>">
         <?= json_encode([
             'origin' => $origin,
             'cookieDomain' => $cookieDomain,
+            'enableAnalytics' => $analyticsEnabled,
+            'analyticsDomain' => $primaryDomain,
+            'primaryDomain' => $primaryDomain,
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
     </script>
     <script src="/assets/js/runtime/app-config.js"></script>
 </head>
 <body <?= $bodyAttributes ?? '' ?>>
-    <?php include __DIR__ . '/../partials/gtm-noscript.php'; ?>
+    <?php if ($analyticsEnabled): ?>
+        <?php include __DIR__ . '/../partials/gtm-noscript.php'; ?>
+    <?php endif; ?>
     <?php include __DIR__ . '/../partials/header.php'; ?>
     <main class="main-content">
         <?= $content ?? '' ?>
@@ -37,7 +49,9 @@
     <?php include __DIR__ . '/../partials/page-slider.php'; ?>
     <?php include __DIR__ . '/../partials/footer.php'; ?>
     <?php include __DIR__ . '/../partials/menu-fixed.php'; ?>
-    <?php include __DIR__ . '/../partials/analytics-inline.php'; ?>
+    <?php if ($analyticsEnabled): ?>
+        <?php include __DIR__ . '/../partials/analytics-inline.php'; ?>
+    <?php endif; ?>
     <?php include __DIR__ . '/../partials/global-config-script.php'; ?>
     <div id="authModal" class="auth-modal hidden" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
         <div class="backdrop absolute inset-0"></div>

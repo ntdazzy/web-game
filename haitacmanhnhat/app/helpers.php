@@ -99,14 +99,51 @@ if (!function_exists('send_security_headers')) {
         $nonce = base64_encode(random_bytes(16));
         $GLOBALS['__CSP_NONCE__'] = $nonce;
 
+        $analyticsEnabled = should_enable_analytics();
+
+        $fontSrc = [
+            "'self'",
+            'https://fonts.gstatic.com',
+            'data:',
+        ];
+
+        $imgSrc = [
+            "'self'",
+            'data:',
+            'https:',
+        ];
+
+        $connectSrc = [
+            "'self'",
+        ];
+
+        $scriptSrc = [
+            "'self'",
+            "'nonce-{$nonce}'",
+        ];
+
+        $styleSrc = [
+            "'self'",
+            "'unsafe-inline'",
+            "'nonce-{$nonce}'",
+            'https://fonts.googleapis.com',
+        ];
+
+        if ($analyticsEnabled) {
+            $connectSrc[] = 'https://www.google-analytics.com';
+            $connectSrc[] = 'https://www.googletagmanager.com';
+            $scriptSrc[] = 'https://www.google-analytics.com';
+            $scriptSrc[] = 'https://www.googletagmanager.com';
+        }
+
         $csp = implode('; ', [
             "default-src 'self'",
             "base-uri 'self'",
-            "font-src 'self' https://fonts.gstatic.com data:",
-            "img-src 'self' data: https:",
-            "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com",
-            "script-src 'self' 'nonce-{$nonce}' https://www.googletagmanager.com https://www.google-analytics.com",
-            "style-src 'self' 'unsafe-inline' 'nonce-{$nonce}' https://fonts.googleapis.com",
+            'font-src ' . implode(' ', $fontSrc),
+            'img-src ' . implode(' ', $imgSrc),
+            'connect-src ' . implode(' ', $connectSrc),
+            'script-src ' . implode(' ', $scriptSrc),
+            'style-src ' . implode(' ', $styleSrc),
             "frame-ancestors 'self'",
             "form-action 'self'",
         ]);
@@ -314,5 +351,19 @@ if (!function_exists('csp_nonce')) {
     function csp_nonce(): string
     {
         return $GLOBALS['__CSP_NONCE__'] ?? '';
+    }
+}
+
+if (!function_exists('should_enable_analytics')) {
+    function should_enable_analytics(): bool
+    {
+        $env = \App\Core\Config\Config::get('app.env', 'production');
+        $debug = (bool) \App\Core\Config\Config::get('app.debug', false);
+
+        if ($env === 'production' && !$debug) {
+            return true;
+        }
+
+        return false;
     }
 }
