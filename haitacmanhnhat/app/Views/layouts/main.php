@@ -1,5 +1,5 @@
-<?php
-?><!DOCTYPE html>
+<?php $cspNonce = csp_nonce(); ?>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <?php include __DIR__ . '/../partials/head.php'; ?>
@@ -22,7 +22,7 @@
     <?php endif; ?>
     <?php if (!empty($pageHeadScripts) && is_array($pageHeadScripts)): ?>
         <?php foreach ($pageHeadScripts as $headScript): ?>
-            <script src="<?= htmlspecialchars($headScript, ENT_QUOTES) ?>" nonce="<?= csp_nonce() ?>"></script>
+            <script src="<?= htmlspecialchars($headScript, ENT_QUOTES) ?>" nonce="<?= $cspNonce ?>"></script>
         <?php endforeach; ?>
     <?php endif; ?>
     <?php
@@ -37,7 +37,7 @@
         }
         $analyticsEnabled = should_enable_analytics();
     ?>
-    <script id="app-config-data" type="application/json" nonce="<?= csp_nonce() ?>">
+    <script id="app-config-data" type="application/json" nonce="<?= $cspNonce ?>">
         <?= json_encode([
             'origin' => $origin,
             'cookieDomain' => $cookieDomain,
@@ -47,16 +47,20 @@
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
     </script>
     <script src="/assets/js/runtime/app-config.js"></script>
+    <script nonce="<?= $cspNonce ?>">window.__CSP_NONCE__ = <?= json_encode($cspNonce, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;</script>
 </head>
 <body <?= $bodyAttributes ?? '' ?>>
     <?php if ($analyticsEnabled): ?>
         <?php include __DIR__ . '/../partials/gtm-noscript.php'; ?>
     <?php endif; ?>
     <?php include __DIR__ . '/../partials/header.php'; ?>
+    <?php $showLeftMenu = $showLeftMenu ?? false; ?>
     <main class="main-content">
         <?= $content ?? '' ?>
     </main>
-    <?php include __DIR__ . '/../partials/page-slider.php'; ?>
+    <?php if ($showLeftMenu): ?>
+        <?php include __DIR__ . '/../partials/page-slider.php'; ?>
+    <?php endif; ?>
     <?php include __DIR__ . '/../partials/footer.php'; ?>
     <?php include __DIR__ . '/../partials/menu-fixed.php'; ?>
     <?php if ($analyticsEnabled): ?>

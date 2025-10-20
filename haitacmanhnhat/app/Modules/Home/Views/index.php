@@ -244,7 +244,7 @@
                             </ul>
                             <div class="action-group d-flex">
                                 <form action="#" class="search-lite search position-relative post">
-                                    <input autocomplete="off" id="search" name="search" placeholder="Tìm kiếm"
+                                    <input autocomplete="off" name="search" placeholder="Tìm kiếm"
                                         type="text" />
                                     <button class="position-absolute" type="submit"><i
                                             class="fa-light fa-magnifying-glass"></i></button>
@@ -329,7 +329,7 @@
                             </ul>
                             <div class="action-group d-flex">
                                 <form action="#" class="search-lite search position-relative post">
-                                    <input autocomplete="off" id="search" name="search" placeholder="Tìm kiếm"
+                                    <input autocomplete="off" name="search" placeholder="Tìm kiếm"
                                         type="text" />
                                     <button class="position-absolute" type="submit"><i
                                             class="fa-light fa-magnifying-glass"></i></button>
@@ -418,7 +418,7 @@
                             </ul>
                             <div class="action-group d-flex">
                                 <form action="#" class="search-lite search position-relative post">
-                                    <input autocomplete="off" id="search" name="search" placeholder="Tìm kiếm"
+                                    <input autocomplete="off" name="search" placeholder="Tìm kiếm"
                                         type="text" />
                                     <button class="position-absolute" type="submit"><i
                                             class="fa-light fa-magnifying-glass"></i></button>

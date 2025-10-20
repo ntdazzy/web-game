@@ -55,7 +55,7 @@ $tabConfig = [
                                 <?php endforeach; ?>
                             </div>
                             <form class="search-lite search position-relative post" action="#">
-                                <input type="text" placeholder="Tìm kiếm" id="search" name="search" autocomplete="off">
+                                <input type="text" placeholder="Tìm kiếm" name="search" autocomplete="off">
                                 <button type="submit" class="search-icon position-absolute"></button>
                             </form>
                         </div>

@@ -1,3 +1,5 @@
+<?php $showLeftMenu = $showLeftMenu ?? false; ?>
+<?php if ($showLeftMenu): ?>
 <div class="menu-fixed w-100 position-fixed left">
     <div class="position-relative container">
         <div class="left-menu position-absolute">
@@ -9,6 +11,7 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
 <div class="menu-fixed w-100 position-fixed right">
     <div class="position-relative">
         <div class="right-menu position-absolute">

@@ -44,7 +44,8 @@ class HomeService
                     ],
                 ],
             ],
-            'bodyAttributes' => 'class=""',
+            'bodyAttributes' => 'class="home-page"',
+            'showLeftMenu' => true,
             'pageStyles' => ['/assets/css/modules/home.css'],
             'heroVideo' => [
                 'src' => '/assets/stms/videos/mainsite/home-video-3.mp4',

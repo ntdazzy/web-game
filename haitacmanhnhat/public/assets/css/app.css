@@ -9,6 +9,14 @@
   font-family: inherit;
 }
 
+.is-hidden {
+  display: none;
+}
+
+body.home-page {
+  overflow-x: hidden;
+}
+
 .auth-modal.hidden {
   display: none;
 }

@@ -307,7 +307,7 @@ $(document).ready(function () {
     $('.search-lite.post').on('submit', function (e) {
         e.preventDefault();
 
-        const text = $(this).find('#search').val().trim();
+    const text = $(this).find('input[name=\"search\"]').val().trim();
         if (!text) return;
 
         const redirectUrl = '/tim-kiem/' + changeAlias(text);
