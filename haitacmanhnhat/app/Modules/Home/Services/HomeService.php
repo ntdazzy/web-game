@@ -46,6 +46,11 @@ class HomeService
             ],
             'bodyAttributes' => 'class=""',
             'pageStyles' => ['/assets/css/modules/home.css'],
+            'heroVideo' => [
+                'src' => '/assets/stms/videos/mainsite/home-video-3.mp4',
+                'type' => 'video/mp4',
+                'poster' => '/assets/images/background.webp',
+            ],
             'heroBackground' => [
                 'src' => '/assets/images/background.webp',
                 'fallback' => '/assets/images/background.png',

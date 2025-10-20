@@ -22,6 +22,30 @@
   const popupClose = popup ? popup.querySelector('.close') : null;
   const popupTableBody = popup ? popup.querySelector('#table-history tbody') : null;
 
+  const normaliseEndpoint = (rawUrl) => {
+    if (!rawUrl || typeof rawUrl !== 'string') {
+      return '';
+    }
+    const trimmed = rawUrl.trim();
+    if (!trimmed) {
+      return '';
+    }
+    if (/^https?:\/\//i.test(trimmed)) {
+      return trimmed;
+    }
+    if (trimmed.startsWith('//')) {
+      return (window.location.protocol || 'https:') + trimmed;
+    }
+    if (trimmed.startsWith('/')) {
+      const origin = (window.__APP_CONFIG__ && window.__APP_CONFIG__.origin) || window.location.origin || '';
+      return origin.replace(/\/+$/, '') + trimmed;
+    }
+    return trimmed;
+  };
+
+  const giftcodeEndpoint = normaliseEndpoint(window.linkAjaxGiftcode);
+  const historyEndpoint = normaliseEndpoint(window.historyGiftcode);
+
   function setServerSlug(value) {
     if (serverSlugInput) {
       serverSlugInput.value = value || '';
@@ -147,9 +171,17 @@
       window.showLoading();
     }
 
-    const endpoint = window.linkAjaxGiftcode ? '//' + window.linkAjaxGiftcode : '';
+    if (!giftcodeEndpoint) {
+      if (typeof window.hideLoading === 'function') {
+        window.hideLoading();
+      }
+      if (typeof window.error === 'function') {
+        window.error('Không xác định được endpoint nhận code.');
+      }
+      return;
+    }
 
-    sendRequest(endpoint, {
+    sendRequest(giftcodeEndpoint, {
       codeSlug: codeSlug,
       serverSlug: serverSlug,
       codeId: codeId,
@@ -238,10 +270,18 @@
 
   function handleHistoryFetch() {
     const serverSlug = serverSlugInput ? serverSlugInput.value.trim() : '';
+    if (!historyEndpoint) {
+      if (window.Swal) {
+        window.Swal.fire({
+          icon: 'error',
+          title: 'Thông báo',
+          confirmButtonText: 'Không xác định được endpoint lịch sử giftcode!',
+        });
+      }
+      return;
+    }
 
-    const endpoint = window.historyGiftcode ? '//' + window.historyGiftcode : '';
-
-    sendRequest(endpoint, { serverSlug: serverSlug })
+    sendRequest(historyEndpoint, { serverSlug: serverSlug })
       .then((response) => {
         if (!response) {
           return;
@@ -278,6 +318,43 @@
     });
     setServerSlug(serverSelect.value === '0' ? '' : serverSelect.value);
   }
+
+  const initialiseSelect2 = () => {
+    const $ = window.jQuery;
+    if (!$ || !$.fn || typeof $.fn.select2 !== 'function' || !serverSelect) {
+      return;
+    }
+    if ($(serverSelect).data('select2')) {
+      return;
+    }
+    const $dropdownParent = $(page.querySelector('.select-group .server') || serverSelect.parentElement);
+    const options = {
+      placeholder: 'Nhập ID máy chủ',
+      allowClear: true,
+      width: '100%',
+      theme: 'classic',
+      dropdownCssClass: 'serverSelect-dropdown',
+      language: {
+        noResults: function () {
+          return 'Không tìm thấy kết quả';
+        },
+      },
+    };
+    if ($dropdownParent.length) {
+      options.dropdownParent = $dropdownParent;
+    }
+    $(serverSelect).select2(options);
+
+    $(serverSelect).on('select2:open', () => {
+      const searchField = document.querySelector('.select2-search__field');
+      if (searchField) {
+        searchField.setAttribute('placeholder', 'Nhập ID máy chủ...');
+        searchField.classList.add('server-search-select2');
+      }
+    });
+  };
+
+  initialiseSelect2();
 
   dropdownItems.forEach((item) => {
     item.addEventListener('click', function (event) {

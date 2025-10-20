@@ -5,6 +5,23 @@
     return img.dataset.lazyExclude === 'true' || img.classList.contains('bg-image');
   };
 
+  const attachFallbackHandler = (img) => {
+    const fallbackSrc = img.dataset.fallbackSrc;
+    if (!fallbackSrc) {
+      return;
+    }
+
+    const applyFallback = () => {
+      if (img.dataset.fallbackApplied === 'true') {
+        return;
+      }
+      img.dataset.fallbackApplied = 'true';
+      img.setAttribute('src', fallbackSrc);
+    };
+
+    img.addEventListener('error', applyFallback);
+  };
+
   const inferAlt = (img) => {
     const title = (img.getAttribute('title') || '').trim();
     if (title) {
@@ -40,6 +57,8 @@
       if (currentAlt === null || currentAlt.trim() === '') {
         img.setAttribute('alt', inferAlt(img));
       }
+
+      attachFallbackHandler(img);
     });
   };
 

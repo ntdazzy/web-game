@@ -5,6 +5,12 @@
 
 .landing-hero__background {
     object-fit: cover;
+    pointer-events: none;
+}
+
+video.landing-hero__background {
+    background-color: transparent;
+    object-fit: cover;
 }
 
 .landing-hero__cta-group {
