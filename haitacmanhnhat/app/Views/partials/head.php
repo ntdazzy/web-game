@@ -3,11 +3,11 @@ $defaultMeta = [
     'viewport' => 'width=device-width, initial-scale=1.0',
     'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
     'og:title' => 'Hải Tặc Mạnh Nhất',
-    'og:image' => '/assets/stms/imgs/600x315.jpg',
+    'og:image' => '/assets/imgs/600x315.jpg',
     'og:image:width' => '600',
     'og:image:height' => '315',
     'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-    'link:shortcut_icon' => '/assets/stms/imgs/32x32.png',
+    'link:shortcut_icon' => '/assets/imgs/32x32.png',
 ];
 $meta = array_replace($defaultMeta, $meta ?? []);
 $pageTitle = $pageTitle ?? ($meta['og:title'] ?? 'Hải Tặc Mạnh Nhất');

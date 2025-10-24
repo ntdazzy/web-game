@@ -57,7 +57,7 @@ $structuredData = [
             'name' => 'Hải Tặc Mạnh Nhất',
             'logo' => [
                 '@type' => 'ImageObject',
-                'url' => app_origin() . '/assets/stms/imgs/logo.png',
+                'url' => app_origin() . '/assets/imgs/logo.png',
             ],
         ],
         'mainEntityOfPage' => $articleUrl,
@@ -70,7 +70,7 @@ $structuredData = [
 <!-- Start Meta Chung -->
 <?php include __DIR__ . '/../../partials/top-nav-mobile.php'; ?>
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-    <img src="/assets/stms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
+    <img src="/assets/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -144,7 +144,7 @@ $structuredData = [
                                     title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
                                     <img src="<?= htmlspecialchars($hotThumb, ENT_QUOTES) ?>"
                                         alt="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>"
-                                        data-fallback-src="/assets/stms/imgs/post-item-example.png">
+                                        data-fallback-src="/assets/imgs/post-item-example.png">
                                 </a>
                                 <div class="d-flex flex-column justify-content-center h-100 title">
                                     <a class="text-white"

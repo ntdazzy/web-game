@@ -17,7 +17,7 @@ $tabConfig = [
 <!-- Start Header Chung -->
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-    <img src="/assets/stms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
+    <img src="/assets/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -79,7 +79,7 @@ $tabConfig = [
                                         class="title d-flex">
                                         <div class="thumbnail">
                                             <img src="<?= htmlspecialchars($thumbnail, ENT_QUOTES) ?>"
-                                                data-fallback-src="/assets/stms/imgs/post-item-example.png"
+                                                data-fallback-src="/assets/imgs/post-item-example.png"
                                                 alt="<?= htmlspecialchars($item['title'] ?? '', ENT_QUOTES) ?>"
                                                 width="100%" height="100%">
                                         </div>

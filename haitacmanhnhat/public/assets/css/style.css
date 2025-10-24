@@ -374,8 +374,6 @@ li {
     transition: width 0.5s ease, padding 0.3s ease;
 }
 
-.right-menu .menu-group {}
-
 .right-menu .menu-group .menu-item {
     cursor: pointer;
     text-indent: -9999px;
@@ -958,8 +956,6 @@ footer .info-group p::before {
     transform: translateY(-45px);
     min-height: 945px;
 }
-
-.page-3 .title {}
 
 .page-3 .background {
     background: url(../imgs/page3/bg-table.png) no-repeat;

@@ -1,7 +1,7 @@
 <!-- Start Header Chung -->
 <?php include __DIR__ . '/../../../Views/partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-    <img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png" />
+    <img alt="" class="logo-warning position-absolute" src="/assets/imgs/logo-warning.png" />
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -65,7 +65,7 @@
             <div class="title container d-flex flex-column align-items-center aos-init aos-animate" data-aos="fade-down"
                 data-aos-anchor-placement="top-bottom" data-aos-duration="900" data-aos-offset="0"
                 data-aos-once="false">
-                <img alt="" src="/assets/stms/imgs/page2/title-2.png" />
+                <img alt="" src="/assets/imgs/page2/title-2.png" />
             </div>
             <div class="content d-flex aos-init aos-animate" data-aos="fade-down" data-aos-anchor-placement="top-bottom"
                 data-aos-duration="900" data-aos-offset="0" data-aos-once="false">
@@ -83,22 +83,22 @@
                             <div class="carousel-item">
                                 <a href="/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177" target="_self" title="S32">
                                     <img alt="S32" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(71).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(71).jpg" />
                                 </a>
                             </div>
                             <div class="carousel-item active">
                                 <a href="/tin-tuc/su-kien-tuan-2-thang-10-2025-195" target="_self" title="EV2">
                                     <img alt="EV2" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(73).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(73).jpg" />
                                 </a>
                             </div>
                             <div class="carousel-item">
                                 <a href="/tin-tuc/vuong-gia-chien-lan-2-197" target="_self" title="VGC">
                                     <img alt="VGC" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(74).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(74).jpg" />
                                 </a>
                             </div>
                         </div>
@@ -118,22 +118,22 @@
                             <div class="carousel-item">
                                 <a href="/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177" target="_self" title="S32">
                                     <img alt="S32" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide-mobile.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(15).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide-mobile.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(15).jpg" />
                                 </a>
                             </div>
                             <div class="carousel-item active">
                                 <a href="/tin-tuc/su-kien-tuan-2-thang-10-2025-195" target="_self" title="EV2">
                                     <img alt="EV2" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide-mobile.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(16).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide-mobile.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(16).jpg" />
                                 </a>
                             </div>
                             <div class="carousel-item">
                                 <a href="/tin-tuc/vuong-gia-chien-lan-2-197" target="_self" title="VGC">
                                     <img alt="VGC" class="d-block w-100 h-100"
-                                        data-fallback-src="/assets/stms/imgs/page2/slides/slide-mobile.png"
-                                        src="/assets/stms/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(17).jpg" />
+                                        data-fallback-src="/assets/imgs/page2/slides/slide-mobile.png"
+                                        src="/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(17).jpg" />
                                 </a>
                             </div>
                         </div>
@@ -436,7 +436,7 @@
             <div class="title container d-flex flex-column align-items-center" data-aos="fade-down"
                 data-aos-anchor-placement="top-bottom" data-aos-duration="900" data-aos-offset="-170"
                 data-aos-once="false">
-                <img alt="" src="/assets/stms/imgs/page3/title.png" />
+                <img alt="" src="/assets/imgs/page3/title.png" />
             </div>
             <div class="background position-absolute"></div>
             <div class="content d-flex" data-aos="fade-down" data-aos-anchor-placement="top-bottom"
@@ -453,7 +453,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img alt="" src="/assets/stms/imgs/page3/top-1.png" />
+                                <img alt="" src="/assets/imgs/page3/top-1.png" />
                             </td>
                             <td>彡A‿Du‿Ke彡</td>
                             <td>46,394,585</td>
@@ -461,7 +461,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <img alt="" src="/assets/stms/imgs/page3/top-2.png" />
+                                <img alt="" src="/assets/imgs/page3/top-2.png" />
                             </td>
                             <td>Logan</td>
                             <td>42,433,431</td>
@@ -469,7 +469,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <img alt="" src="/assets/stms/imgs/page3/top-3.png" />
+                                <img alt="" src="/assets/imgs/page3/top-3.png" />
                             </td>
                             <td>Hào_Béo_Sún_Răn</td>
                             <td>37,519,354</td>

@@ -1,8 +1,8 @@
 RewriteEngine On
 
 # Legacy asset aliases
-RewriteRule ^st-ms/(.*)$ assets/stms/$1 [L]
-RewriteRule ^cdn-ms/(.*)$ assets/stms/$1 [L]
+RewriteRule ^st-ms/(.*)$ assets/$1 [L]
+RewriteRule ^cdn-ms/(.*)$ assets/$1 [L]
 RewriteRule ^fonts\.gstatic\.com/(.*)$ assets/fonts/files/$1 [L]
 RewriteRule ^fonts\.googleapis\.com/(.*)$ assets/fonts/css/$1 [L]
 

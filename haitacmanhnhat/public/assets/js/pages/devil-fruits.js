@@ -1,484 +1,345 @@
-(function () {
-    const root = document.querySelector('[data-devil-fruit-source]');
-    if (!root) {
+let filteredFruits = fruits;
+let currentEffect = "";
+function renderFruits(page) {
+    const start = (page - 1) * perPage;
+    const end = start + perPage;
+    const items = filteredFruits.slice(start, end);
+
+    const $list = $("#fruit-list");
+    if (!$list.length) return;
+
+    if (!items.length) {
+        $list.html('<li class="no-data">Không có dữ liệu để hiển thị</li>');
         return;
     }
 
-    const sourceKey = root.dataset.devilFruitSource || 'fusion';
-    const jsonEndpoint = root.dataset.devilFruitJson || '';
-    const listElement = root.querySelector('#fruit-list');
-    const paginationElement = root.querySelector('#pagination');
-    const detailContainer = root.querySelector('.fruit-detail .content');
-    const searchInput = root.querySelector('.text-search');
-    const filterButtons = Array.from(root.querySelectorAll('.btn-filter'));
+    const html = items
+        .map((fruit) => {
+            const effectKey = slugify(fruit.effect || "");
+            const nameSpans = formatNameToSpans(fruit.name);
+            return `
+            <li class='fruit-item' data-id="${escapeHtml(
+                fruit.id
+            )}" data-effect="${escapeHtml(effectKey)}">
+                <img src='${window.domainDownload}${escapeHtml(
+                fruit.itemSmall
+            )}'
+                    alt='${escapeHtml(fruit.name)}' class='thumb'
+                    onerror="this.onerror=null;this.src='${window.staticUrl
+                }imgs/devil-fruit/devil-fruit-example.png';" />
+                <div class='name d-flex flex-column'>${nameSpans}</div>
+            </li>
+        `;
+        })
+        .join("");
 
-    if (!listElement || !paginationElement || !detailContainer) {
-        return;
-    }
+    $list.html(html);
+}
 
-    const perPage = 8;
-    const maxVisible = 5;
-    const staticBase = ensureTrailingSlash(window.staticUrl || '/assets/stms/');
-    const downloadBase = ensureTrailingSlash(window.domainDownload || '/assets/dl/tdt/');
-    const placeholderImage = `${staticBase}imgs/devil-fruit/devil-fruit-example.png`;
+function renderFruitDetail(fruit) {
+    const $detail = $(".fruit-detail .content");
+    if (!$detail.length) return;
+    const nameSpans = formatNameToSpanForDetail(fruit.name);
+    $detail.find(".name").html(nameSpans).removeClass("flex-column");
 
-    const detailName = detailContainer.querySelector('.name');
-    const detailThumb = detailContainer.querySelector('.thumb');
-    const detailQuality = detailContainer.querySelector('.text-content.quality');
-    const detailEffect = detailContainer.querySelector('.text-content.effect');
-    const detailProperty = detailContainer.querySelector('.text-content.property');
-    const detailInfo = detailContainer.querySelector('.text-content.info');
+    const imgHtml = `
+            <img src='${window.domainDownload}/${fruit.itemSmall}'
+                alt='${escapeHtml(fruit.name)}'
+                class='thumb'
+                onerror="this.onerror=null;this.src='${window.staticUrl
+        }imgs/devil-fruit/devil-fruit-example.png';" />
+	`;
+    $detail.find(".thumb").replaceWith(imgHtml);
 
-    const state = {
-        fruits: [],
-        filtered: [],
-        page: 1,
-        effect: 'tat-ca',
-        selectedId: null,
-    };
+    $detail
+        .find(".text-group .text-content.quality")
+        .text(fruit.quality + " Sao" || "Không có");
+    $detail
+        .find(".text-group .text-content.effect")
+        .text(fruit.effect || "Không có");
+    $detail
+        .find(".text-group .text-content.property")
+        .html(formatProperties(fruit.property));
+    $detail.find(".text-group .text-content.info").html(formatInfo(fruit.info));
+}
 
-    const dataStore = window.DEVIL_FRUITS_DATA && window.DEVIL_FRUITS_DATA[sourceKey];
-    if (Array.isArray(dataStore)) {
-        initialise(dataStore);
-    } else if (jsonEndpoint) {
-        fetch(jsonEndpoint, { credentials: 'same-origin' })
-            .then((response) => (response.ok ? response.json() : []))
-            .then((data) => initialise(Array.isArray(data) ? data : []))
-            .catch(() => initialise([]));
+function formatInfo(info) {
+    if (!info) return "<span>[Không có thông tin]&nbsp;</span>";
+
+    const match = info.match(/^\s*(\[[^\]]+\])\s*(.*)/);
+    if (match) {
+        const name = escapeHtml(match[1]);
+        const rest = escapeHtml(match[2]);
+        return `<span class='description'>${name}:&nbsp;</span>${rest}`;
     } else {
-        initialise([]);
+        return escapeHtml(info);
     }
+}
 
-    bindEvents();
+function renderPagination() {
+    const totalPages = Math.ceil(filteredFruits.length / perPage);
+    const $container = $("#pagination");
+    if (!$container.length) return;
 
-    function initialise(data) {
-        state.fruits = data.slice();
-        state.filtered = state.fruits.slice();
-        state.page = 1;
-        state.selectedId = state.filtered[0] ? String(state.filtered[0].id ?? '') : null;
-        renderAll();
+    const maxVisible = 5;
+    let html = `
+	<div class="pagingWrapOut">
+	  <div class="pagingWrap">
+	    <div class="paging">
+	      <ul class="d-flex justify-content-center gap-2 my-3">
+	`;
+
+    // Nút Trước
+    html += `<li class="prev">`;
+    if (currentPage > 1) {
+        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage - 1
+            }"><img src="${window.staticUrl
+            }imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></a>`;
+    } else {
+        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></span>`;
     }
+    html += `</li>`;
 
-    function bindEvents() {
-        listElement.addEventListener('click', handleListClick);
-        paginationElement.addEventListener('click', handlePaginationClick);
-        if (searchInput) {
-            searchInput.addEventListener('input', handleSearchInput);
-        }
-        filterButtons.forEach((button) => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault();
-                setActiveFilterButton(button);
-                if (searchInput) {
-                    searchInput.value = '';
-                }
-                applyFilter(button.dataset.effect || 'tat-ca');
-            });
-        });
-
-        let resizeTimer = null;
-        window.addEventListener('resize', () => {
-            if (resizeTimer) {
-                window.clearTimeout(resizeTimer);
-            }
-            resizeTimer = window.setTimeout(() => {
-                renderList();
-            }, 150);
-        });
+    // Tính range trang
+    let start = currentPage - Math.floor(maxVisible / 2);
+    let end = currentPage + Math.floor(maxVisible / 2);
+    if (start < 1) {
+        end += 1 - start;
+        start = 1;
     }
-
-    function renderAll() {
-        renderList();
-        renderDetail();
+    if (end > totalPages) {
+        start -= end - totalPages;
+        end = totalPages;
     }
+    if (start < 1) start = 1;
 
-    function renderList() {
-        listElement.innerHTML = '';
-        const hasData = state.filtered.length > 0;
-        const isDesktop = window.innerWidth > 1200;
-
-        if (!hasData) {
-            const empty = document.createElement('li');
-            empty.className = 'no-data';
-            empty.textContent = 'Không có dữ liệu để hiển thị';
-            listElement.appendChild(empty);
-            paginationElement.innerHTML = '';
-            paginationElement.hidden = true;
-            state.selectedId = null;
-            return;
-        }
-
-        if (isDesktop) {
-            const totalPages = Math.max(1, Math.ceil(state.filtered.length / perPage));
-            if (state.page > totalPages) {
-                state.page = totalPages;
-            }
-            const start = (state.page - 1) * perPage;
-            const pagedItems = state.filtered.slice(start, start + perPage);
-            if (!pagedItems.some((item) => String(item.id ?? '') === state.selectedId)) {
-                state.selectedId = pagedItems[0] ? String(pagedItems[0].id ?? '') : null;
-            }
-            drawList(pagedItems);
-            renderPagination(totalPages);
+    // Số trang
+    for (let i = start; i <= end; i++) {
+        if (i === currentPage) {
+            html += `<li><span>${i}</span></li>`;
         } else {
-            if (!state.filtered.some((item) => String(item.id ?? '') === state.selectedId)) {
-                state.selectedId = state.filtered[0] ? String(state.filtered[0].id ?? '') : null;
-            }
-            drawList(state.filtered);
-            paginationElement.innerHTML = '';
-            paginationElement.hidden = true;
+            html += `<li><a class='d-block w-100 h-100' href="#" data-page="${i}">${i}</a></li>`;
         }
     }
 
-    function drawList(items) {
-        const fragment = document.createDocumentFragment();
-        items.forEach((fruit) => {
-            const li = document.createElement('li');
-            li.className = 'fruit-item';
-            const fruitId = String(fruit.id ?? '');
-            li.dataset.id = fruitId;
-            li.dataset.effect = slugify(fruit.effect || '');
-            if (fruitId === state.selectedId) {
-                li.classList.add('active');
-            }
-
-            const img = document.createElement('img');
-            img.className = 'thumb';
-            img.alt = fruit.name || 'Trái ác quỷ';
-            img.src = buildAssetUrl(fruit.itemSmall, downloadBase);
-            img.addEventListener('error', () => {
-                img.src = placeholderImage;
-            });
-
-            const nameWrapper = document.createElement('div');
-            nameWrapper.className = 'name d-flex flex-column';
-            buildNameParts(fruit.name).forEach((part, index) => {
-                const span = document.createElement('span');
-                span.className = `name-${index + 1}`;
-                span.textContent = part;
-                nameWrapper.appendChild(span);
-            });
-
-            li.appendChild(img);
-            li.appendChild(nameWrapper);
-            fragment.appendChild(li);
-        });
-
-        listElement.innerHTML = '';
-        listElement.appendChild(fragment);
+    // Nút Tiếp
+    html += `<li class="next">`;
+    if (currentPage < totalPages) {
+        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage + 1
+            }"><img src="${window.staticUrl
+            }imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></a>`;
+    } else {
+        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></span>`;
     }
+    html += `</li>`;
 
-    function renderPagination(totalPages) {
-        paginationElement.innerHTML = '';
-        if (totalPages <= 1) {
-            paginationElement.hidden = true;
-            return;
-        }
+    html += `
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	`;
 
-        paginationElement.hidden = false;
-        const wrapOut = document.createElement('div');
-        wrapOut.className = 'pagingWrapOut';
-        const wrap = document.createElement('div');
-        wrap.className = 'pagingWrap';
-        const paging = document.createElement('div');
-        paging.className = 'paging';
-        const list = document.createElement('ul');
-        list.className = 'd-flex justify-content-center gap-2 my-3';
+    $container.html(html);
+}
 
-        list.appendChild(createNavButton('prev', state.page - 1, state.page === 1, 'Trang trước', 'imgs/icon-arrow-left.png'));
+function gotoPage(page) {
+    currentPage = page;
+    renderFruits(page);
+    renderPagination();
+}
 
-        const range = computePageRange(totalPages);
-        for (let page = range.start; page <= range.end; page += 1) {
-            const li = document.createElement('li');
-            if (page === state.page) {
-                const span = document.createElement('span');
-                span.textContent = String(page);
-                li.appendChild(span);
-            } else {
-                const button = document.createElement('button');
-                button.type = 'button';
-                button.dataset.page = String(page);
-                button.className = 'd-block w-100 h-100';
-                button.textContent = String(page);
-                li.appendChild(button);
-            }
-            list.appendChild(li);
-        }
+function escapeHtml(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
 
-        list.appendChild(createNavButton('next', state.page + 1, state.page >= totalPages, 'Trang tiếp', 'imgs/icon-arrow-right.png'));
-
-        paging.appendChild(list);
-        wrap.appendChild(paging);
-        wrapOut.appendChild(wrap);
-        paginationElement.appendChild(wrapOut);
+function renderAllFruits() {
+    $("#pagination").hide();
+    const $list = $("#fruit-list");
+    if (!$list.length) return;
+    if (!filteredFruits.length) {
+        $list.html('<li class="no-data">Không có dữ liệu để hiển thị</li>');
+        return;
     }
+    const html = filteredFruits
+        .map((fruit) => {
+            const effectKey = slugify(fruit.effect || "");
+            const nameSpans = formatNameToSpans(fruit.name);
+            return `
+            <li class='fruit-item' data-id="${escapeHtml(
+                fruit.id
+            )}" data-effect="${escapeHtml(effectKey)}">
+                <img src='${window.domainDownload}${escapeHtml(
+                fruit.itemSmall
+            )}'
+                    alt='${escapeHtml(fruit.name)}' class='thumb'
+                    onerror="this.onerror=null;this.src='${window.staticUrl
+                }imgs/devil-fruit/devil-fruit-example.png';" />
+                <div class='name d-flex flex-column'>${nameSpans}</div>
+            </li>
+        `;
+        })
+        .join("");
 
-    function createNavButton(className, targetPage, disabled, ariaLabel, iconPath) {
-        const li = document.createElement('li');
-        li.className = className;
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'd-block w-100 h-100';
-        button.dataset.page = String(targetPage);
-        button.disabled = disabled;
-        button.setAttribute('aria-label', ariaLabel);
+    $list.html(html);
+}
 
-        const img = document.createElement('img');
-        img.width = 10;
-        img.height = 15;
-        img.alt = '';
-        img.src = buildAssetUrl(iconPath, staticBase);
-        img.addEventListener('error', () => {
-            img.remove();
-        });
+function slugify(text) {
+    return text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D")
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-z0-9\-]/g, "")
+        .replace(/\-+/g, "-")
+        .replace(/^\-+|\-+$/g, "");
+}
+function renderForDesktop() {
+    renderFruits(currentPage);
+    renderPagination();
+}
 
-        button.appendChild(img);
-        li.appendChild(button);
-        return li;
+function renderFruitsListByScreen() {
+    if (window.innerWidth > 1200) {
+        renderForDesktop();
+    } else {
+        renderAllFruits();
     }
+}
 
-    function renderDetail() {
-        if (!detailName || !detailThumb || !detailQuality || !detailEffect || !detailProperty || !detailInfo) {
-            return;
+function formatProperties(property) {
+    var newData = JSON.parse(property);
+    if (!newData || Object.keys(newData).length === 0) {
+        return "Không có";
+    }
+    return Object.values(newData)
+        .map((text) => `<div class='mb-1'>${escapeHtml(text)}</div>`)
+        .join("");
+}
+
+function renderFruitsList(fruitsToRender) {
+    const $list = $("#fruit-list");
+    if (!$list.length) return;
+
+    $list.html(
+        fruitsToRender
+            .map((fruit) => {
+                const effectKey = slugify(fruit.effect || "");
+                const nameSpans = formatNameToSpans(fruit.name);
+                return `<li class='fruit-item' data-id="${fruit.id
+                    }" data-effect="${escapeHtml(effectKey)}">
+            <img src='${window.staticUrl}${fruit.itemSmall}'
+                alt='${escapeHtml(fruit.name)}' class='thumb'
+                onerror="this.onerror=null;this.src='${window.staticUrl
+                    }imgs/devil-fruit/devil-fruit-example.png';" />
+            <div class='name d-flex flex-column'>${nameSpans}</div>
+        </li>`;
+            })
+            .join("")
+    );
+}
+
+function formatNameToSpans(name, className) {
+    return (name || "")
+        .split(/\s*-\s*/)
+        .map((s) => s.trim())
+        .map((part, index) => {
+            const cls = `name-${index + 1}`;
+            return `<span class="${escapeHtml(cls)}">${escapeHtml(part)}</span>`;
+        })
+        .join("");
+}
+
+function formatNameToSpanForDetail(name, className) {
+    return (name || "")
+        .split(/\s*-\s*/)
+        .map((s) => s.trim())
+        .map((part, index) => {
+            const cls = `name-${index + 1}`;
+            return `<span class="${escapeHtml(cls)}">${escapeHtml(part)}</span>`;
+        })
+        .join("&nbsp;-&nbsp;");
+}
+
+$(document).ready(function () {
+    renderFruitsListByScreen();
+    renderFruitDetail(fruits[0]);
+    $(".fruit-item").first().addClass("active");
+
+    let resizeTimer;
+    $(window).on("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            $("#pagination").show();
+            renderFruitsListByScreen();
+        }, 200);
+    });
+
+    //Phân trang
+    $(document).on("click", ".paging a[data-page]", function (e) {
+        e.preventDefault();
+        const page = parseInt($(this).data("page"));
+        if (!isNaN(page)) {
+            gotoPage(page);
         }
+    });
 
-        const fruit = getSelectedFruit();
-        if (!fruit) {
-            detailName.textContent = 'Không có dữ liệu';
-            detailName.classList.add('flex-column');
-            detailThumb.innerHTML = '';
-            detailQuality.textContent = '';
-            detailEffect.textContent = '';
-            detailProperty.textContent = '';
-            detailInfo.textContent = '';
-            return;
-        }
+    //Tìm kiếm theo tên
+    $(".text-search").on("input", function () {
+        $(".btn-filter").removeClass("active");
+        $(".btn-filter.tat-ca").addClass("active");
+        const keyword = $(this).val().trim().toLowerCase();
+        currentPage = 1;
 
-        detailName.innerHTML = '';
-        detailName.classList.remove('flex-column');
-        const parts = buildNameParts(fruit.name);
-        parts.forEach((part, index) => {
-            const span = document.createElement('span');
-            span.className = `name-${index + 1}`;
-            span.textContent = part;
-            detailName.appendChild(span);
-            if (index < parts.length - 1) {
-                detailName.appendChild(document.createTextNode(' - '));
-            }
-        });
-
-        detailThumb.innerHTML = '';
-        const img = document.createElement('img');
-        img.className = 'thumb';
-        img.alt = fruit.name || 'Trái ác quỷ';
-        img.src = buildAssetUrl(fruit.itemSmall, downloadBase);
-        img.addEventListener('error', () => {
-            img.src = placeholderImage;
-        });
-        detailThumb.appendChild(img);
-
-        detailQuality.textContent = fruit.quality ? `${fruit.quality} Sao` : 'Không có';
-        detailEffect.textContent = fruit.effect || 'Không có';
-
-        detailProperty.innerHTML = '';
-        const properties = parseProperties(fruit.property);
-        if (properties.length === 0) {
-            detailProperty.textContent = 'Không có';
+        if (keyword === "") {
+            filteredFruits = fruits;
         } else {
-            properties.forEach((value) => {
-                const div = document.createElement('div');
-                div.className = 'mb-1';
-                div.textContent = value;
-                detailProperty.appendChild(div);
-            });
+            filteredFruits = fruits.filter((fruit) =>
+                fruit.name.toLowerCase().includes(keyword)
+            );
         }
 
-        detailInfo.innerHTML = '';
-        renderInfo(detailInfo, fruit.info);
-    }
+        renderFruitsListByScreen();
+    });
 
-    function handleListClick(event) {
-        const item = event.target.closest('.fruit-item');
-        if (!item || !listElement.contains(item)) {
-            return;
-        }
-        const fruitId = item.dataset.id || '';
-        if (!fruitId || fruitId === state.selectedId) {
-            return;
-        }
-        state.selectedId = fruitId;
-        listElement.querySelectorAll('.fruit-item.active').forEach((element) => {
-            element.classList.remove('active');
-        });
-        item.classList.add('active');
-        renderDetail();
-    }
-
-    function handlePaginationClick(event) {
-        const button = event.target.closest('button[data-page]');
-        if (!button || button.disabled) {
-            return;
-        }
-        const targetPage = Number(button.dataset.page);
-        if (Number.isNaN(targetPage) || targetPage < 1) {
-            return;
-        }
-        state.page = targetPage;
-        renderList();
-        renderDetail();
-    }
-
-    function handleSearchInput(event) {
-        const keyword = String(event.target.value || '').trim().toLowerCase();
-        filterButtons.forEach((button) => button.classList.remove('active'));
-        const allButton = root.querySelector('.btn-filter.tat-ca');
-        if (allButton) {
-            allButton.classList.add('active');
-        }
-        applySearch(keyword);
-    }
-
-    function applySearch(keyword) {
-        state.effect = 'tat-ca';
-        state.page = 1;
-        if (!keyword) {
-            state.filtered = state.fruits.slice();
-        } else {
-            state.filtered = state.fruits.filter((fruit) => {
-                return String(fruit.name || '').toLowerCase().includes(keyword);
-            });
-        }
-        state.selectedId = state.filtered[0] ? String(state.filtered[0].id ?? '') : null;
-        renderAll();
-    }
-
-    function applyFilter(effectKey) {
-        state.effect = effectKey;
-        state.page = 1;
-        if (effectKey === 'tat-ca') {
-            state.filtered = state.fruits.slice();
-        } else {
-            state.filtered = state.fruits.filter((fruit) => {
-                return getEffectKeys(fruit).includes(effectKey);
-            });
-        }
-        state.selectedId = state.filtered[0] ? String(state.filtered[0].id ?? '') : null;
-        renderAll();
-    }
-
-    function setActiveFilterButton(activeButton) {
-        filterButtons.forEach((button) => {
-            button.classList.toggle('active', button === activeButton);
-        });
-    }
-
-    function getSelectedFruit() {
-        if (!state.selectedId) {
-            return null;
-        }
-        return state.fruits.find((fruit) => String(fruit.id ?? '') === state.selectedId) || null;
-    }
-
-    function computePageRange(totalPages) {
-        let start = state.page - Math.floor(maxVisible / 2);
-        let end = state.page + Math.floor(maxVisible / 2);
-        if (start < 1) {
-            end += 1 - start;
-            start = 1;
-        }
-        if (end > totalPages) {
-            start -= end - totalPages;
-            end = totalPages;
-        }
-        if (start < 1) {
-            start = 1;
-        }
-        return { start, end };
-    }
-
-    function buildNameParts(name) {
-        if (!name) {
-            return ['Không xác định'];
-        }
-        return String(name)
-            .split(/\s*-\s*/)
-            .map((part) => part.trim())
-            .filter(Boolean);
-    }
-
-    function getEffectKeys(fruit) {
-        const raw = String(fruit.effect || '');
-        return raw
-            .split(',')
-            .map((value) => slugify(value.trim()))
-            .filter(Boolean);
-    }
-
-    function parseProperties(property) {
-        if (!property) {
-            return [];
-        }
-        if (typeof property === 'string') {
-            try {
-                property = JSON.parse(property);
-            } catch (error) {
-                return [property];
+    //Xem thông tin trái Detail
+    $(document).on("click", ".fruit-item", function () {
+        const id = parseInt($(this).data("id"));
+        $(".fruit-item").removeClass("active");
+        $(this).addClass("active");
+        if (!isNaN(id)) {
+            const fruit = filteredFruits.find((f) => f.id === id);
+            if (fruit) {
+                renderFruitDetail(fruit);
             }
         }
-        if (Array.isArray(property)) {
-            return property.map((value) => String(value));
-        }
-        if (typeof property === 'object' && property !== null) {
-            return Object.values(property).map((value) => String(value));
-        }
-        return [];
-    }
+    });
 
-    function renderInfo(container, info) {
-        if (!info) {
-            container.textContent = '[Không có thông tin]';
-            return;
-        }
-        const match = String(info).match(/^\s*(\[[^\]]+\])\s*(.*)/);
-        if (match) {
-            const label = document.createElement('span');
-            label.className = 'description';
-            label.textContent = `${match[1]}: `;
-            const rest = document.createElement('span');
-            rest.textContent = match[2] || '';
-            container.appendChild(label);
-            container.appendChild(rest);
+    //Filter
+    $(document).on("click", ".btn-filter", function (e) {
+        e.preventDefault();
+        $(".btn-filter").removeClass("active");
+        $(this).addClass("active");
+
+        const selectedEffect = $(this).data("effect") || "tat-ca";
+        currentEffect = selectedEffect;
+        currentPage = 1;
+
+        if (selectedEffect === "tat-ca") {
+            filteredFruits = fruits;
         } else {
-            container.textContent = info;
+            filteredFruits = fruits.filter((fruit) => {
+                const effectStr = fruit.effect || "";
+                const effects = effectStr.split(",").map((e) => slugify(e.trim()));
+                return effects.includes(selectedEffect);
+            });
         }
-    }
 
-    function slugify(value) {
-        return String(value)
-            .normalize('NFD')
-            .replace(/\p{Diacritic}/gu, '')
-            .replace(/đ/g, 'd')
-            .replace(/Đ/g, 'D')
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-    }
-
-    function ensureTrailingSlash(path) {
-        if (!path) {
-            return '/';
-        }
-        return path.endsWith('/') ? path : `${path}/`;
-    }
-
-    function buildAssetUrl(path, base) {
-        if (!path) {
-            return placeholderImage;
-        }
-        if (/^https?:\/\//i.test(path)) {
-            return path;
-        }
-        const normalisedPath = path.startsWith('/') ? path.slice(1) : path;
-        return `${base}${normalisedPath}`;
-    }
-})();
+        $("#pagination").show();
+        renderFruitsListByScreen();
+    });
+});

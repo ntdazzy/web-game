@@ -5,15 +5,15 @@ $meta = [
     'viewport' => 'width=device-width, initial-scale=1.0',
     'og:title' => 'Trái ác quỷ | Hải Tặc Mạnh Nhất',
     'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
-    'og:image' => '/assets/stms/imgs/600x315.jpg',
+    'og:image' => '/assets/imgs/600x315.jpg',
     'og:image:width' => '600',
     'og:image:height' => '315',
     'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-    'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
+    'link:shortcut_icon' => '/assets/imgs/32x32.png'
 ];
 $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
 $pageHeadScripts[] = '/assets/js/data/devil-fruits-base-data.js';
-$pageScripts[] = '/assets/stms/js/fruits.js';
+$pageScripts[] = '/assets/js/pages/devil-fruits.js';
 ?>
 <!-- End Meta Chung -->
 
@@ -21,7 +21,7 @@ $pageScripts[] = '/assets/stms/js/fruits.js';
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root"
     data-devil-fruit-source="base" data-devil-fruit-json="/assets/data/trai-ac-quy.json">
-    <img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png" />
+    <img alt="" class="logo-warning position-absolute" src="/assets/imgs/logo-warning.png" />
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">

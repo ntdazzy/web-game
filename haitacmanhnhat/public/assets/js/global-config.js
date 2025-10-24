@@ -53,7 +53,7 @@
     var endpoints = {
         linkAjaxGiftcode: host ? host + '/giftcode/fetch-code-by-id' : '/giftcode/fetch-code-by-id',
         historyGiftcode: host ? host + '/giftcode/fetch-history' : '/giftcode/fetch-history',
-        loginWidgetSrc: origin + '/assets/stms/js/widget.login.js'
+        loginWidgetSrc: origin + '/assets/js/auth/widget.login.js'
     };
 
     window.__ENDPOINTS__ = endpoints;
