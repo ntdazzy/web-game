@@ -280,41 +280,93 @@ $giftcodeHistoryTables = [
                                 </select>
                             </div>
                             <div class="dropdown giftcode selectCodeType" id="selectCodeType">
-                                <button aria-expanded="false" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" id="giftcodeDropdown" type="button">
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                    id="giftcodeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     -- Chọn loại Code --
                                 </button>
-                                <ul aria-labelledby="giftcodeDropdown" class="dropdown-menu">
-                                    <li><a class="dropdown-item" data-code="0" data-coded="" data-id="1" href="#">
-                                            -- Chọn loại code -- </a></li>
-                                    <li><a class="dropdown-item" data-code="0" data-coded="HAITACMANHNHAT-TANTHU" data-id="2" href="#">
-                                            Code Tân Thủ </a></li>
-                                    <li><a class="dropdown-item" data-code="27197" data-coded="" data-id="3" href="#">
-                                            HĐ LV 10 </a></li>
-                                    <li><a class="dropdown-item" data-code="27199" data-coded="" data-id="4" href="#">
-                                            HĐ LV 20 </a></li>
-                                    <li><a class="dropdown-item" data-code="27201" data-coded="" data-id="5" href="#">
-                                            HĐ LV 40 </a></li>
-                                    <li><a class="dropdown-item" data-code="27203" data-coded="" data-id="7" href="#">
-                                            HĐ LV 60 </a></li>
-                                    <li><a class="dropdown-item" data-code="27205" data-coded="" data-id="9" href="#">
-                                            HĐ LV 80 </a></li>
-                                    <li><a class="dropdown-item" data-code="27207" data-coded="" data-id="11" href="#">
-                                            HĐ LV 100 </a></li>
-                                    <li><a class="dropdown-item" data-code="27209" data-coded="" data-id="13" href="#">
-                                            HĐ LV 110 </a></li>
-                                    <li><a class="dropdown-item" data-code="27211" data-coded="" data-id="15" href="#">
-                                            HĐ LV 120 </a></li>
-                                    <li><a class="dropdown-item" data-code="27213" data-coded="" data-id="16" href="#">
-                                            HĐ LV 130 </a></li>
-                                    <li><a class="dropdown-item" data-code="27215" data-coded="" data-id="17" href="#">
-                                            HĐ LV 140 </a></li>
-                                    <li><a class="dropdown-item" data-code="27217" data-coded="" data-id="18" href="#">
-                                            HĐ LV 150 </a></li>
+                                <ul class="dropdown-menu" aria-labelledby="giftcodeDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="1" data-code="0" data-coded="">
+                                            -- Chọn loại code --
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="2" data-code="0"
+                                            data-coded="HAITACMANHNHAT-TANTHU">
+                                            Code Tân Thủ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="3" data-code="27197"
+                                            data-coded="">
+                                            HĐ LV 10
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="4" data-code="27199"
+                                            data-coded="">
+                                            HĐ LV 20
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="5" data-code="27201"
+                                            data-coded="">
+                                            HĐ LV 40
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="7" data-code="27203"
+                                            data-coded="">
+                                            HĐ LV 60
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="9" data-code="27205"
+                                            data-coded="">
+                                            HĐ LV 80
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="11" data-code="27207"
+                                            data-coded="">
+                                            HĐ LV 100
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="13" data-code="27209"
+                                            data-coded="">
+                                            HĐ LV 110
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="15" data-code="27211"
+                                            data-coded="">
+                                            HĐ LV 120
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="16" data-code="27213"
+                                            data-coded="">
+                                            HĐ LV 130
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="17" data-code="27215"
+                                            data-coded="">
+                                            HĐ LV 140
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" data-id="18" data-code="27217"
+                                            data-coded="">
+                                            HĐ LV 150
+                                        </a>
+                                    </li>
                                 </ul>
-                                <input id="codeSlug" type="hidden" />
-                                <input id="serverSlug" type="hidden" />
-                                <input id="codeId" type="hidden" />
-                                <input id="codeDefault" type="hidden" />
+                                <input type="hidden" id="codeSlug" />
+                                <input type="hidden" id="serverSlug" />
+                                <input type="hidden" id="codeId" />
+                                <input type="hidden" id="codeDefault" />
                             </div>
                         </div>
                         <div class="button-group d-flex gap-1">
@@ -385,7 +437,6 @@ $giftcodeHistoryTables = [
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

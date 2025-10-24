@@ -1,11 +1,11 @@
 function copyToClipboard() {
     var text = $(document).find('.content-code').text();  // Lấy nội dung từ #codeContent
-    navigator.clipboard.writeText(text).then(function() {
-    }).catch(function(error) {
+    navigator.clipboard.writeText(text).then(function () {
+    }).catch(function (error) {
         alert('Không thể sao chép: ' + error);
     });
 }
-function onloadToolTip(){
+function onloadToolTip() {
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
@@ -40,9 +40,9 @@ function changeStateOverflow(on = true) {
 $(function () {
     onloadToolTip();
 
-    $('#serverSelect').change(function(){
+    $('#serverSelect').change(function () {
         var slug = $(this).val();
-        if (slug == 0) {slug = ''}
+        if (slug == 0) { slug = '' }
         $('#serverSlug').val(slug);
     });
 
@@ -50,14 +50,14 @@ $(function () {
         $('.selectCodeType button').codeType()
     }
     // Get giftcode.
-    $('#confirmGetCode').click(function() {
-        var codeSlug    = $('#codeSlug').val();
-        var serverSlug  = $('#serverSlug').val();
-        var codeId      = $('#codeId').val();
+    $('#confirmGetCode').click(function () {
+        var codeSlug = $('#codeSlug').val();
+        var serverSlug = $('#serverSlug').val();
+        var codeId = $('#codeId').val();
         var codeDefault = $('#codeDefault').val();
         var contentCode;
 
-        if(codeSlug == 0 && codeDefault){
+        if (codeSlug == 0 && codeDefault) {
             showResult(codeDefault);
             return;
         }
@@ -65,7 +65,7 @@ $(function () {
         fetchGiftCode(serverSlug, codeSlug, codeId);
     });
 
-    $('#giftcodeHistory').click(function() {
+    $('#giftcodeHistory').click(function () {
         var serverSlug = $('#serverSlug').val();
         getCodeHistory(serverSlug);
     });
@@ -83,12 +83,12 @@ $(function () {
 });
 
 
-$.fn.codeType = function() {
+$.fn.codeType = function () {
     let el = this
     let listCode = $(el).parent().find('>ul')
     let codeName = '';
 
-    $(el).click(function(e) {
+    $(el).click(function (e) {
         e.preventDefault()
         if ($(this).parent().hasClass('show')) {
             $(this).parent().removeClass('show')
@@ -97,8 +97,8 @@ $.fn.codeType = function() {
         }
     })
 
-    $(listCode).children().each(function() {
-        $(this).click(function(e) {
+    $(listCode).children().each(function () {
+        $(this).click(function (e) {
             e.preventDefault()
             codeName = $(this).find('>a').data('code');
             codetext = $(this).find('>a').text();
@@ -124,8 +124,8 @@ $.fn.codeType = function() {
     })
 }
 
-function showResult(codeDefault){
-    var contentCode = '<p class="content-code">'+codeDefault+'</p>';
+function showResult(codeDefault) {
+    var contentCode = '<p class="content-code">' + codeDefault + '</p>';
     contentCode += '<a href="javascript:void(0)" class="text-decoration-underline text-secondary btn-copy-code" data-bs-toggle="tooltip" data-bs-placement="top" title="Bấm để sao chép">Bấm để sao chép</a>';
 
     Swal.fire({
@@ -148,7 +148,7 @@ function showResult(codeDefault){
     });
 }
 
-function hideResult(){
+function hideResult() {
     $('.notice').addClass('d-none');
     $('.notice').removeClass('code');
     $('.notice').text('');
@@ -156,15 +156,15 @@ function hideResult(){
 
 function getCodeHistory(serverSlug) {
     $.ajax({
-        url: '//'+ historyGiftcode,
+        url: '//' + historyGiftcode,
         method: 'POST',
-        success: function( response ) {
+        success: function (response) {
             if (response.status == -1) {
                 Swal.fire({
                     icon: "warning",
                     title: 'Thông báo',
                     confirmButtonText: response.msg
-                }).then(function() {
+                }).then(function () {
                     location.reload();
                 });
                 return false;
@@ -173,13 +173,13 @@ function getCodeHistory(serverSlug) {
             // getNewTokenOfReCaptcha();
             return;
         },
-        error: function(response) {
+        error: function (response) {
             if (response) {
                 Swal.fire({
                     icon: "error",
                     title: 'Thông báo',
                     confirmButtonText: 'Có lỗi xảy ra vui lòng liên hệ admin (#1)!'
-                }).then(function() {
+                }).then(function () {
                     location.reload();
                 });
             }
@@ -191,13 +191,13 @@ function getCodeHistory(serverSlug) {
 function showPopup(data) {
     $('.popup.popup-history').show();
     $('.popup.popup-history .content tbody').empty();
-    $.each(data, function(i, item) {
+    $.each(data, function (i, item) {
         $('#table-history tbody').append(
             '<tr>' +
-                '<td>'+item.name+'</td>' +
-                '<td>'+item.code+'</td>' +
-                '<td class="text-uppercase text-center">'+item.serverSlug+'</td>' +
-                '<td>'+item.receiveDate+'</td>' +
+            '<td>' + item.name + '</td>' +
+            '<td>' + item.code + '</td>' +
+            '<td class="text-uppercase text-center">' + item.serverSlug + '</td>' +
+            '<td>' + item.receiveDate + '</td>' +
             '</tr>'
         );
     });
@@ -235,7 +235,7 @@ function fetchGiftCode(serverSlug, codeSlug, codeId) {
     }
 
     $.ajax({
-        url:  '//'+linkAjaxGiftcode,
+        url: '//' + linkAjaxGiftcode,
         dataType: 'json',
         method: 'POST',
         data: {
@@ -247,7 +247,7 @@ function fetchGiftCode(serverSlug, codeSlug, codeId) {
         beforeSend: function () {
             showLoading();
         },
-        success: function(response) {
+        success: function (response) {
             hideLoading();
 
             if (response.status != 1) {
@@ -256,7 +256,7 @@ function fetchGiftCode(serverSlug, codeSlug, codeId) {
                         icon: "error",
                         title: 'Thông báo',
                         confirmButtonText: response.msg
-                    }).then(function() {
+                    }).then(function () {
                         location.reload();
                     });
                     return false;
@@ -271,10 +271,10 @@ function fetchGiftCode(serverSlug, codeSlug, codeId) {
                 getNewTokenOfReCaptcha();
             }
         },
-        error: function(response) {
+        error: function (response) {
             hideLoading();
             error('Có lỗi xảy ra vui lòng liên hệ admin (#2)!');
-            console.log("error-> ",response);
+            console.log("error-> ", response);
 
             if (typeof getNewTokenOfReCaptcha !== 'undefined') {
                 getNewTokenOfReCaptcha();
