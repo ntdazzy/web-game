@@ -1,3 +1,4 @@
+<!-- Start Header Chung -->
 <?php include __DIR__ . '/../../../Views/partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
     <img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png" />
@@ -26,28 +27,29 @@
         </div>
         <a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
     </div>
+    <!-- End Header Chung -->
     <div class="wrapper-page w-100 position-relative landing-hero">
         <div class="page page-1 position-relative">
             <?php if (!empty($heroVideo['src'])): ?>
                 <video class="bg-video w-100 h-100 position-absolute landing-hero__background"
-                       autoplay
-                       muted
-                       loop
-                       playsinline
-                       preload="auto"
-                       poster="<?= htmlspecialchars($heroVideo['poster'] ?? ($heroBackground['src'] ?? '/assets/images/background.webp'), ENT_QUOTES) ?>">
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    poster="<?= htmlspecialchars($heroVideo['poster'] ?? ($heroBackground['src'] ?? '/assets/images/background.webp'), ENT_QUOTES) ?>">
                     <source src="<?= htmlspecialchars($heroVideo['src'], ENT_QUOTES) ?>"
-                            type="<?= htmlspecialchars($heroVideo['type'] ?? 'video/mp4', ENT_QUOTES) ?>">
+                        type="<?= htmlspecialchars($heroVideo['type'] ?? 'video/mp4', ENT_QUOTES) ?>">
                     <img src="<?= htmlspecialchars($heroBackground['src'] ?? '/assets/images/background.webp', ENT_QUOTES) ?>"
-                         alt="<?= htmlspecialchars($heroBackground['alt'] ?? 'Hải Tặc Mạnh Nhất background', ENT_QUOTES) ?>"
-                         loading="eager">
+                        alt="<?= htmlspecialchars($heroBackground['alt'] ?? 'Hải Tặc Mạnh Nhất background', ENT_QUOTES) ?>"
+                        loading="eager">
                 </video>
             <?php else: ?>
                 <img src="<?= htmlspecialchars($heroBackground['src'] ?? '/assets/images/background.webp', ENT_QUOTES) ?>"
-                     alt="<?= htmlspecialchars($heroBackground['alt'] ?? 'Hải Tặc Mạnh Nhất background', ENT_QUOTES) ?>"
-                     class="bg-image w-100 h-100 position-absolute landing-hero__background"
-                     data-fallback-src="<?= htmlspecialchars($heroBackground['fallback'] ?? '/assets/images/background.png', ENT_QUOTES) ?>"
-                     data-lazy-exclude="true">
+                    alt="<?= htmlspecialchars($heroBackground['alt'] ?? 'Hải Tặc Mạnh Nhất background', ENT_QUOTES) ?>"
+                    class="bg-image w-100 h-100 position-absolute landing-hero__background"
+                    data-fallback-src="<?= htmlspecialchars($heroBackground['fallback'] ?? '/assets/images/background.png', ENT_QUOTES) ?>"
+                    data-lazy-exclude="true">
             <?php endif; ?>
             <div class="btn-group position-absolute d-flex landing-hero__cta-group">
                 <a class="btn-download link-download-client landing-hero__cta-button" href="#" title="Tải game"></a>
@@ -527,8 +529,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-
 </div>

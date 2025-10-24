@@ -14,6 +14,7 @@ $tabConfig = [
     'update' => ['label' => 'Update', 'href' => '/update'],
 ];
 ?>
+<!-- Start Header Chung -->
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
     <img src="/assets/stms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
@@ -39,6 +40,8 @@ $tabConfig = [
         </div>
         <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
     </div>
+    <!-- End Header Chung -->
+
     <div class="subpage-container wrapper-id post">
         <div class="container h-100 position-relative">
             <div class="d-flex flex-column align-items-center">
@@ -49,7 +52,7 @@ $tabConfig = [
                             <div class="btn-group d-flex gap-3">
                                 <?php foreach ($tabConfig as $key => $tab): ?>
                                     <a class="<?= $key === $dataset ? 'active ' : '' ?><?= $key ?>"
-                                       href="<?= htmlspecialchars($tab['href'], ENT_QUOTES) ?>">
+                                        href="<?= htmlspecialchars($tab['href'], ENT_QUOTES) ?>">
                                         <?= htmlspecialchars($tab['label'], ENT_QUOTES) ?>
                                     </a>
                                 <?php endforeach; ?>
@@ -71,14 +74,14 @@ $tabConfig = [
                                 ?>
                                 <li>
                                     <a target="_self"
-                                       href="<?= htmlspecialchars($itemUrl, ENT_QUOTES) ?>"
-                                       rel=""
-                                       class="title d-flex">
+                                        href="<?= htmlspecialchars($itemUrl, ENT_QUOTES) ?>"
+                                        rel=""
+                                        class="title d-flex">
                                         <div class="thumbnail">
                                             <img src="<?= htmlspecialchars($thumbnail, ENT_QUOTES) ?>"
-                                                 data-fallback-src="/assets/stms/imgs/post-item-example.png"
-                                                 alt="<?= htmlspecialchars($item['title'] ?? '', ENT_QUOTES) ?>"
-                                                 width="100%" height="100%">
+                                                data-fallback-src="/assets/stms/imgs/post-item-example.png"
+                                                alt="<?= htmlspecialchars($item['title'] ?? '', ENT_QUOTES) ?>"
+                                                width="100%" height="100%">
                                         </div>
                                         <div class="post-item-content">
                                             <h3 class="d-flex justify-content-between mb-2">
@@ -104,7 +107,7 @@ $tabConfig = [
                             <div class="pagination d-flex justify-content-center mt-4">
                                 <?php for ($i = 1; $i <= (int)$pagination['total_pages']; $i++): ?>
                                     <a href="<?= htmlspecialchars($tabConfig[$dataset]['href'], ENT_QUOTES) ?>?page=<?= $i ?>"
-                                       class="<?= $i === (int)($pagination['page'] ?? 1) ? 'active' : '' ?>">
+                                        class="<?= $i === (int)($pagination['page'] ?? 1) ? 'active' : '' ?>">
                                         <?= $i ?>
                                     </a>
                                 <?php endfor; ?>

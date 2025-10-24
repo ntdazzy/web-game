@@ -1,6 +1,7 @@
 <?php $cspNonce = csp_nonce(); ?>
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <?php include __DIR__ . '/../partials/head.php'; ?>
     <link rel="stylesheet" href="/assets/stms/css/bootstrap.min.css">
@@ -26,16 +27,16 @@
         <?php endforeach; ?>
     <?php endif; ?>
     <?php
-        $origin = app_origin();
-        $primaryDomain = \App\Core\Config\Config::get('app.domain');
-        if (!is_string($primaryDomain) || $primaryDomain === '') {
-            $primaryDomain = parse_url($origin, PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? '');
-        }
-        $cookieDomain = \App\Core\Config\Config::get('app.cookie_domain');
-        if (!is_string($cookieDomain) || $cookieDomain === '') {
-            $cookieDomain = $primaryDomain ? ('.' . ltrim($primaryDomain, '.')) : null;
-        }
-        $analyticsEnabled = should_enable_analytics();
+    $origin = app_origin();
+    $primaryDomain = \App\Core\Config\Config::get('app.domain');
+    if (!is_string($primaryDomain) || $primaryDomain === '') {
+        $primaryDomain = parse_url($origin, PHP_URL_HOST) ?: ($_SERVER['HTTP_HOST'] ?? '');
+    }
+    $cookieDomain = \App\Core\Config\Config::get('app.cookie_domain');
+    if (!is_string($cookieDomain) || $cookieDomain === '') {
+        $cookieDomain = $primaryDomain ? ('.' . ltrim($primaryDomain, '.')) : null;
+    }
+    $analyticsEnabled = should_enable_analytics();
     ?>
     <script id="app-config-data" type="application/json" nonce="<?= $cspNonce ?>">
         <?= json_encode([
@@ -47,8 +48,11 @@
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
     </script>
     <script src="/assets/js/runtime/app-config.js"></script>
-    <script nonce="<?= $cspNonce ?>">window.__CSP_NONCE__ = <?= json_encode($cspNonce, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;</script>
+    <script nonce="<?= $cspNonce ?>">
+        window.__CSP_NONCE__ = <?= json_encode($cspNonce, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>;
+    </script>
 </head>
+
 <body <?= $bodyAttributes ?? '' ?>>
     <?php if ($analyticsEnabled): ?>
         <?php include __DIR__ . '/../partials/gtm-noscript.php'; ?>
@@ -148,4 +152,5 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </body>
+
 </html>

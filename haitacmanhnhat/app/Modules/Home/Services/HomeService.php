@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Modules\Home\Services;
 
 class HomeService

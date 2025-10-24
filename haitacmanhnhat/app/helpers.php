@@ -159,7 +159,7 @@ if (!function_exists('rewrite_internal_html_links')) {
     function rewrite_internal_html_links(string $html): string
     {
         static $pattern = '/\b(href|action|data-(?:redirect|href|target|url))\s*=\s*(["\'])(?!https?:|mailto:|tel:)([^"\']+?)\.html(\?[^"\']*)?(#[^"\']*)?\2/i';
-        $report =& $GLOBALS['__HTML_EXTENSION_REWRITES__'];
+        $report = &$GLOBALS['__HTML_EXTENSION_REWRITES__'];
         if (!is_array($report)) {
             $report = [];
         }

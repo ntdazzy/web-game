@@ -1,3 +1,4 @@
+<!-- Start Meta Chung -->
 <?php
 $pageTitle = 'Nhận GIFTCODE | Hải Tặc Mạnh Nhất';
 $meta = [
@@ -203,148 +204,188 @@ $giftcodeHistoryTables = [
     ],
 ];
 ?>
+<!-- End Meta Chung -->
 
+<!-- Start Header Chung -->
 <?php include __DIR__ . '/../partials/top-nav-mobile.php'; ?>
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-<img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png"/>
-<div class="wrap-login-mobile wrap-login position-absolute h-100">
-<div class="user-info h-100 d-flex align-items-center d-none">
-<div class="btn-group">
-<button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
-<i class="fa-solid fa-user"></i>
-<span class="display-name"></span>
-</button>
-<ul class="dropdown-menu">
-<li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
-<li class="dropdown-item d-flex align-items-center">
-<a class="d-flex justify-content-between" href="/qua-nap-web">
-<i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
-</li>
-<li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
-<li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
-</ul>
-</div>
-</div>
-<a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
-</div>
-<div class="subpage-container wrapper-id giftcode-page">
-<div class="container h-100 position-relative">
-<div class="d-flex flex-column align-items-center">
-<h1 class="page-title">NHẬN GIFTCODE</h1>
-<div class="row wrapper-content">
-<div class="content">
-<div class="select-group d-flex">
-<div class="dropdown server">
-<select class="form-select position-relative" id="serverSelect">
-<option value="0">Nhập ID máy chủ</option>
-<option data-slug="s33" title="S33" value="s33">S33</option><option data-slug="s32" title="S32" value="s32">S32</option><option data-slug="s31" title="S31" value="s31">S31</option><option data-slug="s30" title="S30" value="s30">S30</option><option data-slug="s29" title="S29" value="s29">S29</option><option data-slug="s28" title="S28" value="s28">S28</option><option data-slug="s27" title="S27" value="s27">S27</option><option data-slug="s26" title="S26" value="s26">S26</option><option data-slug="s25" title="S25" value="s25">S25</option><option data-slug="s24" title="S24" value="s24">S24</option><option data-slug="s23" title="S23" value="s23">S23</option><option data-slug="s22" title="S22" value="s22">S22</option><option data-slug="s21" title="S21" value="s21">S21</option><option data-slug="s20" title="S20" value="s20">S20</option><option data-slug="s19" title="S19" value="s19">S19</option><option data-slug="s18" title="S18" value="s18">S18</option><option data-slug="s17" title="S17" value="s17">S17</option><option data-slug="s16" title="S16" value="s16">S16</option><option data-slug="s15" title="S15" value="s15">S15</option><option data-slug="s14" title="S14" value="s14">S14</option><option data-slug="s13" title="S13" value="s13">S13</option><option data-slug="s12" title="S12" value="s12">S12</option><option data-slug="s11" title="S11" value="s11">S11</option><option data-slug="s10" title="S10" value="s10">S10</option><option data-slug="s9" title="S9" value="s9">S9</option><option data-slug="s8" title="S8" value="s8">S8</option><option data-slug="s7" title="S7" value="s7">S7</option><option data-slug="s6" title="S6" value="s6">S6</option><option data-slug="s5" title="S5" value="s5">S5</option><option data-slug="s4" title="S4" value="s4">S4</option><option data-slug="s3" title="S3" value="s3">S3</option><option data-slug="s2" title="S2" value="s2">S2</option><option data-slug="s1" title="S1" value="s1">S1</option> </select>
-</div>
-<div class="dropdown giftcode selectCodeType" id="selectCodeType">
-<button aria-expanded="false" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" id="giftcodeDropdown" type="button">
-                                -- Chọn loại Code --
-                            </button>
-<ul aria-labelledby="giftcodeDropdown" class="dropdown-menu">
-<li><a class="dropdown-item" data-code="0" data-coded="" data-id="1" href="#">
-                                        -- Chọn loại code --                                    </a></li>
-<li><a class="dropdown-item" data-code="0" data-coded="HAITACMANHNHAT-TANTHU" data-id="2" href="#">
-                                        Code Tân Thủ                                    </a></li>
-<li><a class="dropdown-item" data-code="27197" data-coded="" data-id="3" href="#">
-                                        HĐ LV 10                                    </a></li>
-<li><a class="dropdown-item" data-code="27199" data-coded="" data-id="4" href="#">
-                                        HĐ LV 20                                    </a></li>
-<li><a class="dropdown-item" data-code="27201" data-coded="" data-id="5" href="#">
-                                        HĐ LV 40                                    </a></li>
-<li><a class="dropdown-item" data-code="27203" data-coded="" data-id="7" href="#">
-                                        HĐ LV 60                                    </a></li>
-<li><a class="dropdown-item" data-code="27205" data-coded="" data-id="9" href="#">
-                                        HĐ LV 80                                    </a></li>
-<li><a class="dropdown-item" data-code="27207" data-coded="" data-id="11" href="#">
-                                        HĐ LV 100                                    </a></li>
-<li><a class="dropdown-item" data-code="27209" data-coded="" data-id="13" href="#">
-                                        HĐ LV 110                                    </a></li>
-<li><a class="dropdown-item" data-code="27211" data-coded="" data-id="15" href="#">
-                                        HĐ LV 120                                    </a></li>
-<li><a class="dropdown-item" data-code="27213" data-coded="" data-id="16" href="#">
-                                        HĐ LV 130                                    </a></li>
-<li><a class="dropdown-item" data-code="27215" data-coded="" data-id="17" href="#">
-                                        HĐ LV 140                                    </a></li>
-<li><a class="dropdown-item" data-code="27217" data-coded="" data-id="18" href="#">
-                                        HĐ LV 150                                    </a></li>
-</ul>
-<input id="codeSlug" type="hidden"/>
-<input id="serverSlug" type="hidden"/>
-<input id="codeId" type="hidden"/>
-<input id="codeDefault" type="hidden"/>
-</div>
-</div>
-<div class="button-group d-flex gap-1">
-<button class="get-giftcode" id="confirmGetCode"></button>
-<button class="history" id="giftcodeHistory"></button>
-</div>
-<div class="giftcode-description">
-                        Lưu ý : Mỗi tài khoản chỉ sử dụng 1 được 1 Code cùng loại. <br/>
-                        Ví dụ : 1 tài khoản chơi 2 server thì chỉ 1 server ăn được code. <br/>
-                        Khuyến nghị : Chơi server mới nên tạo tài khoản mới để có thể sử dụng lại code.
-                    </div>
-<div class="history">
-<?php foreach ($giftcodeHistoryTables as $table): ?>
-    <div class="table-his table-responsive d-none" id="<?= htmlspecialchars($table['id'], ENT_QUOTES) ?>">
-        <?php if (!empty($table['content'])): ?>
-            <?= $table['content'] ?>
-        <?php else: ?>
-            <table class="giftcode-reward-table">
-                <caption>
-                    Điều kiện nhận:
-                    <span class="giftcode-reward-table__caption-note"><?= htmlspecialchars($table['condition'], ENT_QUOTES) ?></span>
-                </caption>
-                <?php if (!empty($table['items'])): ?>
-                    <thead>
-                        <tr>
-                            <?php foreach ($table['items'] as $item): ?>
-                                <th><?= htmlspecialchars($item, ENT_QUOTES) ?></th>
-                            <?php endforeach; ?>
-                        </tr>
-                    </thead>
-                <?php endif; ?>
-                <?php if (!empty($table['quantities'])): ?>
-                    <tbody>
-                        <tr>
-                            <?php foreach ($table['quantities'] as $value): ?>
-                                <?php $cellValue = trim($value) === '' ? '—' : $value; ?>
-                                <td><?= htmlspecialchars($cellValue, ENT_QUOTES) ?></td>
-                            <?php endforeach; ?>
-                        </tr>
-                    </tbody>
-                <?php endif; ?>
-            </table>
-        <?php endif; ?>
+    <img alt="" class="logo-warning position-absolute" src="/assets/stms/imgs/logo-warning.png" />
+    <div class="wrap-login-mobile wrap-login position-absolute h-100">
+        <div class="user-info h-100 d-flex align-items-center d-none">
+            <div class="btn-group">
+                <button aria-expanded="false" class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="display-name"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                    <li class="dropdown-item d-flex align-items-center">
+                        <a class="d-flex justify-content-between" href="/qua-nap-web">
+                            <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
+                    </li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+        <a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
     </div>
-<?php endforeach; ?>
-</div>
-<div class="popup popup-history is-hidden">
-<div class="wrap">
-<div class="content">
-<h3>Lịch sử nhận code</h3>
-<div class="table-responsive table-history-box custom-scrollbar">
-<table class="table table-bordered table-hover" id="table-history">
-<thead class="thead-light">
-<tr>
-<th>Tên</th>
-<th>Code</th>
-<th>Máy chủ</th>
-<th>Thời gian nhận</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-</div>
-</div>
-<a class="close" href="#"><i class="fa-light fa-xmark"></i></a>
-</div>
-</div>
-</div>
-</div>
-</div>
+    <!-- End Header Chung -->
 
+    <!-- Start Tab Menu Chung -->
+    <div class="subpage-container wrapper-id giftcode-page">
+        <div class="container h-100 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="page-title">NHẬN GIFTCODE</h1>
+                <div class="row wrapper-content">
+                    <div class="content">
+                        <div class="select-group d-flex">
+                            <div class="dropdown server">
+                                <select class="form-select position-relative" id="serverSelect">
+                                    <option value="0">Nhập ID máy chủ</option>
+                                    <option data-slug="s33" title="S33" value="s33">S33</option>
+                                    <option data-slug="s32" title="S32" value="s32">S32</option>
+                                    <option data-slug="s31" title="S31" value="s31">S31</option>
+                                    <option data-slug="s30" title="S30" value="s30">S30</option>
+                                    <option data-slug="s29" title="S29" value="s29">S29</option>
+                                    <option data-slug="s28" title="S28" value="s28">S28</option>
+                                    <option data-slug="s27" title="S27" value="s27">S27</option>
+                                    <option data-slug="s26" title="S26" value="s26">S26</option>
+                                    <option data-slug="s25" title="S25" value="s25">S25</option>
+                                    <option data-slug="s24" title="S24" value="s24">S24</option>
+                                    <option data-slug="s23" title="S23" value="s23">S23</option>
+                                    <option data-slug="s22" title="S22" value="s22">S22</option>
+                                    <option data-slug="s21" title="S21" value="s21">S21</option>
+                                    <option data-slug="s20" title="S20" value="s20">S20</option>
+                                    <option data-slug="s19" title="S19" value="s19">S19</option>
+                                    <option data-slug="s18" title="S18" value="s18">S18</option>
+                                    <option data-slug="s17" title="S17" value="s17">S17</option>
+                                    <option data-slug="s16" title="S16" value="s16">S16</option>
+                                    <option data-slug="s15" title="S15" value="s15">S15</option>
+                                    <option data-slug="s14" title="S14" value="s14">S14</option>
+                                    <option data-slug="s13" title="S13" value="s13">S13</option>
+                                    <option data-slug="s12" title="S12" value="s12">S12</option>
+                                    <option data-slug="s11" title="S11" value="s11">S11</option>
+                                    <option data-slug="s10" title="S10" value="s10">S10</option>
+                                    <option data-slug="s9" title="S9" value="s9">S9</option>
+                                    <option data-slug="s8" title="S8" value="s8">S8</option>
+                                    <option data-slug="s7" title="S7" value="s7">S7</option>
+                                    <option data-slug="s6" title="S6" value="s6">S6</option>
+                                    <option data-slug="s5" title="S5" value="s5">S5</option>
+                                    <option data-slug="s4" title="S4" value="s4">S4</option>
+                                    <option data-slug="s3" title="S3" value="s3">S3</option>
+                                    <option data-slug="s2" title="S2" value="s2">S2</option>
+                                    <option data-slug="s1" title="S1" value="s1">S1</option>
+                                </select>
+                            </div>
+                            <div class="dropdown giftcode selectCodeType" id="selectCodeType">
+                                <button aria-expanded="false" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" id="giftcodeDropdown" type="button">
+                                    -- Chọn loại Code --
+                                </button>
+                                <ul aria-labelledby="giftcodeDropdown" class="dropdown-menu">
+                                    <li><a class="dropdown-item" data-code="0" data-coded="" data-id="1" href="#">
+                                            -- Chọn loại code -- </a></li>
+                                    <li><a class="dropdown-item" data-code="0" data-coded="HAITACMANHNHAT-TANTHU" data-id="2" href="#">
+                                            Code Tân Thủ </a></li>
+                                    <li><a class="dropdown-item" data-code="27197" data-coded="" data-id="3" href="#">
+                                            HĐ LV 10 </a></li>
+                                    <li><a class="dropdown-item" data-code="27199" data-coded="" data-id="4" href="#">
+                                            HĐ LV 20 </a></li>
+                                    <li><a class="dropdown-item" data-code="27201" data-coded="" data-id="5" href="#">
+                                            HĐ LV 40 </a></li>
+                                    <li><a class="dropdown-item" data-code="27203" data-coded="" data-id="7" href="#">
+                                            HĐ LV 60 </a></li>
+                                    <li><a class="dropdown-item" data-code="27205" data-coded="" data-id="9" href="#">
+                                            HĐ LV 80 </a></li>
+                                    <li><a class="dropdown-item" data-code="27207" data-coded="" data-id="11" href="#">
+                                            HĐ LV 100 </a></li>
+                                    <li><a class="dropdown-item" data-code="27209" data-coded="" data-id="13" href="#">
+                                            HĐ LV 110 </a></li>
+                                    <li><a class="dropdown-item" data-code="27211" data-coded="" data-id="15" href="#">
+                                            HĐ LV 120 </a></li>
+                                    <li><a class="dropdown-item" data-code="27213" data-coded="" data-id="16" href="#">
+                                            HĐ LV 130 </a></li>
+                                    <li><a class="dropdown-item" data-code="27215" data-coded="" data-id="17" href="#">
+                                            HĐ LV 140 </a></li>
+                                    <li><a class="dropdown-item" data-code="27217" data-coded="" data-id="18" href="#">
+                                            HĐ LV 150 </a></li>
+                                </ul>
+                                <input id="codeSlug" type="hidden" />
+                                <input id="serverSlug" type="hidden" />
+                                <input id="codeId" type="hidden" />
+                                <input id="codeDefault" type="hidden" />
+                            </div>
+                        </div>
+                        <div class="button-group d-flex gap-1">
+                            <button class="get-giftcode" id="confirmGetCode"></button>
+                            <button class="history" id="giftcodeHistory"></button>
+                        </div>
+                        <div class="giftcode-description">
+                            Lưu ý : Mỗi tài khoản chỉ sử dụng 1 được 1 Code cùng loại. <br />
+                            Ví dụ : 1 tài khoản chơi 2 server thì chỉ 1 server ăn được code. <br />
+                            Khuyến nghị : Chơi server mới nên tạo tài khoản mới để có thể sử dụng lại code.
+                        </div>
+                        <div class="history">
+                            <?php foreach ($giftcodeHistoryTables as $table): ?>
+                                <div class="table-his table-responsive d-none" id="<?= htmlspecialchars($table['id'], ENT_QUOTES) ?>">
+                                    <?php if (!empty($table['content'])): ?>
+                                        <?= $table['content'] ?>
+                                    <?php else: ?>
+                                        <table class="giftcode-reward-table">
+                                            <caption>
+                                                Điều kiện nhận:
+                                                <span class="giftcode-reward-table__caption-note"><?= htmlspecialchars($table['condition'], ENT_QUOTES) ?></span>
+                                            </caption>
+                                            <?php if (!empty($table['items'])): ?>
+                                                <thead>
+                                                    <tr>
+                                                        <?php foreach ($table['items'] as $item): ?>
+                                                            <th><?= htmlspecialchars($item, ENT_QUOTES) ?></th>
+                                                        <?php endforeach; ?>
+                                                    </tr>
+                                                </thead>
+                                            <?php endif; ?>
+                                            <?php if (!empty($table['quantities'])): ?>
+                                                <tbody>
+                                                    <tr>
+                                                        <?php foreach ($table['quantities'] as $value): ?>
+                                                            <?php $cellValue = trim($value) === '' ? '—' : $value; ?>
+                                                            <td><?= htmlspecialchars($cellValue, ENT_QUOTES) ?></td>
+                                                        <?php endforeach; ?>
+                                                    </tr>
+                                                </tbody>
+                                            <?php endif; ?>
+                                        </table>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="popup popup-history is-hidden">
+                            <div class="wrap">
+                                <div class="content">
+                                    <h3>Lịch sử nhận code</h3>
+                                    <div class="table-responsive table-history-box custom-scrollbar">
+                                        <table class="table table-bordered table-hover" id="table-history">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>Tên</th>
+                                                    <th>Code</th>
+                                                    <th>Máy chủ</th>
+                                                    <th>Thời gian nhận</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <a class="close" href="#"><i class="fa-light fa-xmark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>

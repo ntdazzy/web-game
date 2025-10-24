@@ -18,45 +18,45 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
         </li>
         <li class="position-relative">
             <button class="btn swap-menu-id"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mobileMenu"
-                    aria-expanded="false"
-                    aria-controls="mobileMenu"></button>
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mobileMenu"
+                aria-expanded="false"
+                aria-controls="mobileMenu"></button>
 
             <ul class="collapse menu-mobile position-absolute" id="mobileMenu">
                 <li class="nav-item">
                     <a class="nav-link homepage<?= $activeNav === 'home' ? ' active' : '' ?>"
-                       href="/"
-                       title="Trang chủ"
-                       data-bs-target="#1"
-                       aria-expanded="false"
-                       aria-controls="1">Trang chủ </a>
+                        href="/"
+                        title="Trang chủ"
+                        data-bs-target="#1"
+                        aria-expanded="false"
+                        aria-controls="1">Trang chủ </a>
                 </li>
                 <li class="nav-item<?= $activeNav === 'news' ? ' active' : '' ?>">
                     <a class="nav-link news<?= $activeNav === 'news' ? ' active' : '' ?>"
-                       href="/tin-tuc"
-                       title="Tin tức"
-                       data-bs-target="#2"
-                       aria-expanded="false"
-                       aria-controls="2">Tin tức </a>
+                        href="/tin-tuc"
+                        title="Tin tức"
+                        data-bs-target="#2"
+                        aria-expanded="false"
+                        aria-controls="2">Tin tức </a>
                 </li>
                 <li class="nav-item<?= $activeNav === 'characters' ? ' active' : '' ?>">
                     <a class="nav-link hero-item<?= $activeNav === 'characters' ? ' active' : '' ?>"
-                       href="/danh-sach-tuong"
-                       title="Tướng"
-                       data-bs-target="#3"
-                       aria-expanded="false"
-                       aria-controls="3">Tướng </a>
+                        href="/danh-sach-tuong"
+                        title="Tướng"
+                        data-bs-target="#3"
+                        aria-expanded="false"
+                        aria-controls="3">Tướng </a>
                 </li>
                 <li class="menu-mobile-bottom">
                     <a class="btn btn-link position-relative collapsed fruit"
-                       href="#"
-                       title="Trái Ác Quỷ"
-                       data-bs-toggle="collapse"
-                       data-bs-target="#10"
-                       aria-expanded="false"
-                       aria-controls="10">
+                        href="#"
+                        title="Trái Ác Quỷ"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#10"
+                        aria-expanded="false"
+                        aria-controls="10">
                         Trái Ác Quỷ<i class="dropdown-icon position-absolute"></i>
                     </a>
                     <ul class="collapse social row collapse-normal" id="10">
@@ -70,12 +70,12 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                 </li>
                 <li class="menu-mobile-bottom">
                     <a class="btn btn-link position-relative collapsed support"
-                       href="#"
-                       title="Hỗ trợ"
-                       data-bs-toggle="collapse"
-                       data-bs-target="#20"
-                       aria-expanded="false"
-                       aria-controls="20">
+                        href="#"
+                        title="Hỗ trợ"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#20"
+                        aria-expanded="false"
+                        aria-controls="20">
                         Hỗ trợ<i class="dropdown-icon position-absolute"></i>
                     </a>
                     <ul class="collapse social row collapse-normal" id="20">
@@ -92,12 +92,12 @@ $navClass = static function (string $key, string $base = '') use ($activeNav): s
                 </li>
                 <li class="menu-mobile-bottom">
                     <a class="btn btn-link position-relative collapsed community"
-                       href="#"
-                       title="Cộng Đồng"
-                       data-bs-toggle="collapse"
-                       data-bs-target="#30"
-                       aria-expanded="false"
-                       aria-controls="30">
+                        href="#"
+                        title="Cộng Đồng"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#30"
+                        aria-expanded="false"
+                        aria-controls="30">
                         Cộng Đồng<i class="dropdown-icon position-absolute"></i>
                     </a>
                     <ul class="collapse social row collapse-normal collapse-community" id="30">

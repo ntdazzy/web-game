@@ -1,3 +1,4 @@
+<!-- Start Meta Chung -->
 <?php
 $pageTitle = 'Trang chủ | Hải Tặc Mạnh Nhất';
 $meta = [
@@ -11,5 +12,6 @@ $meta = [
     'link:shortcut_icon' => '/assets/stms/imgs/32x32.png'
 ];
 ?>
+<!-- End Meta Chung -->
 
 <h1 class="d-flex justify-content-center text-dark">Sự kiện đã kết thúc!!!</h1>

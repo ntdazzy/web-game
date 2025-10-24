@@ -66,6 +66,8 @@ $structuredData = [
     ],
 ];
 ?>
+
+<!-- Start Meta Chung -->
 <?php include __DIR__ . '/../../partials/top-nav-mobile.php'; ?>
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
     <img src="/assets/stms/imgs/logo-warning.png" alt="" class="logo-warning position-absolute">
@@ -91,6 +93,7 @@ $structuredData = [
         </div>
         <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
     </div>
+    <!-- End Header Chung -->
 
     <div class="subpage-container wrapper-id post-detail">
         <div class="container wrapper-post-detail">
@@ -121,7 +124,7 @@ $structuredData = [
                             <?php endif; ?>
                         </div>
                         <div class="post-content">
-<?= legacy_html($articleContent) ?>
+                            <?= legacy_html($articleContent) ?>
                         </div>
                     </div>
                     <div class="col-4 d-flex flex-column gap-2 hot-news-wrapper align-items-center" data-aos="fade-up">
@@ -136,18 +139,18 @@ $structuredData = [
                             ?>
                             <div class="hot-news-box d-flex flex-column mb-2">
                                 <a class="d-flex align-items-center justify-content-center wrap-img"
-                                   href="<?= htmlspecialchars($hotUrl, ENT_QUOTES) ?>"
-                                   target="_self"
-                                   title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
+                                    href="<?= htmlspecialchars($hotUrl, ENT_QUOTES) ?>"
+                                    target="_self"
+                                    title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
                                     <img src="<?= htmlspecialchars($hotThumb, ENT_QUOTES) ?>"
-                                         alt="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>"
-                                         data-fallback-src="/assets/stms/imgs/post-item-example.png">
+                                        alt="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>"
+                                        data-fallback-src="/assets/stms/imgs/post-item-example.png">
                                 </a>
                                 <div class="d-flex flex-column justify-content-center h-100 title">
                                     <a class="text-white"
-                                       href="<?= htmlspecialchars($hotUrl, ENT_QUOTES) ?>"
-                                       target="_self"
-                                       title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
+                                        href="<?= htmlspecialchars($hotUrl, ENT_QUOTES) ?>"
+                                        target="_self"
+                                        title="<?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>">
                                         <?= htmlspecialchars($hotItem['title'] ?? '', ENT_QUOTES) ?>
                                     </a>
                                     <?php if (!empty($hotItem['created_at'])): ?>
@@ -161,5 +164,4 @@ $structuredData = [
             </div>
         </div>
     </div>
-
 </div>

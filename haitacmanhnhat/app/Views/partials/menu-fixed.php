@@ -1,16 +1,16 @@
 <?php $showLeftMenu = $showLeftMenu ?? false; ?>
 <?php if ($showLeftMenu): ?>
-<div class="menu-fixed w-100 position-fixed left">
-    <div class="position-relative container">
-        <div class="left-menu position-absolute">
-            <ul>
-                <li class="menu-page-1 active d-flex align-items-center"></li>
-                <li class="menu-page-2 d-flex align-items-center"></li>
-                <li class="menu-page-3 d-flex align-items-center"></li>
-            </ul>
+    <div class="menu-fixed w-100 position-fixed left">
+        <div class="position-relative container">
+            <div class="left-menu position-absolute">
+                <ul>
+                    <li class="menu-page-1 active d-flex align-items-center"></li>
+                    <li class="menu-page-2 d-flex align-items-center"></li>
+                    <li class="menu-page-3 d-flex align-items-center"></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 <?php endif; ?>
 <div class="menu-fixed w-100 position-fixed right">
     <div class="position-relative">
