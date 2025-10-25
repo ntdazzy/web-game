@@ -11,10 +11,19 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/letmescroll.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('partials.app-config')
     @stack('styles')
 </head>
 <body class="bg-dark text-light d-flex flex-column min-vh-100">
@@ -26,8 +35,25 @@
 
     @include('partials.footer')
 
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/app.js') }}" defer></script>
+    <script src="{{ asset('assets/js/default/jquery-1.11.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/slick.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/aos.js') }}"></script>
+    <script src="{{ asset('assets/js/default/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/daterangepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/letmescroll.js') }}"></script>
+    <script src="{{ asset('assets/js/default/jquery.mCustomScrollbar.js') }}"></script>
+    <script src="{{ asset('assets/js/default/loadingoverlay.min.js') }}"></script>
+    <script src="{{ asset('assets/js/default/sweetalert2.all.js') }}"></script>
+    <script src="{{ asset('assets/js/common/scroll.js') }}"></script>
+    <script src="{{ asset('assets/js/common/global.js') }}"></script>
+    <script src="{{ asset('assets/js/common/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/auth/widget.login.js') }}"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/auth/app-auth.js') }}"></script>
+    <script src="{{ asset('assets/js/runtime/init-daterangepicker.js') }}"></script>
+    @include('partials.global-config-script')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -63,6 +89,7 @@
             });
         });
     </script>
+
     @stack('scripts')
 </body>
 </html>
