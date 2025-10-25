@@ -66,7 +66,13 @@ php artisan db:seed
 ```
 
 ### 2.3 Build assets
-Laravel sử dụng Vite (kèm plugin copy tự viết) để build/bundles và copy toàn bộ asset gốc từ `resources/assets` sang `public/assets`:
+Laravel sử dụng Vite (kèm plugin copy tự viết) để sao chép:
+- CSS legacy: `resources/css/legacy → public/assets/css`
+- JS legacy: `resources/js/legacy → public/assets/js`
+- Ảnh/tệp khác: `resources/static/* → public/assets/*`
+- Data legacy: `resources/data/legacy → public/assets/data`
+
+Các bước build:
 ```bash
 # build chế độ dev (watch)
 npm run dev
@@ -89,6 +95,9 @@ Mở trình duyệt tại `http://127.0.0.1:8000`. Trang chủ, tin tức, sự 
 ## 3. Kiến trúc & dữ liệu giao diện
 - **Blade layout** (`resources/views/layouts/main.blade.php`) gom toàn bộ phần chung (meta, header, footer, menu cố định, modal đăng nhập).
 - **Partial** trong `resources/views/partials` tái sử dụng top-nav, menu, analytics, global-config script… giống source cũ.
+- **Legacy assets**:
+  - CSS/JS giữ nguyên cấu trúc gốc trong `resources/css/legacy` và `resources/js/legacy`.
+  - Ảnh, fonts, videos… nằm trong `resources/static`.
 - **Dữ liệu giao diện** (hero video, sliders, top players…) lưu ở `resources/data`. Ví dụ:
   - `resources/data/common/page.json`: meta + structured data dùng cho mọi trang.
   - `resources/data/home/layout.json` & `resources/data/home/content.json`: cấu hình layout + data riêng trang chủ.

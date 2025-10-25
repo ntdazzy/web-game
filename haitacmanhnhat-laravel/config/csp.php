@@ -21,12 +21,30 @@ return [
      */
     'directives' => [
         'default-src' => ["'self'"],
-        'script-src' => ["'self'"],
-        'style-src' => ["'self'", "'unsafe-inline'"],
+        'script-src' => [
+            "'self'",
+            "'unsafe-inline'",
+            "'unsafe-eval'",
+            'http://127.0.0.1:5173',
+            'ws://127.0.0.1:5173',
+        ],
+        'style-src' => [
+            "'self'",
+            "'unsafe-inline'",
+            'http://127.0.0.1:5173',
+        ],
         'img-src' => ["'self'", 'data:'],
         'font-src' => ["'self'"],
-        'connect-src' => ["'self'"],
+        'connect-src' => ["'self'", 'ws://127.0.0.1:5173', 'http://127.0.0.1:5173'],
         'frame-src' => ['https://js.stripe.com'],
         'form-action' => ["'self'"],
+    ],
+
+    /*
+     * Bật nonce cho script/style nếu cần bảo vệ inline script nghiêm ngặt.
+     */
+    'nonces' => [
+        'script' => env('CSP_NONCE_SCRIPT', false),
+        'style' => env('CSP_NONCE_STYLE', false),
     ],
 ];

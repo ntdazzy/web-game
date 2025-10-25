@@ -41,9 +41,15 @@ class ContentSecurityPolicy
         }
 
         $nonce = csp_nonce();
+        $nonces = config('csp.nonces', ['script' => false, 'style' => false]);
 
-        $configured['script-src'] = $this->appendNonce($configured, 'script-src', $nonce);
-        $configured['style-src'] = $this->appendNonce($configured, 'style-src', $nonce, allowUnsafeInline: true);
+        if (! empty($nonces['script'])) {
+            $configured['script-src'] = $this->appendNonce($configured, 'script-src', $nonce);
+        }
+
+        if (! empty($nonces['style'])) {
+            $configured['style-src'] = $this->appendNonce($configured, 'style-src', $nonce);
+        }
 
         $reportUri = config('csp.report_uri');
         if (! empty($reportUri)) {
@@ -64,13 +70,9 @@ class ContentSecurityPolicy
         return implode('; ', $segments);
     }
 
-    private function appendNonce(array $directives, string $key, string $nonce, bool $allowUnsafeInline = false): array
+    private function appendNonce(array $directives, string $key, string $nonce): array
     {
         $values = Arr::wrap($directives[$key] ?? []);
-
-        if ($allowUnsafeInline && ! in_array("'unsafe-inline'", $values, true)) {
-            $values[] = "'unsafe-inline'";
-        }
 
         $values[] = "'nonce-{$nonce}'";
 

@@ -201,24 +201,46 @@ if (! function_exists('legacy_asset')) {
             return '';
         }
 
-        if (str_starts_with($trimmed, ['http://', 'https://', '//', 'data:'])) {
+        if (Str::startsWith($trimmed, ['http://', 'https://', '//', 'data:'])) {
             return $trimmed;
         }
 
         $normalized = ltrim($trimmed, '/');
 
-        if (str_starts_with($normalized, 'assets/')) {
+        if (Str::startsWith($normalized, 'assets/')) {
             $resourceRelative = substr($normalized, strlen('assets/'));
-            $resourceInput = 'resources/assets/' . $resourceRelative;
+            [$firstSegment, $remaining] = array_pad(explode('/', $resourceRelative, 2), 2, '');
+
+            $resourceRoots = [
+                'css' => 'resources/css/legacy',
+                'js' => 'resources/js/legacy',
+                'data' => 'resources/data/legacy',
+                'fonts' => 'resources/static/fonts',
+                'webfonts' => 'resources/static/webfonts',
+                'images' => 'resources/static/images',
+                'imgs' => 'resources/static/imgs',
+                'videos' => 'resources/static/videos',
+                'files' => 'resources/static/files',
+                'dl' => 'resources/static/dl',
+                'stms' => 'resources/static/stms',
+            ];
+
+            $resourceBase = $resourceRoots[$firstSegment] ?? ('resources/static/' . $firstSegment);
+            $resourceInput = trim($resourceBase . ($remaining !== '' ? '/' . $remaining : ''), '/');
+            if (! Str::startsWith($resourceInput, 'resources/')) {
+                $resourceInput = 'resources/' . $resourceInput;
+            }
 
             try {
                 return Vite::asset($resourceInput);
             } catch (\Throwable $exception) {
                 $publicPath = public_path($normalized);
                 if (! File::exists($publicPath)) {
-                    $sourcePath = resource_path('assets/' . $resourceRelative);
+                    $relativeResourcePath = Str::startsWith($resourceInput, 'resources/')
+                        ? substr($resourceInput, strlen('resources/'))
+                        : $resourceInput;
+                    $sourcePath = resource_path(trim($relativeResourcePath, '/'));
                     if (File::exists($sourcePath)) {
-                        // Asset exists in resources but manifest not built yet; fall back to Laravel asset().
                         return asset($normalized);
                     }
                 } else {
