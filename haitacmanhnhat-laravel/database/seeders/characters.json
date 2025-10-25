@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Monkey D. Luffy",
+        "slug": "monkey-d-luffy",
+        "description": "Thuyền trưởng băng Mũ Rơm với sức mạnh trái Gomu Gomu.",
+        "power": 9800,
+        "thumbnail": "assets/imgs/avatar.png"
+    },
+    {
+        "name": "Roronoa Zoro",
+        "slug": "roronoa-zoro",
+        "description": "Kiếm sĩ ba kiếm với tham vọng trở thành kiếm sĩ mạnh nhất thế giới.",
+        "power": 9500,
+        "thumbnail": "assets/imgs/bg-hero-slide.png"
+    },
+    {
+        "name": "Nami",
+        "slug": "nami",
+        "description": "Hoa tiêu thiên tài, sử dụng vũ khí Clima-Tact để điều khiển thời tiết.",
+        "power": 7200,
+        "thumbnail": "assets/imgs/bg-hero-name.png"
+    }
+]

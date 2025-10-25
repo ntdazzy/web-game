@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Sự kiện cập nhật mùa đông",
+        "slug": "su-kien-cap-nhat-mua-dong",
+        "category": "su-kien",
+        "thumbnail": "assets/imgs/bg-hot-news-2.png",
+        "published_at": "2025-01-01T09:00:00Z",
+        "content": "<p>Chi tiết sự kiện mùa đông với nhiều phần thưởng hấp dẫn.</p>"
+    },
+    {
+        "title": "Bản cập nhật 1.2.0 ra mắt",
+        "slug": "ban-cap-nhat-1-2-0-ra-mat",
+        "category": "update",
+        "thumbnail": "assets/imgs/bg-main.jpg",
+        "published_at": "2025-01-05T13:30:00Z",
+        "content": "<p>Bản cập nhật mới mang đến chế độ chơi PvP và cân bằng lại sức mạnh của tướng.</p>"
+    },
+    {
+        "title": "Top 5 mẹo leo rank nhanh",
+        "slug": "top-5-meo-leo-rank-nhanh",
+        "category": "tin-tuc",
+        "thumbnail": "assets/imgs/bg-subpage.jpg",
+        "published_at": "2024-12-28T07:15:00Z",
+        "content": "<p>Những mẹo hữu ích giúp bạn leo rank nhanh chóng trong Hải Tặc Mạnh Nhất.</p>"
+    }
+]
