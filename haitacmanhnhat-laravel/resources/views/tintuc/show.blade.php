@@ -21,7 +21,7 @@
 
         @if ($post->thumbnail)
             <figure class="mb-4 text-center">
-                <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                <img src="{{ legacy_asset($post->thumbnail) }}" alt="{{ $post->title }}" class="img-fluid rounded">
             </figure>
         @endif
 

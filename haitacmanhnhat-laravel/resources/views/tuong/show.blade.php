@@ -13,9 +13,9 @@
         <div class="row g-5 align-items-center">
             <div class="col-md-5 text-center">
                 @if ($character->thumbnail)
-                    <img src="{{ asset($character->thumbnail) }}" alt="{{ $character->name }}" class="img-fluid rounded shadow">
+                    <img src="{{ legacy_asset($character->thumbnail) }}" alt="{{ $character->name }}" class="img-fluid rounded shadow">
                 @else
-                    <img src="{{ asset('assets/imgs/avatar.png') }}" alt="{{ $character->name }}" class="img-fluid rounded shadow">
+                    <img src="{{ legacy_asset('assets/imgs/avatar.png') }}" alt="{{ $character->name }}" class="img-fluid rounded shadow">
                 @endif
             </div>
             <div class="col-md-7">

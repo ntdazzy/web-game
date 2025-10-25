@@ -5,7 +5,9 @@ declare(strict_types=1);
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
 
 if (! function_exists('app_origin')) {
@@ -189,10 +191,44 @@ if (! function_exists('legacy_asset')) {
             return '';
         }
 
-        if (is_string($path) && (str_starts_with($path, 'http://') || str_starts_with($path, 'https://'))) {
-            return $path;
+        if (! is_string($path)) {
+            return asset($path);
         }
 
-        return asset(ltrim($path, '/'));
+        $trimmed = trim($path);
+
+        if ($trimmed === '') {
+            return '';
+        }
+
+        if (str_starts_with($trimmed, ['http://', 'https://', '//', 'data:'])) {
+            return $trimmed;
+        }
+
+        $normalized = ltrim($trimmed, '/');
+
+        if (str_starts_with($normalized, 'assets/')) {
+            $resourceRelative = substr($normalized, strlen('assets/'));
+            $resourceInput = 'resources/assets/' . $resourceRelative;
+
+            try {
+                return Vite::asset($resourceInput);
+            } catch (\Throwable $exception) {
+                $publicPath = public_path($normalized);
+                if (! File::exists($publicPath)) {
+                    $sourcePath = resource_path('assets/' . $resourceRelative);
+                    if (File::exists($sourcePath)) {
+                        // Asset exists in resources but manifest not built yet; fall back to Laravel asset().
+                        return asset($normalized);
+                    }
+                } else {
+                    return asset($normalized);
+                }
+            }
+
+            return asset($normalized);
+        }
+
+        return asset($normalized);
     }
 }

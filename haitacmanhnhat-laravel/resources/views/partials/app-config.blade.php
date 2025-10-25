@@ -20,7 +20,7 @@
         'primaryDomain' => $primaryDomain,
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
-<script src="{{ asset('assets/js/runtime/app-config.js') }}" @if($cspNonce) nonce="{{ $cspNonce }}" @endif></script>
+<script src="{{ legacy_asset('assets/js/runtime/app-config.js') }}" @if($cspNonce) nonce="{{ $cspNonce }}" @endif></script>
 @if($cspNonce)
     <script nonce="{{ $cspNonce }}">
         window.__CSP_NONCE__ = "{{ $cspNonce }}";

@@ -14,7 +14,7 @@
                 <article class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100">
                         @if ($post->thumbnail)
-                            <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="card-img-top">
+                            <img src="{{ legacy_asset($post->thumbnail) }}" alt="{{ $post->title }}" class="card-img-top">
                         @endif
                         <div class="card-body d-flex flex-column">
                             <h2 class="h5 card-title">

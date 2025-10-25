@@ -7,7 +7,7 @@ Dự án này chuyển toàn bộ website PHP thuần của Hải Tặc Mạnh N
 |------------|-------|-----------------|---------|
 | PHP        | `brew install php@8.3` | `sudo apt install php8.3 php8.3-xml php8.3-curl php8.3-mbstring php8.3-zip` | Cài [PHP 8.3](https://windows.php.net/download/) và thêm vào `PATH`
 | Composer   | `brew install composer` | `sudo apt install composer` hoặc tải từ [getcomposer.org] | Tải installer từ [getcomposer.org]
-| Node.js    | `brew install node@18` | `curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt install nodejs` | Cài [Node.js 18 LTS](https://nodejs.org)
+| Node.js    | `brew install node@18` hoặc `@20` | `curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt install nodejs` | Cài [Node.js LTS (>=18.18)](https://nodejs.org)
 | NPM        | đi kèm Node | đi kèm Node | đi kèm Node |
 | MySQL      | `brew install mysql` hoặc dùng Docker | `sudo apt install mysql-server` | Dùng MySQL trong XAMPP (khuyến nghị) hoặc MySQL Community Server |
 
@@ -26,6 +26,9 @@ npm install
 # Tạo file .env
 cp .env.example .env
 php artisan key:generate
+
+# Đồng bộ assets tĩnh lần đầu (nếu chưa chạy Vite)
+php artisan app:sync-assets
 ```
 
 ### 2.1 Cấu hình `.env`
@@ -42,7 +45,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 - Nếu MySQL chạy trên cổng khác, sửa `DB_PORT` tương ứng.
-- Laravel sử dụng `spatie/laravel-csp` nên nếu cần tắt CSP trong phát triển, đặt `APP_ENV=local`, `APP_DEBUG=true`.
+- Nếu cần tạm tắt CSP trong môi trường dev, đặt `CSP_ENABLED=false`. Có thể chạy ở chế độ report bằng `CSP_REPORT_ONLY=true`.
 
 ### 2.2 Nhập dữ liệu
 Trong thư mục `resources/sql` có file `nro.sql` (database gốc). Thực hiện:
@@ -63,13 +66,16 @@ php artisan db:seed
 ```
 
 ### 2.3 Build assets
-Laravel sử dụng Vite để copy toàn bộ asset gốc:
+Laravel sử dụng Vite (kèm plugin copy tự viết) để build/bundles và copy toàn bộ asset gốc từ `resources/assets` sang `public/assets`:
 ```bash
 # build chế độ dev (watch)
 npm run dev
 
 # build production
 npm run build  # build production
+
+# chỉ đồng bộ assets một lần nếu không chạy Vite (fallback)
+php artisan app:sync-assets
 ```
 
 dev server cần chạy song song Vite (`npm run dev`) để load CSS/JS.
@@ -90,12 +96,15 @@ Mở trình duyệt tại `http://127.0.0.1:8000`. Trang chủ, tin tức, sự 
 
 ## 4. Tình trạng tích hợp
 - Các luồng thanh toán (Stripe, VNPay) đã được stub và tạm vô hiệu hoá trong controller & route để tránh lỗi khi chưa cấu hình khóa/thư viện. Khi cần kích hoạt, cài lại gói tương ứng và cập nhật controller.
-- CSP mặc định bật qua `spatie/laravel-csp`. Nếu cần mở rộng domain cho script/style, sửa file `config/csp.php`.
+- CSP do middleware nội bộ `ContentSecurityPolicy` đảm nhiệm, cấu hình tại `config/csp.php`. Thêm domain mới bằng cách bổ sung vào `directives`.
 
 ## 5. Lệnh hữu ích
 ```bash
 # Chạy toàn bộ test
 php artisan test
+
+# Đồng bộ assets tĩnh thủ công
+php artisan app:sync-assets
 
 # Dọn cache khi đổi cấu hình
 php artisan config:clear

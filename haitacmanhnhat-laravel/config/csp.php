@@ -1,47 +1,32 @@
 <?php
 
-use Spatie\Csp\Directive;
-use Spatie\Csp\Keyword;
-use Spatie\Csp\Policies\Basic;
-
 return [
+    /*
+     * Bật/tắt CSP toàn cục. Đặt CSP_ENABLED=false trong .env nếu cần vô hiệu trong môi trường dev.
+     */
+    'enabled' => env('CSP_ENABLED', true),
 
     /*
-     * A policy will determine which CSP headers will be set. A valid CSP policy is
-     * any class that extends `Spatie\Csp\Policies\Policy`
+     * Nếu true sẽ phát sinh header Content-Security-Policy-Report-Only thay vì chặn.
      */
-    'policy' => Basic::class,
+    'report_only' => env('CSP_REPORT_ONLY', false),
 
     /*
-     * This policy which will be put in report only mode. This is great for testing out
-     * a new policy or changes to existing csp policy without breaking anything.
+     * Endpoint nhận báo cáo vi phạm nếu cần.
      */
-    'report_only_policy' => '',
+    'report_uri' => env('CSP_REPORT_URI', null),
 
     /*
-     * All violations against the policy will be reported to this url.
+     * Các directive chính của CSP. Có thể mở rộng thêm domain tùy ý.
      */
-    'report_uri' => env('CSP_REPORT_URI', ''),
-
-    /*
-     * CSP headers will not be added to responses that are added to this array.
-     */
-    'except' => [
-        //
+    'directives' => [
+        'default-src' => ["'self'"],
+        'script-src' => ["'self'"],
+        'style-src' => ["'self'", "'unsafe-inline'"],
+        'img-src' => ["'self'", 'data:'],
+        'font-src' => ["'self'"],
+        'connect-src' => ["'self'"],
+        'frame-src' => ['https://js.stripe.com'],
+        'form-action' => ["'self'"],
     ],
-
-    /*
-     * Define a closure to customize CSP directives for the Basic policy.
-     */
-    'customize' => static function (Basic $policy): void {
-        $policy
-            ->addDirective(Directive::DEFAULT_SRC, [Keyword::SELF])
-            ->addDirective(Directive::SCRIPT_SRC, [Keyword::SELF])
-            ->addDirective(Directive::STYLE_SRC, [Keyword::SELF, Keyword::UNSAFE_INLINE])
-            ->addDirective(Directive::IMG_SRC, [Keyword::SELF, 'data:'])
-            ->addDirective(Directive::FONT_SRC, [Keyword::SELF])
-            ->addDirective(Directive::CONNECT_SRC, [Keyword::SELF])
-            ->addDirective(Directive::FRAME_SRC, ['https://js.stripe.com'])
-            ->addDirective(Directive::FORM_ACTION, [Keyword::SELF]);
-    },
 ];

@@ -1,7 +1,7 @@
 <footer class="footer mt-auto py-5">
     <div class="wrap-content container d-flex align-items-center justify-content-center flex-column flex-md-row">
         <a class="logo mb-3 mb-md-0" href="{{ route('home') }}">
-            <img src="{{ asset('assets/imgs/logo.png') }}" alt="Hải Tặc Mạnh Nhất" class="img-fluid">
+            <img src="{{ legacy_asset('assets/imgs/logo.png') }}" alt="Hải Tặc Mạnh Nhất" class="img-fluid">
         </a>
         <div class="info-group text-center text-md-start ms-md-4">
             <ul class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-3">

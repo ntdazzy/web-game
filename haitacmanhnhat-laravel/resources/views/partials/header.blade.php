@@ -15,11 +15,11 @@
     <div class="container d-flex w-100 h-100">
         <div class="logo position-relative h-100">
             <div class="wrap-logo position-absolute d-flex flex-column align-items-center">
-                <a href="{{ url('/') }}"><img src="{{ asset('assets/imgs/logo.png') }}" alt="Hải Tặc Mạnh Nhất" class="logo-img"></a>
+                <a href="{{ url('/') }}"><img src="{{ legacy_asset('assets/imgs/logo.png') }}" alt="Hải Tặc Mạnh Nhất" class="logo-img"></a>
             </div>
         </div>
         <div class="nav-bar position-relative">
-            <img src="{{ asset('assets/imgs/menu/bg-menu-nav.png') }}" alt="Menu" class="position-absolute top-0">
+            <img src="{{ legacy_asset('assets/imgs/menu/bg-menu-nav.png') }}" alt="Menu" class="position-absolute top-0">
             <ul class="main-nav d-flex h-100">
                 <li class="d-flex justify-content-center align-items-center homepage{{ $activeNav === 'home' ? ' active' : '' }}">
                     <a class="nav-item h-100{{ $activeNav === 'home' ? ' active' : '' }}" href="{{ url('/') }}" target="_self" title="Trang chủ"></a>
