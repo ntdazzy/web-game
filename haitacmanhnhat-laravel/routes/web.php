@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteMapController;
-use App\Http\Controllers\VnPayController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'home'])->name('home');
@@ -19,13 +17,7 @@ Route::get('/tin-tuc/{post}-{slug?}', [PostController::class, 'show'])
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');
 Route::get('/danh-sach-tuong/{slug}', [CharacterController::class, 'show'])->name('character.show');
 
-Route::view('/payments', 'payments.index')->name('payment.index');
-Route::get('/payments/stripe/checkout', [PaymentController::class, 'checkout'])->name('payment.stripe.checkout');
-Route::get('/payments/stripe/success', [PaymentController::class, 'success'])->name('payment.success');
-Route::get('/payments/stripe/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
-
-Route::post('/payments/vnpay', [VnPayController::class, 'purchase'])->name('payment.vnpay');
-Route::get('/payments/vnpay/return', [VnPayController::class, 'return'])->name('payment.vnpayReturn');
+// Payment routes are temporarily disabled during migration.
 
 Route::get('/sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap');
 Route::get('/robots.txt', function () {

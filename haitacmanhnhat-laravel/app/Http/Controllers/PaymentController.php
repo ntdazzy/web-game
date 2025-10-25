@@ -19,33 +19,9 @@ class PaymentController extends Controller
      */
     public function checkout(Request $request): View|RedirectResponse
     {
-        if (! config('cashier.key')) {
-            Log::warning('Stripe key missing, returning checkout stub view.');
+        Log::info('Payment checkout is currently disabled (legacy placeholder).');
 
-            return view('payments.stripe-checkout');
-        }
-
-        Stripe::setApiKey(config('cashier.secret'));
-
-        $session = Session::create([
-            'mode' => 'payment',
-            'success_url' => route('payment.success'),
-            'cancel_url' => route('payment.cancel'),
-            'line_items' => [
-                [
-                    'price_data' => [
-                        'currency' => 'vnd',
-                        'product_data' => [
-                            'name' => 'Gói nạp kim cương mẫu',
-                        ],
-                        'unit_amount' => 50000,
-                    ],
-                    'quantity' => 1,
-                ],
-            ],
-        ]);
-
-        return redirect($session->url);
+        return view('payments.stripe-checkout');
     }
 
     public function success(): View

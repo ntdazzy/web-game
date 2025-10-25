@@ -19,6 +19,7 @@ class PostController extends Controller
 
         return view('home', [
             'latestPosts' => $latestPosts,
+            'showLeftMenu' => true,
         ]);
     }
 

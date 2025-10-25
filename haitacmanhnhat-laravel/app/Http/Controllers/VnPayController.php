@@ -12,35 +12,10 @@ class VnPayController extends Controller
 {
     public function purchase(Request $request): RedirectResponse|View
     {
-        if (! app()->bound('omnipay')) {
-            Log::warning('Omnipay is not configured. Returning stub view for VNPay purchase.');
-
-            return view('payments.vnpay.purchase');
-        }
-
-        /** @var \Psr\Container\ContainerInterface|\Illuminate\Support\Manager $manager */
-        $manager = app('omnipay');
-
-        /** @var \Omnipay\Common\AbstractGateway $gateway */
-        $gateway = method_exists($manager, 'driver')
-            ? $manager->driver('vnpay')
-            : $manager->gateway('vnpay');
-
-        /** @var ResponseInterface $response */
-        $response = $gateway->purchase([
-            'amount' => $request->input('amount', '100000'),
-            'currency' => 'VND',
-            'returnUrl' => route('payment.vnpayReturn'),
-            'orderId' => 'VNPAY-' . now()->format('YmdHis'),
-            'description' => 'Thanh toán gói nạp mẫu VNPay',
-        ])->send();
-
-        if ($response->isRedirect()) {
-            return $response->redirect();
-        }
+        Log::info('VNPay purchase is currently disabled (legacy placeholder).');
 
         return view('payments.vnpay.purchase', [
-            'error' => $response->getMessage(),
+            'error' => 'VNPay integration đang được cập nhật.',
         ]);
     }
 
