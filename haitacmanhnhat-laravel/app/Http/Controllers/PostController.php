@@ -3,24 +3,57 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Services\HomePageService;
+use App\Services\PageContextService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    private array $tabConfig = [
+        'tin-tuc' => ['dataset' => 'news', 'label' => 'Tin tức', 'href' => '/tin-tuc'],
+        'su-kien' => ['dataset' => 'event', 'label' => 'Sự kiện', 'href' => '/su-kien'],
+        'update' => ['dataset' => 'update', 'label' => 'Update', 'href' => '/update'],
+    ];
+
+    public function __construct(
+        private HomePageService $homePageService,
+        private PageContextService $pageContextService
+    )
+    {
+    }
+
     public function home(): View
     {
-        $latestPosts = Post::query()
+        $context = $this->homePageService->context();
+
+        $newsPosts = Post::query()
+            ->categorySlug('tin-tuc')
             ->orderByDesc('ghimbai')
             ->orderByDesc('created_at')
             ->limit(5)
             ->get();
 
-        return view('home', [
-            'latestPosts' => $latestPosts,
-            'showLeftMenu' => true,
-        ]);
+        $eventPosts = Post::query()
+            ->categorySlug('su-kien')
+            ->orderByDesc('ghimbai')
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
+
+        $updatePosts = Post::query()
+            ->categorySlug('update')
+            ->orderByDesc('ghimbai')
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
+
+        return view('home', array_merge($context, [
+            'newsPosts' => $newsPosts,
+            'eventPosts' => $eventPosts,
+            'updatePosts' => $updatePosts,
+        ]));
     }
 
     public function indexTinTuc(Request $request): View
@@ -61,15 +94,27 @@ class PostController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        $view = match ($category) {
-            'su-kien' => 'sukien.index',
-            'update' => 'update.index',
-            default => 'tintuc.index',
-        };
+        $context = $this->pageContextService->base($title . ' | Hải Tặc Mạnh Nhất');
 
-        return view($view, [
+        $tab = $this->tabConfig[$category] ?? $this->tabConfig['tin-tuc'];
+        $dataset = $tab['dataset'];
+
+        return view('tintuc.index', array_merge($context, [
             'posts' => $posts,
-            'categoryTitle' => $title,
-        ]);
+            'categorySlug' => $category,
+            'dataset' => $dataset,
+            'tabConfig' => array_map(fn ($config) => [
+                'label' => $config['label'],
+                'href' => $config['href'],
+                'dataset' => $config['dataset'],
+            ], $this->tabConfig),
+            'basePath' => $tab['href'],
+            'bodyAttributes' => 'class="wrapper-subpage overflow-y-auto"',
+            'showLeftMenu' => false,
+            'paginationData' => [
+                'page' => $posts->currentPage(),
+                'total_pages' => $posts->lastPage(),
+            ],
+        ]));
     }
 }

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
 
     @foreach ($pageStyles as $style)
-        <link rel="stylesheet" href="{{ $style }}">
+        <link rel="stylesheet" href="{{ legacy_asset($style) }}">
     @endforeach
 
     @foreach ($pageHeadScripts as $headScript)

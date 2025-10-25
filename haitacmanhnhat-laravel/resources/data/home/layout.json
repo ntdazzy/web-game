@@ -1,0 +1,65 @@
+{
+    "bodyAttributes": "class=\"home-page\"",
+    "showLeftMenu": true,
+    "pageStyles": [
+        "/assets/css/modules/home.css"
+    ],
+    "heroVideo": {
+        "src": "/assets/videos/mainsite/home-video-3.mp4",
+        "type": "video/mp4",
+        "poster": "/assets/images/background.webp"
+    },
+    "heroBackground": {
+        "src": "/assets/images/background.webp",
+        "fallback": "/assets/images/background.png",
+        "alt": "Hải Tặc Mạnh Nhất background"
+    },
+    "slides": {
+        "desktop": [
+            {
+                "title": "S32",
+                "href": "/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(71).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide.png",
+                "active": false
+            },
+            {
+                "title": "EV2",
+                "href": "/tin-tuc/su-kien-tuan-2-thang-10-2025-195",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(73).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide.png",
+                "active": true
+            },
+            {
+                "title": "VGC",
+                "href": "/tin-tuc/vuong-gia-chien-lan-2-197",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(74).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide.png",
+                "active": false
+            }
+        ],
+        "mobile": [
+            {
+                "title": "S32",
+                "href": "/tin-tuc/10h-11-10-khai-mo-may-chu-s32-177",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(15).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide-mobile.png",
+                "active": false
+            },
+            {
+                "title": "EV2",
+                "href": "/tin-tuc/su-kien-tuan-2-thang-10-2025-195",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(16).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide-mobile.png",
+                "active": true
+            },
+            {
+                "title": "VGC",
+                "href": "/tin-tuc/vuong-gia-chien-lan-2-197",
+                "image": "/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(17).jpg",
+                "fallback": "/assets/imgs/page2/slides/slide-mobile.png",
+                "active": false
+            }
+        ]
+    }
+}

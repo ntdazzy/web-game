@@ -1,61 +1,117 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Hải Tặc Mạnh Nhất – Laravel 12
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Dự án này chuyển toàn bộ website PHP thuần của Hải Tặc Mạnh Nhất sang kiến trúc Laravel 12 (PHP 8.2+), giữ nguyên giao diện, URL, luồng thao tác và tài sản tĩnh. Repo bao gồm backend Laravel, Blade view chuyển đổi từ source cũ, và dữ liệu cấu hình JSON để dễ bảo trì.
 
-## About Laravel
+## 1. Yêu cầu hệ thống
+| Thành phần | MacOS | Ubuntu / Debian | Windows |
+|------------|-------|-----------------|---------|
+| PHP        | `brew install php@8.3` | `sudo apt install php8.3 php8.3-xml php8.3-curl php8.3-mbstring php8.3-zip` | Cài [PHP 8.3](https://windows.php.net/download/) và thêm vào `PATH`
+| Composer   | `brew install composer` | `sudo apt install composer` hoặc tải từ [getcomposer.org] | Tải installer từ [getcomposer.org]
+| Node.js    | `brew install node@18` | `curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt install nodejs` | Cài [Node.js 18 LTS](https://nodejs.org)
+| NPM        | đi kèm Node | đi kèm Node | đi kèm Node |
+| MySQL      | `brew install mysql` hoặc dùng Docker | `sudo apt install mysql-server` | Dùng MySQL trong XAMPP (khuyến nghị) hoặc MySQL Community Server |
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> ⚠️ **Windows khuyến nghị dùng WSL2** để chạy PHP/Node. MySQL có thể dùng từ XAMPP (mở cổng 3306). Đặt `DB_HOST=127.0.0.1` để ép kết nối TCP.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 2. Thiết lập dự án
+```bash
+# Clone nguồn
+git clone https://github.com/…/haitacmanhnhat-laravel.git
+cd haitacmanhnhat-laravel
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Cài dependencies PHP & Node
+composer install
+npm install
 
-## Learning Laravel
+# Tạo file .env
+cp .env.example .env
+php artisan key:generate
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2.1 Cấu hình `.env`
+Thiết lập các biến sau để kết nối MySQL (ví dụ dùng XAMPP):
+```
+APP_NAME="Hải Tặc Mạnh Nhất"
+APP_URL=http://localhost
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nro
+DB_USERNAME=root
+DB_PASSWORD=
+```
+- Nếu MySQL chạy trên cổng khác, sửa `DB_PORT` tương ứng.
+- Laravel sử dụng `spatie/laravel-csp` nên nếu cần tắt CSP trong phát triển, đặt `APP_ENV=local`, `APP_DEBUG=true`.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2.2 Nhập dữ liệu
+Trong thư mục `resources/sql` có file `nro.sql` (database gốc). Thực hiện:
+```bash
+# Mac / Linux
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS nro CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+mysql -u root -p nro < resources/sql/nro.sql
 
-## Laravel Sponsors
+# Windows (PowerShell)
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS nro CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+mysql -u root -p nro < resources/sql/nro.sql
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Sau khi import, chạy migrate/seed để bổ sung bảng mới:
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
-### Premium Partners
+### 2.3 Build assets
+Laravel sử dụng Vite để copy toàn bộ asset gốc:
+```bash
+# build chế độ dev (watch)
+npm run dev
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# build production
+npm run build  # build production
+```
 
-## Contributing
+dev server cần chạy song song Vite (`npm run dev`) để load CSS/JS.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2.4 Khởi chạy ứng dụng
+```bash
+php artisan serve --host=0.0.0.0 --port=8000
+```
+Mở trình duyệt tại `http://127.0.0.1:8000`. Trang chủ, tin tức, sự kiện, update… sẽ hiển thị giống bản PHP thuần.
 
-## Code of Conduct
+## 3. Kiến trúc & dữ liệu giao diện
+- **Blade layout** (`resources/views/layouts/main.blade.php`) gom toàn bộ phần chung (meta, header, footer, menu cố định, modal đăng nhập).
+- **Partial** trong `resources/views/partials` tái sử dụng top-nav, menu, analytics, global-config script… giống source cũ.
+- **Dữ liệu giao diện** (hero video, sliders, top players…) lưu ở `resources/data`. Ví dụ:
+  - `resources/data/common/page.json`: meta + structured data dùng cho mọi trang.
+  - `resources/data/home/layout.json` & `resources/data/home/content.json`: cấu hình layout + data riêng trang chủ.
+- **Posts** đọc trực tiếp từ DB (bảng `posts`). Các trang khác (ví dụ giftcode, nap tiền) sẽ lấy dữ liệu từ JSON tương ứng, tránh hard-code trong Blade.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 4. Tình trạng tích hợp
+- Các luồng thanh toán (Stripe, VNPay) đã được stub và tạm vô hiệu hoá trong controller & route để tránh lỗi khi chưa cấu hình khóa/thư viện. Khi cần kích hoạt, cài lại gói tương ứng và cập nhật controller.
+- CSP mặc định bật qua `spatie/laravel-csp`. Nếu cần mở rộng domain cho script/style, sửa file `config/csp.php`.
 
-## Security Vulnerabilities
+## 5. Lệnh hữu ích
+```bash
+# Chạy toàn bộ test
+php artisan test
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Dọn cache khi đổi cấu hình
+php artisan config:clear
+php artisan view:clear
 
-## License
+# Format code PHP (nếu cần)
+./vendor/bin/pint
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 6. Hỗ trợ hệ điều hành
+- **macOS**: ưu tiên Homebrew cho PHP/MySQL. Khi dùng Valet cần tắt `php artisan serve`.
+- **Ubuntu**: nhớ cài extension cần thiết (`php8.3-mysql` …). Nếu MySQL yêu cầu socket, đổi `DB_HOST=127.0.0.1` để dùng TCP.
+- **Windows**: chạy Laravel trong WSL2 để đồng bộ file và permission. Dùng MySQL Windows (XAMPP) hoặc Docker; expose cổng 3306 & dùng `DB_HOST=127.0.0.1`.
+
+## 7. Đóng góp
+Mọi thay đổi nên thông qua pull request, tuân thủ PSR-12/Pint. JSON cấu hình nằm trong `resources/data`, vui lòng giữ đúng format để các service đọc được.
+
+---
+Sau khi hoàn thành các bước trên, bạn có thể phát triển giao diện/logic mới trên nền Laravel mà vẫn giữ nguyên trải nghiệm người dùng của website Hải Tặc Mạnh Nhất.

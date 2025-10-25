@@ -181,3 +181,18 @@ if (! function_exists('legacy_csrf_field')) {
             . '<input type="hidden" name="_token_name" value="' . e($form) . '">' . PHP_EOL;
     }
 }
+
+if (! function_exists('legacy_asset')) {
+    function legacy_asset(?string $path): string
+    {
+        if (! $path) {
+            return '';
+        }
+
+        if (str_starts_with($path, ['http://', 'https://'])) {
+            return $path;
+        }
+
+        return asset(ltrim($path, '/'));
+    }
+}

@@ -1,48 +1,112 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-    <section class="section-header py-5">
-        <div class="container text-center">
-            <h1 class="display-5 text-uppercase fw-bold">{{ $categoryTitle ?? 'Tin tức' }}</h1>
-            <p class="lead text-muted mt-2">Tổng hợp thông tin mới nhất về Hải Tặc Mạnh Nhất.</p>
+@php
+    $tabConfig = $tabConfig ?? [];
+    $categorySlug = $categorySlug ?? 'tin-tuc';
+    $currentTab = $tabConfig[$categorySlug] ?? null;
+    $dataset = $dataset ?? ($currentTab['dataset'] ?? 'news');
+    $basePath = $basePath ?? ($currentTab['href'] ?? '/tin-tuc');
+    $paginationData = $paginationData ?? ['page' => 1, 'total_pages' => 1];
+@endphp
+
+<div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
+    <img src="{{ legacy_asset('/assets/imgs/logo-warning.png') }}" alt="" class="logo-warning position-absolute">
+    <div class="wrap-login-mobile wrap-login position-absolute h-100">
+        <div class="user-info h-100 d-flex align-items-center d-none">
+            <div class="btn-group">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="display-name"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                    <li class="dropdown-item d-flex align-items-center">
+                        <a href="/qua-nap-web" class="d-flex justify-content-between">
+                            <i><span>GEM</span><span>0</span></i> <button>Nạp</button>
+                        </a>
+                    </li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                    <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
+        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
+    </div>
 
-    <section class="news-list container pb-5">
-        <form method="GET" action="{{ url()->current() }}" class="row g-2 mb-4">
-            <div class="col-md-10">
-                <input type="text" name="q" class="form-control" value="{{ request('q') }}" placeholder="Nhập từ khóa cần tìm">
-            </div>
-            <div class="col-md-2 d-grid">
-                <button type="submit" class="btn btn-primary">Tìm kiếm</button>
-            </div>
-        </form>
-
-        <div class="row g-4">
-            @forelse($posts as $post)
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        @if ($post->thumbnail)
-                            <img src="{{ asset($post->thumbnail) }}" alt="{{ $post->title }}" class="card-img-top">
-                        @endif
-                        <div class="card-body d-flex flex-column">
-                            <h2 class="h5 card-title">
-                                <a href="{{ route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]) }}" class="stretched-link text-decoration-none">{{ $post->title }}</a>
-                            </h2>
-                            <p class="card-text text-muted mt-2">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 150) }}</p>
-                            <time datetime="{{ optional($post->created_at)->toAtomString() }}" class="text-muted small mt-auto">
-                                {{ optional($post->created_at)->translatedFormat('d/m/Y H:i') }}
-                            </time>
+    <div class="subpage-container wrapper-id post">
+        <div class="container h-100 position-relative">
+            <div class="d-flex flex-column align-items-center">
+                <h1 class="page-title">Tin tức sự kiện</h1>
+                <div class="listNews w-100">
+                    <div class="tabs-post">
+                        <div class="action d-flex">
+                            <div class="btn-group d-flex gap-3">
+                                @foreach ($tabConfig as $slug => $tab)
+                                    <a class="{{ $slug === $categorySlug ? 'active ' : '' }}{{ $tab['dataset'] }}"
+                                        href="{{ $tab['href'] }}">
+                                        {{ $tab['label'] }}
+                                    </a>
+                                @endforeach
+                            </div>
+                            <form class="search-lite search position-relative post" action="{{ $currentTab['href'] ?? '/tin-tuc' }}" method="GET">
+                                <input type="text" placeholder="Tìm kiếm" name="q" value="{{ request('q') }}" autocomplete="off">
+                                <button type="submit" class="search-icon position-absolute"></button>
+                            </form>
                         </div>
-                    </div>
-                </article>
-            @empty
-                <p class="text-center">Hiện chưa có bài viết.</p>
-            @endforelse
-        </div>
+                        <ul class="posts-content d-flex flex-column gap-3">
+                            @foreach ($posts as $post)
+                                @php
+                                    $thumbnail = $post->image ? legacy_asset($post->image) : legacy_asset('/assets/imgs/post-item-example.png');
+                                    $itemUrl = url($basePath . '/' . $post->slug);
+                                    $summary = \Illuminate\Support\Str::limit(strip_tags($post->content), 160);
+                                @endphp
+                                <li>
+                                    <a target="_self"
+                                        href="{{ $itemUrl }}"
+                                        class="title d-flex">
+                                        <div class="thumbnail">
+                                            <img src="{{ $thumbnail }}"
+                                                data-fallback-src="{{ legacy_asset('/assets/imgs/post-item-example.png') }}"
+                                                alt="{{ $post->title }}"
+                                                width="100%" height="100%">
+                                        </div>
+                                        <div class="post-item-content">
+                                            <h3 class="d-flex justify-content-between mb-2">
+                                                <div class="post-item-title d-flex align-items-center">
+                                                    <span class="cat-name">{{ $tabConfig[$categorySlug]['label'] ?? 'Tin tức' }}</span>
+                                                    <p>{{ $post->title }}</p>
+                                                </div>
+                                                @if ($post->created_at)
+                                                    <span class="time">{{ $post->created_at->format('d-m-Y') }}</span>
+                                                @endif
+                                            </h3>
+                                            @if ($summary)
+                                                <p class="text-content">
+                                                    {{ $summary }}
+                                                </p>
+                                            @endif
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
 
-        <div class="mt-4">
-            {{ $posts->links() }}
+                        @if ($paginationData['total_pages'] > 1)
+                            <div class="pagination d-flex justify-content-center mt-4">
+                                @for ($page = 1; $page <= $paginationData['total_pages']; $page++)
+                                    <a href="{{ $basePath }}?page={{ $page }}"
+                                        class="{{ $page === $paginationData['page'] ? 'active' : '' }}">
+                                        {{ $page }}
+                                    </a>
+                                @endfor
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
 @endsection

@@ -33,7 +33,12 @@
 
 @foreach ($meta as $key => $value)
     @if (\Illuminate\Support\Str::startsWith($key, 'og:') && ! empty($value))
-        <meta property="{{ $key }}" content="{{ $value }}">
+        @php
+            $contentValue = \Illuminate\Support\Str::startsWith($key, 'og:image')
+                ? legacy_asset($value)
+                : $value;
+        @endphp
+        <meta property="{{ $key }}" content="{{ $contentValue }}">
     @endif
 @endforeach
 
@@ -44,7 +49,7 @@
 @endif
 
 @if (! empty($meta['link:shortcut_icon']))
-    <link rel="shortcut icon" href="{{ $meta['link:shortcut_icon'] }}">
+    <link rel="shortcut icon" href="{{ legacy_asset($meta['link:shortcut_icon']) }}">
 @endif
 
 @foreach ($structuredBlocks as $schema)

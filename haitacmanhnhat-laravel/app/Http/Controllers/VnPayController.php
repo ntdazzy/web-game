@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
-use Omnipay\Common\Message\ResponseInterface;
 
 class VnPayController extends Controller
 {
-    public function purchase(Request $request): RedirectResponse|View
+    public function purchase(Request $request): View
     {
         Log::info('VNPay purchase is currently disabled (legacy placeholder).');
 
