@@ -183,13 +183,13 @@ if (! function_exists('legacy_csrf_field')) {
 }
 
 if (! function_exists('legacy_asset')) {
-    function legacy_asset(?string $path): string
+    function legacy_asset($path): string
     {
         if (! $path) {
             return '';
         }
 
-        if (str_starts_with($path, ['http://', 'https://'])) {
+        if (is_string($path) && (str_starts_with($path, 'http://') || str_starts_with($path, 'https://'))) {
             return $path;
         }
 
