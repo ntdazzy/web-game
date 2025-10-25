@@ -1,16 +1,15 @@
 <?php
 
-$devHttpHosts = [
+$devHttpHosts = array_unique(array_filter([
+    env('VITE_DEV_SERVER', 'http://127.0.0.1:5173'),
     'http://127.0.0.1:5173',
-    'http://[::1]:5173',
     'http://localhost:5173',
-];
+]));
 
-$devWsHosts = [
-    'ws://127.0.0.1:5173',
-    'ws://[::1]:5173',
-    'ws://localhost:5173',
-];
+$devWsHosts = array_map(
+    static fn (string $host) => preg_replace('/^http/', 'ws', $host),
+    $devHttpHosts
+);
 
 return [
     /*
