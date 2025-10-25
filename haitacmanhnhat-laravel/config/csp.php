@@ -1,5 +1,17 @@
 <?php
 
+$devHttpHosts = [
+    'http://127.0.0.1:5173',
+    'http://[::1]:5173',
+    'http://localhost:5173',
+];
+
+$devWsHosts = [
+    'ws://127.0.0.1:5173',
+    'ws://[::1]:5173',
+    'ws://localhost:5173',
+];
+
 return [
     /*
      * Bật/tắt CSP toàn cục. Đặt CSP_ENABLED=false trong .env nếu cần vô hiệu trong môi trường dev.
@@ -20,22 +32,21 @@ return [
      * Các directive chính của CSP. Có thể mở rộng thêm domain tùy ý.
      */
     'directives' => [
+        // NOTE: Cho phép dev server hosts (IPv4/IPv6/localhost) cho Vite.
         'default-src' => ["'self'"],
-        'script-src' => [
-            "'self'",
-            "'unsafe-inline'",
-            "'unsafe-eval'",
-            'http://127.0.0.1:5173',
-            'ws://127.0.0.1:5173',
-        ],
-        'style-src' => [
-            "'self'",
-            "'unsafe-inline'",
-            'http://127.0.0.1:5173',
-        ],
-        'img-src' => ["'self'", 'data:'],
-        'font-src' => ["'self'"],
-        'connect-src' => ["'self'", 'ws://127.0.0.1:5173', 'http://127.0.0.1:5173'],
+        'script-src' => array_merge(
+            ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+            $devHttpHosts,
+            $devWsHosts
+        ),
+        'style-src' => array_merge(
+            ["'self'", "'unsafe-inline'"],
+            $devHttpHosts
+        ),
+        'img-src' => array_merge(["'self'", 'data:'], $devHttpHosts),
+        'font-src' => array_merge(["'self'", 'data:'], $devHttpHosts),
+        'connect-src' => array_merge(["'self'"], $devHttpHosts, $devWsHosts),
+        'media-src' => array_merge(["'self'"], $devHttpHosts),
         'frame-src' => ['https://js.stripe.com'],
         'form-action' => ["'self'"],
     ],
