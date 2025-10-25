@@ -12,7 +12,9 @@ Route::get('/', [PostController::class, 'home'])->name('home');
 Route::get('/tin-tuc', [PostController::class, 'indexTinTuc'])->name('tintuc.index');
 Route::get('/su-kien', [PostController::class, 'indexSuKien'])->name('sukien.index');
 Route::get('/update', [PostController::class, 'indexUpdate'])->name('update.index');
-Route::get('/tin-tuc/{slug}', [PostController::class, 'show'])->name('post.show');
+Route::get('/tin-tuc/{post}-{slug?}', [PostController::class, 'show'])
+    ->whereNumber('post')
+    ->name('post.show');
 
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');
 Route::get('/danh-sach-tuong/{slug}', [CharacterController::class, 'show'])->name('character.show');

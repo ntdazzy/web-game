@@ -27,11 +27,11 @@
                             <img src="{{ asset($post->thumbnail) }}" class="card-img-top" alt="{{ $post->title }}">
                         @endif
                         <div class="card-body d-flex flex-column">
-                            <span class="badge bg-primary mb-2 text-uppercase">{{ $post->category }}</span>
-                            <h3 class="h5 card-title"><a href="{{ route('post.show', $post->slug) }}" class="stretched-link text-decoration-none text-dark">{{ $post->title }}</a></h3>
+                            <span class="badge bg-primary mb-2 text-uppercase">{{ $post->category_label }}</span>
+                            <h3 class="h5 card-title"><a href="{{ route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]) }}" class="stretched-link text-decoration-none text-dark">{{ $post->title }}</a></h3>
                             <p class="card-text text-body-secondary mt-2">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 120) }}</p>
-                            <time datetime="{{ optional($post->published_at)->toAtomString() }}" class="mt-auto text-muted small">
-                                {{ optional($post->published_at)->translatedFormat('d/m/Y H:i') }}
+                            <time datetime="{{ optional($post->created_at)->toAtomString() }}" class="mt-auto text-muted small">
+                                {{ optional($post->created_at)->translatedFormat('d/m/Y H:i') }}
                             </time>
                         </div>
                     </div>

@@ -17,12 +17,12 @@
                             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
                                 <div>
                                     <h2 class="h4 mb-2">
-                                        <a href="{{ route('post.show', $post->slug) }}" class="text-decoration-none">{{ $post->title }}</a>
+                                        <a href="{{ route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]) }}" class="text-decoration-none">{{ $post->title }}</a>
                                     </h2>
                                     <p class="text-muted mb-0">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 220) }}</p>
                                 </div>
-                                <time datetime="{{ optional($post->published_at)->toAtomString() }}" class="badge text-bg-secondary">
-                                    {{ optional($post->published_at)->translatedFormat('d/m/Y H:i') }}
+                                <time datetime="{{ optional($post->created_at)->toAtomString() }}" class="badge text-bg-secondary">
+                                    {{ optional($post->created_at)->translatedFormat('d/m/Y H:i') }}
                                 </time>
                             </div>
                         </div>

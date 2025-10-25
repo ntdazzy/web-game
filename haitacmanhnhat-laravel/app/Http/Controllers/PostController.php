@@ -12,7 +12,7 @@ class PostController extends Controller
     public function home(): View
     {
         $latestPosts = Post::query()
-            ->orderByDesc('published_at')
+            ->orderByDesc('ghimbai')
             ->orderByDesc('created_at')
             ->limit(5)
             ->get();
@@ -37,11 +37,11 @@ class PostController extends Controller
         return $this->indexByCategory($request, 'update', 'Cập nhật');
     }
 
-    public function show(string $slug): View
+    public function show(Post $post, ?string $slug = null): View
     {
-        $post = Post::query()
-            ->where('slug', $slug)
-            ->firstOrFail();
+        if ($slug !== null && $slug !== $post->slug) {
+            return redirect()->route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug], 301);
+        }
 
         return view('tintuc.show', [
             'post' => $post,
@@ -51,11 +51,11 @@ class PostController extends Controller
     private function indexByCategory(Request $request, string $category, string $title): View
     {
         $posts = Post::query()
+            ->categorySlug($category)
             ->when($request->filled('q'), function (Builder $query) use ($request): void {
-                $query->where('title', 'like', '%' . $request->string('q')->trim() . '%');
+                $query->where('tieude', 'like', '%' . $request->string('q')->trim() . '%');
             })
-            ->category($category)
-            ->orderByDesc('published_at')
+            ->orderByDesc('ghimbai')
             ->orderByDesc('created_at')
             ->paginate(12)
             ->withQueryString();

@@ -13,8 +13,8 @@
         <header class="mb-4 text-center">
             <h1 class="display-5 fw-bold">{{ $post->title }}</h1>
             <div class="text-muted">
-                <time datetime="{{ optional($post->published_at)->toAtomString() }}">
-                    {{ optional($post->published_at)->translatedFormat('d/m/Y H:i') }}
+                <time datetime="{{ optional($post->created_at)->toAtomString() }}">
+                    {{ optional($post->created_at)->translatedFormat('d/m/Y H:i') }}
                 </time>
             </div>
         </header>

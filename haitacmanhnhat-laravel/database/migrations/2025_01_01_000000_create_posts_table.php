@@ -8,18 +8,25 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (Schema::hasTable('posts')) {
+            return;
+        }
+
         Schema::create('posts', function (Blueprint $table): void {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->longText('content');
-            $table->string('category');
-            $table->string('thumbnail')->nullable();
-            $table->timestamp('published_at')->nullable();
-            $table->timestamps();
+            $table->string('tieude', 75);
+            $table->text('noidung');
+            $table->string('username', 50);
+            $table->timestamp('created_at')->useCurrent();
+            $table->unsignedTinyInteger('theloai')->default(0);
+            $table->unsignedTinyInteger('ghimbai')->default(0);
+            $table->string('image')->nullable();
+            $table->unsignedTinyInteger('trangthai')->default(0);
+            $table->unsignedTinyInteger('tinhtrang')->default(0);
 
-            $table->index('category');
-            $table->index('published_at');
+            $table->index('theloai');
+            $table->index('created_at');
+            $table->index('ghimbai');
         });
     }
 

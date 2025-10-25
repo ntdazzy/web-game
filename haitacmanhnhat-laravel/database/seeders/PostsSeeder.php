@@ -7,7 +7,6 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class PostsSeeder extends Seeder
 {
@@ -24,25 +23,41 @@ class PostsSeeder extends Seeder
         $posts = json_decode(File::get($path), true, flags: JSON_THROW_ON_ERROR);
 
         foreach ($posts as $postData) {
+            $title = Arr::get($postData, 'title', 'Bài viết chưa đặt tên');
+            $createdAt = $this->castDate(Arr::get($postData, 'published_at')) ?? now();
+
             $payload = [
-                'title' => Arr::get($postData, 'title', 'Bài viết chưa đặt tên'),
-                'slug' => Arr::get($postData, 'slug'),
-                'content' => Arr::get($postData, 'content', ''),
-                'category' => Arr::get($postData, 'category', 'tin-tuc'),
-                'thumbnail' => Arr::get($postData, 'thumbnail'),
-                'published_at' => $this->castDate(Arr::get($postData, 'published_at')),
+                'tieude' => $title,
+                'noidung' => Arr::get($postData, 'content', ''),
+                'username' => Arr::get($postData, 'username', 'admin'),
+                'created_at' => $createdAt,
+                'theloai' => $this->resolveCategory(Arr::get($postData, 'category', 'tin-tuc')),
+                'ghimbai' => (int) Arr::get($postData, 'pinned', 0),
+                'image' => Arr::get($postData, 'thumbnail'),
+                'trangthai' => 0,
+                'tinhtrang' => 0,
             ];
 
-            if (empty($payload['slug'])) {
-                $payload['slug'] = Str::slug($payload['title']);
-            }
-
-            Post::updateOrCreate(['slug' => $payload['slug']], $payload);
+            Post::updateOrCreate([
+                'tieude' => $payload['tieude'],
+                'created_at' => $payload['created_at'],
+            ], $payload);
         }
     }
 
     private function castDate(?string $value): ?Carbon
     {
         return $value ? Carbon::parse($value) : null;
+    }
+
+    private function resolveCategory(string $slug): int
+    {
+        $map = config('posts.categories', [
+            'tin-tuc' => 0,
+            'su-kien' => 1,
+            'update' => 2,
+        ]);
+
+        return $map[$slug] ?? ($map['tin-tuc'] ?? 0);
     }
 }

@@ -18,11 +18,11 @@
                         @endif
                         <div class="card-body d-flex flex-column">
                             <h2 class="h5 card-title">
-                                <a href="{{ route('post.show', $post->slug) }}" class="stretched-link text-decoration-none">{{ $post->title }}</a>
+                                <a href="{{ route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]) }}" class="stretched-link text-decoration-none">{{ $post->title }}</a>
                             </h2>
                             <p class="card-text text-muted mt-2">{{ \Illuminate\Support\Str::limit(strip_tags($post->content), 130) }}</p>
-                            <time datetime="{{ optional($post->published_at)->toAtomString() }}" class="text-muted small mt-auto">
-                                {{ optional($post->published_at)->translatedFormat('d/m/Y H:i') }}
+                            <time datetime="{{ optional($post->created_at)->toAtomString() }}" class="text-muted small mt-auto">
+                                {{ optional($post->created_at)->translatedFormat('d/m/Y H:i') }}
                             </time>
                         </div>
                     </div>

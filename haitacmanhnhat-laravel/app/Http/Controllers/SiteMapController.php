@@ -6,6 +6,7 @@ use App\Models\Character;
 use App\Models\Post;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class SiteMapController extends Controller
 {
@@ -34,11 +35,11 @@ class SiteMapController extends Controller
             ],
         ];
 
-        $posts = Post::query()->orderByDesc('updated_at')->get(['slug', 'updated_at']);
+        $posts = Post::query()->orderByDesc('created_at')->get(['id', 'tieude', 'created_at']);
         foreach ($posts as $post) {
             $urls[] = [
-                'loc' => URL::to('/tin-tuc/' . $post->slug),
-                'lastmod' => optional($post->updated_at)->toAtomString(),
+                'loc' => route('post.show', ['post' => $post->getKey(), 'slug' => Str::slug($post->tieude)], absolute: true),
+                'lastmod' => optional($post->created_at)->toAtomString(),
                 'changefreq' => 'weekly',
             ];
         }

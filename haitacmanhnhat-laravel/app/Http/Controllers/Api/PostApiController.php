@@ -12,8 +12,13 @@ class PostApiController extends Controller
     public function index(Request $request): JsonResponse
     {
         $posts = Post::query()
-            ->when($request->filled('category'), fn ($query) => $query->where('category', $request->string('category')))
-            ->orderByDesc('published_at')
+            ->when($request->filled('category'), function ($query) use ($request): void {
+                $query->categorySlug($request->string('category'));
+            })
+            ->when($request->filled('q'), function ($query) use ($request): void {
+                $query->where('tieude', 'like', '%' . $request->string('q')->trim() . '%');
+            })
+            ->orderByDesc('ghimbai')
             ->orderByDesc('created_at')
             ->paginate($request->integer('per_page', 12))
             ->appends($request->query());

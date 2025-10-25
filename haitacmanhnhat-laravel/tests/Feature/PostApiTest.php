@@ -18,7 +18,17 @@ class PostApiTest extends TestCase
 
         $response->assertOk()
             ->assertJsonStructure([
-                'data',
+                'data' => [
+                    [
+                        'id',
+                        'title',
+                        'content',
+                        'slug',
+                        'category_slug',
+                        'category_label',
+                        'created_at',
+                    ],
+                ],
                 'links',
                 'meta',
             ])

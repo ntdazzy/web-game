@@ -1,0 +1,50 @@
+.payment-icon {
+    display: block;
+    width: 81px;
+    height: 81px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.payment-icon--atm {
+    background-image: url('/assets/imgs/payment/icon-payment-atm-2.png');
+}
+
+.payment-icon--wallet {
+    background-image: url('/assets/imgs/payment/icon-payment-wallet-2.png');
+}
+
+.payment-icon--momo {
+    background-image: url('/assets/imgs/payment/icon-payment-momo-2.png');
+}
+
+.wrapper-payment .item-list-slick {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x proximity;
+}
+
+.wrapper-payment .item-list-slick .item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.wrapper-payment .package-container {
+    display: grid;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .wrapper-payment .package-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+.wrapper-payment .package-container .package-item.detail .right .scroll-package-item {
+    overflow-y: auto;
+}
+
