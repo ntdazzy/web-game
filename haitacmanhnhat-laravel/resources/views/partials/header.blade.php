@@ -71,20 +71,20 @@
                             <span class="display-name"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="{{ route('account.overview') }}"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                             <li class="dropdown-item d-flex align-items-center">
-                                <a href="{{ route('payments.index') }}" class="d-flex justify-content-between">
+                                <a href="{{ route('payments.packages') }}" class="d-flex justify-content-between">
                                     <i><span class="payment-unit">GEM</span><span class="display-balance">0</span></i>
                                     <button>Nạp</button>
                                 </a>
                             </li>
-                            <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                            <li class="dropdown-item d-flex align-items-center"><a href="/id/doi-mat-khau"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="{{ route('payments.history') }}"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
+                            <li class="dropdown-item d-flex align-items-center"><a href="{{ route('account.change-password') }}"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
                             <li class="dropdown-item d-flex align-items-center"><a href="/"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
-                <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}"></a>
+                <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.packages') }}"></a>
             </div>
         </div>
     </div>

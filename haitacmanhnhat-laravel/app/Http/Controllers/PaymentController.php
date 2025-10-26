@@ -3,13 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    public function index(): View
+    public function wallet(): View
     {
-        return view('payments.index');
+        return view('payments.wallet');
+    }
+
+    public function packages(): View
+    {
+        return view('payments.packages');
+    }
+
+    public function convert(): View
+    {
+        return view('payments.convert');
+    }
+
+    public function history(): View
+    {
+        return view('payments.history');
     }
 
     /**
@@ -20,8 +34,6 @@ class PaymentController extends Controller
      */
     public function checkout(): View
     {
-        Log::info('Payment checkout is currently disabled (legacy placeholder).');
-
         return view('payments.stripe-checkout');
     }
 

@@ -24,7 +24,7 @@
                     <a class="link-download-client" href="#" target="_self">Tải game</a>
                 </li>
                 <li class="menu-item">
-                    <a class="btn-payment btn-pay" href="{{ route('payments.index') }}" target="_self">Nạp thẻ</a>
+                    <a class="btn-payment btn-pay" href="{{ route('payments.packages') }}" target="_self">Nạp thẻ</a>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('tintuc.index', ['q' => 'hướng dẫn tải']) }}" target="_self">Hướng dẫn tải</a>

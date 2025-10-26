@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a href="{{ route('payments.index') }}" class="d-flex justify-content-between">
+                        <a href="{{ route('payments.packages') }}" class="d-flex justify-content-between">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button>
                         </a>
                     </li>
@@ -31,7 +31,7 @@
                 </ul>
             </div>
         </div>
-        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}"></a>
+        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.packages') }}"></a>
     </div>
 
     <div class="subpage-container wrapper-id post">

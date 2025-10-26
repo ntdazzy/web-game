@@ -8,7 +8,7 @@
     </div>
     <ul class="btn-group d-flex align-items-center position-relative">
         <li>
-            <a class="btn-pay" href="{{ route('payments.index') }}" target="_self" title="Nạp Thẻ"></a>
+            <a class="btn-pay" href="{{ route('payments.packages') }}" target="_self" title="Nạp Thẻ"></a>
         </li>
         <li>
             <a class="btn-download link-download-client" href="#" target="_self" title="Tải game"></a>

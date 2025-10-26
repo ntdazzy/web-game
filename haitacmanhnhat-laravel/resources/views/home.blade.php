@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a class="d-flex justify-content-between" href="{{ route('payments.index') }}">
+                        <a class="d-flex justify-content-between" href="{{ route('payments.packages') }}">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
                     </li>
                     <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
         </div>
-        <a class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}" href="#"></a>
+        <a class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.packages') }}" href="#"></a>
     </div>
 
     <div class="wrapper-page w-100 position-relative landing-hero">
@@ -63,7 +63,7 @@
                         title="Hướng dẫn tải">Hướng dẫn tải</a>
                     <a class="code" href="{{ route('giftcode') }}" title="Nhận code">Nhận code</a>
                 </div>
-                <a class="btn-pay landing-hero__cta-button" href="{{ route('payments.index') }}" title="Nạp thẻ"></a>
+                <a class="btn-pay landing-hero__cta-button" href="{{ route('payments.packages') }}" title="Nạp thẻ"></a>
             </div>
         </div>
 
