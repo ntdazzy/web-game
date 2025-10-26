@@ -76,12 +76,15 @@ li {
     max-width: 1920px;
 }
 
-.top-nav .container,
-.menu-fixed .container {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
+.top-nav .container {
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-nav .nav-bar {
+    max-width: calc(100% - 360px);
 }
 
 .wrapper-page {
