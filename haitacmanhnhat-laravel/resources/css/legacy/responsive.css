@@ -44,12 +44,12 @@
         padding-top: 65px;
     }
 
-    .subpage-container .container {
+    .subpage-container .legacy-container {
         max-width: 768px;
         padding: 0 15px;
     }
 
-    .subpage-container.giftcode-page .container {
+    .subpage-container.giftcode-page .legacy-container {
         max-width: 768px;
     }
 
@@ -63,10 +63,6 @@
         background-color: #000;
         z-index: 4;
         justify-content: space-between;
-    }
-
-    .top-nav-mobile .container {
-        max-width: 768px;
     }
 
     .top-nav-mobile .wrap-logo {
@@ -1047,7 +1043,7 @@
     }
 
 
-    .subpage-container .container {
+    .subpage-container .legacy-container {
         max-width: 360px;
         padding: 0 10px;
     }
@@ -1058,7 +1054,7 @@
     }
 
 
-    .subpage-container.giftcode-page .container {
+    .subpage-container.giftcode-page .legacy-container {
         max-width: 360px;
         padding: 0;
     }

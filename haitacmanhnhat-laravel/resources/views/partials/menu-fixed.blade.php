@@ -4,7 +4,7 @@
 
 @if ($showLeftMenu)
     <div class="menu-fixed w-100 position-fixed left">
-        <div class="position-relative container legacy-container">
+        <div class="position-relative legacy-container">
             <div class="left-menu position-absolute">
                 <ul>
                     <li class="menu-page-1 active d-flex align-items-center"></li>

@@ -42,7 +42,7 @@
         </div>
 
         <div class="subpage-container wrapper-id wrapper-payment">
-            <div class="container legacy-container h-100 position-relative">
+            <div class="legacy-container h-100 position-relative">
                 <div class="d-flex flex-column align-items-center">
                     <h1 class="page-title">Nạp tiền vào ví</h1>
                     <div class="payment w-100">

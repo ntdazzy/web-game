@@ -109,8 +109,8 @@ li {
     }
 }
 
-.top-nav .container,
-.menu-fixed .container {
+.top-nav .legacy-container,
+.menu-fixed .legacy-container {
     padding-left: 0;
     padding-right: 0;
 }
@@ -141,6 +141,7 @@ li {
 }
 .top-nav .nav-bar img {
     left: 10px;
+    top: -2px;
 }
 
 .top-nav .nav-bar ul {
@@ -1189,7 +1190,7 @@ footer .info-group p::before {
     padding-top: 91px;
 }
 
-.subpage-container .container {
+.subpage-container .legacy-container {
     max-width: 1360px;
 }
 
@@ -3036,7 +3037,7 @@ footer .info-group p::before {
 
 /*************************** GIFTCODE ***************************/
 
-.subpage-container.giftcode-page .container {
+.subpage-container.giftcode-page .legacy-container {
     max-width: 1460px;
 }
 

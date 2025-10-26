@@ -24,7 +24,7 @@ function scale() {
             'transform': 'unset',
             'width': 'unset',
         });
-        $('.top-nav .container').css({
+        $('.top-nav .legacy-container').css({
             'transform': 'unset',
             'width': 'unset',
         });
@@ -34,7 +34,7 @@ function scale() {
             transform-origin: top left;
             width: 1905px !important;
         `);
-        $('.top-nav .container').css({
+        $('.top-nav .legacy-container').css({
             'transform': 'scale(' + (maxWidth / 1905) + ')',
             'transform-origin': 'top left',
             'width': '1905px'
