@@ -10,7 +10,7 @@
 @endphp
 
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-    <img src="{{ legacy_asset('/assets/imgs/logo-warning.webp') }}" alt="" class="logo-warning position-absolute">
+    <img src="{{ legacy_asset('/assets/imgs/logo-warning.png') }}" alt="" class="logo-warning position-absolute">
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -57,7 +57,7 @@
                         <ul class="posts-content d-flex flex-column gap-3">
                             @foreach ($posts as $post)
                                 @php
-                                    $thumbnail = $post->image ? legacy_asset($post->image) : legacy_asset('/assets/imgs/post-item-example.webp');
+                                    $thumbnail = $post->image ? legacy_asset($post->image) : legacy_asset('/assets/imgs/post-item-example.png');
                                     $itemUrl = route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]);
                                     $summary = \Illuminate\Support\Str::limit(strip_tags($post->content), 160);
                                 @endphp
@@ -67,7 +67,7 @@
                                         class="title d-flex">
                                         <div class="thumbnail">
                                             <img src="{{ $thumbnail }}"
-                                                data-fallback-src="{{ legacy_asset('/assets/imgs/post-item-example.webp') }}"
+                                                data-fallback-src="{{ legacy_asset('/assets/imgs/post-item-example.png') }}"
                                                 alt="{{ $post->title }}"
                                                 width="100%" height="100%">
                                         </div>

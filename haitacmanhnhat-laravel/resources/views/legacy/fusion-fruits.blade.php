@@ -4,11 +4,11 @@
         'viewport' => 'width=device-width, initial-scale=1.0',
         'og:title' => $pageTitle,
         'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
-        'og:image' => 'assets/imgs/600x315.webp',
+        'og:image' => 'assets/imgs/600x315.jpg',
         'og:image:width' => '600',
         'og:image:height' => '315',
         'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-        'link:shortcut_icon' => 'assets/imgs/32x32.webp',
+        'link:shortcut_icon' => 'assets/imgs/32x32.png',
     ]);
     $pageHeadScripts = array_merge($pageHeadScripts ?? [], ['assets/js/data/devil-fruits-base-data.js']);
     $pageScripts = array_merge($pageScripts ?? [], ['assets/js/pages/devil-fruits.js']);
@@ -20,7 +20,7 @@
 @section('content')
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root"
     data-devil-fruit-source="fusion" data-devil-fruit-json="{{ legacy_asset('assets/data/trai-dung-hop.json') }}">
-    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('assets/imgs/logo-warning.webp') }}" />
+    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('assets/imgs/logo-warning.png') }}" />
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">

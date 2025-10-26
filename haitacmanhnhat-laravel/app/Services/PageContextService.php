@@ -46,7 +46,7 @@ class PageContextService
         return array_map(function (array $schema): array {
             if (($schema['@type'] ?? null) === 'Organization') {
                 $schema['url'] = absolute_url('/');
-                $schema['logo'] = absolute_url($schema['logo'] ?? '/assets/imgs/logo.webp');
+                $schema['logo'] = absolute_url($schema['logo'] ?? '/assets/imgs/logo.png');
                 $schema['sameAs'] = array_map(function ($url) {
                     return $this->ensureAbsoluteUrl($url);
                 }, $schema['sameAs'] ?? []);

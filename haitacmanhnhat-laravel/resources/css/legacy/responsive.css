@@ -8,7 +8,7 @@
 
     body {
         overflow: auto;
-        background: url(../imgs/bg-main-tablet-2.webp) top center no-repeat;
+        background: url(../imgs/bg-main-tablet-2.jpg) top center no-repeat;
         background-color: #000;
         background-size: 100%;
     }
@@ -22,18 +22,18 @@
     }
 
     .wrapper-subpage {
-        background: url(../imgs/subpage/bg1-subpage-tablet.webp) top center no-repeat;
+        background: url(../imgs/subpage/bg1-subpage-tablet.png) top center no-repeat;
         background-size: 100%;
     }
 
     .wrapper-id {
-        background: url(../imgs/subpage/bg-subpage-content-tablet.webp) no-repeat;
+        background: url(../imgs/subpage/bg-subpage-content-tablet.png) no-repeat;
         background-size: 100%;
     }
 
     .wrapper-id.post,
     .wrapper-id.post-detail {
-        background: url(../imgs/subpage/bg-subpage-2-tablet.webp) no-repeat;
+        background: url(../imgs/subpage/bg-subpage-2-tablet.png) no-repeat;
         background-size: 100%;
         position: relative;
     }
@@ -78,7 +78,7 @@
         display: block;
         width: 174px;
         height: 157px;
-        background: url(../imgs/logo.webp) no-repeat;
+        background: url(../imgs/logo.png) no-repeat;
         top: 15px;
         background-size: 100%;
         left: 25px;
@@ -92,12 +92,12 @@
     }
 
     .top-nav-mobile ul.btn-group .btn-download {
-        background: url(../imgs/btn-download-mobile.webp) top center no-repeat;
+        background: url(../imgs/btn-download-mobile.png) top center no-repeat;
         background-size: 100% 200%;
     }
 
     .top-nav-mobile ul.btn-group .btn-pay {
-        background: url(../imgs/btn-pay-mobile.webp) top center no-repeat;
+        background: url(../imgs/btn-pay-mobile.png) top center no-repeat;
         background-size: 100% 200%;
     }
 
@@ -109,13 +109,13 @@
         width: 63px;
         height: 63px;
         margin: 0 9px;
-        background: url(../imgs/icon-list.webp) no-repeat;
+        background: url(../imgs/icon-list.png) no-repeat;
         background-size: 100%;
         transition: 0.3s;
     }
 
     .top-nav-mobile .swap-menu-id[aria-expanded="true"] {
-        background: url(../imgs/btn-close-menu-mobile.webp) no-repeat;
+        background: url(../imgs/btn-close-menu-mobile.png) no-repeat;
         background-size: 100%;
         transform: rotate(360deg);
     }
@@ -129,7 +129,7 @@
     }
 
     .wrap-login-mobile .btn-login {
-        background: url(../imgs/btn-login-mobile.webp) top center no-repeat;
+        background: url(../imgs/btn-login-mobile.png) top center no-repeat;
         background-size: 100% 200%;
         display: block;
         width: 225px;
@@ -256,7 +256,7 @@
     #mobileMenu .menu-mobile-bottom .dropdown-icon {
         width: 21px;
         height: 10px;
-        background: url(../imgs/menu/dropdown-icon-mb.webp);
+        background: url(../imgs/menu/dropdown-icon-mb.png);
         background-size: 100%;
         top: 27px;
         left: 122px;
@@ -338,7 +338,7 @@
     }
 
     .page-1 .btn-group {
-        background: url(../imgs/page1/bg-btn-group-mobile.webp) no-repeat;
+        background: url(../imgs/page1/bg-btn-group-mobile.png) no-repeat;
         width: 42.5rem;
         height: 192px;
         bottom: 40px;
@@ -365,7 +365,7 @@
     /*************************** PAGE 2 CSS ***************************/
 
     .page-2 {
-        background: url(../imgs/page2/bg-page2-tablet.webp) top center no-repeat;
+        background: url(../imgs/page2/bg-page2-tablet.png) top center no-repeat;
         height: fit-content;
         background-size: 100% 100%;
         padding: 100px 0;
@@ -461,7 +461,7 @@
 
     .page-3 {
         margin: 0;
-        background: url(../imgs/page3/bg-page-3-tablet.webp) top center no-repeat;
+        background: url(../imgs/page3/bg-page-3-tablet.png) top center no-repeat;
         background-size: 100% 100%;
         height: fit-content;
         padding: 85px 35px 100px 35px;
@@ -474,7 +474,7 @@
 
     .page-3 .content {
         padding: 45px 25px 75px 65px;
-        background: url(../imgs/page3/bg-table-tablet.webp) top center no-repeat;
+        background: url(../imgs/page3/bg-table-tablet.png) top center no-repeat;
         background-size: 100% 100%;
         max-width: 768px;
     }
@@ -545,7 +545,7 @@
 
     /*================== GIFTCODE ============================*/
     .giftcode-page .wrapper-content {
-        background: url(../imgs/giftcode/bg-tablet.webp) center no-repeat;
+        background: url(../imgs/giftcode/bg-tablet.png) center no-repeat;
         transform: translateY(-60px);
         background-size: 100%;
         width: 768px;
@@ -1028,7 +1028,7 @@
 @media screen and (max-width: 576px) {
 
     body {
-        background: url(../imgs/bg-main-mobile.webp) top center no-repeat;
+        background: url(../imgs/bg-main-mobile.png) top center no-repeat;
         background-color: #000;
         background-size: 100%;
     }
@@ -1053,7 +1053,7 @@
     }
 
     .wrapper-id {
-        background: url(../imgs/subpage/bg-subpage-content-mobile.webp) no-repeat;
+        background: url(../imgs/subpage/bg-subpage-content-mobile.png) no-repeat;
         background-size: 100%;
     }
 
@@ -1135,7 +1135,7 @@
         display: block;
         width: 120px;
         height: 86px;
-        background: url(../imgs/logo.webp) no-repeat;
+        background: url(../imgs/logo.png) no-repeat;
         top: 15px;
         background-size: 100%;
         left: 10px;
@@ -1325,7 +1325,7 @@
         max-width: 360px;
         height: 320px;
         padding: 20px 10px 30px 10px;
-        background: url(../imgs/page3/bg-table-mobile.webp) no-repeat;
+        background: url(../imgs/page3/bg-table-mobile.png) no-repeat;
         background-size: 100% 100%;
     }
 
@@ -1457,7 +1457,7 @@
 
     .giftcode-page .wrapper-content {
         width: 100%;
-        background: url(../imgs/giftcode/bg-content-tablet.webp) no-repeat;
+        background: url(../imgs/giftcode/bg-content-tablet.png) no-repeat;
         transform: unset;
         align-items: center;
         justify-content: center;
@@ -2108,7 +2108,7 @@
         height: 43px;
         font-size: 12px;
         padding: 5px 10px;
-        background: url(../imgs/devil-fruit/bg-fruit-item-mobile.webp) 0 0 / 100% 200%;
+        background: url(../imgs/devil-fruit/bg-fruit-item-mobile.png) 0 0 / 100% 200%;
     }
 
     .devil-fruit .filter-type-name .search-fruit {

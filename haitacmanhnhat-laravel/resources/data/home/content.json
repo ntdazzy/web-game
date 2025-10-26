@@ -1,8 +1,8 @@
 {
     "topPlayers": [
-        {"rank": 1, "name": "彡A‿Du‿Ke彡", "power": "46,394,585", "server": "s5", "image": "/assets/imgs/page3/top-1.webp"},
-        {"rank": 2, "name": "Logan", "power": "42,433,431", "server": "s1", "image": "/assets/imgs/page3/top-2.webp"},
-        {"rank": 3, "name": "Hào_Béo_Sún_Răn", "power": "37,519,354", "server": "s8", "image": "/assets/imgs/page3/top-3.webp"},
+        {"rank": 1, "name": "彡A‿Du‿Ke彡", "power": "46,394,585", "server": "s5", "image": "/assets/imgs/page3/top-1.png"},
+        {"rank": 2, "name": "Logan", "power": "42,433,431", "server": "s1", "image": "/assets/imgs/page3/top-2.png"},
+        {"rank": 3, "name": "Hào_Béo_Sún_Răn", "power": "37,519,354", "server": "s8", "image": "/assets/imgs/page3/top-3.png"},
         {"rank": 4, "name": "GinS", "power": "33,828,246", "server": "s4"},
         {"rank": 5, "name": "min", "power": "32,456,824", "server": "s6"},
         {"rank": 6, "name": "MrGolden", "power": "28,813,535", "server": "s6"},

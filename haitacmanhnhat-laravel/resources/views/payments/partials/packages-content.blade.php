@@ -1,5 +1,5 @@
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('assets/imgs/logo-warning.webp') }}" />
+    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('assets/imgs/logo-warning.png') }}" />
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
             <div class="btn-group">
@@ -87,13 +87,13 @@
                                 <div class="left">
                                     <input name="fpackage" type="hidden" value="2" />
                                     <a class="view" href="#">Chi tiết</a>
-                                    <img alt="Gói nạp ngày" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-1-ngay-nami.webp') }}" title="Gói nạp ngày" />
+                                    <img alt="Gói nạp ngày" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-1-ngay-nami.png') }}" title="Gói nạp ngày" />
                                     <ul class="item-list-1">
-                                        <li><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.webp') }}" title="500 đá năng lượng" /><span>2</span></li>
-                                        <li><img alt="Bình Rượu Nort Blue" src="{{ legacy_asset('assets/imgs/payment/item/item-binh-ruou-nort-blue.webp') }}" title="Bình Rượu Nort Blue" /><span>5</span></li>
-                                        <li><img alt="Túi N.Liệu bá khí thường" src="{{ legacy_asset('assets/imgs/payment/item/item-nguyen-lieu-ba-khi-thuong.webp') }}" title="Túi N.Liệu bá khí thường" /><span>2</span></li>
-                                        <li><img alt="100 Tử hồn" src="{{ legacy_asset('assets/imgs/payment/item/item-tu-hon.webp') }}" title="100 Tử hồn" /><span>2</span></li>
-                                        <li><img alt="Túi K.cương cổ đại" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-kim-cuong-co-dai.webp') }}" title="Túi K.cương cổ đại" /><span>2</span></li>
+                                        <li><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.png') }}" title="500 đá năng lượng" /><span>2</span></li>
+                                        <li><img alt="Bình Rượu Nort Blue" src="{{ legacy_asset('assets/imgs/payment/item/item-binh-ruou-nort-blue.png') }}" title="Bình Rượu Nort Blue" /><span>5</span></li>
+                                        <li><img alt="Túi N.Liệu bá khí thường" src="{{ legacy_asset('assets/imgs/payment/item/item-nguyen-lieu-ba-khi-thuong.png') }}" title="Túi N.Liệu bá khí thường" /><span>2</span></li>
+                                        <li><img alt="100 Tử hồn" src="{{ legacy_asset('assets/imgs/payment/item/item-tu-hon.png') }}" title="100 Tử hồn" /><span>2</span></li>
+                                        <li><img alt="Túi K.cương cổ đại" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-kim-cuong-co-dai.png') }}" title="Túi K.cương cổ đại" /><span>2</span></li>
                                     </ul>
                                     <h3 class="name">Gói nạp ngày</h3>
                                     <div class="cost">
@@ -104,23 +104,23 @@
                                     <a class="close" href="#">Đóng</a>
                                     <div class="scroll-package-item" id="scroll-package-item-2">
                                         <div class="item">
-                                            <p><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.webp') }}" title="500 đá năng lượng" /><span>2</span></p>
+                                            <p><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.png') }}" title="500 đá năng lượng" /><span>2</span></p>
                                             <h6>500 đá năng lượng</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Bình Rượu Nort Blue" src="{{ legacy_asset('assets/imgs/payment/item/item-binh-ruou-nort-blue.webp') }}" title="Bình Rượu Nort Blue" /><span>5</span></p>
+                                            <p><img alt="Bình Rượu Nort Blue" src="{{ legacy_asset('assets/imgs/payment/item/item-binh-ruou-nort-blue.png') }}" title="Bình Rượu Nort Blue" /><span>5</span></p>
                                             <h6>Bình Rượu Nort Blue</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Túi N.Liệu bá khí thường" src="{{ legacy_asset('assets/imgs/payment/item/item-nguyen-lieu-ba-khi-thuong.webp') }}" title="Túi N.Liệu bá khí thường" /><span>2</span></p>
+                                            <p><img alt="Túi N.Liệu bá khí thường" src="{{ legacy_asset('assets/imgs/payment/item/item-nguyen-lieu-ba-khi-thuong.png') }}" title="Túi N.Liệu bá khí thường" /><span>2</span></p>
                                             <h6>Túi N.Liệu bá khí thường</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="100 Tử hồn" src="{{ legacy_asset('assets/imgs/payment/item/item-tu-hon.webp') }}" title="100 Tử hồn" /><span>2</span></p>
+                                            <p><img alt="100 Tử hồn" src="{{ legacy_asset('assets/imgs/payment/item/item-tu-hon.png') }}" title="100 Tử hồn" /><span>2</span></p>
                                             <h6>100 Tử hồn</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Túi K.cương cổ đại" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-kim-cuong-co-dai.webp') }}" title="Túi K.cương cổ đại" /><span>2</span></p>
+                                            <p><img alt="Túi K.cương cổ đại" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-kim-cuong-co-dai.png') }}" title="Túi K.cương cổ đại" /><span>2</span></p>
                                             <h6>Túi K.cương cổ đại</h6>
                                         </div>
                                     </div>
@@ -130,13 +130,13 @@
                                 <div class="left">
                                     <input name="fpackage" type="hidden" value="3" />
                                     <a class="view" href="#">Chi tiết</a>
-                                    <img alt="Gói nạp ngày (loại 2)" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-1-ngay-boa.webp') }}" title="Gói nạp ngày (loại 2)" />
+                                    <img alt="Gói nạp ngày (loại 2)" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-1-ngay-boa.png') }}" title="Gói nạp ngày (loại 2)" />
                                     <ul class="item-list-1">
-                                        <li><img alt="Mũi Tên TY" src="{{ legacy_asset('assets/imgs/payment/item/item-mui-ten-ty.webp') }}" title="Mũi Tên TY" /><span>2</span></li>
-                                        <li><img alt="Túi nuôi cá AllBlue random" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-nuoi-ca-allblue.webp') }}" title="Túi nuôi cá AllBlue random" /><span>10</span></li>
-                                        <li><img alt="300 Đá N.tố" src="{{ legacy_asset('assets/imgs/payment/item/item-300-da-nguyen-to.webp') }}" title="300 Đá N.tố" /><span>5</span></li>
-                                        <li><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.webp') }}" title="125 đá khắc ấn" /><span>2</span></li>
-                                        <li><img alt="Mảnh Phiến Poneglyph" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-phien-poneglyph.webp') }}" title="Mảnh Phiến Poneglyph" /><span>25</span></li>
+                                        <li><img alt="Mũi Tên TY" src="{{ legacy_asset('assets/imgs/payment/item/item-mui-ten-ty.png') }}" title="Mũi Tên TY" /><span>2</span></li>
+                                        <li><img alt="Túi nuôi cá AllBlue random" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-nuoi-ca-allblue.png') }}" title="Túi nuôi cá AllBlue random" /><span>10</span></li>
+                                        <li><img alt="300 Đá N.tố" src="{{ legacy_asset('assets/imgs/payment/item/item-300-da-nguyen-to.png') }}" title="300 Đá N.tố" /><span>5</span></li>
+                                        <li><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.png') }}" title="125 đá khắc ấn" /><span>2</span></li>
+                                        <li><img alt="Mảnh Phiến Poneglyph" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-phien-poneglyph.png') }}" title="Mảnh Phiến Poneglyph" /><span>25</span></li>
                                     </ul>
                                     <h3 class="name">Gói nạp ngày (loại 2)</h3>
                                     <div class="cost">
@@ -147,23 +147,23 @@
                                     <a class="close" href="#">Đóng</a>
                                     <div class="scroll-package-item" id="scroll-package-item-3">
                                         <div class="item">
-                                            <p><img alt="Mũi Tên TY" src="{{ legacy_asset('assets/imgs/payment/item/item-mui-ten-ty.webp') }}" title="Mũi Tên TY" /><span>2</span></p>
+                                            <p><img alt="Mũi Tên TY" src="{{ legacy_asset('assets/imgs/payment/item/item-mui-ten-ty.png') }}" title="Mũi Tên TY" /><span>2</span></p>
                                             <h6>Mũi Tên TY</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Túi nuôi cá AllBlue random" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-nuoi-ca-allblue.webp') }}" title="Túi nuôi cá AllBlue random" /><span>10</span></p>
+                                            <p><img alt="Túi nuôi cá AllBlue random" src="{{ legacy_asset('assets/imgs/payment/item/item-tui-nuoi-ca-allblue.png') }}" title="Túi nuôi cá AllBlue random" /><span>10</span></p>
                                             <h6>Túi nuôi cá AllBlue random</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="300 Đá N.tố" src="{{ legacy_asset('assets/imgs/payment/item/item-300-da-nguyen-to.webp') }}" title="300 Đá N.tố" /><span>5</span></p>
+                                            <p><img alt="300 Đá N.tố" src="{{ legacy_asset('assets/imgs/payment/item/item-300-da-nguyen-to.png') }}" title="300 Đá N.tố" /><span>5</span></p>
                                             <h6>300 Đá N.tố</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.webp') }}" title="125 đá khắc ấn" /><span>2</span></p>
+                                            <p><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.png') }}" title="125 đá khắc ấn" /><span>2</span></p>
                                             <h6>125 đá khắc ấn</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Mảnh Phiến Poneglyph" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-phien-poneglyph.webp') }}" title="Mảnh Phiến Poneglyph" /><span>25</span></p>
+                                            <p><img alt="Mảnh Phiến Poneglyph" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-phien-poneglyph.png') }}" title="Mảnh Phiến Poneglyph" /><span>25</span></p>
                                             <h6>Mảnh Phiến Poneglyph</h6>
                                         </div>
                                     </div>
@@ -173,14 +173,14 @@
                                 <div class="left">
                                     <input name="fpackage" type="hidden" value="1" />
                                     <a class="view" href="#">Chi tiết</a>
-                                    <img alt="Gói nạp 7 ngày-Râu Trắng" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-7-ngay-rau-trang.webp') }}" title="Gói nạp 7 ngày-Râu Trắng" />
+                                    <img alt="Gói nạp 7 ngày-Râu Trắng" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-7-ngay-rau-trang.png') }}" title="Gói nạp 7 ngày-Râu Trắng" />
                                     <ul class="item-list-1">
-                                        <li><img alt="Mảnh Lệnh Treo Thưởng Râu Trắng" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-treo-thuong-rau-trang.webp') }}" title="Mảnh Lệnh Treo Thưởng Râu Trắng" /><span>5</span></li>
-                                        <li><img alt="Thẻ Nâng Cấp Hóa Thân" src="{{ legacy_asset('assets/imgs/payment/item/item-the-nang-cap-hoa-than.webp') }}" title="Thẻ Nâng Cấp Hóa Thân" /><span>1</span></li>
-                                        <li><img alt="Thủy tinh trong rừng" src="{{ legacy_asset('assets/imgs/payment/item/item-thuy-tinh-trong-rung.webp') }}" title="Thủy tinh trong rừng" /><span>5</span></li>
-                                        <li><img alt="Tinh linh thạch lớn" src="{{ legacy_asset('assets/imgs/payment/item/item-tin-linh-thach-lon.webp') }}" title="Tinh linh thạch lớn" /><span>5</span></li>
-                                        <li><img alt="200 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-200-van-beri.webp') }}" title="200 vạn beri" /><span>5</span></li>
-                                        <li><img alt="Dấu Đỏ" src="{{ legacy_asset('assets/imgs/payment/item/item-dau-do.webp') }}" title="Dấu Đỏ" /><span>5</span></li>
+                                        <li><img alt="Mảnh Lệnh Treo Thưởng Râu Trắng" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-treo-thuong-rau-trang.png') }}" title="Mảnh Lệnh Treo Thưởng Râu Trắng" /><span>5</span></li>
+                                        <li><img alt="Thẻ Nâng Cấp Hóa Thân" src="{{ legacy_asset('assets/imgs/payment/item/item-the-nang-cap-hoa-than.png') }}" title="Thẻ Nâng Cấp Hóa Thân" /><span>1</span></li>
+                                        <li><img alt="Thủy tinh trong rừng" src="{{ legacy_asset('assets/imgs/payment/item/item-thuy-tinh-trong-rung.png') }}" title="Thủy tinh trong rừng" /><span>5</span></li>
+                                        <li><img alt="Tinh linh thạch lớn" src="{{ legacy_asset('assets/imgs/payment/item/item-tin-linh-thach-lon.png') }}" title="Tinh linh thạch lớn" /><span>5</span></li>
+                                        <li><img alt="200 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-200-van-beri.png') }}" title="200 vạn beri" /><span>5</span></li>
+                                        <li><img alt="Dấu Đỏ" src="{{ legacy_asset('assets/imgs/payment/item/item-dau-do.png') }}" title="Dấu Đỏ" /><span>5</span></li>
                                     </ul>
                                     <h3 class="name">Gói nạp 7 ngày-Râu Trắng</h3>
                                     <div class="cost">
@@ -191,27 +191,27 @@
                                     <a class="close" href="#">Đóng</a>
                                     <div class="scroll-package-item" id="scroll-package-item-1">
                                         <div class="item">
-                                            <p><img alt="Mảnh Lệnh Treo Thưởng Râu Trắng" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-treo-thuong-rau-trang.webp') }}" title="Mảnh Lệnh Treo Thưởng Râu Trắng" /><span>5</span></p>
+                                            <p><img alt="Mảnh Lệnh Treo Thưởng Râu Trắng" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-treo-thuong-rau-trang.png') }}" title="Mảnh Lệnh Treo Thưởng Râu Trắng" /><span>5</span></p>
                                             <h6>Mảnh Lệnh Treo Thưởng Râu Trắng</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Thẻ Nâng Cấp Hóa Thân" src="{{ legacy_asset('assets/imgs/payment/item/item-the-nang-cap-hoa-than.webp') }}" title="Thẻ Nâng Cấp Hóa Thân" /><span>1</span></p>
+                                            <p><img alt="Thẻ Nâng Cấp Hóa Thân" src="{{ legacy_asset('assets/imgs/payment/item/item-the-nang-cap-hoa-than.png') }}" title="Thẻ Nâng Cấp Hóa Thân" /><span>1</span></p>
                                             <h6>Thẻ Nâng Cấp Hóa Thân</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Thủy tinh trong rừng" src="{{ legacy_asset('assets/imgs/payment/item/item-thuy-tinh-trong-rung.webp') }}" title="Thủy tinh trong rừng" /><span>5</span></p>
+                                            <p><img alt="Thủy tinh trong rừng" src="{{ legacy_asset('assets/imgs/payment/item/item-thuy-tinh-trong-rung.png') }}" title="Thủy tinh trong rừng" /><span>5</span></p>
                                             <h6>Thủy tinh trong rừng</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Tinh linh thạch lớn" src="{{ legacy_asset('assets/imgs/payment/item/item-tin-linh-thach-lon.webp') }}" title="Tinh linh thạch lớn" /><span>5</span></p>
+                                            <p><img alt="Tinh linh thạch lớn" src="{{ legacy_asset('assets/imgs/payment/item/item-tin-linh-thach-lon.png') }}" title="Tinh linh thạch lớn" /><span>5</span></p>
                                             <h6>Tinh linh thạch lớn</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="200 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-200-van-beri.webp') }}" title="200 vạn beri" /><span>5</span></p>
+                                            <p><img alt="200 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-200-van-beri.png') }}" title="200 vạn beri" /><span>5</span></p>
                                             <h6>200 vạn beri</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Dấu Đỏ" src="{{ legacy_asset('assets/imgs/payment/item/item-dau-do.webp') }}" title="Dấu Đỏ" /><span>5</span></p>
+                                            <p><img alt="Dấu Đỏ" src="{{ legacy_asset('assets/imgs/payment/item/item-dau-do.png') }}" title="Dấu Đỏ" /><span>5</span></p>
                                             <h6>Dấu Đỏ</h6>
                                         </div>
                                     </div>
@@ -221,14 +221,14 @@
                                 <div class="left">
                                     <input name="fpackage" type="hidden" value="5" />
                                     <a class="view" href="#">Chi tiết</a>
-                                    <img alt="Gói nạp 30 ngày-Aramaki" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-30-ngay-Aramaki.webp') }}" title="Gói nạp 30 ngày-Aramaki" />
+                                    <img alt="Gói nạp 30 ngày-Aramaki" class="img" src="{{ legacy_asset('assets/imgs/payment/item/package-30-ngay-Aramaki.png') }}" title="Gói nạp 30 ngày-Aramaki" />
                                     <ul class="item-list-1">
-                                        <li><img alt="Mảnh Rương Đô Đốc Hải Quân" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-ruong-do-doc-hai-quan.webp') }}" title="Mảnh Rương Đô Đốc Hải Quân" /><span>10</span></li>
-                                        <li><img alt="Mảnh L.Bài thú cưỡi Chopper" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-bai-chopper.webp') }}" title="Mảnh L.Bài thú cưỡi Chopper" /><span>1</span></li>
-                                        <li><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.webp') }}" title="125 đá khắc ấn" /><span>5</span></li>
-                                        <li><img alt="500 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-500-van-beri.webp') }}" title="500 vạn beri" /><span>3</span></li>
-                                        <li><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.webp') }}" title="500 đá năng lượng" /><span>5</span></li>
-                                        <li><img alt="Ốc Sên Truyền Tin" src="{{ legacy_asset('assets/imgs/payment/item/item-oc-sen-truyen-tin.webp') }}" title="Ốc Sên Truyền Tin" /><span>1</span></li>
+                                        <li><img alt="Mảnh Rương Đô Đốc Hải Quân" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-ruong-do-doc-hai-quan.png') }}" title="Mảnh Rương Đô Đốc Hải Quân" /><span>10</span></li>
+                                        <li><img alt="Mảnh L.Bài thú cưỡi Chopper" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-bai-chopper.png') }}" title="Mảnh L.Bài thú cưỡi Chopper" /><span>1</span></li>
+                                        <li><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.png') }}" title="125 đá khắc ấn" /><span>5</span></li>
+                                        <li><img alt="500 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-500-van-beri.png') }}" title="500 vạn beri" /><span>3</span></li>
+                                        <li><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.png') }}" title="500 đá năng lượng" /><span>5</span></li>
+                                        <li><img alt="Ốc Sên Truyền Tin" src="{{ legacy_asset('assets/imgs/payment/item/item-oc-sen-truyen-tin.png') }}" title="Ốc Sên Truyền Tin" /><span>1</span></li>
                                     </ul>
                                     <h3 class="name">Gói nạp 30 ngày-Aramaki</h3>
                                     <div class="cost">
@@ -239,27 +239,27 @@
                                     <a class="close" href="#">Đóng</a>
                                     <div class="scroll-package-item" id="scroll-package-item-5">
                                         <div class="item">
-                                            <p><img alt="Mảnh Rương Đô Đốc Hải Quân" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-ruong-do-doc-hai-quan.webp') }}" title="Mảnh Rương Đô Đốc Hải Quân" /><span>10</span></p>
+                                            <p><img alt="Mảnh Rương Đô Đốc Hải Quân" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-ruong-do-doc-hai-quan.png') }}" title="Mảnh Rương Đô Đốc Hải Quân" /><span>10</span></p>
                                             <h6>Mảnh Rương Đô Đốc Hải Quân</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Mảnh L.Bài thú cưỡi Chopper" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-bai-chopper.webp') }}" title="Mảnh L.Bài thú cưỡi Chopper" /><span>1</span></p>
+                                            <p><img alt="Mảnh L.Bài thú cưỡi Chopper" src="{{ legacy_asset('assets/imgs/payment/item/item-manh-lenh-bai-chopper.png') }}" title="Mảnh L.Bài thú cưỡi Chopper" /><span>1</span></p>
                                             <h6>Mảnh L.Bài thú cưỡi Chopper</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.webp') }}" title="125 đá khắc ấn" /><span>5</span></p>
+                                            <p><img alt="125 đá khắc ấn" src="{{ legacy_asset('assets/imgs/payment/item/item-da-khac-an.png') }}" title="125 đá khắc ấn" /><span>5</span></p>
                                             <h6>125 đá khắc ấn</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="500 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-500-van-beri.webp') }}" title="500 vạn beri" /><span>3</span></p>
+                                            <p><img alt="500 vạn beri" src="{{ legacy_asset('assets/imgs/payment/item/item-500-van-beri.png') }}" title="500 vạn beri" /><span>3</span></p>
                                             <h6>500 vạn beri</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.webp') }}" title="500 đá năng lượng" /><span>5</span></p>
+                                            <p><img alt="500 đá năng lượng" src="{{ legacy_asset('assets/imgs/payment/item/item-500-da-nang-luong.png') }}" title="500 đá năng lượng" /><span>5</span></p>
                                             <h6>500 đá năng lượng</h6>
                                         </div>
                                         <div class="item">
-                                            <p><img alt="Ốc Sên Truyền Tin" src="{{ legacy_asset('assets/imgs/payment/item/item-oc-sen-truyen-tin.webp') }}" title="Ốc Sên Truyền Tin" /><span>1</span></p>
+                                            <p><img alt="Ốc Sên Truyền Tin" src="{{ legacy_asset('assets/imgs/payment/item/item-oc-sen-truyen-tin.png') }}" title="Ốc Sên Truyền Tin" /><span>1</span></p>
                                             <h6>Ốc Sên Truyền Tin</h6>
                                         </div>
                                     </div>
