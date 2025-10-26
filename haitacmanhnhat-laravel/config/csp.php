@@ -34,10 +34,14 @@ return [
         // NOTE: Cho phép dev server hosts (IPv4/IPv6/localhost) cho Vite.
         'default-src' => ["'self'"],
         'script-src' => array_merge(
-            ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+            ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'blob:'],
             $devHttpHosts,
             $devWsHosts
         ),
+        'worker-src' => [
+            "'self'",
+            'blob:',
+        ],
         'style-src' => array_merge(
             ["'self'", "'unsafe-inline'"],
             $devHttpHosts

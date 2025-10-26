@@ -72,17 +72,45 @@ function legacyAssetsPlugin() {
         return result;
     };
 
-    const copyAssets = async () => {
+    const syncAssets = async () => {
         const usableMappings = await existingMappings();
 
-        await fs.rm(publicRoot, { recursive: true, force: true });
         await fs.mkdir(publicRoot, { recursive: true });
+
+        const activeTargets = new Set();
 
         for (const { source, target } of usableMappings) {
             const destination = path.resolve(projectRoot, 'public', target);
+            activeTargets.add(destination);
+
+            await fs.rm(destination, { recursive: true, force: true });
             await fs.mkdir(path.dirname(destination), { recursive: true });
             await fs.cp(source, destination, { recursive: true });
         }
+
+        const existingTargets = await fs.readdir(publicRoot, { withFileTypes: true }).catch((error) => {
+            if (error.code === 'ENOENT') {
+                return [];
+            }
+
+            throw error;
+        });
+
+        for (const entry of existingTargets) {
+            const location = path.resolve(publicRoot, entry.name);
+            if (! activeTargets.has(location)) {
+                await fs.rm(location, { recursive: true, force: true });
+            }
+        }
+    };
+
+    let copyQueue = Promise.resolve();
+    const queueAssetSync = () => {
+        copyQueue = copyQueue
+            .catch(() => {})
+            .then(() => syncAssets());
+
+        return copyQueue;
     };
 
     const debounce = (fn, delay = 120) => {
@@ -93,9 +121,14 @@ function legacyAssetsPlugin() {
         };
     };
 
-    const handleChange = debounce(async (server) => {
-        await copyAssets();
-        server.ws.send({ type: 'full-reload' });
+    const handleChange = debounce((server) => {
+        queueAssetSync()
+            .then(() => {
+                server.ws.send({ type: 'full-reload' });
+            })
+            .catch((error) => {
+                console.error('[haitac-legacy-assets] Failed to sync assets', error);
+            });
     }, 150);
 
     return [
@@ -103,7 +136,7 @@ function legacyAssetsPlugin() {
             name: 'haitac-legacy-assets:serve',
             apply: 'serve',
             async configureServer(server) {
-                await copyAssets();
+                await syncAssets();
 
                 const usableMappings = await existingMappings();
                 for (const { watch } of usableMappings) {
@@ -121,10 +154,10 @@ function legacyAssetsPlugin() {
             name: 'haitac-legacy-assets:build',
             apply: 'build',
             async buildStart() {
-                await copyAssets();
+                await syncAssets();
             },
             async closeBundle() {
-                await copyAssets();
+                await syncAssets();
             },
         },
     ];
