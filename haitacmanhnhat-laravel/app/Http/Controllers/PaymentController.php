@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
+    public function index(): View
+    {
+        return view('payments.index');
+    }
+
     /**
      * Example checkout stub that prepares a Stripe Checkout Session.
      *

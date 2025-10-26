@@ -111,10 +111,6 @@ class PostController extends Controller
             'basePath' => $tab['href'],
             'bodyAttributes' => 'class="wrapper-subpage overflow-y-auto"',
             'showLeftMenu' => false,
-            'paginationData' => [
-                'page' => $posts->currentPage(),
-                'total_pages' => $posts->lastPage(),
-            ],
         ]));
     }
 }

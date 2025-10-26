@@ -7,7 +7,6 @@
     $currentTab = $tabConfig[$categorySlug] ?? null;
     $dataset = $dataset ?? ($currentTab['dataset'] ?? 'news');
     $basePath = $basePath ?? ($currentTab['href'] ?? '/tin-tuc');
-    $paginationData = $paginationData ?? ['page' => 1, 'total_pages' => 1];
 @endphp
 
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
@@ -22,7 +21,7 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a href="/qua-nap-web" class="d-flex justify-content-between">
+                        <a href="{{ route('payments.index') }}" class="d-flex justify-content-between">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button>
                         </a>
                     </li>
@@ -32,7 +31,7 @@
                 </ul>
             </div>
         </div>
-        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
+        <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}"></a>
     </div>
 
     <div class="subpage-container wrapper-id post">
@@ -59,7 +58,7 @@
                             @foreach ($posts as $post)
                                 @php
                                     $thumbnail = $post->image ? legacy_asset($post->image) : legacy_asset('/assets/imgs/post-item-example.png');
-                                    $itemUrl = url($basePath . '/' . $post->slug);
+                                    $itemUrl = route('post.show', ['post' => $post->getKey(), 'slug' => $post->slug]);
                                     $summary = \Illuminate\Support\Str::limit(strip_tags($post->content), 160);
                                 @endphp
                                 <li>
@@ -93,14 +92,9 @@
                             @endforeach
                         </ul>
 
-                        @if ($paginationData['total_pages'] > 1)
+                        @if ($posts instanceof \Illuminate\Contracts\Pagination\Paginator)
                             <div class="pagination d-flex justify-content-center mt-4">
-                                @for ($page = 1; $page <= $paginationData['total_pages']; $page++)
-                                    <a href="{{ $basePath }}?page={{ $page }}"
-                                        class="{{ $page === $paginationData['page'] ? 'active' : '' }}">
-                                        {{ $page }}
-                                    </a>
-                                @endfor
+                                {{ $posts->withQueryString()->links() }}
                             </div>
                         @endif
                     </div>

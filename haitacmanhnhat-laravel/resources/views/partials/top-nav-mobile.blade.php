@@ -4,11 +4,11 @@
 
 <div class="top-nav-mobile w-100 position-fixed d-none">
     <div class="wrap-logo position-relative">
-        <a class="logo position-absolute" href="{{ url('/') }}"></a>
+        <a class="logo position-absolute" href="{{ route('home') }}"></a>
     </div>
     <ul class="btn-group d-flex align-items-center position-relative">
         <li>
-            <a class="btn-pay" href="{{ url('/qua-nap-web') }}" target="_self" title="Nạp Thẻ"></a>
+            <a class="btn-pay" href="{{ route('payments.index') }}" target="_self" title="Nạp Thẻ"></a>
         </li>
         <li>
             <a class="btn-download link-download-client" href="#" target="_self" title="Tải game"></a>
@@ -24,7 +24,7 @@
             <ul class="collapse menu-mobile position-absolute" id="mobileMenu">
                 <li class="nav-item">
                     <a class="nav-link homepage{{ $activeNav === 'home' ? ' active' : '' }}"
-                        href="{{ url('/') }}"
+                        href="{{ route('home') }}"
                         title="Trang chủ"
                         data-bs-target="#1"
                         aria-expanded="false"
@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item{{ $activeNav === 'news' ? ' active' : '' }}">
                     <a class="nav-link news{{ $activeNav === 'news' ? ' active' : '' }}"
-                        href="{{ url('/tin-tuc') }}"
+                        href="{{ route('tintuc.index') }}"
                         title="Tin tức"
                         data-bs-target="#2"
                         aria-expanded="false"
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item{{ $activeNav === 'characters' ? ' active' : '' }}">
                     <a class="nav-link hero-item{{ $activeNav === 'characters' ? ' active' : '' }}"
-                        href="{{ url('/danh-sach-tuong') }}"
+                        href="{{ route('characters.index') }}"
                         title="Tướng"
                         data-bs-target="#3"
                         aria-expanded="false"
@@ -58,10 +58,10 @@
                     </a>
                     <ul class="collapse social row collapse-normal" id="10">
                         <li class="d-flex justify-content-center col-4">
-                            <a class="dropdown-item" href="{{ url('/trai-ac-quy') }}" target="_self">Trái Ác Quỷ</a>
+                            <a class="dropdown-item" href="{{ route('legacy.devil-fruits') }}" target="_self">Trái Ác Quỷ</a>
                         </li>
                         <li class="d-flex justify-content-center col-4">
-                            <a class="dropdown-item" href="{{ url('/trai-dung-hop') }}" target="_self">Trái Dung Hợp</a>
+                            <a class="dropdown-item" href="{{ route('legacy.fusion-fruits') }}" target="_self">Trái Dung Hợp</a>
                         </li>
                     </ul>
                 </li>

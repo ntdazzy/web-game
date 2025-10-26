@@ -23,6 +23,23 @@ class PostApiController extends Controller
             ->paginate($request->integer('per_page', 12))
             ->appends($request->query());
 
-        return response()->json($posts);
+        return response()->json([
+            'data' => collect($posts->items())->map->toArray(),
+            'links' => [
+                'first' => $posts->url(1),
+                'last' => $posts->url($posts->lastPage()),
+                'prev' => $posts->previousPageUrl(),
+                'next' => $posts->nextPageUrl(),
+            ],
+            'meta' => [
+                'current_page' => $posts->currentPage(),
+                'from' => $posts->firstItem(),
+                'last_page' => $posts->lastPage(),
+                'path' => $posts->path(),
+                'per_page' => $posts->perPage(),
+                'to' => $posts->lastItem(),
+                'total' => $posts->total(),
+            ],
+        ]);
     }
 }

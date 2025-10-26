@@ -25,18 +25,18 @@
                     <a class="nav-item h-100{{ $activeNav === 'home' ? ' active' : '' }}" href="{{ url('/') }}" target="_self" title="Trang chủ"></a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center news{{ $activeNav === 'news' ? ' active' : '' }}">
-                    <a class="nav-item h-100{{ $activeNav === 'news' ? ' active' : '' }}" href="{{ url('/tin-tuc') }}" target="_self" title="Tin tức"></a>
+                    <a class="nav-item h-100{{ $activeNav === 'news' ? ' active' : '' }}" href="{{ route('tintuc.index') }}" target="_self" title="Tin tức"></a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center hero-item{{ $activeNav === 'characters' ? ' active' : '' }}">
-                    <a class="nav-item h-100{{ $activeNav === 'characters' ? ' active' : '' }}" href="{{ url('/danh-sach-tuong') }}" target="_self" title="Tướng"></a>
+                    <a class="nav-item h-100{{ $activeNav === 'characters' ? ' active' : '' }}" href="{{ route('characters.index') }}" target="_self" title="Tướng"></a>
                 </li>
                 <li class="d-flex justify-content-center align-items-center fruit">
                     <a class="nav-item h-100 d-flex align-items-center" href="#" target="_self" title="Trái Ác Quỷ" data-bs-toggle="dropdown">
                         <i class="dropdown-icon position-absolute"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a href="{{ url('/trai-ac-quy') }}" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
-                        <li><a href="{{ url('/trai-dung-hop') }}" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
+                        <li><a href="{{ route('legacy.devil-fruits') }}" target="_self" class="dropdown-item">Trái Ác Quỷ</a></li>
+                        <li><a href="{{ route('legacy.fusion-fruits') }}" target="_self" class="dropdown-item">Trái Dung Hợp</a></li>
                     </ul>
                 </li>
                 <li class="d-flex justify-content-center align-items-center support">
@@ -73,7 +73,7 @@
                         <ul class="dropdown-menu">
                             <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                             <li class="dropdown-item d-flex align-items-center">
-                                <a href="/qua-nap-web" class="d-flex justify-content-between">
+                                <a href="{{ route('payments.index') }}" class="d-flex justify-content-between">
                                     <i><span class="payment-unit">GEM</span><span class="display-balance">0</span></i>
                                     <button>Nạp</button>
                                 </a>
@@ -84,7 +84,7 @@
                         </ul>
                     </div>
                 </div>
-                <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web"></a>
+                <a href="#" class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}"></a>
             </div>
         </div>
     </div>

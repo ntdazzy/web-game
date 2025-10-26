@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\LegacyContentController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteMapController;
@@ -13,11 +15,20 @@ Route::get('/update', [PostController::class, 'indexUpdate'])->name('update.inde
 Route::get('/tin-tuc/{post}-{slug?}', [PostController::class, 'show'])
     ->whereNumber('post')
     ->name('post.show');
+Route::get('/tin-tuc/{slug}', function (string $slug) {
+    return redirect()->route('tintuc.index', ['q' => str_replace('-', ' ', $slug)]);
+})->where('slug', '[A-Za-z0-9\\-]+')->name('tintuc.legacy');
 
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');
 Route::get('/danh-sach-tuong/{slug}', [CharacterController::class, 'show'])->name('character.show');
 
-// Payment routes are temporarily disabled during migration.
+Route::get('/qua-nap-web', [PaymentController::class, 'index'])->name('payments.index');
+Route::get('/giftcode', function () {
+    return redirect()->route('tintuc.index', ['q' => 'giftcode']);
+})->name('giftcode');
+
+Route::get('/trai-ac-quy', [LegacyContentController::class, 'devilFruits'])->name('legacy.devil-fruits');
+Route::get('/trai-dung-hop', [LegacyContentController::class, 'fusionFruits'])->name('legacy.fusion-fruits');
 
 Route::get('/sitemap.xml', [SiteMapController::class, 'index'])->name('sitemap');
 Route::get('/robots.txt', function () {

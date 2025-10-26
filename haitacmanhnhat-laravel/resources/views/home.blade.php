@@ -21,7 +21,7 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-item d-flex align-items-center"><a href="/id"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
                     <li class="dropdown-item d-flex align-items-center">
-                        <a class="d-flex justify-content-between" href="/qua-nap-web">
+                        <a class="d-flex justify-content-between" href="{{ route('payments.index') }}">
                             <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
                     </li>
                     <li class="dropdown-item d-flex align-items-center"><a href="/lich-su-nap"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
         </div>
-        <a class="btn-login login-required" data-open-auth="login" data-redirect="/qua-nap-web" href="#"></a>
+        <a class="btn-login login-required" data-open-auth="login" data-redirect="{{ route('payments.index') }}" href="#"></a>
     </div>
 
     <div class="wrapper-page w-100 position-relative landing-hero">
@@ -59,11 +59,11 @@
             <div class="btn-group position-absolute d-flex landing-hero__cta-group">
                 <a class="btn-download link-download-client landing-hero__cta-button" href="#" title="Tải game"></a>
                 <div class="btn-action-group d-flex flex-column landing-hero__support-links">
-                    <a class="support-dowload" href="/tin-tuc/huong-dan-tai-va-cai-dat-game"
+                    <a class="support-dowload" href="{{ route('tintuc.index', ['q' => 'hướng dẫn tải']) }}"
                         title="Hướng dẫn tải">Hướng dẫn tải</a>
-                    <a class="code" href="/giftcode" title="Nhận code">Nhận code</a>
+                    <a class="code" href="{{ route('giftcode') }}" title="Nhận code">Nhận code</a>
                 </div>
-                <a class="btn-pay landing-hero__cta-button" href="/qua-nap-web" title="Nạp thẻ"></a>
+                <a class="btn-pay landing-hero__cta-button" href="{{ route('payments.index') }}" title="Nạp thẻ"></a>
             </div>
         </div>
 
