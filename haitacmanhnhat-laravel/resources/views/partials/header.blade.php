@@ -12,7 +12,7 @@
 @include('partials.top-nav-mobile', ['activeNav' => $activeNav])
 
 <div class="top-nav w-100 position-fixed">
-    <div class="legacy-container d-flex w-100 h-100">
+    <div class="container d-flex w-100 h-100">
         <div class="logo position-relative h-100">
             <div class="wrap-logo position-absolute d-flex flex-column align-items-center">
                 <a href="{{ url('/') }}"><img src="{{ legacy_asset('assets/imgs/logo.webp') }}" alt="Hải Tặc Mạnh Nhất" class="logo-img"></a>

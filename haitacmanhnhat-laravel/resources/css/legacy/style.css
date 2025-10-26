@@ -88,33 +88,6 @@ li {
     z-index: 3;
 }
 
-.top-nav,
-.top-nav * {
-    box-sizing: content-box;
-}
-
-.legacy-container {
-    width: 100%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    box-sizing: content-box;
-}
-
-@media (min-width: 1200px) {
-    .legacy-container {
-        max-width: 1905px !important;
-    }
-}
-
-.top-nav .legacy-container,
-.menu-fixed .legacy-container {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .top-nav .logo {
     min-width: 350px;
 }
@@ -141,7 +114,6 @@ li {
 }
 .top-nav .nav-bar img {
     left: 10px;
-    top: -2px;
 }
 
 .top-nav .nav-bar ul {
@@ -323,11 +295,6 @@ li {
 .menu-fixed {
     top: 40%;
     max-width: 3840px;
-}
-
-.menu-fixed,
-.menu-fixed * {
-    box-sizing: content-box;
 }
 
 .left-menu {
@@ -1190,7 +1157,7 @@ footer .info-group p::before {
     padding-top: 91px;
 }
 
-.subpage-container .legacy-container {
+.subpage-container .container {
     max-width: 1360px;
 }
 
@@ -3037,7 +3004,7 @@ footer .info-group p::before {
 
 /*************************** GIFTCODE ***************************/
 
-.subpage-container.giftcode-page .legacy-container {
+.subpage-container.giftcode-page .container {
     max-width: 1460px;
 }
 
