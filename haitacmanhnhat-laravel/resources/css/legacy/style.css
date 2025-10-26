@@ -88,6 +88,12 @@ li {
     z-index: 3;
 }
 
+.top-nav .container,
+.menu-fixed .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .top-nav .logo {
     min-width: 350px;
 }

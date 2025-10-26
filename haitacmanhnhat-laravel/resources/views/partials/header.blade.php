@@ -89,5 +89,3 @@
         </div>
     </div>
 </div>
-
-@include('partials.top-nav-mobile', ['activeNav' => $activeNav])
