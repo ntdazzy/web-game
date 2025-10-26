@@ -33,6 +33,5 @@ class HomePageService
         $data = json_decode(File::get($path), true);
 
         return is_array($data) ? $data : [];
-        return is_array($data) ? $data : [];
     }
 }

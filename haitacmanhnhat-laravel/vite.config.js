@@ -21,6 +21,34 @@ function legacyAssetsPlugin() {
         { source: 'resources/static/stms', target: 'assets/stms' },
     ];
 
+    const resolveSourceRoot = async (absolutePath) => {
+        const stats = await fs.stat(absolutePath);
+
+        if (! stats.isDirectory()) {
+            return {
+                source: absolutePath,
+                watch: [absolutePath],
+            };
+        }
+
+        const entries = await fs.readdir(absolutePath, { withFileTypes: true });
+        const nested = entries.length === 1 && entries[0].isDirectory()
+            ? path.resolve(absolutePath, entries[0].name)
+            : null;
+
+        if (nested && path.basename(absolutePath) === path.basename(nested)) {
+            return {
+                source: nested,
+                watch: [absolutePath, nested],
+            };
+        }
+
+        return {
+            source: absolutePath,
+            watch: [absolutePath],
+        };
+    };
+
     const existingMappings = async () => {
         const result = [];
 
@@ -29,7 +57,13 @@ function legacyAssetsPlugin() {
 
             try {
                 await fs.access(source);
-                result.push({ ...mapping, source });
+            } catch {
+                continue;
+            }
+
+            try {
+                const resolved = await resolveSourceRoot(source);
+                result.push({ ...mapping, source: resolved.source, watch: resolved.watch });
             } catch {
                 // ignore missing directories
             }
@@ -72,8 +106,10 @@ function legacyAssetsPlugin() {
                 await copyAssets();
 
                 const usableMappings = await existingMappings();
-                for (const { source } of usableMappings) {
-                    server.watcher.add(source);
+                for (const { watch } of usableMappings) {
+                    for (const watchPath of watch) {
+                        server.watcher.add(watchPath);
+                    }
                 }
 
                 server.watcher.on('add', () => handleChange(server));

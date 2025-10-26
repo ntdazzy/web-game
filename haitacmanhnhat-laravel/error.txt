@@ -1,0 +1,90 @@
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-light-300.woff2 net::ERR_ABORTED 404 (Not Found)
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-solid-900.woff2 net::ERR_ABORTED 404 (Not Found)
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-light-300.woff net::ERR_ABORTED 404 (Not Found)
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-solid-900.woff net::ERR_ABORTED 404 (Not Found)
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-light-300.ttf net::ERR_ABORTED 404 (Not Found)
+all.min.css:1  GET http://127.0.0.1:5173/resources/css/webfonts/fa-solid-900.ttf net::ERR_ABORTED 404 (Not Found)
+(index):171  GET http://127.0.0.1:5173/resources/static/imgs/menu/bg-menu-nav.png 404 (Not Found)
+(index):167  GET http://127.0.0.1:5173/resources/static/imgs/logo.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/assets/fonts/css/fonts.css?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap net::ERR_ABORTED 404 (Not Found)
+(index):483  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(16).jpg 404 (Not Found)
+(index):649  GET http://127.0.0.1:5173/resources/static/imgs/page3/top-1.png 404 (Not Found)
+(index):360  GET http://127.0.0.1:5173/resources/static/imgs/logo-warning.png 404 (Not Found)
+(index):665  GET http://127.0.0.1:5173/resources/static/imgs/page3/top-3.png 404 (Not Found)
+(index):657  GET http://127.0.0.1:5173/resources/static/imgs/page3/top-2.png 404 (Not Found)
+(index):414  GET http://127.0.0.1:5173/resources/static/imgs/page2/title-2.png 404 (Not Found)
+(index):392  GET http://127.0.0.1:5173/resources/static/images/background.webp 404 (Not Found)
+(index):444  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(73).jpg 404 (Not Found)
+(index):632  GET http://127.0.0.1:5173/resources/static/imgs/page3/title.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/btn-page-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page1/bg-btn-group.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/bg-menu.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/bg-main.jpg 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/bg-menu.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/btn-download-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/news-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/zalo-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/discord-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/youtube-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/facebook-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/btn-page-3.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page1/btn-pay-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page1/btn-download-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/btn-login-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/community-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/champion-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/support.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/homepage-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/fruit.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page1/btn-code-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page1/btn-support-download-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/btn-page-1.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/btn-support-download-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/btn-pay-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/btn-code-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/bg-logo.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/icon-turn-in.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/group-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/right-menu/social/tiktok-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/menu/dropdown-icon.png 404 (Not Found)
+(index):437  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(71).jpg 404 (Not Found)
+(index):451  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(74).jpg 404 (Not Found)
+(index):476  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(15).jpg 404 (Not Found)
+(index):490  GET http://127.0.0.1:5173/resources/static/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(17).jpg 404 (Not Found)
+(index):933  GET http://127.0.0.1:5173/resources/static/videos/mainsite/home-video-3.mp4 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/bg-page3.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/slides/bg-slide-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/menu/news-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/menu/promotion-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/menu/update-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/bg-input-search.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page2/btn-more-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/bg-page3.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/bg-table.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/th-rank-2.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/th-user.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/th-power.png 404 (Not Found)
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/page3/th-server.png 404 (Not Found)
+client:865 [vite] server connection lost. Polling for restart...
+client:935 Refused to create a worker from 'blob:http://127.0.0.1:8000/ac12c3ef-ab54-41df-b346-fc06940bb465' because it violates the following Content Security Policy directive: "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://127.0.0.1:5173 http://localhost:5173 ws://127.0.0.1:5173 ws://localhost:5173". Note that 'worker-src' was not explicitly set, so 'script-src' is used as a fallback.
+
+waitForSuccessfulPing @ client:935
+handleMessage @ client:869
+await in handleMessage
+(anonymous) @ client:458
+dequeue @ client:480
+(anonymous) @ client:472
+enqueue @ client:466
+(anonymous) @ client:458
+onMessage @ client:305
+(anonymous) @ client:426
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/group.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/facebook.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/bg-lastpage.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/youtube.png net::ERR_CONNECTION_REFUSED
+(index):869  GET http://127.0.0.1:5173/resources/js/legacy/global-config.js net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/tiktok.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/discord.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/lastpage/zalo.png net::ERR_CONNECTION_REFUSED
+style.css:1  GET http://127.0.0.1:5173/resources/css/imgs/logo.png net::ERR_CONNECTION_REFUSED
+:5173/resources/static/imgs/32x32.png:1  GET http://127.0.0.1:5173/resources/static/imgs/32x32.png net::ERR_CONNECTION_REFUSED
