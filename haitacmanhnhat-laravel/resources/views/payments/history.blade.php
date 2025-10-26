@@ -13,7 +13,10 @@
     $pageStyles = array_merge($pageStyles ?? [], ['assets/css/modules/payments.css']);
     $pageScripts = array_merge($pageScripts ?? [], ['assets/js/pages/payments.js']);
     $bodyAttributes = 'class="wrapper-subpage overflow-y-auto"';
-    $legacyContent = file_get_contents(resource_path('legacy/html/lich-su-nap.html'));
+    $legacyPath = resource_path('legacy/html/lich-su-nap.html');
+    $legacyContent = \Illuminate\Support\Facades\File::exists($legacyPath)
+        ? \Illuminate\Support\Facades\File::get($legacyPath)
+        : '';
 @endphp
 
 @extends('layouts.main')

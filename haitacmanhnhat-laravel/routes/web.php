@@ -39,9 +39,7 @@ Route::get('/nap-tien-vao-vi', [PaymentController::class, 'wallet'])->name('paym
 Route::get('/qua-nap-web', [PaymentController::class, 'packages'])->name('payments.packages');
 Route::get('/nap-tu-vi-vao-game', [PaymentController::class, 'convert'])->name('payments.convert');
 Route::get('/lich-su-nap', [PaymentController::class, 'history'])->name('payments.history');
-Route::get('/giftcode', function () {
-    return redirect()->route('tintuc.index', ['q' => 'giftcode']);
-})->name('giftcode');
+Route::get('/giftcode', [LegacyContentController::class, 'giftcode'])->name('giftcode');
 
 Route::get('/trai-ac-quy', [LegacyContentController::class, 'devilFruits'])->name('legacy.devil-fruits');
 Route::get('/trai-dung-hop', [LegacyContentController::class, 'fusionFruits'])->name('legacy.fusion-fruits');

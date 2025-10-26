@@ -3,73 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class LegacyContentController extends Controller
 {
     public function devilFruits(): View
     {
-        return view('legacy.fruits', [
-            'title' => 'Trái Ác Quỷ',
-            'description' => 'Danh sách trái ác quỷ được tổng hợp từ nguồn dữ liệu cũ. Nội dung sẽ được mở rộng trong các bản cập nhật tới.',
-            'items' => $this->loadFruitData('trai-ac-quy.json'),
+        return $this->renderLegacyPage('trai-ac-quy.html', [
+            'pageTitle' => 'Trái ác quỷ | Hải Tặc Mạnh Nhất',
+            'headScripts' => ['assets/js/data/devil-fruits-base-data.js'],
+            'scripts' => ['assets/js/pages/devil-fruits.js'],
         ]);
     }
 
     public function fusionFruits(): View
     {
-        return view('legacy.fruits', [
-            'title' => 'Trái Dung Hợp',
-            'description' => 'Danh sách trái dung hợp (legacy) dùng để tham khảo nhanh.',
-            'items' => $this->loadFruitData('trai-dung-hop.json'),
+        return $this->renderLegacyPage('trai-dung-hop.html', [
+            'pageTitle' => 'Trái dung hợp | Hải Tặc Mạnh Nhất',
+            'headScripts' => ['assets/js/data/devil-fruits-base-data.js'],
+            'scripts' => ['assets/js/pages/devil-fruits.js'],
         ]);
     }
 
-    /**
-     * @return array<int, array<string, mixed>>
-     */
-    private function loadFruitData(string $filename): array
+    public function giftcode(): View
     {
-        $path = resource_path('data/legacy/' . $filename);
+        return $this->renderLegacyPage('giftcode.html', [
+            'pageTitle' => 'Nhận GIFTCODE | Hải Tặc Mạnh Nhất',
+            'styles' => ['assets/css/modules/giftcode.css'],
+            'scripts' => ['assets/js/pages/giftcode.js'],
+        ]);
+    }
 
-        if (! File::exists($path)) {
-            return [];
-        }
+    private function renderLegacyPage(string $htmlFile, array $options = []): View
+    {
+        $path = resource_path('legacy/html/' . $htmlFile);
+        $legacyHtml = File::exists($path) ? File::get($path) : '';
 
-        $contents = File::get($path);
-
-        try {
-            $raw = json_decode($contents, true, flags: JSON_THROW_ON_ERROR);
-        } catch (\JsonException) {
-            return [];
-        }
-
-        return array_map(static function (array $item): array {
-            $properties = [];
-            $propertyRaw = Arr::get($item, 'property');
-
-            if (is_string($propertyRaw)) {
-                try {
-                    $decoded = json_decode($propertyRaw, true, flags: JSON_THROW_ON_ERROR);
-                    if (is_array($decoded)) {
-                        $properties = array_values($decoded);
-                    }
-                } catch (\JsonException) {
-                    $properties = [];
-                }
-            }
-
-            return [
-                'name' => Arr::get($item, 'name'),
-                'effect' => Arr::get($item, 'effect'),
-                'quality' => Arr::get($item, 'quality'),
-                'info' => Arr::get($item, 'info'),
-                'properties' => $properties,
-                'icon' => Arr::get($item, 'itemSmall'),
-                'slug' => Str::slug((string) Arr::get($item, 'name')),
-            ];
-        }, array_values($raw ?? []));
+        return view('legacy.raw', array_merge([
+            'legacyHtml' => $legacyHtml,
+            'bodyAttr' => 'class="wrapper-subpage overflow-y-auto"',
+        ], $options));
     }
 }
