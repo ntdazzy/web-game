@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-        <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('/assets/imgs/logo-warning.png') }}" />
+        <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('/assets/imgs/logo-warning.webp') }}" />
         <div class="wrap-login-mobile wrap-login position-absolute h-100">
             <div class="user-info h-100 d-flex align-items-center d-none">
                 <div class="btn-group">

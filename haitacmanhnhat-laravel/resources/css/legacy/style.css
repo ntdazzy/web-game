@@ -16,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    background: url('../imgs/bg-main.jpg') no-repeat center top;
+    background: url('../imgs/bg-main.webp') no-repeat center top;
     font-family: 'Open Sans', sans-serif;
     height: 0;
     transform-origin: 0 0;
@@ -49,7 +49,7 @@ li {
     display: block;
     width: 19px;
     height: 15px;
-    background: url(../imgs/menu/dropdown-icon.png);
+    background: url(../imgs/menu/dropdown-icon.webp);
     background-size: 100% 100%;
 }
 
@@ -57,7 +57,7 @@ li {
     display: block;
     width: 33px;
     height: 33px;
-    background: url(../imgs/icon-search.png);
+    background: url(../imgs/icon-search.webp);
     border: none;
     background-size: 100%;
 }
@@ -82,7 +82,7 @@ li {
 
 .top-nav {
     height: 4.8rem;
-    background: url('../imgs/menu/bg-menu.png') no-repeat;
+    background: url('../imgs/menu/bg-menu.webp') no-repeat;
     background-size: auto 100%;
     max-width: var(--bg-max-width);
     z-index: 3;
@@ -96,7 +96,7 @@ li {
     top: 10px;
     left: -56px;
     gap: 1rem;
-    background: url(../imgs/menu/bg-logo.png) no-repeat;
+    background: url(../imgs/menu/bg-logo.webp) no-repeat;
     width: 100%;
     width: 100%;
     background-size: 84%;
@@ -127,33 +127,33 @@ li {
     transform: translateX(0);
 }
 .top-nav .nav-bar .main-nav>li.homepage {
-    background: url(../imgs/menu/homepage-2.png) top center no-repeat;
+    background: url(../imgs/menu/homepage-2.webp) top center no-repeat;
     transform: translateX(0);
 }
 
 .top-nav .nav-bar .main-nav>li.news {
     transform: translateX(-25px);
-    background: url(../imgs/menu/news-2.png) top center no-repeat;
+    background: url(../imgs/menu/news-2.webp) top center no-repeat;
 }
 
 .top-nav .nav-bar .main-nav>li.hero-item {
     transform: translateX(-50px);
-    background: url(../imgs/menu/champion-2.png) top center no-repeat;
+    background: url(../imgs/menu/champion-2.webp) top center no-repeat;
 }
 
 .top-nav .nav-bar .main-nav>li.support {
     transform: translateX(-100px);
-    background: url(../imgs/menu/support.png) top center no-repeat;
+    background: url(../imgs/menu/support.webp) top center no-repeat;
 }
 
 .top-nav .nav-bar .main-nav>li.community {
     transform: translateX(-125px);
-    background: url(../imgs/menu/community-2.png) top center no-repeat;
+    background: url(../imgs/menu/community-2.webp) top center no-repeat;
 }
 
 .top-nav .nav-bar .main-nav>li.fruit {
     transform: translateX(-75px);
-    background: url(../imgs/menu/fruit.png) top center no-repeat;
+    background: url(../imgs/menu/fruit.webp) top center no-repeat;
 }
 
 .top-nav .nav-bar .main-nav>li.active,
@@ -284,11 +284,11 @@ li {
     display: block;
     width: 266px;
     height: 95px;
-    background: url(../imgs/menu/btn-login-2.png) top center no-repeat;
+    background: url(../imgs/menu/btn-login-2.webp) top center no-repeat;
 }
 
 .top-nav .login .btn-login:hover {
-    background: url(../imgs/menu/btn-login-2.png) bottom center no-repeat;
+    background: url(../imgs/menu/btn-login-2.webp) bottom center no-repeat;
 }
 
 /*************************** MENU CSS ***************************/
@@ -326,42 +326,42 @@ li {
 
 
 .left-menu .menu-page-1 {
-    background: url(../imgs/btn-page-1.png) top center no-repeat;
+    background: url(../imgs/btn-page-1.webp) top center no-repeat;
 }
 .left-menu .menu-page-1:hover {
-    background: url(../imgs/btn-page-1.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-1.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-1.active {
-    background: url(../imgs/btn-page-1.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-1.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-1.active:hover {
-    background: url(../imgs/btn-page-1.png) top center no-repeat;
+    background: url(../imgs/btn-page-1.webp) top center no-repeat;
 }
 
 .left-menu .menu-page-2 {
-    background: url(../imgs/btn-page-2.png) top center no-repeat;
+    background: url(../imgs/btn-page-2.webp) top center no-repeat;
 }
 .left-menu .menu-page-2:hover {
-    background: url(../imgs/btn-page-2.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-2.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-2.active {
-    background: url(../imgs/btn-page-2.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-2.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-2.active:hover {
-    background: url(../imgs/btn-page-2.png) top center no-repeat;
+    background: url(../imgs/btn-page-2.webp) top center no-repeat;
 }
 
 .left-menu .menu-page-3 {
-    background: url(../imgs/btn-page-3.png) top center no-repeat;
+    background: url(../imgs/btn-page-3.webp) top center no-repeat;
 }
 .left-menu .menu-page-3:hover {
-    background: url(../imgs/btn-page-3.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-3.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-3.active {
-    background: url(../imgs/btn-page-3.png) bottom center no-repeat;
+    background: url(../imgs/btn-page-3.webp) bottom center no-repeat;
 }
 .left-menu .menu-page-3.active:hover {
-    background: url(../imgs/btn-page-3.png) top center no-repeat;
+    background: url(../imgs/btn-page-3.webp) top center no-repeat;
 }
 
 .right-menu {
@@ -369,7 +369,7 @@ li {
     right: 0;
     width: 255px;
     height: 529px;
-    background: url(../imgs/page2/right-menu/bg-menu.png);
+    background: url(../imgs/page2/right-menu/bg-menu.webp);
     padding: 20px 10px 42px 36px;
     transition: width 0.5s ease, padding 0.3s ease;
 }
@@ -386,45 +386,45 @@ li {
 }
 
 .right-menu .menu-group .menu-item:nth-child(1) {
-    background: url(../imgs/page2/right-menu/btn-download-2.png) top center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-download-2.webp) top center no-repeat;
     width: 207px;
     height: 149px;
 }
 
 .right-menu .menu-group .menu-item:nth-child(2) {
-    background: url(../imgs/page2/right-menu/btn-pay-2.png) top center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-pay-2.webp) top center no-repeat;
     height: 66px;
     width: 207px;
 }
 
 .right-menu .menu-group .menu-item:nth-child(3) {
-    background: url(../imgs/page2/right-menu/btn-support-download-2.png) top center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-support-download-2.webp) top center no-repeat;
     height: 68px;
     transform: translateY(-5px);
 }
 
 .right-menu .menu-group .menu-item:nth-child(4) {
-    background: url(../imgs/page2/right-menu/btn-code-2.png) top center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-code-2.webp) top center no-repeat;
     height: 48px;
     transform: translateY(-5px);
 
 }
 
 .right-menu .menu-group .menu-item:nth-child(1):hover {
-    background: url(../imgs/page2/right-menu/btn-download-2.png) bottom center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-download-2.webp) bottom center no-repeat;
 }
 
 .right-menu .menu-group .menu-item:nth-child(2):hover {
-    background: url(../imgs/page2/right-menu/btn-pay-2.png) bottom center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-pay-2.webp) bottom center no-repeat;
     ;
 }
 
 .right-menu .menu-group .menu-item:nth-child(3):hover {
-    background: url(../imgs/page2/right-menu/btn-support-download-2.png) bottom center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-support-download-2.webp) bottom center no-repeat;
 }
 
 .right-menu .menu-group .menu-item:nth-child(4):hover {
-    background: url(../imgs/page2/right-menu/btn-code-2.png) bottom center no-repeat;
+    background: url(../imgs/page2/right-menu/btn-code-2.webp) bottom center no-repeat;
 }
 
 .right-menu .menu-group .menu-item.social {
@@ -445,32 +445,32 @@ li {
 
 .right-menu .menu-group .menu-item.social .facebook,
 .collapse-normal.collapse-community .facebook a {
-    background: url(../imgs/page2/right-menu/social/facebook-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/facebook-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social .tiktok,
 .collapse-normal.collapse-community .tiktok a {
-    background: url(../imgs/page2/right-menu/social/tiktok-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/tiktok-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social .youtube,
 .collapse-normal.collapse-community .youtube a {
-    background: url(../imgs/page2/right-menu/social/youtube-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/youtube-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social .group,
 .collapse-normal.collapse-community .group a {
-    background: url(../imgs/page2/right-menu/social/group-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/group-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social .discord,
 .collapse-normal.collapse-community .discord a {
-    background: url(../imgs/page2/right-menu/social/discord-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/discord-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social .zalo,
 .collapse-normal.collapse-community .zalo a {
-    background: url(../imgs/page2/right-menu/social/zalo-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/right-menu/social/zalo-2.webp) no-repeat  0 0 / 100% 200%;
 }
 
 .right-menu .menu-group .menu-item.social a:hover,
@@ -497,19 +497,19 @@ li {
     transform: translate(calc(-50% + 14px), -55px);
     height: 120px;
     width: 30px;
-    background: url(../imgs/page2/right-menu/icon-turn-in.png) no-repeat;
+    background: url(../imgs/page2/right-menu/icon-turn-in.webp) no-repeat;
     background-position: center center;
 }
 
 .right-menu .turn-out {
-    background: url(../imgs/page2/right-menu/icon-turn-out.png) left center no-repeat;
+    background: url(../imgs/page2/right-menu/icon-turn-out.webp) left center no-repeat;
     transform: translate(calc(-50% + 23px), -55px);
     display: none;
 }
 
 .right-menu.collapsed {
     width: 0;
-    background: url(../imgs/page2/right-menu/bg-menu.png);
+    background: url(../imgs/page2/right-menu/bg-menu.webp);
     padding: 20px 0px 42px 25px;
 }
 
@@ -544,7 +544,7 @@ footer .wrap-content {
 }
 
 footer .logo {
-    background: url(../imgs/logo.png) no-repeat;
+    background: url(../imgs/logo.webp) no-repeat;
     background-size: 100% 100%;
     width: 237px;
     height: 163px;
@@ -625,7 +625,7 @@ footer .info-group p::before {
     bottom: 81px;
     left: 50%;
     transform: translateX(calc(-52% - -40px));
-    background: url(../imgs/page1/bg-btn-group.png) no-repeat;
+    background: url(../imgs/page1/bg-btn-group.webp) no-repeat;
     padding: 52px 46px 36px 31px;
 }
 
@@ -636,7 +636,7 @@ footer .info-group p::before {
 .page-1 .btn-group .btn-download {
     width: 211px;
     height: 170px;
-    background: url(../imgs/page1/btn-download-2.png) left no-repeat;
+    background: url(../imgs/page1/btn-download-2.webp) left no-repeat;
     animation: scale-loop 1.5s infinite ease-in-out;
 }
 
@@ -648,7 +648,7 @@ footer .info-group p::before {
 .page-1 .btn-action-group .support-dowload {
     width: 227px;
     height: 80px;
-    background: url(../imgs/page1/btn-support-download-2.png) top center no-repeat;
+    background: url(../imgs/page1/btn-support-download-2.webp) top center no-repeat;
     margin-left: 14px;
     text-indent: -9999px;
     background-size: 100%;
@@ -656,23 +656,23 @@ footer .info-group p::before {
 
 .page-1 .btn-action-group .code {
     height: 80px;
-    background: url(../imgs/page1/btn-code-2.png) top center no-repeat;
+    background: url(../imgs/page1/btn-code-2.webp) top center no-repeat;
     margin-left: 8px;
     text-indent: -9999px;
 }
 
 .page-1 .btn-action-group .support-dowload:hover {
-    background: url(../imgs/page1/btn-support-download-2.png) bottom center no-repeat;
+    background: url(../imgs/page1/btn-support-download-2.webp) bottom center no-repeat;
 }
 
 .page-1 .btn-action-group .code:hover {
-    background: url(../imgs/page1/btn-code-2.png) bottom center no-repeat;
+    background: url(../imgs/page1/btn-code-2.webp) bottom center no-repeat;
 }
 
 .page-1 .btn-group .btn-pay {
     width: 227px;
     height: 170px;
-    background: url(../imgs/page1/btn-pay-2.png) left no-repeat;
+    background: url(../imgs/page1/btn-pay-2.webp) left no-repeat;
     animation: scale-loop 1.5s infinite ease-in-out;
     animation-delay: 0.5s;
     margin-left: 5px;
@@ -680,11 +680,11 @@ footer .info-group p::before {
 
 .page-1 .btn-group .btn-download:hover {
     width: 211px;
-    background: url(../imgs/page1/btn-download-2.png) right no-repeat;
+    background: url(../imgs/page1/btn-download-2.webp) right no-repeat;
 }
 
 .page-1 .btn-group .btn-pay:hover {
-    background: url(../imgs/page1/btn-pay-2.png) -228px 0 no-repeat;
+    background: url(../imgs/page1/btn-pay-2.webp) -228px 0 no-repeat;
 }
 
 @keyframes scale-loop {
@@ -701,7 +701,7 @@ footer .info-group p::before {
 
 /*************************** PAGE 2 CSS ***************************/
 .page-2 {
-    background: url(../imgs/page2/bg-page3.png) top center no-repeat;
+    background: url(../imgs/page2/bg-page3.webp) top center no-repeat;
     padding-top: 200px;
     transform: translateY(-40px);
     min-height: 985px;
@@ -746,7 +746,7 @@ footer .info-group p::before {
 
 .page-2 .content .slide {
     height: 517px;
-    background: url(../imgs/page2/slides/bg-slide-2.png) no-repeat;
+    background: url(../imgs/page2/slides/bg-slide-2.webp) no-repeat;
     background-size: 100% 100%;
     padding: 20px 24px 20px 66px;
 }
@@ -803,14 +803,14 @@ footer .info-group p::before {
 }
 
 #nav-tin-tuc {
-    background: url(../imgs/page2/menu/news-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/menu/news-2.webp) no-repeat  0 0 / 100% 200%;
 }
 #nav-su-kien {
-    background: url(../imgs/page2/menu/promotion-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/menu/promotion-2.webp) no-repeat  0 0 / 100% 200%;
 
 }
 #nav-update {
-    background: url(../imgs/page2/menu/update-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/menu/update-2.webp) no-repeat  0 0 / 100% 200%;
 }
 #nav-tin-tuc:hover,
 #nav-tin-tuc.active,
@@ -914,7 +914,7 @@ footer .info-group p::before {
     width: 100%;
     padding-left: 30px;
     color: #717171;
-    background: url(../imgs/bg-input-search.png) 0 0 / 100% 100% no-repeat;
+    background: url(../imgs/bg-input-search.webp) 0 0 / 100% 100% no-repeat;
     border: none;
     outline: none;
     padding-right: 64px;
@@ -938,7 +938,7 @@ footer .info-group p::before {
 }
 
 .page-2 .content .tabs-post .action-group .more {
-    background: url(../imgs/page2/btn-more-2.png) no-repeat  0 0 / 100% 200%;
+    background: url(../imgs/page2/btn-more-2.webp) no-repeat  0 0 / 100% 200%;
     width: 200px;
     height: 61px;
     border: none;
@@ -951,14 +951,14 @@ footer .info-group p::before {
 
 /*************************** PAGE 3 CSS ***************************/
 .page-3 {
-    background: url(../imgs/page3/bg-page3.png) top center no-repeat;
+    background: url(../imgs/page3/bg-page3.webp) top center no-repeat;
     padding-top: 150px;
     transform: translateY(-45px);
     min-height: 945px;
 }
 
 .page-3 .background {
-    background: url(../imgs/page3/bg-table.png) no-repeat;
+    background: url(../imgs/page3/bg-table.webp) no-repeat;
     height: 777px;
     width: 100%;
     background-position: center;
@@ -988,22 +988,22 @@ footer .info-group p::before {
 
 .page-3 .content table thead th:nth-child(1) {
     width: 11%;
-    background: url(../imgs/page3/th-rank-2.png) no-repeat;
+    background: url(../imgs/page3/th-rank-2.webp) no-repeat;
 }
 
 .page-3 .content table thead th:nth-child(2) {
     width: 20%;
-    background: url(../imgs/page3/th-user.png) no-repeat;
+    background: url(../imgs/page3/th-user.webp) no-repeat;
 }
 
 .page-3 .content table thead th:nth-child(3) {
     width: 20%;
-    background: url(../imgs/page3/th-power.png) no-repeat;
+    background: url(../imgs/page3/th-power.webp) no-repeat;
 }
 
 .page-3 .content table thead th:nth-child(4) {
     width: 20%;
-    background: url(../imgs/page3/th-server.png) no-repeat;
+    background: url(../imgs/page3/th-server.webp) no-repeat;
 }
 
 .page-3 .content table thead th {
@@ -1044,7 +1044,7 @@ footer .info-group p::before {
 .page-4 {
     width: 100%;
     height: 520px;
-    background: url(../imgs/lastpage/bg-lastpage.png) no-repeat;
+    background: url(../imgs/lastpage/bg-lastpage.webp) no-repeat;
     background-size: auto 100%;
     background-position: top center;
 }
@@ -1089,38 +1089,38 @@ footer .info-group p::before {
 .page-4 .social .facebook {
     width: 205px;
     height: 212px;
-    background: url(../imgs/lastpage/facebook.png) top center no-repeat;
+    background: url(../imgs/lastpage/facebook.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .page-4 .social .tiktok {
     width: 196px;
     height: 212px;
-    background: url(../imgs/lastpage/tiktok.png) top center no-repeat;
+    background: url(../imgs/lastpage/tiktok.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .page-4 .social .youtube {
     width: 196px;
     height: 212px;
-    background: url(../imgs/lastpage/youtube.png) top center no-repeat;
+    background: url(../imgs/lastpage/youtube.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .page-4 .social .group {
     height: 223px;
     width: 205px;
-    background: url(../imgs/lastpage/group.png) top center no-repeat;
+    background: url(../imgs/lastpage/group.webp) top center no-repeat;
     background-size: 100% 200%;
     margin-top: 11px;
 }
 .page-4 .social .discord {
     width: 196px;
     height: 211px;
-    background: url(../imgs/lastpage/discord.png) top center no-repeat;
+    background: url(../imgs/lastpage/discord.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .page-4 .social .zalo {
     width: 196px;
     height: 211px;
-    background: url(../imgs/lastpage/zalo.png) top center no-repeat;
+    background: url(../imgs/lastpage/zalo.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .page-4 .social li a:hover {
@@ -1141,7 +1141,7 @@ footer .info-group p::before {
 
 /*************************** PAGE ID ***************************/
 .wrapper-subpage {
-    background: #f6f3e0 url(../imgs/bg-subpage.jpg) top center no-repeat;
+    background: #f6f3e0 url(../imgs/bg-subpage.webp) top center no-repeat;
 }
 
 .wrapper-subpage .menu-fixed.left {
@@ -1162,14 +1162,14 @@ footer .info-group p::before {
 }
 
 .wrapper-id {
-    background: url(../imgs/bg-sub-layout-2.png) no-repeat;
+    background: url(../imgs/bg-sub-layout-2.webp) no-repeat;
     background-size: 100%;
 }
 
 .wrapper-id .page-title {
     width: 545px;
     height: 56px;
-    background: url(../imgs/subpage/page-title.png) bottom no-repeat;
+    background: url(../imgs/subpage/page-title.webp) bottom no-repeat;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -1266,15 +1266,15 @@ footer .info-group p::before {
 }
 /*************************** PAGE POST ***************************/
 .subpage-container.post .btn-group .tin-tuc{
-    background: url(../imgs/page2/menu/news-3.png) top center no-repeat;
+    background: url(../imgs/page2/menu/news-3.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .subpage-container.post .btn-group .su-kien {
-    background: url(../imgs/page2/menu/promotion-3.png) top center no-repeat;
+    background: url(../imgs/page2/menu/promotion-3.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .subpage-container.post .btn-group .update {
-    background: url(../imgs/page2/menu/update-3.png) top center no-repeat;
+    background: url(../imgs/page2/menu/update-3.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 .subpage-container.post .btn-group .tin-tuc:hover,
@@ -1304,7 +1304,7 @@ footer .info-group p::before {
 
 .wrapper-id.post,
 .wrapper-id.post-detail {
-    background: url(../imgs/subpage/bg-subpage-2.png) top center no-repeat;
+    background: url(../imgs/subpage/bg-subpage-2.webp) top center no-repeat;
     background-size: 100%;
     position: relative;
 }
@@ -1323,7 +1323,7 @@ footer .info-group p::before {
 
 .post .page-title,
 .post-detail .page-title {
-    background: url(../imgs/subpage/page-title-2.png) bottom no-repeat;
+    background: url(../imgs/subpage/page-title-2.webp) bottom no-repeat;
     color: #d74b14;
 }
 
@@ -1499,7 +1499,7 @@ footer .info-group p::before {
 }
 
 .wrapper-post-detail .breadcrums dl dt:nth-child(2) {
-    background: url(../imgs/breadcrumb-icon-1.png) no-repeat;
+    background: url(../imgs/breadcrumb-icon-1.webp) no-repeat;
     width: 6px;
     height: 18px;
     text-indent: -9999px;
@@ -1511,7 +1511,7 @@ footer .info-group p::before {
 }
 
 .wrapper-post-detail .breadcrums dl dt:nth-child(4) {
-    background: url(../imgs/breadcrumb-icon-2.png) no-repeat;
+    background: url(../imgs/breadcrumb-icon-2.webp) no-repeat;
     width: 6px;
     height: 18px;
     text-indent: -9999px;
@@ -1557,14 +1557,14 @@ footer .info-group p::before {
 .wrapper-post-detail .hot-news-wrapper .hot-news-heading {
     width: 323px;
     height: 55px;
-    background: url(../imgs/heading-hot-news.png) no-repeat;
+    background: url(../imgs/heading-hot-news.webp) no-repeat;
     background-size: 100%;
 }
 
 .wrapper-post-detail .hot-news-wrapper .hot-news-box {
     width: 323px;
     height: 246px;
-    background: url(../imgs/bg-hot-news-2.png) no-repeat;
+    background: url(../imgs/bg-hot-news-2.webp) no-repeat;
     background-size: 100% 100%;
 }
 
@@ -1613,7 +1613,7 @@ footer .info-group p::before {
 }
 
 .post-detail .hot-news li .title {
-    background: url(../imgs/subpage/hot-news-item-title.png) no-repeat;
+    background: url(../imgs/subpage/hot-news-item-title.webp) no-repeat;
     color: #fff;
     height: 70px;
     padding: 12px 0 15px 15px
@@ -1663,12 +1663,12 @@ footer .info-group p::before {
     border-radius: 0px;
 }
 .wrapper-history .form-history input.daterange-picker {
-    background-image: url(../imgs/payment/icon-date.png);
+    background-image: url(../imgs/payment/icon-date.webp);
     background-position: right 10px center;
     background-repeat: no-repeat;
 }
 .wrapper-history .form-history select {
-    background-image: url(../imgs/payment/icon-dropdown.png);
+    background-image: url(../imgs/payment/icon-dropdown.webp);
     background-position: right 10px center;
     background-repeat: no-repeat;
 }
@@ -1708,7 +1708,7 @@ footer .info-group p::before {
 #select2-type-parent .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 12px;
     right: 12px;
-    background: #fff url(../imgs/payment/icon-dropdown.png) center center no-repeat;
+    background: #fff url(../imgs/payment/icon-dropdown.webp) center center no-repeat;
 }
 
 #select2-type-parent .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -1800,7 +1800,7 @@ footer .info-group p::before {
     height: 73px;
     text-align: left;
     text-indent: -9999px;
-    background: url("../imgs/payment/payment-tab-bg.png") no-repeat;
+    background: url("../imgs/payment/payment-tab-bg.webp") no-repeat;
 }
 
 .wrapper-payment .payment-tab>li a {
@@ -1980,7 +1980,7 @@ footer .info-group p::before {
 #select2-server-parent .select2-container--default .select2-selection--single .select2-selection__arrow {
     top: 7px;
     right: 7px;
-    background: #3f4855 url(../imgs/payment/icon-dropdown-server.png) center center no-repeat;
+    background: #3f4855 url(../imgs/payment/icon-dropdown-server.webp) center center no-repeat;
 }
 
 #select2-server-parent .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -2060,7 +2060,7 @@ footer .info-group p::before {
     position: relative;
     width: 151px;
     height: 198px;
-    background: url("../imgs/payment/payment-item-1.png") center top no-repeat;
+    background: url("../imgs/payment/payment-item-1.webp") center top no-repeat;
 }
 .wrapper-payment .item-list .item.active,
 .wrapper-payment .item-list .item:hover {
@@ -2150,7 +2150,7 @@ footer .info-group p::before {
     width: 44px;
     height: 63px;
     border: 0;
-    background: url("../imgs/payment/slick-arrow.png") top left no-repeat;
+    background: url("../imgs/payment/slick-arrow.webp") top left no-repeat;
 }
 .wrapper-payment .slick-prev{
     top: calc(50% - 15px);
@@ -2204,7 +2204,7 @@ footer .info-group p::before {
     .wrapper-payment .payment-tab>li {
         width: 180px;
         height: 65px;
-        background: url(../imgs/payment/mobile-payment-tab-bg.png) no-repeat;
+        background: url(../imgs/payment/mobile-payment-tab-bg.webp) no-repeat;
     }
     .wrapper-payment .payment-tab .link-to-package {
         background-position-x: -187px;
@@ -2221,15 +2221,15 @@ footer .info-group p::before {
     .wrapper-payment .payment-tab>li {
         width: 100px;
         height: 36px;
-        background: url(../imgs/payment/btn-payment-1.png) no-repeat;
+        background: url(../imgs/payment/btn-payment-1.webp) no-repeat;
         background-size: 100%;
     }
     .wrapper-payment .payment-tab .link-to-package {
-        background: url(../imgs/payment/btn-payment-2.png) no-repeat;
+        background: url(../imgs/payment/btn-payment-2.webp) no-repeat;
         background-size: 100%;
     }
     .wrapper-payment .payment-tab .link-to-convert {
-        background: url(../imgs/payment/btn-payment-3.png) no-repeat;
+        background: url(../imgs/payment/btn-payment-3.webp) no-repeat;
         background-size: 100%;
     }
 }
@@ -2251,7 +2251,7 @@ footer .info-group p::before {
 
 /* payment item list (convert) */
 .wrapper-payment .item-list.item-convert-list .item {
-    background-image: url("../imgs/payment/payment-item-3.png");
+    background-image: url("../imgs/payment/payment-item-3.webp");
 }
 .wrapper-payment .item-list.item-convert-list .item .top {
     color: #ffdb19;
@@ -2271,7 +2271,7 @@ footer .info-group p::before {
     margin: 30px auto 0 auto;
     text-align: left;
     text-indent: -9999px;
-    background: url("../imgs/payment/payment-button.png") top left no-repeat;
+    background: url("../imgs/payment/payment-button.webp") top left no-repeat;
     border: none;
     border-radius: 0;
 }
@@ -2345,7 +2345,7 @@ footer .info-group p::before {
     width: 224px;
     height: 289px;
     float: left;
-    background: url("../imgs/payment/payment-item-2.png") left top no-repeat;
+    background: url("../imgs/payment/payment-item-2.webp") left top no-repeat;
 }
 
 .wrapper-payment .package-container .package-item.active .left {
@@ -2359,7 +2359,7 @@ footer .info-group p::before {
     width: 40px;
     height: 26px;
     text-indent: -9999px;
-    background: transparent url("../imgs/payment/icon-eye.png") center center no-repeat;
+    background: transparent url("../imgs/payment/icon-eye.webp") center center no-repeat;
 }
 
 .wrapper-payment .package-container .package-item .left .img {
@@ -2465,7 +2465,7 @@ footer .info-group p::before {
     width: 23px;
     height: 26px;
     text-indent: -9999px;
-    background: url("../imgs/payment/icon-close.png") center center no-repeat;
+    background: url("../imgs/payment/icon-close.webp") center center no-repeat;
 }
 
 .wrapper-payment .package-container .package-item.detail .right .scroll-package-item {
@@ -2537,7 +2537,7 @@ footer .info-group p::before {
 
 /*************************** HERO ***************************/
 .subpage-hero {
-    background: #e7e7e7 url(../imgs/bg-subpage.jpg) top center no-repeat;
+    background: #e7e7e7 url(../imgs/bg-subpage.webp) top center no-repeat;
 }
 
 .wrapper-hero {
@@ -2565,39 +2565,39 @@ footer .info-group p::before {
 }
 
 .wrapper-hero .filter-type-attack ul .btn-all-skill {
-    background: url(../imgs/btn-filter-hero.png) top left no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) top left no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-all-skill:hover,
 .wrapper-hero .filter-type-attack ul .btn-all-skill.active {
-    background: url(../imgs/btn-filter-hero.png) bottom left no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) bottom left no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-physics-skill {
-    background: url(../imgs/btn-filter-hero.png) -148px 0 no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) -148px 0 no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-physics-skill:hover,
 .wrapper-hero .filter-type-attack ul .btn-physics-skill.active {
-    background: url(../imgs/btn-filter-hero.png) -148px -46px no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) -148px -46px no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-last-skill {
-    background: url(../imgs/btn-filter-hero.png) -296px 0 no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) -296px 0 no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-last-skill:hover,
 .wrapper-hero .filter-type-attack ul .btn-last-skill.active {
-    background: url(../imgs/btn-filter-hero.png) -296px -46px no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) -296px -46px no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-magic-skill {
-    background: url(../imgs/btn-filter-hero.png) top right no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) top right no-repeat;
 }
 
 .wrapper-hero .filter-type-attack ul .btn-magic-skill:hover,
 .wrapper-hero .filter-type-attack ul .btn-magic-skill.active {
-    background: url(../imgs/btn-filter-hero.png) bottom right no-repeat;
+    background: url(../imgs/btn-filter-hero.webp) bottom right no-repeat;
 }
 
 .wrapper-hero .filter-type-name .search-hero,
@@ -2670,7 +2670,7 @@ footer .info-group p::before {
 .wrapper-hero .wrapper-hero-detail .wrapper-hero-list {
     width: 1450px;
     height: 130px;
-    background: url(../imgs/bg-hero-slide.png) no-repeat;
+    background: url(../imgs/bg-hero-slide.webp) no-repeat;
     display: flex;
     margin-bottom: 10px;
     align-items: center;
@@ -2694,7 +2694,7 @@ footer .info-group p::before {
 }
 
 .wrapper-hero .wrapper-hero-detail .hero-list-slide .slick-prev {
-    background: url(../imgs/icon-arrow-left.png) no-repeat;
+    background: url(../imgs/icon-arrow-left.webp) no-repeat;
     position: absolute;
     left: -35px;
     background-size: 100%;
@@ -2702,7 +2702,7 @@ footer .info-group p::before {
 }
 
 .wrapper-hero .wrapper-hero-detail .hero-list-slide .slick-next {
-    background: url(../imgs/icon-arrow-right.png) no-repeat;
+    background: url(../imgs/icon-arrow-right.webp) no-repeat;
     position: absolute;
     right: -35px;
     background-size: 100%;
@@ -2793,15 +2793,15 @@ footer .info-group p::before {
 }
 
 .wrapper-hero .wrapper-hero-detail .list-skill .btn-stand-skill {
-    background: url(../imgs/btn-skill-new-1.png) top center no-repeat;
+    background: url(../imgs/btn-skill-new-1.webp) top center no-repeat;
 }
 
 .wrapper-hero .wrapper-hero-detail .list-skill .btn-normal-skill {
-    background: url(../imgs/btn-skill-new-2.png) top center no-repeat;
+    background: url(../imgs/btn-skill-new-2.webp) top center no-repeat;
 }
 
 .wrapper-hero .wrapper-hero-detail .list-skill .btn-rage-skill {
-    background: url(../imgs/btn-skill-new-3.png) top center no-repeat;
+    background: url(../imgs/btn-skill-new-3.webp) top center no-repeat;
 }
 
 .wrapper-hero .wrapper-hero-detail .list-skill .btn-stand-skill:hover,
@@ -2927,7 +2927,7 @@ footer .info-group p::before {
 #nav-stand .hero-name {
     font-size: 20px;
     color: #000;
-    background: url(../imgs/bg-hero-name.png) right center no-repeat;
+    background: url(../imgs/bg-hero-name.webp) right center no-repeat;
     background-size: 100% 100%;
     text-align: center;
     font-weight: 600;
@@ -2939,7 +2939,7 @@ footer .info-group p::before {
     position: relative;
     width: 1126px;
     height: 568px;
-    background: url(../imgs/bg-preview-hero.png) center;
+    background: url(../imgs/bg-preview-hero.webp) center;
     background-repeat: no-repeat !important;
     padding: 0;
     gap: 2px;
@@ -2950,7 +2950,7 @@ footer .info-group p::before {
 .wrapper-hero .wrapper-hero-detail .btn-back-heros {
     width: 120px;
     height: 40px;
-    background: url(../imgs/btn-back-hero-2.png) top center no-repeat;
+    background: url(../imgs/btn-back-hero-2.webp) top center no-repeat;
     background-size: 100% 200%;
     bottom: 0;
     right: -130px;
@@ -2962,7 +2962,7 @@ footer .info-group p::before {
 
 .wrapper-hero .wrapper-hero-detail .btn-back-heros.tablet {
     display: none;
-    background: url(../imgs/btn-back-hero.png) top center no-repeat;
+    background: url(../imgs/btn-back-hero.webp) top center no-repeat;
 }
 
 .wrapper-hero .wrapper-hero-detail .hero-description {
@@ -3011,7 +3011,7 @@ footer .info-group p::before {
 .giftcode-page .wrapper-content {
     width: 1439px;
     height: 715px;
-    background: url(../imgs/giftcode/bg-content.png) no-repeat;
+    background: url(../imgs/giftcode/bg-content.webp) no-repeat;
     background-size: 100%;
     transform: translate(50px, -135px);
     padding: 0 0 50px 30px;
@@ -3152,14 +3152,14 @@ footer .info-group p::before {
 .giftcode-page .content .button-group .get-giftcode {
     width: 292px;
     height: 69px;
-    background: url(../imgs/giftcode/btn-getgiftcode.png) top center no-repeat;
+    background: url(../imgs/giftcode/btn-getgiftcode.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 
 .giftcode-page .content .button-group .history {
     width: 353px;
     height: 69px;
-    background: url(../imgs/giftcode/btn-history.png) top center no-repeat;
+    background: url(../imgs/giftcode/btn-history.webp) top center no-repeat;
     background-size: 100% 200%;
 }
 
@@ -3171,7 +3171,7 @@ footer .info-group p::before {
 .giftcode-page .giftcode-description {
     width: 758px;
     height: 143px;
-    background: url(../imgs/giftcode/bg-giftcode-description.png) no-repeat;
+    background: url(../imgs/giftcode/bg-giftcode-description.webp) no-repeat;
     background-size: 100%;
     color: #fff;
     line-height: 28px;
@@ -3327,35 +3327,35 @@ footer .info-group p::before {
 }
 
 .devil-fruit .btn-filter.tat-ca {
-    background: url(../imgs/devil-fruit/filter/all.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/all.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.giam-sat-thuong {
-    background: url(../imgs/devil-fruit/filter/giam-sat-thuong.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/giam-sat-thuong.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.khong-che {
-    background: url(../imgs/devil-fruit/filter/khong-che.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/khong-che.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.no-ban-dau {
-    background: url(../imgs/devil-fruit/filter/no-ban-dau.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/no-ban-dau.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.sat-thuong {
-    background: url(../imgs/devil-fruit/filter/sat-thuong.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/sat-thuong.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.tang-cuong {
-    background: url(../imgs/devil-fruit/filter/tang-cuong.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/tang-cuong.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.tra-lai {
-    background: url(../imgs/devil-fruit/filter/tra-lai.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/tra-lai.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter.mien-dich {
-    background: url(../imgs/devil-fruit/filter/mien-dich.png) 0 0 / 100% 200% no-repeat;
+    background: url(../imgs/devil-fruit/filter/mien-dich.webp) 0 0 / 100% 200% no-repeat;
 }
 
 .devil-fruit .btn-filter:hover,
@@ -3373,7 +3373,7 @@ footer .info-group p::before {
 
 .devil-fruit .wrapper-content .wrapper-devil-fruit {
     height: 598px;
-    background: url(../imgs/devil-fruit/bg-content.jpg);
+    background: url(../imgs/devil-fruit/bg-content.webp);
     background-size: 100% 100%;
 }
 
@@ -3398,7 +3398,7 @@ footer .info-group p::before {
 .devil-fruit .wrapper-devil-fruit .list-fruit .fruit-item {
     width: 266px;
     height: 89px;
-    background: url(../imgs/devil-fruit/bg-fruit-item.png) 0 0 / 100% 200%;
+    background: url(../imgs/devil-fruit/bg-fruit-item.webp) 0 0 / 100% 200%;
     padding: 10px 10px 10px 20px;
     display: flex;
     align-items: center;
@@ -3475,7 +3475,7 @@ footer .info-group p::before {
     width: 58px;
     height: 58px;
     padding: 5px;
-    background: url(../imgs/devil-fruit/fruit-item.jpg) 0 0 / 100% 100% no-repeat;
+    background: url(../imgs/devil-fruit/fruit-item.webp) 0 0 / 100% 100% no-repeat;
 }
 
 .devil-fruit .wrapper-devil-fruit .fruit-detail .wrap-content .text-group {

@@ -9,7 +9,7 @@
 @endphp
 
 <div class="d-flex flex-column align-items-center w-100 position-relative" id="root">
-    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('/assets/imgs/logo-warning.png') }}" />
+    <img alt="" class="logo-warning position-absolute" src="{{ legacy_asset('/assets/imgs/logo-warning.webp') }}" />
 
     <div class="wrap-login-mobile wrap-login position-absolute h-100">
         <div class="user-info h-100 d-flex align-items-center d-none">
@@ -52,7 +52,7 @@
                 <img src="{{ legacy_asset($heroBackground['src'] ?? '/assets/images/background.webp') }}"
                     alt="{{ $heroBackground['alt'] ?? 'Hải Tặc Mạnh Nhất background' }}"
                     class="bg-image w-100 h-100 position-absolute landing-hero__background"
-                    data-fallback-src="{{ legacy_asset($heroBackground['fallback'] ?? '/assets/images/background.png') }}"
+                    data-fallback-src="{{ legacy_asset($heroBackground['fallback'] ?? '/assets/images/background.webp') }}"
                     data-lazy-exclude="true">
             @endif
 
@@ -71,7 +71,7 @@
             <div class="title container d-flex flex-column align-items-center" data-aos="fade-down"
                 data-aos-anchor-placement="top-bottom" data-aos-duration="900" data-aos-offset="0"
                 data-aos-once="false">
-                <img alt="" src="{{ legacy_asset('/assets/imgs/page2/title-2.png') }}" />
+                <img alt="" src="{{ legacy_asset('/assets/imgs/page2/title-2.webp') }}" />
             </div>
 
             <div class="content d-flex" data-aos="fade-down" data-aos-anchor-placement="top-bottom"
@@ -90,7 +90,7 @@
                                 <div class="carousel-item {{ !empty($slide['active']) ? 'active' : '' }}">
                                     <a href="{{ $slide['href'] }}" target="_self" title="{{ $slide['title'] }}">
                                         <img alt="{{ $slide['title'] }}" class="d-block w-100 h-100"
-                                            data-fallback-src="{{ legacy_asset($slide['fallback'] ?? '/assets/imgs/page2/slides/slide.png') }}"
+                                            data-fallback-src="{{ legacy_asset($slide['fallback'] ?? '/assets/imgs/page2/slides/slide.webp') }}"
                                             src="{{ legacy_asset($slide['image']) }}" />
                                     </a>
                                 </div>
@@ -113,7 +113,7 @@
                                 <div class="carousel-item {{ !empty($slide['active']) ? 'active' : '' }}">
                                     <a href="{{ $slide['href'] }}" target="_self" title="{{ $slide['title'] }}">
                                         <img alt="{{ $slide['title'] }}" class="d-block w-100 h-100"
-                                            data-fallback-src="{{ legacy_asset($slide['fallback'] ?? '/assets/imgs/page2/slides/slide-mobile.png') }}"
+                                            data-fallback-src="{{ legacy_asset($slide['fallback'] ?? '/assets/imgs/page2/slides/slide-mobile.webp') }}"
                                             src="{{ legacy_asset($slide['image']) }}" />
                                     </a>
                                 </div>
@@ -230,7 +230,7 @@
             <div class="title container d-flex flex-column align-items-center" data-aos="fade-down"
                 data-aos-anchor-placement="top-bottom" data-aos-duration="900" data-aos-offset="-170"
                 data-aos-once="false">
-                <img alt="" src="{{ legacy_asset('/assets/imgs/page3/title.png') }}" />
+                <img alt="" src="{{ legacy_asset('/assets/imgs/page3/title.webp') }}" />
             </div>
             <div class="background position-absolute"></div>
             <div class="content d-flex" data-aos="fade-down" data-aos-anchor-placement="top-bottom"

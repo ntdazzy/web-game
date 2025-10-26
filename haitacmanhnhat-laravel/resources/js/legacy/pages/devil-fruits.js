@@ -26,7 +26,7 @@ function renderFruits(page) {
             )}'
                     alt='${escapeHtml(fruit.name)}' class='thumb'
                     onerror="this.onerror=null;this.src='${window.staticUrl
-                }imgs/devil-fruit/devil-fruit-example.png';" />
+                }imgs/devil-fruit/devil-fruit-example.webp';" />
                 <div class='name d-flex flex-column'>${nameSpans}</div>
             </li>
         `;
@@ -47,7 +47,7 @@ function renderFruitDetail(fruit) {
                 alt='${escapeHtml(fruit.name)}'
                 class='thumb'
                 onerror="this.onerror=null;this.src='${window.staticUrl
-        }imgs/devil-fruit/devil-fruit-example.png';" />
+        }imgs/devil-fruit/devil-fruit-example.webp';" />
 	`;
     $detail.find(".thumb").replaceWith(imgHtml);
 
@@ -94,9 +94,9 @@ function renderPagination() {
     if (currentPage > 1) {
         html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage - 1
             }"><img src="${window.staticUrl
-            }imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></a>`;
+            }imgs/icon-arrow-left.webp" alt="" width="10px" height="15px"></a>`;
     } else {
-        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></span>`;
+        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-left.webp" alt="" width="10px" height="15px"></span>`;
     }
     html += `</li>`;
 
@@ -127,9 +127,9 @@ function renderPagination() {
     if (currentPage < totalPages) {
         html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage + 1
             }"><img src="${window.staticUrl
-            }imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></a>`;
+            }imgs/icon-arrow-right.webp" alt="" width="10px" height="15px"></a>`;
     } else {
-        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></span>`;
+        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-right.webp" alt="" width="10px" height="15px"></span>`;
     }
     html += `</li>`;
 
@@ -176,7 +176,7 @@ function renderAllFruits() {
             )}'
                     alt='${escapeHtml(fruit.name)}' class='thumb'
                     onerror="this.onerror=null;this.src='${window.staticUrl
-                }imgs/devil-fruit/devil-fruit-example.png';" />
+                }imgs/devil-fruit/devil-fruit-example.webp';" />
                 <div class='name d-flex flex-column'>${nameSpans}</div>
             </li>
         `;
@@ -235,7 +235,7 @@ function renderFruitsList(fruitsToRender) {
             <img src='${window.staticUrl}${fruit.itemSmall}'
                 alt='${escapeHtml(fruit.name)}' class='thumb'
                 onerror="this.onerror=null;this.src='${window.staticUrl
-                    }imgs/devil-fruit/devil-fruit-example.png';" />
+                    }imgs/devil-fruit/devil-fruit-example.webp';" />
             <div class='name d-flex flex-column'>${nameSpans}</div>
         </li>`;
             })

@@ -4,11 +4,11 @@
         'viewport' => 'width=device-width, initial-scale=1.0',
         'og:title' => $pageTitle,
         'description' => 'Hải Tặc Mạnh Nhất – Game nhập vai chiến thuật chủ đề One Piece. Hóa thân biến hình - Mega Mall – đấu liên server cực gắt. Sẵn sàng chinh phục?',
-        'og:image' => 'assets/imgs/600x315.jpg',
+        'og:image' => 'assets/imgs/600x315.webp',
         'og:image:width' => '600',
         'og:image:height' => '315',
         'facebook-domain-verification' => '6bko4jl76it4vql0pwhs6bmeudp8bo',
-        'link:shortcut_icon' => 'assets/imgs/32x32.png',
+        'link:shortcut_icon' => 'assets/imgs/32x32.webp',
     ]);
     $pageHeading = 'Thông tin tài khoản';
     $pageIntro = 'Bạn có thể cập nhật các thông tin công khai tại đây, hệ thống sẽ tự động kết nối với các tài khoản game khác';
@@ -22,7 +22,7 @@
         <div class="row align-items-center info-row">
             <div class="col-4 label-text">Hình đại diện</div>
             <div class="col-6 value-text">
-                <img alt="Avatar" class="avatar-img" src="{{ legacy_asset('assets/imgs/avatar.png') }}" />
+                <img alt="Avatar" class="avatar-img" src="{{ legacy_asset('assets/imgs/avatar.webp') }}" />
             </div>
             <div class="col-2 text-center p-0"></div>
         </div>

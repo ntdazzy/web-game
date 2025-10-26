@@ -129,23 +129,6 @@ if (! function_exists('build_sitemap_entries')) {
     }
 }
 
-if (! function_exists('legacy_html')) {
-    function legacy_html(?string $html): string
-    {
-        if ($html === null || $html === '') {
-            return '';
-        }
-
-        $nonce = csp_nonce();
-
-        return preg_replace_callback(
-            '/<script\b(?![^>]*\bnonce=)([^>]*)>/i',
-            static fn(array $matches) => '<script' . $matches[1] . ' nonce="' . e($nonce) . '">',
-            $html
-        ) ?? $html;
-    }
-}
-
 if (! function_exists('csp_nonce')) {
     function csp_nonce(): string
     {
