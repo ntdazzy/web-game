@@ -138,6 +138,7 @@ function legacyAssetsPlugin() {
             async configureServer(server) {
                 await syncAssets();
 
+                let watcherReady = false;
                 const usableMappings = await existingMappings();
                 for (const { watch } of usableMappings) {
                     for (const watchPath of watch) {
@@ -145,9 +146,21 @@ function legacyAssetsPlugin() {
                     }
                 }
 
-                server.watcher.on('add', () => handleChange(server));
-                server.watcher.on('change', () => handleChange(server));
-                server.watcher.on('unlink', () => handleChange(server));
+                server.watcher.on('ready', () => {
+                    watcherReady = true;
+                });
+
+                const triggerIfReady = () => {
+                    if (! watcherReady) {
+                        return;
+                    }
+
+                    handleChange(server);
+                };
+
+                server.watcher.on('add', triggerIfReady);
+                server.watcher.on('change', triggerIfReady);
+                server.watcher.on('unlink', triggerIfReady);
             },
         },
         {
@@ -171,6 +184,11 @@ export default defineConfig({
         hmr: {
             host: '127.0.0.1',
             port: 5173,
+        },
+        watch: {
+            ignored: [
+                '**/public/assets/**',
+            ],
         },
     },
     plugins: [

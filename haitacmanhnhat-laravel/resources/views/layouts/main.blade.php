@@ -34,6 +34,9 @@
 </head>
 
 <body {!! $bodyAttributes !!}>
+    <div id="pageLoadingOverlay" class="page-loading-overlay" role="status" aria-live="polite" aria-label="Đang tải nội dung">
+        <div class="page-loading-overlay__spinner" aria-hidden="true"></div>
+    </div>
     @include('partials.header')
 
     <main class="main-content">
@@ -131,6 +134,39 @@
     <script src="{{ legacy_asset('assets/js/app.js') }}"></script>
     <script src="{{ legacy_asset('assets/js/auth/app-auth.js') }}"></script>
     <script src="{{ legacy_asset('assets/js/runtime/init-daterangepicker.js') }}"></script>
+
+    <script nonce="{{ csp_nonce() }}">
+        (() => {
+            const overlay = document.getElementById('pageLoadingOverlay');
+            if (!overlay) {
+                return;
+            }
+
+            const show = () => {
+                overlay.classList.remove('is-hidden');
+            };
+
+            const hide = () => {
+                overlay.classList.add('is-hidden');
+            };
+
+            window.addEventListener('beforeunload', show, { passive: true });
+
+            window.addEventListener('load', () => {
+                window.setTimeout(hide, 150);
+            }, { once: true });
+
+            window.addEventListener('pageshow', (event) => {
+                if (event.persisted) {
+                    hide();
+                }
+            });
+
+            if (document.readyState === 'complete') {
+                hide();
+            }
+        })();
+    </script>
 
     @foreach ($pageScripts as $script)
         <script src="{{ $script }}" defer></script>

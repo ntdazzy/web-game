@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .page-loading-overlay {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at center, rgba(18, 32, 70, 0.92), rgba(5, 10, 28, 0.95));
+        transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+        z-index: 9999;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    .page-loading-overlay.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .page-loading-overlay__spinner {
+        width: 70px;
+        height: 70px;
+        border-radius: 9999px;
+        border: 5px solid rgba(255, 255, 255, 0.18);
+        border-top-color: #f6c343;
+        animation: page-loading-spin 0.9s linear infinite;
+        box-shadow: 0 0 24px rgba(246, 195, 67, 0.45);
+    }
+}
+
+@keyframes page-loading-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
