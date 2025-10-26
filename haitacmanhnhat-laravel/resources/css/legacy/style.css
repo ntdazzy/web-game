@@ -76,6 +76,14 @@ li {
     max-width: 1920px;
 }
 
+.top-nav .container,
+.menu-fixed .container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .wrapper-page {
     margin-bottom: -48px;
 }
