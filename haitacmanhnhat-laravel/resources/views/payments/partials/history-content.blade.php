@@ -25,7 +25,7 @@
 
     <!-- Start Tab Menu Chung -->
     <div class="subpage-container wrapper-id wrapper-history">
-        <div class="container h-100 position-relative">
+        <div class="container legacy-container h-100 position-relative">
             <div class="d-flex flex-column align-items-center">
                 <h1 class="page-title">Lịch sử nạp</h1>
                 <div class="history w-100">

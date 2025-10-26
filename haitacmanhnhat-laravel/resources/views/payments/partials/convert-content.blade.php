@@ -25,7 +25,7 @@
 
     <!-- Start Tab Menu Chung -->
     <div class="subpage-container wrapper-id wrapper-payment">
-        <div class="container h-100 position-relative">
+        <div class="container legacy-container h-100 position-relative">
             <div class="d-flex flex-column align-items-center">
                 <h1 class="page-title">Từ ví vào game</h1>
                 <div class="payment w-100">

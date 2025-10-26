@@ -93,6 +93,22 @@ li {
     box-sizing: content-box;
 }
 
+.legacy-container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: content-box;
+}
+
+@media (min-width: 1200px) {
+    .legacy-container {
+        max-width: 1905px !important;
+    }
+}
+
 .top-nav .container,
 .menu-fixed .container {
     padding-left: 0;
