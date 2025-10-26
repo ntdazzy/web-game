@@ -88,6 +88,11 @@ li {
     z-index: 3;
 }
 
+.top-nav,
+.top-nav * {
+    box-sizing: content-box;
+}
+
 .top-nav .container,
 .menu-fixed .container {
     padding-left: 0;
@@ -301,6 +306,11 @@ li {
 .menu-fixed {
     top: 40%;
     max-width: 3840px;
+}
+
+.menu-fixed,
+.menu-fixed * {
+    box-sizing: content-box;
 }
 
 .left-menu {

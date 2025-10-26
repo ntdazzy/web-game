@@ -60,7 +60,9 @@ function scale() {
             'data-aos-duration': '600'
         });
     }
-    AOS.refresh();
+    if (window.AOS && typeof window.AOS.refresh === 'function') {
+        window.AOS.refresh();
+    }
 }
 function log(mess){
     console.log(mess);
