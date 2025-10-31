@@ -17,13 +17,15 @@
         @include('partials.nav')
 
         <main id="main-content">
-            @yield('content')
-        </main>
+        @yield('content')
+    </main>
 
-        @include('partials.footer')
-    </div>
+    @include('partials.footer')
+</div>
 
-    @stack('scripts')
+@include('partials.modals.login')
+
+@stack('scripts')
 </body>
 
 </html>

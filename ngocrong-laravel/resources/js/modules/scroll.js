@@ -1,113 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var leftmenu = document.getElementsByClassName('left-menu')[0];
-    var rightmenu = document.getElementsByClassName('right-menu')[0];
-    var leftmenuItem = document.querySelectorAll('.left-menu ul li');
-    var pages = document.querySelectorAll('.page .content');
-    var btnTurnTop = document.querySelector('.turn-top');
+    const wrapper = document.querySelector('.wrapper-page');
+    const leftMenu = document.querySelector('.left-menu');
+    const rightMenu = document.querySelector('.right-menu');
+    const turnTopButton = document.querySelector('.turn-top');
 
-    var pageHeight;
-    let isScrolling = false;
-    var pageIndex = 0;
-
-    function updatePageHeight() {
-        $scale = window.innerWidth / 1912;
-        pageHeight = $('.page').height() * $scale;
-        if (pageHeight > 960) {
-            pageHeight = 945;
-        }
+    if (!wrapper || !leftMenu) {
+        return;
     }
 
-    updatePageHeight();
+    const pages = Array.from(wrapper.querySelectorAll('.page'));
+    if (pages.length === 0) {
+        return;
+    }
 
-    // Hàm cập nhật class active cho menu
-    var updateActiveMenu = () => {
-        pageIndex = Math.round(window.scrollY / pageHeight);
-        switch (pageIndex) {
-            case 0:
-                leftmenu.style.display = 'block';
-                rightmenu.style.display = 'none';
-                break;
-            case 1:
-                leftmenu.style.display = 'block';
-                rightmenu.style.display = 'block';
-                break;
-            case 2:
-                leftmenu.style.display = 'block';
-                rightmenu.style.display = 'block';
-                break;
-            case 3:
-                leftmenu.style.display = 'none';
-                rightmenu.style.display = 'block';
-                break;
-            default:
-                leftmenu.style.display = 'block';
-                rightmenu.style.display = 'block';
-                break;
+    const menuItems = Array.from(leftMenu.querySelectorAll('li')).slice(0, pages.length);
+
+    const getPageIndexFromScroll = () => {
+        const midpoint = window.scrollY + window.innerHeight / 2;
+        let activeIndex = 0;
+
+        pages.forEach((page, index) => {
+            const top = page.offsetTop;
+            const bottom = top + page.offsetHeight;
+            if (midpoint >= top && midpoint < bottom) {
+                activeIndex = index;
+            }
+        });
+
+        return activeIndex;
+    };
+
+    const syncMenuVisibility = (index) => {
+        if (!rightMenu) {
+            return;
         }
-        leftmenuItem.forEach((item, index) => {
-            item.classList.toggle('active', index === pageIndex);
+
+        if (index <= 0) {
+            leftMenu.style.display = 'block';
+            rightMenu.style.display = 'none';
+        } else if (index >= pages.length - 1) {
+            leftMenu.style.display = 'none';
+            rightMenu.style.display = 'block';
+        } else {
+            leftMenu.style.display = 'block';
+            rightMenu.style.display = 'block';
+        }
+    };
+
+    const setActiveMenu = (index) => {
+        menuItems.forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
+        });
+        syncMenuVisibility(index);
+    };
+
+    const handleScroll = () => {
+        window.requestAnimationFrame(() => {
+            const index = getPageIndexFromScroll();
+            setActiveMenu(index);
         });
     };
 
-    setTimeout(() => {
-        updateActiveMenu();
-    }, 200);
+    menuItems.forEach((item, index) => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetPage = pages[index];
+            if (!targetPage) {
+                return;
+            }
 
-    window.addEventListener('wheel', (e) => {
-        if (isScrolling) return;
-        e.preventDefault();
-
-        var direction = e.deltaY > 0 ? 1 : -1;
-        var currentScroll = window.scrollY;
-        var maxScroll = document.body.scrollHeight - window.innerHeight;
-
-        let scrollAmount = direction * pageHeight;
-
-        if (direction > 0 && currentScroll + scrollAmount > maxScroll) {
-            scrollAmount = maxScroll - currentScroll;
-        } else if (direction < 0) {
-            let remainder = currentScroll % pageHeight;
-            if (Math.abs(remainder) < 1) remainder = 0;
-            scrollAmount = -(remainder || pageHeight);
-        }
-
-        isScrolling = true;
-        window.scrollBy({
-            top: scrollAmount,
-            behavior: 'smooth'
-        });
-
-        setTimeout(() => {
-            isScrolling = false;
-            updateActiveMenu();
-        }, 500);
-    }, { passive: false });
-
-    // Lắng nghe sự kiện click vào menu item
-    leftmenuItem.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            leftmenuItem.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-
+            const targetOffset = targetPage.offsetTop;
             window.scrollTo({
-                top: index * pageHeight,
-                behavior: 'smooth'
+                top: targetOffset,
+                behavior: 'smooth',
             });
-
-            setTimeout(() => {
-                updateActiveMenu();
-            }, 500);
-
         });
     });
 
-    btnTurnTop.addEventListener('click', () => {
-        setTimeout(() => {
-            updateActiveMenu();
-        }, 700);
-    });
+    if (turnTopButton) {
+        turnTopButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
-    window.addEventListener('resize', () => {
-        updatePageHeight();
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    // Khởi tạo trạng thái ban đầu
+    setActiveMenu(getPageIndexFromScroll());
 });

@@ -19,13 +19,15 @@
         @include('partials.nav')
 
         <main id="main-content">
-            @inertia
-        </main>
+        @inertia
+    </main>
 
-        @include('partials.footer')
-    </div>
+    @include('partials.footer')
+</div>
 
-    @stack('scripts')
+@include('partials.modals.login')
+
+@stack('scripts')
 </body>
 
 </html>

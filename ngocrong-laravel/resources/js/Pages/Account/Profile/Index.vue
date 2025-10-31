@@ -25,7 +25,7 @@ const sidebarLinks = computed(() =>
 );
 
 const defaultAvatar = new URL(
-    "../../../assets/images/avatar.png",
+    '../../../../assets/images/avatar.png',
     import.meta.url
 ).href;
 const avatarUrl = computed(() => props.profile?.avatar || defaultAvatar);

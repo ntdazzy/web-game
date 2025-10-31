@@ -1,9 +1,7 @@
 <script setup>
-import TopLogin from "@/Components/TopLogin.vue";
 import BottomStrip from "@/Components/BottomStrip.vue";
 import InputError from "@/Components/InputError.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
-import { computed } from "vue";
 
 const props = defineProps({
     canResetPassword: {
@@ -21,35 +19,20 @@ const props = defineProps({
 });
 
 const form = useForm({
-    email: "",
+    login: "",
     password: "",
     remember: false,
 });
 
 const submit = () => {
-    form.post(route("login"), {
-        onFinish: () => form.reset("password"),
-    });
+    form.transform((data) => ({
+        ...data,
+        remember: data.remember ? "on" : "",
+    }))
+        .post(route("login"), {
+            onFinish: () => form.reset("password"),
+        });
 };
-
-const navigation = computed(() => [
-    {
-        label: "Đăng nhập",
-        href: route("login"),
-        active: route().current("login"),
-    },
-    {
-        label: "Đăng ký",
-        href: route("register"),
-        active: route().current("register"),
-    },
-    {
-        label: "Quên mật khẩu",
-        href: props.canResetPassword ? route("password.request") : "#",
-        active: route().current("password.request"),
-        disabled: !props.canResetPassword,
-    },
-]);
 </script>
 
 <template>
@@ -59,129 +42,87 @@ const navigation = computed(() => [
             id="root"
             class="d-flex flex-column align-items-center w-100 position-relative"
         >
-            <TopLogin />
-            <div class="subpage-container wrapper-id">
-                <div class="container h-100 position-relative">
-                    <div class="d-flex flex-column align-items-center">
-                        <h1 class="page-title">Tài khoản</h1>
-                        <div class="row content">
-                            <div class="col-3">
-                                <ul class="left-side">
-                                    <li
-                                        v-for="item in navigation"
-                                        :key="item.label"
-                                        :class="[
-                                            { active: item.active },
-                                            { disabled: item.disabled },
-                                        ]"
-                                    >
-                                        <component
-                                            :is="item.disabled ? 'span' : Link"
-                                            :href="
-                                                item.disabled
-                                                    ? undefined
-                                                    : item.href
-                                            "
-                                        >
-                                            {{ item.label }}
-                                        </component>
-                                    </li>
-                                </ul>
+            <div class="login-page">
+                <div class="login-page__overlay"></div>
+                <div class="login-page__panel">
+                    <h1 class="login-page__title">Đăng nhập</h1>
+
+                    <p v-if="status" class="login-page__status">
+                        {{ status }}
+                    </p>
+
+                    <form class="login-page__form" @submit.prevent="submit">
+                        <div class="login-page__field">
+                            <label for="pageLoginUsername">Tên đăng nhập</label>
+                            <div class="login-page__input">
+                                <i class="fa-light fa-user"></i>
+                                <input
+                                    id="pageLoginUsername"
+                                    v-model="form.login"
+                                    type="text"
+                                    name="login"
+                                    autocomplete="username"
+                                    placeholder="Nhập tên đăng nhập hoặc email"
+                                    required
+                                />
                             </div>
-                            <div class="col-9 user-box">
-                                <div class="breadcrumb d-flex flex-column">
-                                    <h4 class="text-blue">Đăng nhập</h4>
-                                    <p v-if="status" class="text-success mb-0">
-                                        {{ status }}
-                                    </p>
-                                </div>
-                                <div class="col-12 col-sm-6 wrap-form">
-                                    <form
-                                        class="form-login"
-                                        @submit.prevent="submit"
-                                    >
-                                        <div class="mb-3">
-                                            <label
-                                                for="loginEmail"
-                                                class="form-label"
-                                                >Tên tài khoản</label
-                                            >
-                                            <input
-                                                id="loginEmail"
-                                                v-model="form.email"
-                                                class="form-control"
-                                                type="email"
-                                                autocomplete="username"
-                                                placeholder="Nhập tên tài khoản"
-                                                required
-                                            />
-                                            <InputError
-                                                class="mt-2"
-                                                :message="form.errors.email"
-                                            />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label
-                                                for="loginPassword"
-                                                class="form-label"
-                                                >Mật khẩu</label
-                                            >
-                                            <input
-                                                id="loginPassword"
-                                                v-model="form.password"
-                                                class="form-control"
-                                                type="password"
-                                                autocomplete="current-password"
-                                                placeholder="Nhập mật khẩu"
-                                                required
-                                            />
-                                            <InputError
-                                                class="mt-2"
-                                                :message="form.errors.password"
-                                            />
-                                        </div>
-                                        <div
-                                            class="d-flex justify-content-between align-items-center mb-3"
-                                        >
-                                            <div class="form-check">
-                                                <input
-                                                    id="remember"
-                                                    v-model="form.remember"
-                                                    class="form-check-input"
-                                                    type="checkbox"
-                                                    name="remember"
-                                                />
-                                                <label
-                                                    class="form-check-label"
-                                                    for="remember"
-                                                >
-                                                    Ghi nhớ đăng nhập
-                                                </label>
-                                            </div>
-                                            <Link
-                                                v-if="canResetPassword"
-                                                class="text-decoration-underline"
-                                                :href="
-                                                    route('password.request')
-                                                "
-                                            >
-                                                Quên mật khẩu?
-                                            </Link>
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            class="btn btn-secondary"
-                                            :class="{
-                                                disabled: form.processing,
-                                            }"
-                                            :disabled="form.processing"
-                                        >
-                                            Đăng nhập
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                            <InputError
+                                class="login-page__error"
+                                :message="form.errors.login"
+                            />
                         </div>
+
+                        <div class="login-page__field">
+                            <label for="pageLoginPassword">Mật khẩu</label>
+                            <div class="login-page__input">
+                                <i class="fa-light fa-lock"></i>
+                                <input
+                                    id="pageLoginPassword"
+                                    v-model="form.password"
+                                    type="password"
+                                    name="password"
+                                    autocomplete="current-password"
+                                    placeholder="Nhập mật khẩu"
+                                    required
+                                />
+                            </div>
+                            <InputError
+                                class="login-page__error"
+                                :message="form.errors.password"
+                            />
+                        </div>
+
+                        <div class="login-page__extras">
+                            <label class="login-page__remember">
+                                <input
+                                    id="remember"
+                                    v-model="form.remember"
+                                    type="checkbox"
+                                    name="remember"
+                                />
+                                <span>Lưu thông tin đăng nhập</span>
+                            </label>
+                            <Link
+                                v-if="canResetPassword"
+                                :href="route('password.request')"
+                                class="login-page__forgot"
+                            >
+                                Quên mật khẩu?
+                            </Link>
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="login-page__submit"
+                            :disabled="form.processing"
+                        >
+                            {{ form.processing ? "Đang xử lý..." : "Đăng nhập" }}
+                        </button>
+                    </form>
+
+                    <div class="login-page__register">
+                        <span>Chưa có tài khoản?</span>
+                        <Link :href="route('register')">Đăng ký ngay</Link>
                     </div>
                 </div>
             </div>

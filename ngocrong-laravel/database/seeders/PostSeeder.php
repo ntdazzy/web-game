@@ -36,6 +36,37 @@ class PostSeeder extends Seeder
 HTML,
             ],
             [
+                'title' => 'Hướng dẫn tải và cài đặt game',
+                'slug' => 'huong-dan-tai-va-cai-dat-game',
+                'type' => 'news',
+                'excerpt' => 'Chỉ với vài bước đơn giản, bạn đã có thể tham gia Hải Tặc Mạnh Nhất trên cả PC và Mobile.',
+                'cover_image' => 'resources/assets/images/post-item-example.png',
+                'cover_image_url' => null,
+                'published_at' => Carbon::parse('2025-10-05 08:00:00'),
+                'status' => 'published',
+                'content' => <<<'HTML'
+<p>Để trải nghiệm trọn vẹn thế giới Hải Tặc Mạnh Nhất, hãy thực hiện theo hướng dẫn cài đặt dưới đây.</p>
+<h3>1. Chuẩn bị</h3>
+<ul>
+    <li>Đảm bảo dung lượng trống tối thiểu 6 GB trên thiết bị.</li>
+    <li>Kết nối internet ổn định để tải bộ cài.</li>
+</ul>
+<h3>2. Cài đặt trên PC</h3>
+<ol>
+    <li>Tải bộ cài launcher tại nút <strong>Tải game</strong> trên trang chủ.</li>
+    <li>Giải nén rồi chạy file <em>setup.exe</em>, làm theo hướng dẫn trên màn hình.</li>
+    <li>Sau khi cài xong, khởi chạy launcher và đăng nhập tài khoản để tải cập nhật.</li>
+</ol>
+<h3>3. Cài đặt trên Mobile</h3>
+<ol>
+    <li>Mở App Store/Google Play và tìm kiếm <strong>Hải Tặc Mạnh Nhất</strong>.</li>
+    <li>Nhấn <em>Install</em> &gt; chờ hoàn tất &gt; mở game.</li>
+    <li>Đăng nhập bằng tài khoản đã đăng ký để đồng bộ dữ liệu.</li>
+</ol>
+<p>Trong quá trình cài đặt, nếu gặp sự cố hãy liên hệ fanpage để được hỗ trợ kịp thời.</p>
+HTML,
+            ],
+            [
                 'title' => 'Sự kiện Tuần 2 Tháng 10.2025',
                 'slug' => 'su-kien-tuan-2-thang-10-2025-195',
                 'type' => 'news',

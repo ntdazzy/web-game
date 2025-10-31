@@ -3508,3 +3508,405 @@ footer .info-group p::before {
     background-color: rgba(189, 102, 0, 0.3);
     border-radius: 4px;
 }
+
+/* =========================== */
+/* Login modal                 */
+/* =========================== */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.login-modal.is-open {
+    display: flex;
+}
+
+.login-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.login-modal__dialog {
+    position: relative;
+    width: 420px;
+    max-width: calc(100% - 32px);
+    background: linear-gradient(180deg, #041d3f 0%, #071132 100%);
+    border-radius: 12px;
+    padding: 32px 36px 28px;
+    color: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(17, 152, 255, 0.35);
+}
+
+.login-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    background: rgba(6, 41, 92, 0.85);
+    border: 1px solid rgba(54, 149, 255, 0.6);
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-modal__close::before,
+.login-modal__close::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 999px;
+}
+
+.login-modal__close::before {
+    transform: rotate(45deg);
+}
+
+.login-modal__close::after {
+    transform: rotate(-45deg);
+}
+
+.login-modal__title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #10b0ff;
+    margin-bottom: 24px;
+}
+
+.login-modal__field {
+    margin-bottom: 18px;
+}
+
+.login-modal__label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.login-modal__input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(5, 30, 63, 0.85);
+    border: 1px solid rgba(19, 129, 216, 0.6);
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+
+.login-modal__input i {
+    color: #0db2ff;
+    font-size: 16px;
+}
+
+.login-modal__input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.login-modal__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.login-modal__checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.login-modal__checkbox input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+    accent-color: #10b0ff;
+}
+
+.login-modal__submit {
+    width: 100%;
+    background: linear-gradient(90deg, #07a5ff 0%, #0cd0ff 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: #0c1d3c;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.login-modal__submit[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.login-modal__spinner {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(12, 29, 60, 0.35);
+    border-top-color: #0c1d3c;
+    animation: login-modal-spin 0.8s linear infinite;
+    display: none;
+}
+
+.login-modal__submit[disabled] .login-modal__spinner {
+    display: inline-block;
+}
+
+.login-modal__error {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #ff8282;
+    min-height: 16px;
+}
+
+.login-modal__error--general {
+    text-align: center;
+}
+
+.login-modal__links {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.login-modal__links a {
+    color: #0db2ff;
+    text-decoration: none;
+}
+
+.login-modal__links a:hover {
+    text-decoration: underline;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 576px) {
+    .login-modal__dialog {
+        padding: 28px 22px 24px;
+    }
+
+    .login-modal__title {
+        font-size: 22px;
+    }
+}
+
+@keyframes login-modal-spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================== */
+/* Login standalone page       */
+/* =========================== */
+
+.login-page {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 0px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 16px 80px;
+    background: url('../assets/images/bg-main.jpg') center/cover no-repeat;
+}
+
+.login-page__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 15, 40, 0.78);
+}
+
+.login-page__panel {
+    position: relative;
+    z-index: 1;
+    width: 450px;
+    max-width: 100%;
+    padding: 36px 40px 32px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(10, 35, 75, 0.92) 0%, rgba(5, 18, 52, 0.95) 100%);
+    border: 1px solid rgba(17, 152, 255, 0.35);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+}
+
+.login-page__title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0db2ff;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.login-page__status {
+    text-align: center;
+    background: rgba(16, 176, 255, 0.15);
+    border: 1px solid rgba(16, 176, 255, 0.35);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    color: #0db2ff;
+}
+
+.login-page__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.login-page__field label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.login-page__input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(5, 30, 63, 0.85);
+    border: 1px solid rgba(19, 129, 216, 0.6);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.login-page__input i {
+    color: #0db2ff;
+    font-size: 16px;
+}
+
+.login-page__input input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.login-page__error {
+    font-size: 12px;
+    color: #ff8a8a;
+    margin-top: 6px;
+}
+
+.login-page__extras {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.login-page__remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-page__remember input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #0db2ff;
+}
+
+.login-page__forgot {
+    color: #0db2ff;
+    text-decoration: none;
+}
+
+.login-page__forgot:hover {
+    text-decoration: underline;
+}
+
+.login-page__submit {
+    width: 100%;
+    background: linear-gradient(90deg, #07a5ff 0%, #0cd0ff 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: #0c1d3c;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.login-page__submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.login-page__register {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.login-page__register a {
+    color: #0db2ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-page__register a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+    .login-page {
+        padding: 100px 12px 60px;
+    }
+
+    .login-page__panel {
+        padding: 28px 22px 26px;
+    }
+
+    .login-page__title {
+        font-size: 26px;
+    }
+}

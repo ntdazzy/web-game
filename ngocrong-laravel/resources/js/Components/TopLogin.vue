@@ -2,7 +2,7 @@
 import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
-const logoWarning = new URL('../assets/images/logo-warning.png', import.meta.url).href;
+const logoWarning = new URL('../../assets/images/logo-warning.png', import.meta.url).href;
 
 const accountRoutes = computed(() => ({
     profile: route('account.profile'),
