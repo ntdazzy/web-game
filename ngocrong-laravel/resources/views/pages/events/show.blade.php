@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sự kiện')
+@section('title', $event->title ?? 'Sự kiện')
 
 @section('body_class', 'wrapper-subpage overflow-y-auto')
 
@@ -30,72 +30,67 @@
             <a href="javascript:void(0)" class="btn-login login-required" data-redirect="{{ route('wallet.topup') }}"></a>
         </div>
 
-<div class="subpage-container wrapper-id post">
-    <div class="container h-100 position-relative">
+        <div class="subpage-container wrapper-id post-detail">
+    <div class="container wrapper-post-detail">
         <div class="d-flex flex-column align-items-center">
             <h1 class="page-title">Tin tức sự kiện</h1>
-            <div class="listNews w-100">
-                <div class="tabs-post">
+            <div class="content d-flex flex-wrap aos-init aos-animate">
+                <div class="col-8 post-data">
                     
-                    <div class="action d-flex">
-                        <div class="btn-group d-flex gap-3">
-                            <a class="tin-tuc{{ request()->routeIs('news.*') && request('type') !== 'update' ? ' active' : '' }}" href="{{ route('news.index') }}">Tin tức</a>
-                            <a class="su-kien{{ request()->routeIs('events.*') ? ' active' : '' }}" href="{{ route('events.index') }}">Sự kiện</a>
-                            <a class="update{{ request()->routeIs('news.index') && request('type') === 'update' ? ' active' : '' }}" href="{{ route('news.index', ['type' => 'update']) }}">Update</a>
-                        </div>
-                        <form class="search-lite search position-relative post" method="get" action="{{ route('events.index') }}">
-                            <input type="text" placeholder="Tìm kiếm" id="search" name="search" value="{{ request('search') }}" autocomplete="off">
-                            <button type="submit" class="search-icon position-absolute"></button>
-                        </form>
+                    <div class="breadcrums">
+                        <dl>
+                            <dt><a href="{{ route('home') }}">Trang chủ</a></dt>
+                            <dt> / </dt>
+                            <dt><a href="{{ route('events.index') }}">Sự kiện</a></dt>
+                            <dt> / </dt>
+                            <dt>{{ $event->title }}</dt>
+                        </dl>
                     </div>
-                    <ul class="posts-content d-flex flex-column gap-3">
-                    @forelse ($events as $event)
-                        <li>
-                            <a target="_self" href="{{ route('events.show', $event->slug) }}" rel="nofollow" class="title d-flex">
-                                <div class="thumbnail">
+
+                    <div class="post-title d-flex flex-column align-items-center mb-4">
+                        <h1 class="mb-1">{{ $event->title }}</h1>
+                        <span class="time">
+                            {{ $event->category_label ?? 'Sự kiện' }} -
+                            {{ optional($event->starts_at)->format('d-m-Y') }}
+                        </span>
+                    </div>
+                    <div class="post-content">
+                        @if (!empty($event->content))
+                            {!! $event->content !!}
+                        @endif
+                    </div>
+                </div>
+
+
+                
+                <div class="col-4 d-flex flex-column gap-2 hot-news-wrapper align-items-center" data-aos="fade-up">
+                    <h1 class="hot-news-heading mb-2"></h1>
+                    @if (!empty($relatedEvents))
+                        @foreach ($relatedEvents as $related)
+                            <div class="hot-news-box d-flex flex-column mb-2">
+                                <a target="_self" href="{{ route('events.show', $related->slug) }}" title="{{ $related->title }}" class="d-flex align-items-center justify-content-center wrap-img">
                                     @php
-                                            $banner = $event->banner_url ?? $event->banner ?? null;
-                                        @endphp
-                                        <img
-                                            src="{{ $banner ?? Vite::asset('resources/assets/images/post-item-example.png') }}"
-                                            onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/post-item-example.png') }}';"
-                                            alt="{{ $event->title }}"
-                                            width="100%"
-                                            height="100%"
-                                        >
-                                    </div>
-                                    <div class="post-item-content">
-                                        <h3 class="d-flex justify-content-between mb-2">
-                                            <div class="post-item-title d-flex align-items-center">
-                                                <span class="cat-name">Sự kiện</span>
-                                                <p>{{ $event->title }}</p>
-                                            </div>
-                                            <span class="time">
-                                                {{ optional($event->starts_at)->format('d-m-Y') }}
-                                            </span>
-                                        </h3>
-                                        <p class="text-content">
-                                            {{ $event->excerpt }}
-                                        </p>
-                                    </div>
+                                        $relatedBanner = $related->banner_url ?? $related->banner ?? null;
+                                    @endphp
+                                    <img src="{{ $relatedBanner ?? Vite::asset('resources/assets/images/post-item-example.png') }}" onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/post-item-example.png') }}';" alt="{{ $related->title }}">
                                 </a>
-                            </li>
-                        @empty
-                            <li class="no-data text-center text-white py-5">
-                            Chưa có sự kiện nào được đăng.
-                        </li>
-                    @endforelse
-                    </ul>
-                    @if ($events instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator)
-                        <div class="pagination-wrapper">
-                            {{ $events->withQueryString()->links() }}
-                        </div>
+                                <div class="d-flex flex-column justify-content-center h-100 title">
+                                    <a target="_self" href="{{ route('events.show', $related->slug) }}" title="{{ $related->title }}" class="text-white">{{ $related->title }}</a>
+                                    <div class="datetime text-white">{{ optional($related->starts_at)->format('d-m-Y') }}</div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <p class="text-white-50">Chưa có sự kiện liên quan.</p>
                     @endif
-                    </div>
+                </div>
             </div>
+
         </div>
+
     </div>
 </div>
+
         <div class="page page-4 d-flex align-items-center flex-column position-relative">
     <div class="text-slide d-flex justify-content-center w-100">
         <div id="sliderTrack" class="d-flex w-100">

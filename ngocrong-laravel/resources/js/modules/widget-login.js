@@ -10,7 +10,7 @@ function widget_login() {
         href = this.href;
     }
 
-    var url = (typeof MAINSITE_ID != 'undefined') ? MAINSITE_ID : 'https://haitacmanhnhat.vn';
+    var url = (typeof MAINSITE_ID != 'undefined') ? MAINSITE_ID : window.DOMAIN;
     url += "/id/widget?type=widget&redirect-top=1" + "&task=" + task;
     url += "&redirect=" + encodeURIComponent(href);
     iframe_open(url);

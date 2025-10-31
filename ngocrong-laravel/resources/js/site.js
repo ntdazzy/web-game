@@ -1,38 +1,57 @@
 export default async function bootstrapSite() {
     try {
-        window.DOMAIN = window.location.origin;
-        window.jsonData =
-            window.jsonData ||
-            {
-                script: '',
-                redirect: `${window.location.origin}/qua-nap-web`,
-            };
-        window.cookieDomain = window.cookieDomain || `.${window.location.hostname}`;
-        window.linkAjaxGiftcode = window.linkAjaxGiftcode || `${window.location.origin}/giftcode/fetch-code-by-id`;
-        window.historyGiftcode = window.historyGiftcode || `${window.location.origin}/giftcode/fetch-history`;
+        const appUrl = import.meta.env.VITE_APP_URL || window.location.origin;
+        const url = new URL(appUrl, window.location.origin);
+        const origin = `${url.protocol}//${url.host}`;
 
-        await import('./vendor/jquery-1.11.0.min.js');
+        window.DOMAIN = origin;
+        window.jsonData = window.jsonData || {
+            script: '',
+            redirect: `${origin}/nap-web`,
+        };
+        window.cookieDomain = window.cookieDomain || `.${url.hostname}`;
+        window.linkAjaxGiftcode = window.linkAjaxGiftcode || `${origin}/giftcode/fetch-code-by-id`;
+        window.historyGiftcode = window.historyGiftcode || `${origin}/giftcode/fetch-history`;
 
-        await Promise.all([
-            import('./vendor/bootstrap.bundle.min.js'),
-            import('./vendor/slick.min.js'),
-            import('./vendor/select2.full.min.js'),
-            import('./vendor/sweetalert2.all.js'),
-            import('./vendor/aos.js'),
-            import('./vendor/moment.min.js'),
-            import('./vendor/daterangepicker.min.js'),
-            import('./vendor/letmescroll.js'),
-            import('./vendor/jquery.mCustomScrollbar.js'),
-            import('./vendor/loadingoverlay.min.js'),
+        const loadScriptAsset = (relativePath) =>
+            new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = new URL(relativePath, import.meta.url).toString();
+                script.async = false;
+                script.onload = () => resolve();
+                script.onerror = () =>
+                    reject(new Error(`Không thể tải script ${relativePath}`));
+                document.head.appendChild(script);
+            });
+
+        const loadSequential = async (paths) => {
+            for (const path of paths) {
+                // eslint-disable-next-line no-await-in-loop
+                await loadScriptAsset(path);
+            }
+        };
+
+        await loadSequential([
+            './vendor/jquery-1.11.0.min.js',
+            './vendor/bootstrap.bundle.min.js',
+            './vendor/slick.min.js',
+            './vendor/select2.full.min.js',
+            './vendor/sweetalert2.all.js',
+            './vendor/aos.js',
+            './vendor/moment.min.js',
+            './vendor/daterangepicker.min.js',
+            './vendor/letmescroll.js',
+            './vendor/jquery.mCustomScrollbar.js',
+            './vendor/loadingoverlay.min.js',
         ]);
 
-        await Promise.all([
-            import('./site-global.js'),
-            import('./site-custom.js'),
-            import('./modules/widget-login.js'),
-            import('./modules/giftcode.js'),
-            import('./modules/fruits.js'),
-            import('./modules/scroll.js'),
+        await loadSequential([
+            './site-global.js',
+            './site-custom.js',
+            './modules/widget-login.js',
+            './modules/giftcode.js',
+            './modules/fruits.js',
+            './modules/scroll.js',
         ]);
     } catch (error) {
         if (import.meta.env.DEV) {

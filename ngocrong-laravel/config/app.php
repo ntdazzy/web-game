@@ -123,4 +123,6 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'download_base_url' => env('DOWNLOAD_BASE_URL', 'https://dl.haitacmanhnhat.vn/tdt'),
+
 ];
