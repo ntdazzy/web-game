@@ -55,7 +55,10 @@ const navigation = computed(() => [
 <template>
     <div class="auth-page">
         <Head title="Đăng nhập" />
-        <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
+        <div
+            id="root"
+            class="d-flex flex-column align-items-center w-100 position-relative"
+        >
             <TopLogin />
             <div class="subpage-container wrapper-id">
                 <div class="container h-100 position-relative">
@@ -67,11 +70,18 @@ const navigation = computed(() => [
                                     <li
                                         v-for="item in navigation"
                                         :key="item.label"
-                                        :class="[{ active: item.active }, { disabled: item.disabled }]"
+                                        :class="[
+                                            { active: item.active },
+                                            { disabled: item.disabled },
+                                        ]"
                                     >
                                         <component
                                             :is="item.disabled ? 'span' : Link"
-                                            :href="item.disabled ? undefined : item.href"
+                                            :href="
+                                                item.disabled
+                                                    ? undefined
+                                                    : item.href
+                                            "
                                         >
                                             {{ item.label }}
                                         </component>
@@ -86,9 +96,16 @@ const navigation = computed(() => [
                                     </p>
                                 </div>
                                 <div class="col-12 col-sm-6 wrap-form">
-                                    <form class="form-login" @submit.prevent="submit">
+                                    <form
+                                        class="form-login"
+                                        @submit.prevent="submit"
+                                    >
                                         <div class="mb-3">
-                                            <label for="loginEmail" class="form-label">Tên tài khoản</label>
+                                            <label
+                                                for="loginEmail"
+                                                class="form-label"
+                                                >Tên tài khoản</label
+                                            >
                                             <input
                                                 id="loginEmail"
                                                 v-model="form.email"
@@ -98,10 +115,17 @@ const navigation = computed(() => [
                                                 placeholder="Nhập tên tài khoản"
                                                 required
                                             />
-                                            <InputError class="mt-2" :message="form.errors.email" />
+                                            <InputError
+                                                class="mt-2"
+                                                :message="form.errors.email"
+                                            />
                                         </div>
                                         <div class="mb-3">
-                                            <label for="loginPassword" class="form-label">Mật khẩu</label>
+                                            <label
+                                                for="loginPassword"
+                                                class="form-label"
+                                                >Mật khẩu</label
+                                            >
                                             <input
                                                 id="loginPassword"
                                                 v-model="form.password"
@@ -111,9 +135,14 @@ const navigation = computed(() => [
                                                 placeholder="Nhập mật khẩu"
                                                 required
                                             />
-                                            <InputError class="mt-2" :message="form.errors.password" />
+                                            <InputError
+                                                class="mt-2"
+                                                :message="form.errors.password"
+                                            />
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div
+                                            class="d-flex justify-content-between align-items-center mb-3"
+                                        >
                                             <div class="form-check">
                                                 <input
                                                     id="remember"
@@ -122,14 +151,19 @@ const navigation = computed(() => [
                                                     type="checkbox"
                                                     name="remember"
                                                 />
-                                                <label class="form-check-label" for="remember">
+                                                <label
+                                                    class="form-check-label"
+                                                    for="remember"
+                                                >
                                                     Ghi nhớ đăng nhập
                                                 </label>
                                             </div>
                                             <Link
                                                 v-if="canResetPassword"
                                                 class="text-decoration-underline"
-                                                :href="route('password.request')"
+                                                :href="
+                                                    route('password.request')
+                                                "
                                             >
                                                 Quên mật khẩu?
                                             </Link>
@@ -137,7 +171,9 @@ const navigation = computed(() => [
                                         <button
                                             type="submit"
                                             class="btn btn-secondary"
-                                            :class="{ disabled: form.processing }"
+                                            :class="{
+                                                disabled: form.processing,
+                                            }"
                                             :disabled="form.processing"
                                         >
                                             Đăng nhập

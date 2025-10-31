@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updatePageHeight() {
         $scale = window.innerWidth / 1912;
         pageHeight = $('.page').height() * $scale;
-        if(pageHeight > 960) {
+        if (pageHeight > 960) {
             pageHeight = 945;
         }
     }
