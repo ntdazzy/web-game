@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/fruits.js with asset mapping & defensive guards.
 const fruits = Array.isArray(window.fruits) ? window.fruits : [];
 let filteredFruits = [...fruits];
 const assetPaths = (typeof window.staticAssets === 'object' && window.staticAssets !== null) ? window.staticAssets : {};

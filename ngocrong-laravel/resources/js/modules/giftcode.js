@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/giftcode.script9101.js with adjustments for clipboard API and routes.
 function copyToClipboard() {
     var text = $(document).find('.content-code').text();  // Lấy nội dung từ #codeContent
     navigator.clipboard.writeText(text).then(function () {

@@ -1,3 +1,4 @@
+// Legacy runtime bootstrap derived from src_gốc/st-ms/index.html script stack.
 export default async function bootstrapSite() {
     try {
         const appUrl = import.meta.env.VITE_APP_URL || window.location.origin;

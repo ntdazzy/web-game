@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/custom9101.js and deduplicated across hashed variants.
 const HIDE_FIXED_MENU = 1;
 
 var bodyWidth = $("body").width();

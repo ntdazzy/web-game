@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/global.script9101.js with route adjustments and formatting cleanup.
 function processResponseVerifySMS(form, response, callback_function_name) {
     form.html(getContentVerifySMS(response.data.cmd, response.data.code));
     redirectInFormRegisterFull = response.data.redirect_url;

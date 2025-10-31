@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/widget.login9101.js with Fetch API submission + CSRF support.
 import { onDocumentReady } from '../utils/dom';
 
 onDocumentReady(() => {

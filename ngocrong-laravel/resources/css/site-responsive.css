@@ -1,3 +1,4 @@
+/* Derived from src_gốc/st-ms/css/responsive9101.css with asset URLs rewritten for Vite */
 @media screen and (min-width: 1921px) {
     .logo-warning {
         left: calc(((100% - 1920px) / 2) + 12px);

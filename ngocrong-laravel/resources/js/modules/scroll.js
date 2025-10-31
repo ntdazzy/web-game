@@ -1,3 +1,4 @@
+// Ported from src_gốc/st-ms/js/scroll.js and modernised with requestAnimationFrame, DOM helpers.
 import { onDocumentReady } from '../utils/dom';
 
 onDocumentReady(() => {
