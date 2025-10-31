@@ -20,7 +20,12 @@ class RegisteredUserController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'meta' => [
+                'body_class' => 'wrapper-subpage overflow-y-auto',
+                'page_id' => 'auth-register',
+            ],
+        ]);
     }
 
     /**

@@ -11,7 +11,13 @@ class PostController extends Controller
 {
     public function index(Request $request): View
     {
+        $allowedTypes = ['news', 'update'];
+        $requestedType = $request->string('type')->trim()->lower()->value();
+        $activeType = in_array($requestedType, $allowedTypes, true) ? $requestedType : 'news';
+
         $posts = Post::query()
+            ->published()
+            ->ofType($activeType)
             ->when($request->filled('search'), function ($query) use ($request) {
                 $term = $request->string('search')->trim()->value();
                 $query->where(function ($inner) use ($term) {
@@ -22,13 +28,18 @@ class PostController extends Controller
             ->latest('published_at')
             ->paginate(9);
 
-        return view('pages.news.index', compact('posts'));
+        return view('pages.news.index', [
+            'posts' => $posts,
+            'activeType' => $activeType,
+        ]);
     }
 
     public function show(Post $post): View
     {
         $relatedPosts = Post::query()
             ->where('id', '!=', $post->id)
+            ->published()
+            ->ofType($post->type)
             ->latest('published_at')
             ->limit(3)
             ->get();

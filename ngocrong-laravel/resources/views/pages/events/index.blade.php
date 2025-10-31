@@ -1,137 +1,123 @@
 @extends('layouts.app')
 
 @section('title', 'Sự kiện')
+@section('page_id', 'events-index')
 
 @section('body_class', 'wrapper-subpage overflow-y-auto')
 
 @section('content')
-<div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-        <img src="{{ Vite::asset("resources/assets/images/logo-warning.png") }}" alt="" class="logo-warning position-absolute">
-        <div class="wrap-login-mobile wrap-login position-absolute h-100">
-            <div class="user-info h-100 d-flex align-items-center d-none">
-                <div class="btn-group">
-                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="display-name"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('account.profile') }}"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
-                        <li class="dropdown-item d-flex align-items-center">
-                            <a href="{{ route('wallet.topup') }}" class="d-flex justify-content-between">
-                                <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
-                        </li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('wallet.history') }}"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('password.request') }}"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="#" class="logout-link"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
-                    </ul>
+    <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
+        @include('partials.top-login')
+
+        <div class="subpage-container wrapper-id post">
+            <div class="container h-100 position-relative">
+                <div class="d-flex flex-column align-items-center">
+                    <h1 class="page-title">Tin tức sự kiện</h1>
+                    <div class="listNews w-100">
+                        <div class="tabs-post">
+
+                            <div class="action d-flex">
+                                <div class="btn-group d-flex gap-3">
+                                    <a class="tin-tuc{{ request()->routeIs('news.*') && request('type') !== 'update' ? ' active' : '' }}"
+                                        href="{{ route('news.index') }}">Tin tức</a>
+                                    <a class="su-kien{{ request()->routeIs('events.*') ? ' active' : '' }}"
+                                        href="{{ route('events.index') }}">Sự kiện</a>
+                                    <a class="update{{ request()->routeIs('news.index') && request('type') === 'update' ? ' active' : '' }}"
+                                        href="{{ route('news.index', ['type' => 'update']) }}">Update</a>
+                                </div>
+                                <form class="search-lite search position-relative post" method="get"
+                                    action="{{ route('events.index') }}">
+                                    <input type="text" placeholder="Tìm kiếm" id="search" name="search"
+                                        value="{{ request('search') }}" autocomplete="off">
+                                    <button type="submit" class="search-icon position-absolute"></button>
+                                </form>
+                            </div>
+                            <ul class="posts-content d-flex flex-column gap-3">
+                                @forelse ($events as $event)
+                                    <li>
+                                        <a target="_self" href="{{ route('events.show', $event->slug) }}" rel="nofollow"
+                                            class="title d-flex">
+                                            <div class="thumbnail">
+                                                @php
+                                                    $banner = $event->banner_url ?? ($event->banner ?? null);
+                                                @endphp
+                                                <img src="{{ $banner ?? Vite::asset('resources/assets/images/post-item-example.png') }}"
+                                                    onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/post-item-example.png') }}';"
+                                                    alt="{{ $event->title }}" width="100%" height="100%">
+                                            </div>
+                                            <div class="post-item-content">
+                                                <h3 class="d-flex justify-content-between mb-2">
+                                                    <div class="post-item-title d-flex align-items-center">
+                                                        <span class="cat-name">Sự kiện</span>
+                                                        <p>{{ $event->title }}</p>
+                                                    </div>
+                                                    <span class="time">
+                                                        {{ optional($event->starts_at)->format('d-m-Y') }}
+                                                    </span>
+                                                </h3>
+                                                <p class="text-content">
+                                                    {{ $event->excerpt }}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @empty
+                                    <li class="no-data text-center text-white py-5">
+                                        Chưa có sự kiện nào được đăng.
+                                    </li>
+                                @endforelse
+                            </ul>
+                            @if ($events instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator)
+                                <div class="pagination-wrapper">
+                                    {{ $events->withQueryString()->links() }}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
-            <a href="javascript:void(0)" class="btn-login login-required" data-redirect="{{ route('wallet.topup') }}"></a>
         </div>
-
-<div class="subpage-container wrapper-id post">
-    <div class="container h-100 position-relative">
-        <div class="d-flex flex-column align-items-center">
-            <h1 class="page-title">Tin tức sự kiện</h1>
-            <div class="listNews w-100">
-                <div class="tabs-post">
-                    
-                    <div class="action d-flex">
-                        <div class="btn-group d-flex gap-3">
-                            <a class="tin-tuc{{ request()->routeIs('news.*') && request('type') !== 'update' ? ' active' : '' }}" href="{{ route('news.index') }}">Tin tức</a>
-                            <a class="su-kien{{ request()->routeIs('events.*') ? ' active' : '' }}" href="{{ route('events.index') }}">Sự kiện</a>
-                            <a class="update{{ request()->routeIs('news.index') && request('type') === 'update' ? ' active' : '' }}" href="{{ route('news.index', ['type' => 'update']) }}">Update</a>
-                        </div>
-                        <form class="search-lite search position-relative post" method="get" action="{{ route('events.index') }}">
-                            <input type="text" placeholder="Tìm kiếm" id="search" name="search" value="{{ request('search') }}" autocomplete="off">
-                            <button type="submit" class="search-icon position-absolute"></button>
-                        </form>
-                    </div>
-                    <ul class="posts-content d-flex flex-column gap-3">
-                    @forelse ($events as $event)
-                        <li>
-                            <a target="_self" href="{{ route('events.show', $event->slug) }}" rel="nofollow" class="title d-flex">
-                                <div class="thumbnail">
-                                    @php
-                                            $banner = $event->banner_url ?? $event->banner ?? null;
-                                        @endphp
-                                        <img
-                                            src="{{ $banner ?? Vite::asset('resources/assets/images/post-item-example.png') }}"
-                                            onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/post-item-example.png') }}';"
-                                            alt="{{ $event->title }}"
-                                            width="100%"
-                                            height="100%"
-                                        >
-                                    </div>
-                                    <div class="post-item-content">
-                                        <h3 class="d-flex justify-content-between mb-2">
-                                            <div class="post-item-title d-flex align-items-center">
-                                                <span class="cat-name">Sự kiện</span>
-                                                <p>{{ $event->title }}</p>
-                                            </div>
-                                            <span class="time">
-                                                {{ optional($event->starts_at)->format('d-m-Y') }}
-                                            </span>
-                                        </h3>
-                                        <p class="text-content">
-                                            {{ $event->excerpt }}
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        @empty
-                            <li class="no-data text-center text-white py-5">
-                            Chưa có sự kiện nào được đăng.
-                        </li>
-                    @endforelse
-                    </ul>
-                    @if ($events instanceof \Illuminate\Contracts\Pagination\LengthAwarePaginator)
-                        <div class="pagination-wrapper">
-                            {{ $events->withQueryString()->links() }}
-                        </div>
-                    @endif
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
         <div class="page page-4 d-flex align-items-center flex-column position-relative">
-    <div class="text-slide d-flex justify-content-center w-100">
-        <div id="sliderTrack" class="d-flex w-100">
-            <div class="slide-item d-flex align-items-center">
-                <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
+            <div class="text-slide d-flex justify-content-center w-100">
+                <div id="sliderTrack" class="d-flex w-100">
+                    <div class="slide-item d-flex align-items-center">
+                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
+                    </div>
+                    <div class="slide-item d-flex align-items-center">
+                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
+                    </div>
+                    <div class="slide-item d-flex align-items-center">
+                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
+                    </div>
+                </div>
             </div>
-            <div class="slide-item d-flex align-items-center">
-                <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-            </div>
-            <div class="slide-item d-flex align-items-center">
-                <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
+
+            <div class="social" data-aos="fade-down" data-aos-once="false" data-aos-duration="900" data-aos-offset="0">
+                <ul class="d-flex h-100 align-items-center">
+                    <li class="trans-y">
+                        <a class="facebook" href="https://www.facebook.com/haitacmanhnhat" title="Facebook"
+                            target="_blank">Facebook</a>
+                    </li>
+                    <li class="trans-y">
+                        <a class="youtube" href="https://www.youtube.com/@haitacmanhnhat" title="Youtube"
+                            target="_blank">Youtube</a>
+                    </li>
+                    <li class="trans-y">
+                        <a class="group" href="https://www.facebook.com/groups/dechehaitac" title="Facebook Group"
+                            target="_blank">Facebook Group</a>
+                    </li>
+                    <li class="trans-y">
+                        <a class="tiktok" href="https://www.tiktok.com/@haitacmanhnhat" title="Tiktok"
+                            target="_blank">Tiktok</a>
+                    </li>
+                    <li class="trans-y">
+                        <a class="discord" href="https://discord.com/invite/pRQaVmUj78" title="Discord"
+                            target="_blank">Discord</a>
+                    </li>
+                    <li class="trans-y">
+                        <a class="zalo" href="https://zalo.me/g/snnzqo202" title="Zalo" target="_blank">Zalo</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-
-        <div class="social" data-aos="fade-down" data-aos-once="false" data-aos-duration="900" data-aos-offset="0">
-        <ul class="d-flex h-100 align-items-center">
-                                <li class="trans-y">
-                <a class="facebook"  href="https://www.facebook.com/haitacmanhnhat" title="Facebook" target="_blank">Facebook</a>
-            </li>
-                                <li class="trans-y">
-                <a class="youtube"  href="https://www.youtube.com/@haitacmanhnhat" title="Youtube" target="_blank">Youtube</a>
-            </li>
-                                <li class="trans-y">
-                <a class="group"  href="https://www.facebook.com/groups/dechehaitac" title="Facebook Group" target="_blank">Facebook Group</a>
-            </li>
-                                <li class="trans-y">
-                <a class="tiktok"  href="https://www.tiktok.com/@haitacmanhnhat" title="Tiktok" target="_blank">Tiktok</a>
-            </li>
-                                <li class="trans-y">
-                <a class="discord"  href="https://discord.com/invite/pRQaVmUj78" title="Discord" target="_blank">Discord</a>
-            </li>
-                                <li class="trans-y">
-                <a class="zalo"  href="https://zalo.me/g/snnzqo202" title="Zalo" target="_blank">Zalo</a>
-            </li>
-                </ul>
-    </div>
-    </div>
-@endsection
+    @endsection

@@ -1,26 +1,26 @@
-import '../css/app.css';
+import "../css/app.css";
 
-const inertiaRoot = document.getElementById('app');
+const inertiaRoot = document.getElementById("app");
 
 if (inertiaRoot?.dataset?.page) {
-    import('./bootstrap');
-    import('@inertiajs/vue3').then(({ createInertiaApp }) => {
+    import("./bootstrap");
+    import("@inertiajs/vue3").then(({ createInertiaApp }) => {
         Promise.all([
-            import('laravel-vite-plugin/inertia-helpers'),
-            import('vue'),
-            import('../../vendor/tightenco/ziggy'),
+            import("laravel-vite-plugin/inertia-helpers"),
+            import("vue"),
+            import("../../vendor/tightenco/ziggy"),
         ]).then(([helpers, vue, ziggy]) => {
             const { resolvePageComponent } = helpers;
             const { createApp, h } = vue;
             const { ZiggyVue } = ziggy;
-            const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+            const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
             createInertiaApp({
                 title: (title) => `${title} - ${appName}`,
                 resolve: (name) =>
                     resolvePageComponent(
                         `./Pages/${name}.vue`,
-                        import.meta.glob('./Pages/**/*.vue'),
+                        import.meta.glob("./Pages/**/*.vue")
                     ),
                 setup({ el, App, props, plugin }) {
                     return createApp({ render: () => h(App, props) })
@@ -29,17 +29,17 @@ if (inertiaRoot?.dataset?.page) {
                         .mount(el);
                 },
                 progress: {
-                    color: '#4B5563',
+                    color: "#4B5563",
                 },
             });
         });
     });
 } else {
-    import('./site')
+    import("./site")
         .then(({ default: bootstrapSite }) => bootstrapSite?.())
         .catch((error) => {
             if (import.meta.env.DEV) {
-                console.error('[site] bootstrap failed', error);
+                console.error("[site] bootstrap failed", error);
             }
         });
 }

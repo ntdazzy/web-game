@@ -52,11 +52,16 @@
                 </li>
                 <li class="menu-item social d-flex row m-0">
                     <div class="col-12 d-flex flex-wrap justify-content-center">
-                        <a href="https://www.facebook.com/haitacmanhnhat" class="facebook" target="_blank" rel="noopener">Facebook</a>
-                        <a href="https://www.tiktok.com/@haitacmanhnhat" class="tiktok" target="_blank" rel="noopener">Tiktok</a>
-                        <a href="https://www.youtube.com/@haitacmanhnhat" class="youtube" target="_blank" rel="noopener">Youtube</a>
-                        <a href="https://www.facebook.com/groups/dechehaitac" class="group" target="_blank" rel="noopener">Facebook group</a>
-                        <a href="https://discord.com/invite/pRQaVmUj78" class="discord" target="_blank" rel="noopener">Discord</a>
+                        <a href="https://www.facebook.com/haitacmanhnhat" class="facebook" target="_blank"
+                            rel="noopener">Facebook</a>
+                        <a href="https://www.tiktok.com/@haitacmanhnhat" class="tiktok" target="_blank"
+                            rel="noopener">Tiktok</a>
+                        <a href="https://www.youtube.com/@haitacmanhnhat" class="youtube" target="_blank"
+                            rel="noopener">Youtube</a>
+                        <a href="https://www.facebook.com/groups/dechehaitac" class="group" target="_blank"
+                            rel="noopener">Facebook group</a>
+                        <a href="https://discord.com/invite/pRQaVmUj78" class="discord" target="_blank"
+                            rel="noopener">Discord</a>
                         <a href="https://zalo.me/g/snnzqo202" class="zalo" target="_blank" rel="noopener">Zalo</a>
                     </div>
                 </li>

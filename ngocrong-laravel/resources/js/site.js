@@ -45,14 +45,26 @@ export default async function bootstrapSite() {
             './vendor/loadingoverlay.min.js',
         ]);
 
-        await loadSequential([
+        const pageId = document.body?.dataset?.page ?? '';
+        const moduleSet = new Set([
             './site-global.js',
             './site-custom.js',
             './modules/widget-login.js',
-            './modules/giftcode.js',
-            './modules/fruits.js',
-            './modules/scroll.js',
         ]);
+
+        if (['giftcode'].includes(pageId)) {
+            moduleSet.add('./modules/giftcode.js');
+        }
+
+        if (pageId.startsWith('fruits')) {
+            moduleSet.add('./modules/fruits.js');
+        }
+
+        if (pageId === 'home') {
+            moduleSet.add('./modules/scroll.js');
+        }
+
+        await loadSequential([...moduleSet]);
     } catch (error) {
         if (import.meta.env.DEV) {
             console.error('[site] failed to bootstrap legacy scripts', error);

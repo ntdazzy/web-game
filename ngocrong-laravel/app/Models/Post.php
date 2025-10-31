@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -14,6 +15,7 @@ class Post extends Model
     protected $fillable = [
         'title',
         'slug',
+        'type',
         'excerpt',
         'content',
         'cover_image',
@@ -35,5 +37,23 @@ class Post extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function scopePublished(Builder $query): Builder
+    {
+        return $query->where('status', 'published');
+    }
+
+    public function scopeOfType(Builder $query, string $type): Builder
+    {
+        return $query->where('type', $type);
+    }
+
+    public function getCategoryLabelAttribute(): string
+    {
+        return match ($this->type) {
+            'update' => 'Update',
+            default => 'Tin tức',
+        };
     }
 }

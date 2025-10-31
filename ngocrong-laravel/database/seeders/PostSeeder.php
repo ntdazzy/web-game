@@ -20,6 +20,7 @@ class PostSeeder extends Seeder
             [
                 'title' => '10H 18/10 - Khai mở máy chủ S33',
                 'slug' => '10h-18-10-khai-mo-may-chu-s33-179',
+                'type' => 'news',
                 'excerpt' => 'Máy chủ S33 chính thức ra mắt cùng loạt phần thưởng hấp dẫn dành cho tân thủ.',
                 'cover_image' => 'resources/assets/files/uploads/images/Banner/Thumbnail 315x177/SERVER-mới.jpg',
                 'cover_image_url' => null,
@@ -37,6 +38,7 @@ HTML,
             [
                 'title' => 'Sự kiện Tuần 2 Tháng 10.2025',
                 'slug' => 'su-kien-tuan-2-thang-10-2025-195',
+                'type' => 'news',
                 'excerpt' => 'Tổng hợp toàn bộ hoạt động đặc sắc và ưu đãi trong tuần 2 tháng 10.',
                 'cover_image' => 'resources/assets/files/uploads/images/Banner/Thumbnail 315x177/Sự-kiện-tuần.jpg',
                 'published_at' => Carbon::parse('2025-10-13 08:30:00'),
@@ -51,18 +53,36 @@ HTML,
 HTML,
             ],
             [
-                'title' => 'Vương Giả Chiến Lần 2',
-                'slug' => 'vuong-gia-chien-lan-2-197',
-                'excerpt' => 'Cuộc chiến Vương Giả trở lại với thể thức Liên Sever cùng kho phần thưởng giá trị.',
-                'cover_image' => 'resources/assets/files/uploads/images/Banner/Thumbnail 315x177/Sự-kiện.jpg',
-                'published_at' => Carbon::parse('2025-10-14 10:15:00'),
+                'title' => 'Cập Nhật Điều Chỉnh Tướng Tháng 10',
+                'slug' => 'cap-nhat-dieu-chinh-tuong-thang-10-199',
+                'type' => 'update',
+                'excerpt' => 'Thông báo điều chỉnh cân bằng tướng trong phiên bản tháng 10.',
+                'cover_image' => 'resources/assets/files/uploads/images/Banner/Thumbnail 315x177/Update.jpg',
+                'published_at' => Carbon::parse('2025-10-10 12:00:00'),
                 'status' => 'published',
                 'content' => <<<'HTML'
-<p>Vương Giả Chiến lần 2 chính thức khởi tranh. Các Thuyền Trưởng hãy báo danh để:</p>
+<p>Bản cập nhật tháng 10 mang đến một loạt điều chỉnh quan trọng cho dàn tướng, đảm bảo trường đấu công bằng hơn cho mọi Thuyền Trưởng.</p>
 <ul>
-    <li>Tranh tài với những đội hình mạnh nhất toàn máy chủ.</li>
-    <li>Nhận gói quà cổ vũ độc quyền khi trợ uy quán quân.</li>
-    <li>Ghi danh vào bảng vàng vinh quang của Hải Tặc Mạnh Nhất.</li>
+    <li>Tăng sức mạnh của nhóm tướng hỗ trợ đường sau.</li>
+    <li>Điều chỉnh sát thương và phòng thủ của một số tướng chủ lực.</li>
+    <li>Bổ sung thêm hiệu ứng cho bộ kỹ năng đặc biệt.</li>
+</ul>
+HTML,
+            ],
+            [
+                'title' => 'Cập Nhật Tính Năng Phiên Bản Tháng 9',
+                'slug' => 'cap-nhat-tinh-nang-phien-ban-thang-9-151',
+                'type' => 'update',
+                'excerpt' => 'Phiên bản tháng 9 giới thiệu loạt tính năng giúp tối ưu trải nghiệm chuỗi hoạt động hàng ngày.',
+                'cover_image' => 'resources/assets/files/uploads/images/Banner/Thumbnail 315x177/Update.jpg',
+                'published_at' => Carbon::parse('2025-09-03 09:00:00'),
+                'status' => 'published',
+                'content' => <<<'HTML'
+<p>Các tính năng mới trong bản cập nhật tháng 9 giúp Thuyền Trưởng theo dõi tiến trình dễ dàng và tìm kiếm tổ đội nhanh hơn.</p>
+<ul>
+    <li>Giao diện quản lý nhiệm vụ được làm mới.</li>
+    <li>Thêm bộ lọc trang bị nâng cao.</li>
+    <li>Cải tiến hệ thống thông báo hoạt động liên server.</li>
 </ul>
 HTML,
             ],

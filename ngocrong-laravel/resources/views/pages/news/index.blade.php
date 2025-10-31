@@ -1,34 +1,13 @@
 @extends('layouts.app')
 
 @section('title', 'Tin tức')
+@section('page_id', 'news-index')
 
 @section('body_class', 'wrapper-subpage overflow-y-auto')
 
 @section('content')
 <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">
-        <img src="{{ Vite::asset("resources/assets/images/logo-warning.png") }}" alt="" class="logo-warning position-absolute">
-        <div class="wrap-login-mobile wrap-login position-absolute h-100">
-            <div class="user-info h-100 d-flex align-items-center d-none">
-                <div class="btn-group">
-                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="display-name"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('account.profile') }}"><i class="fa-solid fa-user"></i>Quản lý tài khoản</a></li>
-                        <li class="dropdown-item d-flex align-items-center">
-                            <a href="{{ route('wallet.topup') }}" class="d-flex justify-content-between">
-                                <i><span>GEM</span><span>0</span></i> <button>Nạp</button></a>
-                        </li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('wallet.history') }}"><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử nạp</a></li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="{{ route('password.request') }}"><i class="fa-solid fa-lock-keyhole-open"></i>Đổi mật khẩu</a></li>
-                        <li class="dropdown-item d-flex align-items-center"><a href="#" class="logout-link"><i class="fa-light fa-right-from-bracket"></i>Đăng xuất</a></li>
-                    </ul>
-                </div>
-            </div>
-            <a href="javascript:void(0)" class="btn-login login-required" data-redirect="{{ route('wallet.topup') }}"></a>
-        </div>
+        @include('partials.top-login')
 
         
 <div class="subpage-container wrapper-id post">
@@ -40,13 +19,13 @@
                     <div class="action d-flex">
                         
                         <div class="btn-group d-flex gap-3">
-                            <a class="tin-tuc{{ request()->routeIs('news.*') && request('type') !== 'update' ? ' active' : '' }}" href="{{ route('news.index') }}">
+                            <a class="tin-tuc{{ ($activeType ?? 'news') === 'news' ? ' active' : '' }}" href="{{ route('news.index') }}">
                                 Tin tức
                             </a>
-                            <a class="su-kien{{ request()->routeIs('events.*') ? ' active' : '' }}" href="{{ route('events.index') }}">
+                            <a class="su-kien" href="{{ route('events.index') }}">
                                 Sự kiện
                             </a>
-                            <a class="update{{ request()->routeIs('news.index') && request('type') === 'update' ? ' active' : '' }}" href="{{ route('news.index', ['type' => 'update']) }}">
+                            <a class="update{{ ($activeType ?? 'news') === 'update' ? ' active' : '' }}" href="{{ route('news.index', ['type' => 'update']) }}">
                                 Update
                             </a>
                         </div>
@@ -75,7 +54,7 @@
                                     <div class="post-item-content">
                                         <h3 class="d-flex justify-content-between mb-2">
                                             <div class="post-item-title d-flex align-items-center">
-                                                <span class="cat-name">{{ $item->category_label ?? 'Tin tức' }}</span>
+                                                <span class="cat-name">{{ $item->category_label }}</span>
                                                 <p>{{ $item->title }}</p>
                                             </div>
                                             <span class="time">{{ optional($item->published_at)->format('d-m-Y') }}</span>

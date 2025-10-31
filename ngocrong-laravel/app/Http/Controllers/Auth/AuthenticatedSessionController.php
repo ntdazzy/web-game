@@ -21,6 +21,10 @@ class AuthenticatedSessionController extends Controller
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
+            'meta' => [
+                'body_class' => 'wrapper-subpage overflow-y-auto',
+                'page_id' => 'auth-login',
+            ],
         ]);
     }
 

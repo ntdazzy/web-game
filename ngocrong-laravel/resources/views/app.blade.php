@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    @include('shared.head')
+    @stack('head')
+    @routes
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @inertiaHead
+</head>
+@php
+    $bodyClass = trim(data_get($page, 'props.meta.body_class', ''));
+    $pageId = trim(data_get($page, 'props.meta.page_id', ''));
+@endphp
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<body {{ $bodyClass !== '' ? 'class="' . $bodyClass . '"' : '' }} {{ $pageId !== '' ? 'data-page="' . $pageId . '"' : '' }}>
+    <div id="site-root">
+        @include('partials.header')
+        @include('partials.nav')
 
-        <!-- Scripts -->
-        @routes
-        @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
-        @inertiaHead
-    </head>
-    <body class="font-sans antialiased">
-        @inertia
-    </body>
+        <main id="main-content">
+            @inertia
+        </main>
+
+        @include('partials.footer')
+    </div>
+
+    @stack('scripts')
+</body>
+
 </html>

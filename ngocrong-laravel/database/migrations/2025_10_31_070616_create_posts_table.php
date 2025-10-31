@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('type', 30)->default('news')->index();
             $table->string('excerpt', 500)->nullable();
             $table->longText('content')->nullable();
             $table->string('cover_image')->nullable();

@@ -2,7 +2,7 @@
 # PROMPT: Chuyển đổi source ➜ Laravel 12 (Blade + Vue từng phần, Breeze, Inertia, Sanctum, Vite)
 
 ## Bối cảnh
-- Tôi đã có project **Laravel 12** ngocrong-laravel mới tạo, đã cài **Laravel Breeze (Vue)** và **Vite**.
+- Tôi đã có project **Laravel 12** ngocrong-laravel mới tạo, đã cài **Laravel Breeze (Vue)** và **Vite**. và đã chuyển được 1 phần, tôi muốn bạn kiểm tra và tiếp tục chuyển nốt những phần còn thiếu
 - Yêu cầu chuyển đổi toàn bộ HTML/CSS/JS/Fonts/Images/Assets từ source cũ (src_gốc) sang cấu trúc Laravel **chuẩn**, **DRY** (không lặp), **UI/UX giống 100%**.
 - Frontend: **Blade + Vue từng phần**.
   - **Blade**: Trang chủ, Tin tức, Sự kiện, Landing, Bài viết.
@@ -155,17 +155,6 @@
 - Import Vue, createApp; auto-mount theo `[data-vue]` hoặc theo id; import common modules; dynamic import theo `data-page`.
 
 ---
-## Acceptance checklist
-- [ ] Giao diện giống bản gốc **pixel-by-pixel** (header/nav/footer, fonts, spacing, breakpoints).
-- [ ] **Không còn lặp** head/meta/CSS/JS giữa các page.
-- [ ] **Network**: chỉ 1 CSS/JS common; module page load đúng lúc.
-- [ ] **Console** sạch; không event lặp.
-- [ ] Routes Blade + Inertia hoạt động; Auth Breeze ok.
-- [ ] API scaffold + Sanctum hoạt động (endpoint trả JSON demo).
-- [ ] Dữ liệu Posts/Events hiển thị từ DB (seeded) trên view.
-- [ ] Cấu hình domain và tham số môi trường: không còn hard-code domain/URL hay config đặc thù trong code (đã đưa vào .env và dùng qua config).
-
----
 ## Đầu vào
 - Thư mục source cũ: `haitacmanhnhat/` (có HTML/CSS/JS/Fonts/Images — nhiều file bị mã hoá tên và bị lặp).
 
@@ -173,10 +162,4 @@
 - Cây thư mục & file theo danh sách ở phần "Các tệp chính cần tạo/chỉnh".
 - Code Laravel 12 + Breeze (Vue) + Inertia + Sanctum + Vite **đã clean/DRY**, assets ở `resources/*`, UI/UX giữ nguyên.
 
-# Hãy thực hiện ngay theo đúng checklist trên. Khi xong, in ra:
-- Danh sách file đã tạo/chỉnh (đường dẫn tương đối)
-- Số file CSS/JS trước ➜ sau (đã gộp)
-- Báo cáo asset rename (hash ➜ tên rõ nghĩa)
-- Ghi chú trang nào có CSS/JS đặc thù
-- TODO nhỏ còn lại (nếu có)
-```
+

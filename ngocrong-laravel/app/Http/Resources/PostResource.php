@@ -18,6 +18,8 @@ class PostResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
+            'type' => $this->type,
+            'category_label' => $this->category_label,
             'excerpt' => $this->whenNotNull($this->excerpt),
             'content' => $this->when($request->routeIs('posts.show'), $this->content),
             'cover_image' => $this->whenNotNull($this->cover_image),

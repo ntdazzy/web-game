@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        @include('shared.head')
-        @stack('head')
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="@yield('body_class', '')">
-        <div id="site-root">
-            @include('partials.header')
-            @include('partials.nav')
 
-            <main id="main-content">
-                @yield('content')
-            </main>
+<head>
+    @include('shared.head')
+    @stack('head')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+@php
+    $bodyClass = trim($__env->yieldContent('body_class'));
+    $pageId = trim($__env->yieldContent('page_id'));
+@endphp
 
-            @include('partials.footer')
-        </div>
+<body {{ $bodyClass !== '' ? 'class="' . $bodyClass . '"' : '' }} {{ $pageId !== '' ? 'data-page="' . $pageId . '"' : '' }}>
+    <div id="site-root">
+        @include('partials.header')
+        @include('partials.nav')
 
-        @stack('scripts')
-    </body>
+        <main id="main-content">
+            @yield('content')
+        </main>
+
+        @include('partials.footer')
+    </div>
+
+    @stack('scripts')
+</body>
+
 </html>

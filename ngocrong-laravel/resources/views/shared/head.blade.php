@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="@yield('twitter_card', 'summary_large_image')">
 
 <link rel="canonical" href="@yield('canonical', url()->current())">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ Vite::asset('resources/assets/images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="32x32"
+    href="{{ Vite::asset('resources/assets/images/favicon-32x32.png') }}">
 
 @stack('meta')
