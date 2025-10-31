@@ -15,15 +15,17 @@
                     <h1 class="page-title">Tin tức sự kiện</h1>
                     <div class="listNews w-100">
                         <div class="tabs-post">
-
                             <div class="action d-flex">
                                 <div class="btn-group d-flex gap-3">
-                                    <a class="tin-tuc{{ request()->routeIs('news.*') && request('type') !== 'update' ? ' active' : '' }}"
-                                        href="{{ route('news.index') }}">Tin tức</a>
-                                    <a class="su-kien{{ request()->routeIs('events.*') ? ' active' : '' }}"
-                                        href="{{ route('events.index') }}">Sự kiện</a>
-                                    <a class="update{{ request()->routeIs('news.index') && request('type') === 'update' ? ' active' : '' }}"
-                                        href="{{ route('news.index', ['type' => 'update']) }}">Update</a>
+                                    <a class="tin-tuc" href="{{ route('news.index') }}">
+                                        Tin tức
+                                    </a>
+                                    <a class="su-kien active" href="{{ route('events.index') }}">
+                                        Sự kiện
+                                    </a>
+                                    <a class="update" href="{{ route('news.index', ['type' => 'update']) }}">
+                                        Update
+                                    </a>
                                 </div>
                                 <form class="search-lite search position-relative post" method="get"
                                     action="{{ route('events.index') }}">
@@ -33,30 +35,31 @@
                                 </form>
                             </div>
                             <ul class="posts-content d-flex flex-column gap-3">
-                                @forelse ($events as $event)
+                                @forelse ($events as $item)
                                     <li>
-                                        <a target="_self" href="{{ route('events.show', $event->slug) }}" rel="nofollow"
+                                        <a target="_self" href="{{ route('events.show', $item->slug) }}" rel="nofollow"
                                             class="title d-flex">
                                             <div class="thumbnail">
                                                 @php
-                                                    $banner = $event->banner_url ?? ($event->banner ?? null);
+                                                    $banner = $item->banner_url ?? $item->banner ?? null;
                                                 @endphp
                                                 <img src="{{ $banner ?? Vite::asset('resources/assets/images/post-item-example.png') }}"
                                                     onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/post-item-example.png') }}';"
-                                                    alt="{{ $event->title }}" width="100%" height="100%">
+                                                    alt="{{ $item->title }}" width="100%" height="100%">
                                             </div>
                                             <div class="post-item-content">
                                                 <h3 class="d-flex justify-content-between mb-2">
                                                     <div class="post-item-title d-flex align-items-center">
                                                         <span class="cat-name">Sự kiện</span>
-                                                        <p>{{ $event->title }}</p>
+                                                        <p>{{ $item->title }}</p>
                                                     </div>
-                                                    <span class="time">
-                                                        {{ optional($event->starts_at)->format('d-m-Y') }}
-                                                    </span>
+                                                    @php
+                                                        $displayDate = $item->starts_at ?? $item->published_at;
+                                                    @endphp
+                                                    <span class="time">{{ optional($displayDate)->format('d-m-Y') }}</span>
                                                 </h3>
                                                 <p class="text-content">
-                                                    {{ $event->excerpt }}
+                                                    {{ $item->excerpt }}
                                                 </p>
                                             </div>
                                         </a>
@@ -77,47 +80,8 @@
                 </div>
             </div>
         </div>
-        <div class="page page-4 d-flex align-items-center flex-column position-relative">
-            <div class="text-slide d-flex justify-content-center w-100">
-                <div id="sliderTrack" class="d-flex w-100">
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="social" data-aos="fade-down" data-aos-once="false" data-aos-duration="900" data-aos-offset="0">
-                <ul class="d-flex h-100 align-items-center">
-                    <li class="trans-y">
-                        <a class="facebook" href="https://www.facebook.com/haitacmanhnhat" title="Facebook"
-                            target="_blank">Facebook</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="youtube" href="https://www.youtube.com/@haitacmanhnhat" title="Youtube"
-                            target="_blank">Youtube</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="group" href="https://www.facebook.com/groups/dechehaitac" title="Facebook Group"
-                            target="_blank">Facebook Group</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="tiktok" href="https://www.tiktok.com/@haitacmanhnhat" title="Tiktok"
-                            target="_blank">Tiktok</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="discord" href="https://discord.com/invite/pRQaVmUj78" title="Discord"
-                            target="_blank">Discord</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="zalo" href="https://zalo.me/g/snnzqo202" title="Zalo" target="_blank">Zalo</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    @endsection
+        @include('partials.bottom-strip')
+
+    </div>
+@endsection

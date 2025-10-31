@@ -135,7 +135,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">Tất cả
                                                                         c&aacute;c người chơi đều c&oacute; thể
-                                                                        nhận</span></strong></span></span></span></td>
+                                                                        nhận</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -152,32 +153,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *900000</span></span></td>
+                                                            *900000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">2000
-                                                            v&agrave;ng</span></span></td>
+                                                            v&agrave;ng</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Tr&aacute;i Tim
-                                                            &aacute;c ma</span></span></td>
+                                                            &aacute;c ma</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Kho b&aacute;u &aacute;c
-                                                            ma thần b&iacute;</span></span></td>
+                                                            ma thần b&iacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i nu&ocirc;i
-                                                            c&aacute; AllBlue random</span></span></td>
+                                                            c&aacute; AllBlue random</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">TT Gi&aacute;p Bảo
-                                                            Hộ</span></span></td>
+                                                            Hộ</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -198,23 +205,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">1</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">1</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">100</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">100</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">1</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">1</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">300</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">300</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">1</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">1</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -230,7 +242,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         10 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -247,32 +260,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *100000</span></span></td>
+                                                            *100000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Bal&ocirc;
-                                                            vải</span></span></td>
+                                                            vải</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Bảo thụ
-                                                            Adam</span></span></td>
+                                                            Adam</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 đ&aacute; năng
-                                                            lượng</span></span></td>
+                                                            lượng</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 đ&aacute;
-                                                            nguy&ecirc;n tố</span></span></td>
+                                                            nguy&ecirc;n tố</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Ch&igrave;a kh&oacute;a
-                                                            kho</span></span></td>
+                                                            kho</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -283,7 +302,8 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">50000</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">50000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
@@ -292,23 +312,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -324,7 +349,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         20 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -341,32 +367,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *200000</span></span></td>
+                                                            *200000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Bal&ocirc;
-                                                            vải</span></span></td>
+                                                            vải</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Bảo thụ
-                                                            Adam</span></span></td>
+                                                            Adam</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tr&aacute;i 6
-                                                            sao</span></span></td>
+                                                            sao</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Ch&igrave;a kh&oacute;a
-                                                            kho</span></span></td>
+                                                            kho</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i qu&agrave;
-                                                            random t&iacute;m cao cấp</span></span></td>
+                                                            random t&iacute;m cao cấp</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -377,7 +409,8 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">75000</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">75000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
@@ -386,23 +419,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">1</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">1</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -418,7 +456,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         40 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -435,32 +474,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *300000</span></span></td>
+                                                            *300000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Tr&aacute;i Tim
-                                                            &aacute;c ma</span></span></td>
+                                                            &aacute;c ma</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Đ&aacute; Huyết
-                                                            Linh</span></span></td>
+                                                            Linh</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i K.cương cổ
-                                                            đại</span></span></td>
+                                                            đại</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1500 C.t&iacute;ch
-                                                            C.hội</span></span></td>
+                                                            C.hội</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">300 T&iacute;ch điểm
-                                                            B.thạch</span></span></td>
+                                                            B.thạch</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -481,23 +526,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -513,7 +563,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         60 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -530,32 +581,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *400000</span></span></td>
+                                                            *400000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Tr&aacute;i Tim
-                                                            &aacute;c ma</span></span></td>
+                                                            &aacute;c ma</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">50 Tinh hoa
-                                                            B.thạch</span></span></td>
+                                                            B.thạch</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">125 Đ&aacute; Khắc
-                                                            Ấn</span></span></td>
+                                                            Ấn</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tr&aacute;i 7
-                                                            sao</span></span></td>
+                                                            sao</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1000 T&iacute;ch điểm
-                                                            B.thạch</span></span></td>
+                                                            B.thạch</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -576,23 +633,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">40</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">40</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">1</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">1</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -608,7 +670,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         80 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -625,7 +688,8 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *500000</span></span></td>
+                                                            *500000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
@@ -640,17 +704,20 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tẩy luyện
-                                                            B.vật h&agrave;o hoa</span></span></td>
+                                                            B.vật h&agrave;o hoa</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">125 Đ&aacute; Khắc
-                                                            Ấn</span></span></td>
+                                                            Ấn</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1500 C.t&iacute;ch
-                                                            C.hội</span></span></td>
+                                                            C.hội</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -671,23 +738,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -703,7 +775,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         100 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -720,7 +793,8 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *600000</span></span></td>
+                                                            *600000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
@@ -730,22 +804,26 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i K.cương cổ
-                                                            đại</span></span></td>
+                                                            đại</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tẩy luyện
-                                                            B.thạch h&agrave;o hoa</span></span></td>
+                                                            B.thạch h&agrave;o hoa</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">125 Đ&aacute; Khắc
-                                                            Ấn</span></span></td>
+                                                            Ấn</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">100 N.lượng
-                                                            N.tố</span></span></td>
+                                                            N.tố</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -766,23 +844,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -798,7 +881,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         110 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -815,32 +899,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *700000</span></span></td>
+                                                            *700000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 Exp Nguy&ecirc;n
-                                                            tố</span></span></td>
+                                                            tố</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 Đ&aacute; Hải
-                                                            Hồn</span></span></td>
+                                                            Hồn</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Ma phấn tinh linh trung
-                                                            cấp</span></span></td>
+                                                            cấp</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i K.cương cổ
-                                                            đại</span></span></td>
+                                                            đại</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1000 Nh&acirc;n tố
-                                                            &aacute;c quỷ</span></span></td>
+                                                            &aacute;c quỷ</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -861,23 +951,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -893,7 +988,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         120 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -910,32 +1006,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *800000</span></span></td>
+                                                            *800000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i N.Liệu
-                                                            b&aacute; kh&iacute;</span></span></td>
+                                                            b&aacute; kh&iacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i N.Liệu
-                                                            b&aacute; kh&iacute; thường</span></span></td>
+                                                            b&aacute; kh&iacute; thường</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Ma phấn tinh linh trung
-                                                            cấp</span></span></td>
+                                                            cấp</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Tr&aacute;i Tim
-                                                            &aacute;c ma</span></span></td>
+                                                            &aacute;c ma</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 Exp Nguy&ecirc;n
-                                                            tố</span></span></td>
+                                                            tố</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -956,23 +1058,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">100</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">100</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -988,7 +1095,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         130 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1005,32 +1113,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *900000</span></span></td>
+                                                            *900000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tăng cấp
-                                                            thi&ecirc;n ph&uacute;</span></span></td>
+                                                            thi&ecirc;n ph&uacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i N.Liệu
-                                                            b&aacute; kh&iacute;</span></span></td>
+                                                            b&aacute; kh&iacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Ma phấn tinh linh cao
-                                                            cấp</span></span></td>
+                                                            cấp</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i N.Liệu
-                                                            b&aacute; kh&iacute; thường</span></span></td>
+                                                            b&aacute; kh&iacute; thường</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 Ho&agrave;ng Kim
-                                                            B.thạch</span></span></td>
+                                                            B.thạch</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1051,23 +1165,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">5</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">5</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1083,7 +1202,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         140 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1100,32 +1220,38 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *900000</span></span></td>
+                                                            *900000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i N.Liệu
-                                                            b&aacute; kh&iacute;</span></span></td>
+                                                            b&aacute; kh&iacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1000 Đ&aacute; Hải
-                                                            Hồn</span></span></td>
+                                                            Hồn</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i nguy&ecirc;n
-                                                            liệu đồ cam thường</span></span></td>
+                                                            liệu đồ cam thường</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1000 đ&aacute; năng
-                                                            lượng</span></span></td>
+                                                            lượng</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">1000 đ&aacute;
-                                                            nguy&ecirc;n tố</span></span></td>
+                                                            nguy&ecirc;n tố</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1146,23 +1272,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">30</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">30</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1178,7 +1309,8 @@
                                                                 style="font-size:11pt"><strong><span
                                                                         style="font-family:Calibri,sans-serif">đạt đủ level
                                                                         150 c&oacute; thể nhận
-                                                                        code</span></strong></span></span></span></td>
+                                                                        code</span></strong></span></span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1195,12 +1327,14 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">Beri
-                                                            *900000</span></span></td>
+                                                            *900000</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tăng cấp
-                                                            thi&ecirc;n ph&uacute;</span></span></td>
+                                                            thi&ecirc;n ph&uacute;</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
@@ -1210,17 +1344,20 @@
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i nguy&ecirc;n
-                                                            liệu đồ cam thường</span></span></td>
+                                                            liệu đồ cam thường</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">T&uacute;i tẩy luyện
-                                                            B.thạch h&agrave;o hoa</span></span></td>
+                                                            B.thạch h&agrave;o hoa</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
                                                             style="font-family:Calibri,sans-serif">500 Ho&agrave;ng Kim
-                                                            B.thạch</span></span></td>
+                                                            B.thạch</span></span>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td
@@ -1241,23 +1378,28 @@
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">50</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">50</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">20</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">20</span></span>
+                                                </td>
                                                 <td
                                                     style="border-bottom:1px solid black; border-left:none; border-right:1px solid black; border-top:none; text-align:center; vertical-align:bottom; white-space:nowrap">
                                                     <span style="font-size:15px"><span
-                                                            style="font-family:Calibri,sans-serif">10</span></span></td>
+                                                            style="font-family:Calibri,sans-serif">10</span></span>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1291,47 +1433,7 @@
                 <a href="javascript:void(0)" class="close"><i class="fa-light fa-xmark"></i></a>
             </div>
         </div>
-        <div class="page page-4 d-flex align-items-center flex-column position-relative">
-            <div class="text-slide d-flex justify-content-center w-100">
-                <div id="sliderTrack" class="d-flex w-100">
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                    <div class="slide-item d-flex align-items-center">
-                        <span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span><span>HAITACMANHNHAT</span>
-                    </div>
-                </div>
-            </div>
+        @include('partials.bottom-strip')
 
-            <div class="social" data-aos="fade-down" data-aos-once="false" data-aos-duration="900" data-aos-offset="0">
-                <ul class="d-flex h-100 align-items-center">
-                    <li class="trans-y">
-                        <a class="facebook" href="https://www.facebook.com/haitacmanhnhat" title="Facebook"
-                            target="_blank">Facebook</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="youtube" href="https://www.youtube.com/@haitacmanhnhat" title="Youtube"
-                            target="_blank">Youtube</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="group" href="https://www.facebook.com/groups/dechehaitac" title="Facebook Group"
-                            target="_blank">Facebook Group</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="tiktok" href="https://www.tiktok.com/@haitacmanhnhat" title="Tiktok"
-                            target="_blank">Tiktok</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="discord" href="https://discord.com/invite/pRQaVmUj78" title="Discord"
-                            target="_blank">Discord</a>
-                    </li>
-                    <li class="trans-y">
-                        <a class="zalo" href="https://zalo.me/g/snnzqo202" title="Zalo" target="_blank">Zalo</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    @endsection
+    </div>
+@endsection
