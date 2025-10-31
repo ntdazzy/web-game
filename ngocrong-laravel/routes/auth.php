@@ -17,10 +17,22 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
+    Route::get('dang-ky', [RegisteredUserController::class, 'create'])
+        ->name('auth.register.vi');
+
+    Route::post('dang-ky', [RegisteredUserController::class, 'store'])
+        ->name('auth.register.vi.store');
+
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    Route::get('dang-nhap', [AuthenticatedSessionController::class, 'create'])
+        ->name('auth.login.vi');
+
+    Route::post('dang-nhap', [AuthenticatedSessionController::class, 'store'])
+        ->name('auth.login.vi.store');
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
         ->name('password.request');
@@ -28,11 +40,23 @@ Route::middleware('guest')->group(function () {
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
         ->name('password.email');
 
+    Route::get('quen-mat-khau', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request.vi');
+
+    Route::post('quen-mat-khau', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email.vi');
+
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
         ->name('password.reset');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.store');
+
+    Route::get('dat-lai-mat-khau/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset.vi');
+
+    Route::post('dat-lai-mat-khau', [NewPasswordController::class, 'store'])
+        ->name('password.store.vi');
 });
 
 Route::middleware('auth')->group(function () {

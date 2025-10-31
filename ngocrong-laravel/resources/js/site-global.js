@@ -99,7 +99,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/id/dang-nhap",
+            url: "/dang-nhap",
             data: {
                 username: username,
                 password: password,
@@ -181,7 +181,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: "/id/dang-ky",
+            url: "/dang-ky",
             data: {
                 username: username,
                 password1: password1,
@@ -452,7 +452,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/id/quen-mat-khau",
+            url: "/quen-mat-khau",
             data: {
                 username: username,
                 email: email,
@@ -573,7 +573,7 @@ $(document).ready(function () {
                                         if (response.status == -2) {
                                             warning(response.msg);
                                             setTimeout(() => {
-                                                redirect("/id/dang-nhap");
+                                                redirect("/dang-nhap");
                                             }, 1200);
                                             return false;
                                         }
@@ -708,7 +708,7 @@ $(document).ready(function () {
                                         if (response.status == -2) {
                                             warning(response.msg);
                                             setTimeout(() => {
-                                                redirect("/id/dang-nhap");
+                                                redirect("/dang-nhap");
                                             }, 1200);
                                             return false;
                                         }
@@ -842,7 +842,7 @@ $(document).ready(function () {
                                     if (response.status == -2) {
                                         warning(response.msg);
                                         setTimeout(() => {
-                                            redirect("/id/dang-nhap");
+                                            redirect("/dang-nhap");
                                         }, 1200);
                                         return false;
                                     }
@@ -922,7 +922,7 @@ $(document).ready(function () {
 
                 if (response.status != 1) {
                     if (response.status == -2) {
-                        showConfirmAndRedirect("/id/dang-nhap", response.msg);
+                        showConfirmAndRedirect("/dang-nhap", response.msg);
                         return false;
                     }
                     error(response.msg);

@@ -82,6 +82,10 @@
      và SANCTUM_STATEFUL_DOMAINS=haitacmanhnhat.vn trong file .env. Đảm bảo các config (như trong config/sanctum.php) sử dụng những biến này cho domain cookie và các thông số bảo mật.
 
 
+8) **Model login
+   - nếu chưa login thì middle sẽ điều hướng tới các trang như dang-nhap,dang-ky,quen-mat-khau,quen-mat-khau,đảm bảo các trang đó có tồn tại
+   - khi nào nhấn vào nút btn-login login-required thì mới mở model login/register
+
 9) **Ràng buộc UI/UX**
    - So sánh DOM/CSS sau build với source gốc: kích thước, font, màu, khoảng cách, icon, hiệu ứng AOS/Swiper… **phải khớp**.
    - Mọi phần **lặp lại** (meta, favicon, og tags, css/js chung, header/footer) **không được** xuất hiện rải rác ở từng page.
@@ -91,7 +95,7 @@
    - **Network**: Các CSS/JS common chỉ tải 1 lần; module page chỉ tải ở trang cần.
    - **Console**: 0 error, 0 warning nghiêm trọng; không event listener bị đăng ký lặp.
 
----
+
 ## Các tệp chính cần tạo/chỉnh
 - `resources/views/layouts/app.blade.php`
 - `resources/views/shared/head.blade.php`

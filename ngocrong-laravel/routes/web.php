@@ -12,6 +12,13 @@ use App\Http\Controllers\Web\CharacterController;
 use App\Http\Controllers\Web\DevilFruitController;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/id/dang-nhap', '/dang-nhap')->name('legacy.id.login');
+Route::redirect('/id/dang-ky', '/dang-ky')->name('legacy.id.register');
+Route::redirect('/id/quen-mat-khau', '/quen-mat-khau')->name('legacy.id.password.request');
+Route::get('/id/dat-lai-mat-khau/{token}', function (string $token) {
+    return redirect()->to('/dat-lai-mat-khau/'.$token);
+})->name('legacy.id.password.reset');
+
 Route::get('/', HomeController::class)->name('home');
 Route::get('/landing', [HomeController::class, 'landing'])->name('landing');
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');

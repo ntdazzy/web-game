@@ -34,7 +34,10 @@
                             </div>
                             <div class="post-content">
                                 @if (!empty($event->content))
-                                    {!! $event->content !!}
+                                    @php
+                                        $eventContent = app(\App\Support\LegacyContentRenderer::class)->render($event->content);
+                                    @endphp
+                                    {!! $eventContent !!}
                                 @endif
                             </div>
                         </div>

@@ -34,7 +34,10 @@
                             </div>
                             <div class="post-content">
                                 @if (!empty($post->content))
-                                    {!! $post->content !!}
+                                    @php
+                                        $contentHtml = app(\App\Support\LegacyContentRenderer::class)->render($post->content);
+                                    @endphp
+                                    {!! $contentHtml !!}
                                 @endif
                             </div>
                         </div>

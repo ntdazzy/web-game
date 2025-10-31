@@ -20,7 +20,7 @@
         @yield('content')
     </main>
 
-    @include('partials.footer')
+    @include('partials.footer', ['pageId' => $pageId])
 </div>
 
 @include('partials.modals.login')
