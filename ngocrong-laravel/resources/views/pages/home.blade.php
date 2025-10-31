@@ -52,7 +52,7 @@
                                     <a href="{{ route('news.show', '10h-11-10-khai-mo-may-chu-s32-177') }}" target="_self"
                                         title="S32">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(71).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-pc-527x465/home-slide-01.jpg') }}"
                                             alt="S32"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide.png') }}';">
                                     </a>
@@ -61,7 +61,7 @@
                                     <a href="{{ route('news.show', 'su-kien-tuan-2-thang-10-2025-195') }}" target="_self"
                                         title="EV2">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(73).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-pc-527x465/home-slide-02.jpg') }}"
                                             alt="EV2"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide.png') }}';">
                                     </a>
@@ -70,7 +70,7 @@
                                     <a href="{{ route('news.show', 'vuong-gia-chien-lan-2-197') }}" target="_self"
                                         title="VGC">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20PC%20527x465/527x465(74).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-pc-527x465/home-slide-03.jpg') }}"
                                             alt="VGC"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide.png') }}';">
                                     </a>
@@ -94,7 +94,7 @@
                                     <a href="{{ route('news.show', '10h-11-10-khai-mo-may-chu-s32-177') }}"
                                         target="_self" title="S32">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(15).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-tablet-521x387/home-tablet-slide-01.jpg') }}"
                                             alt="S32"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide-mobile.png') }}';">
                                     </a>
@@ -103,7 +103,7 @@
                                     <a href="{{ route('news.show', 'su-kien-tuan-2-thang-10-2025-195') }}" target="_self"
                                         title="EV2">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(16).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-tablet-521x387/home-tablet-slide-02.jpg') }}"
                                             alt="EV2"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide-mobile.png') }}';">
                                     </a>
@@ -112,7 +112,7 @@
                                     <a href="{{ route('news.show', 'vuong-gia-chien-lan-2-197') }}" target="_self"
                                         title="VGC">
                                         <img class="d-block w-100 h-100"
-                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/Mainsite%20Tablet%20521x387/521x387(17).jpg') }}"
+                                            src="{{ Vite::asset('resources/assets/files/uploads/images/Banner/mainsite-tablet-521x387/home-tablet-slide-03.jpg') }}"
                                             alt="VGC"
                                             onerror="this.onerror=null;this.src='{{ Vite::asset('resources/assets/images/page2/slides/slide-mobile.png') }}';">
                                     </a>
