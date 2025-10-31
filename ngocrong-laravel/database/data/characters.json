@@ -1,0 +1,506 @@
+[
+    {
+        "name": "Senor Pink-S2",
+        "slug": "senor-pink-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/senorpink-s2.png",
+        "damage_type": "s3",
+        "sort_order": 1
+    },
+    {
+        "name": "Senor Pink-S",
+        "slug": "senor-pink-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/senorpink-s.png",
+        "damage_type": "s3",
+        "sort_order": 2
+    },
+    {
+        "name": "Dellinger-S2",
+        "slug": "dellinger-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/dellinger-s2.png",
+        "damage_type": "s1",
+        "sort_order": 3
+    },
+    {
+        "name": "Dellinger-S",
+        "slug": "dellinger-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/dellinger-s.png",
+        "damage_type": "s1",
+        "sort_order": 4
+    },
+    {
+        "name": "Niji-S2",
+        "slug": "niji-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/niji-s2.png",
+        "damage_type": "s2",
+        "sort_order": 5
+    },
+    {
+        "name": "Yonji-S2",
+        "slug": "yonji-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/yonji-s2.png",
+        "damage_type": "s3",
+        "sort_order": 6
+    },
+    {
+        "name": "Reiju-S2",
+        "slug": "reiju-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/reiju-s2.png",
+        "damage_type": "s3",
+        "sort_order": 7
+    },
+    {
+        "name": "Ichiji-S2",
+        "slug": "ichiji-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/ichiji-s2.png",
+        "damage_type": "s1",
+        "sort_order": 8
+    },
+    {
+        "name": "Sugar-S2",
+        "slug": "sugar-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/sugar-s2.png",
+        "damage_type": "s2",
+        "sort_order": 9
+    },
+    {
+        "name": "Râu Trắng-S2",
+        "slug": "rau-trang-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/rau-trang-s2.png",
+        "damage_type": "s2",
+        "sort_order": 10
+    },
+    {
+        "name": "Luffy-Nika",
+        "slug": "luffy-nika",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/luffy-nika.png",
+        "damage_type": "s2",
+        "sort_order": 11
+    },
+    {
+        "name": "Enel-S",
+        "slug": "enel-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/enel-s.png",
+        "damage_type": "s3",
+        "sort_order": 12
+    },
+    {
+        "name": "Jack-S",
+        "slug": "jack-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/jack-s.png",
+        "damage_type": "s3",
+        "sort_order": 13
+    },
+    {
+        "name": "SaBo-S",
+        "slug": "sabo-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/sabo-s.png",
+        "damage_type": "s1",
+        "sort_order": 14
+    },
+    {
+        "name": "Benn Beckman-S",
+        "slug": "benn-beckman-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/benn-beckman-s.png",
+        "damage_type": "s1",
+        "sort_order": 15
+    },
+    {
+        "name": "Râu Trắng-S",
+        "slug": "rau-trang-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/rau-trang-s.png",
+        "damage_type": "s2",
+        "sort_order": 16
+    },
+    {
+        "name": "Queen-S",
+        "slug": "queen-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/queen-s.png",
+        "damage_type": "s2",
+        "sort_order": 17
+    },
+    {
+        "name": "King-S",
+        "slug": "king-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/king-s.png",
+        "damage_type": "s1",
+        "sort_order": 18
+    },
+    {
+        "name": "Aramaki-S",
+        "slug": "aramaki-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/aramaki-s.png",
+        "damage_type": "s1",
+        "sort_order": 19
+    },
+    {
+        "name": "Oden-S",
+        "slug": "oden-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/oden-s.png",
+        "damage_type": "s3",
+        "sort_order": 20
+    },
+    {
+        "name": "Katakuri-S",
+        "slug": "katakuri-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/katakuri-s.png",
+        "damage_type": "s1",
+        "sort_order": 21
+    },
+    {
+        "name": "Aokiji-S",
+        "slug": "aokiji-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/aokiji-s.png",
+        "damage_type": "s3",
+        "sort_order": 22
+    },
+    {
+        "name": "Uta-S",
+        "slug": "uta-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/uta-s.png",
+        "damage_type": "s3",
+        "sort_order": 23
+    },
+    {
+        "name": "Luffy-S2",
+        "slug": "luffy-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/luffy-s2.png",
+        "damage_type": "s2",
+        "sort_order": 24
+    },
+    {
+        "name": "Marco-S2",
+        "slug": "marco-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/marco-s2.png",
+        "damage_type": "s1",
+        "sort_order": 25
+    },
+    {
+        "name": "Ace-S2",
+        "slug": "ace-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/ace-s2.png",
+        "damage_type": "s3",
+        "sort_order": 26
+    },
+    {
+        "name": "Zoro-S2",
+        "slug": "zoro-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/zoro-s2.png",
+        "damage_type": "s2",
+        "sort_order": 27
+    },
+    {
+        "name": "Law-S2",
+        "slug": "law-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/law-s2.png",
+        "damage_type": "s3",
+        "sort_order": 28
+    },
+    {
+        "name": "Jinbe-S2",
+        "slug": "jinbe-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/jinbei-s2.png",
+        "damage_type": "s1",
+        "sort_order": 29
+    },
+    {
+        "name": "Nico Robin-S2",
+        "slug": "nico-robin-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/robin-s2.png",
+        "damage_type": "s3",
+        "sort_order": 30
+    },
+    {
+        "name": "Sanji-S2",
+        "slug": "sanji-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/sanji-s2.png",
+        "damage_type": "s2",
+        "sort_order": 31
+    },
+    {
+        "name": "Boa Hancock-S2",
+        "slug": "boa-hancock-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/boa-s2.png",
+        "damage_type": "s3",
+        "sort_order": 32
+    },
+    {
+        "name": "Killer-S2",
+        "slug": "killer-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/killer-s2.png",
+        "damage_type": "s1",
+        "sort_order": 33
+    },
+    {
+        "name": "Chopper-S2",
+        "slug": "chopper-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/chopper-s2.png",
+        "damage_type": "s3",
+        "sort_order": 34
+    },
+    {
+        "name": "Franky-S2",
+        "slug": "franky-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/franky-s2.png",
+        "damage_type": "s1",
+        "sort_order": 35
+    },
+    {
+        "name": "Brook-S2",
+        "slug": "brook-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/brook-s2.png",
+        "damage_type": "s2",
+        "sort_order": 36
+    },
+    {
+        "name": "Usopp-S2",
+        "slug": "usopp-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/usopp-s2.png",
+        "damage_type": "s1",
+        "sort_order": 37
+    },
+    {
+        "name": "Nami-S2",
+        "slug": "nami-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/nami-s2.png",
+        "damage_type": "s3",
+        "sort_order": 38
+    },
+    {
+        "name": "Doflamingo-S2",
+        "slug": "doflamingo-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/dof-s2.png",
+        "damage_type": "s2",
+        "sort_order": 39
+    },
+    {
+        "name": "Oven-S2",
+        "slug": "oven-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/oven-s2.png",
+        "damage_type": "s1",
+        "sort_order": 40
+    },
+    {
+        "name": "Shirahoshi-S2",
+        "slug": "shirahoshi-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/shirahoshi-s2.png",
+        "damage_type": "s3",
+        "sort_order": 41
+    },
+    {
+        "name": "Lucci-S2",
+        "slug": "lucci-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/lucci-s2.png",
+        "damage_type": "s2",
+        "sort_order": 42
+    },
+    {
+        "name": "Pudding-S2",
+        "slug": "pudding-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/pudding-s2.png",
+        "damage_type": "s3",
+        "sort_order": 43
+    },
+    {
+        "name": "Smoothie-S2",
+        "slug": "smoothie-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/charlotte-smoothie-s2.png",
+        "damage_type": "s3",
+        "sort_order": 44
+    },
+    {
+        "name": "Kaya-S2",
+        "slug": "kaya-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/kaya-s2.png",
+        "damage_type": "s3",
+        "sort_order": 45
+    },
+    {
+        "name": "Cracker-S2",
+        "slug": "cracker-s2",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/cracker-s2.png",
+        "damage_type": "s2",
+        "sort_order": 46
+    },
+    {
+        "name": "Chopper-S",
+        "slug": "chopper-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/chopper-s.png",
+        "damage_type": "s3",
+        "sort_order": 47
+    },
+    {
+        "name": "Killer-S",
+        "slug": "killer-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/killer-s.png",
+        "damage_type": "s1",
+        "sort_order": 48
+    },
+    {
+        "name": "Boa Hancock-S",
+        "slug": "boa-hancock-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/boa-s.png",
+        "damage_type": "s3",
+        "sort_order": 49
+    },
+    {
+        "name": "Jinbe-S",
+        "slug": "jinbe-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/jinbei-s.png",
+        "damage_type": "s1",
+        "sort_order": 50
+    },
+    {
+        "name": "Law-S",
+        "slug": "law-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/law-s.png",
+        "damage_type": "s3",
+        "sort_order": 51
+    },
+    {
+        "name": "Nico Robin-S",
+        "slug": "nico-robin-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/robin-s.png",
+        "damage_type": "s3",
+        "sort_order": 52
+    },
+    {
+        "name": "Zoro-S",
+        "slug": "zoro-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/zoro-s.png",
+        "damage_type": "s2",
+        "sort_order": 53
+    },
+    {
+        "name": "Franky-S",
+        "slug": "franky-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/franky-s.png",
+        "damage_type": "s1",
+        "sort_order": 54
+    },
+    {
+        "name": "Brook-S",
+        "slug": "brook-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/brook-s.png",
+        "damage_type": "s2",
+        "sort_order": 55
+    },
+    {
+        "name": "Sanji-S",
+        "slug": "sanji-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/sanji-s.png",
+        "damage_type": "s2",
+        "sort_order": 56
+    },
+    {
+        "name": "Nami-S",
+        "slug": "nami-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/nami-s.png",
+        "damage_type": "s3",
+        "sort_order": 57
+    },
+    {
+        "name": "Usopp-S",
+        "slug": "usopp-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/usopp-s.png",
+        "damage_type": "s1",
+        "sort_order": 58
+    },
+    {
+        "name": "Lucci-S",
+        "slug": "lucci-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/lucci-s.png",
+        "damage_type": "s2",
+        "sort_order": 59
+    },
+    {
+        "name": "Shirahoshi-S",
+        "slug": "shirahoshi-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/shirahoshi-s.png",
+        "damage_type": "s3",
+        "sort_order": 60
+    },
+    {
+        "name": "Doflamingo-S",
+        "slug": "doflamingo-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/dof-s.png",
+        "damage_type": "s2",
+        "sort_order": 61
+    },
+    {
+        "name": "Sugar-S",
+        "slug": "sugar-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/sugar-s.png",
+        "damage_type": "s2",
+        "sort_order": 62
+    },
+    {
+        "name": "Yonji-S",
+        "slug": "yonji-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/yonji-s.png",
+        "damage_type": "s3",
+        "sort_order": 63
+    },
+    {
+        "name": "Niji-S",
+        "slug": "niji-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/niji-s.png",
+        "damage_type": "s2",
+        "sort_order": 64
+    },
+    {
+        "name": "Ichiji-S",
+        "slug": "ichiji-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/ichiji-s.png",
+        "damage_type": "s1",
+        "sort_order": 65
+    },
+    {
+        "name": "Reiju-S",
+        "slug": "reiju-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/reiju-s.png",
+        "damage_type": "s3",
+        "sort_order": 66
+    },
+    {
+        "name": "Smoothie-S",
+        "slug": "smoothie-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/charlotte-smoothie-s.png",
+        "damage_type": "s3",
+        "sort_order": 67
+    },
+    {
+        "name": "Marco-S",
+        "slug": "marco-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/marco-s.png",
+        "damage_type": "s1",
+        "sort_order": 68
+    },
+    {
+        "name": "Pudding-S",
+        "slug": "pudding-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/pudding-s.png",
+        "damage_type": "s3",
+        "sort_order": 69
+    },
+    {
+        "name": "Cracker-S",
+        "slug": "cracker-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/cracker-s.png",
+        "damage_type": "s2",
+        "sort_order": 70
+    },
+    {
+        "name": "Luffy-S",
+        "slug": "luffy-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/luffy-s.png",
+        "damage_type": "s2",
+        "sort_order": 71
+    },
+    {
+        "name": "Ace-S",
+        "slug": "ace-s",
+        "image": "resources/assets/files/uploads/images/heros/Avatar%20432x144/ace-s.png",
+        "damage_type": "s3",
+        "sort_order": 72
+    }
+]

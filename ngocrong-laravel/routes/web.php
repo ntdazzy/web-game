@@ -8,13 +8,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\EventController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\PostController;
+use App\Http\Controllers\Web\CharacterController;
+use App\Http\Controllers\Web\DevilFruitController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/landing', [HomeController::class, 'landing'])->name('landing');
-Route::view('/danh-sach-tuong', 'pages.heroes.index')->name('heroes.index');
-Route::view('/trai-ac-quy', 'pages.fruits.index')->name('fruits.index');
-Route::view('/trai-dung-hop', 'pages.fruits.fusion')->name('fruits.fusion');
+Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');
+Route::get('/trai-ac-quy', [DevilFruitController::class, 'index'])->name('devilfruits.index');
+Route::get('/trai-dung-hop', [DevilFruitController::class, 'fusion'])->name('devilfruits.fusion');
 
 Route::prefix('tin-tuc')
     ->name('news.')

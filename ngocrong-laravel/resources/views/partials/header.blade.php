@@ -28,23 +28,23 @@
                         </a>
                     </li>
                     <li
-                        class="d-flex justify-content-center align-items-center hero-item{{ $activeClass('heroes.index') }}">
-                        <a class="nav-item h-100" href="{{ route('heroes.index') }}" title="Tướng">
+                        class="d-flex justify-content-center align-items-center hero-item{{ $activeClass('characters.index') }}">
+                        <a class="nav-item h-100" href="{{ route('characters.index') }}" title="Tướng">
                             <span class="visually-hidden">Tướng</span>
                         </a>
                     </li>
                     <li class="d-flex justify-content-center align-items-center fruit">
-                        <a class="nav-item h-100 d-flex align-items-center" href="{{ route('fruits.index') }}"
+                        <a class="nav-item h-100 d-flex align-items-center" href="{{ route('devilfruits.index') }}"
                             title="Trái Ác Quỷ" data-bs-toggle="dropdown">
                             <i class="dropdown-icon position-absolute"></i>
                             <span class="visually-hidden">Trái Ác Quỷ</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a href="{{ route('fruits.index') }}" class="dropdown-item">Trái Ác Quỷ</a>
+                                <a href="{{ route('devilfruits.index') }}" class="dropdown-item">Trái Ác Quỷ</a>
                             </li>
                             <li>
-                                <a href="{{ route('fruits.fusion') }}" class="dropdown-item">Trái Dung Hợp</a>
+                                <a href="{{ route('devilfruits.fusion') }}" class="dropdown-item">Trái Dung Hợp</a>
                             </li>
                         </ul>
                     </li>
@@ -165,24 +165,24 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link hero-item{{ $activeClass('heroes.index') }}"
-                            href="{{ route('heroes.index') }}" title="Tướng" data-bs-target="#3"
+                        <a class="nav-link hero-item{{ $activeClass('characters.index') }}"
+                            href="{{ route('characters.index') }}" title="Tướng" data-bs-target="#3"
                             aria-expanded="false" aria-controls="3">
                             Tướng
                         </a>
                     </li>
                     <li class="menu-mobile-bottom">
-                        <a class="btn btn-link position-relative fruit" href="{{ route('fruits.index') }}"
+                        <a class="btn btn-link position-relative fruit" href="{{ route('devilfruits.index') }}"
                             title="Trái Ác Quỷ" data-bs-toggle="collapse" data-bs-target="#mobileFruit"
                             aria-expanded="false" aria-controls="mobileFruit">
                             Trái Ác Quỷ<i class="dropdown-icon position-absolute"></i>
                         </a>
                         <ul class="collapse social row show collapse-normal" id="mobileFruit">
                             <li class="d-flex justify-content-center col-4">
-                                <a href="{{ route('fruits.index') }}" class="dropdown-item">Trái Ác Quỷ</a>
+                                <a href="{{ route('devilfruits.index') }}" class="dropdown-item">Trái Ác Quỷ</a>
                             </li>
                             <li class="d-flex justify-content-center col-4">
-                                <a href="{{ route('fruits.fusion') }}" class="dropdown-item">Trái Dung Hợp</a>
+                                <a href="{{ route('devilfruits.fusion') }}" class="dropdown-item">Trái Dung Hợp</a>
                             </li>
                         </ul>
                     </li>

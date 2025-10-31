@@ -156,7 +156,7 @@
 
 ---
 ## Đầu vào
-- Thư mục source cũ: `haitacmanhnhat/` (có HTML/CSS/JS/Fonts/Images — nhiều file bị mã hoá tên và bị lặp).
+- Thư mục source cũ: `src_gốc/` (có HTML/CSS/JS/Fonts/Images — nhiều file bị mã hoá tên và bị lặp).
 
 ## Đầu ra
 - Cây thư mục & file theo danh sách ở phần "Các tệp chính cần tạo/chỉnh".

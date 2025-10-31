@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Account;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TopupBonusResource;
+use App\Models\TopupBonus;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Vite;
 use Inertia\Inertia;
@@ -79,6 +81,14 @@ class WalletTopUpController extends Controller
             ['amount' => 10_000_000, 'gems' => 200_000, 'bonus_gems' => 40_000],
         ];
 
+        $bonuses = TopupBonusResource::collection(
+            TopupBonus::query()
+                ->where('status', 'active')
+                ->orderBy('sort_order')
+                ->orderBy('name')
+                ->get()
+        );
+
         return Inertia::render('Account/Wallet/TopUp', [
             'user' => [
                 'name' => $user?->name ?? 'Tân thủ',
@@ -87,6 +97,7 @@ class WalletTopUpController extends Controller
             'paymentTabs' => $paymentTabs,
             'paymentMethods' => $paymentMethods,
             'packages' => $packages,
+            'bonuses' => $bonuses,
             'historyRoute' => route('wallet.history'),
             'meta' => [
                 'body_class' => 'wrapper-subpage overflow-y-auto',

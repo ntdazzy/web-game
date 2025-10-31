@@ -14,19 +14,19 @@
         ],
         [
             'label' => 'Tướng',
-            'url' => route('heroes.index'),
+            'url' => route('characters.index'),
         ],
         [
             'label' => 'Trái Ác Quỷ',
-            'url' => route('fruits.index'),
+            'url' => route('devilfruits.index'),
             'children' => [
                 [
                     'label' => 'Trái Ác Quỷ',
-                    'url' => route('fruits.index'),
+                    'url' => route('devilfruits.index'),
                 ],
                 [
                     'label' => 'Trái Dung Hợp',
-                    'url' => route('fruits.fusion'),
+                    'url' => route('devilfruits.fusion'),
                 ],
             ],
         ],

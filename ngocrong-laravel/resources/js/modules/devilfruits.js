@@ -1,5 +1,10 @@
-let filteredFruits = fruits;
-let currentEffect = ''
+const fruits = Array.isArray(window.fruits) ? window.fruits : [];
+let filteredFruits = [...fruits];
+const assetPaths = (typeof window.staticAssets === 'object' && window.staticAssets !== null) ? window.staticAssets : {};
+const arrowLeftSrc = assetPaths.arrow_left ?? '';
+const arrowRightSrc = assetPaths.arrow_right ?? '';
+const fallbackFruitSrc = assetPaths.fruit_fallback ?? '';
+let currentEffect = '';
 function renderFruits(page) {
     const start = (page - 1) * perPage;
     const end = start + perPage;
@@ -20,7 +25,7 @@ function renderFruits(page) {
             <li class='fruit-item' data-id="${escapeHtml(fruit.id)}" data-effect="${escapeHtml(effectKey)}">
                 <img src='${window.domainDownload}${escapeHtml(fruit.itemSmall)}'
                     alt='${escapeHtml(fruit.name)}' class='thumb'
-                    onerror="this.onerror=null;this.src='${window.staticUrl}imgs/devil-fruit/devil-fruit-example.png';" />
+                    onerror="this.onerror=null;this.src='${fallbackFruitSrc}';" />
                 <div class='name d-flex flex-column'>${nameSpans}</div>
             </li>
         `;
@@ -36,10 +41,10 @@ function renderFruitDetail(fruit) {
     $detail.find('.name').html(nameSpans).removeClass('flex-column');
 
     const imgHtml = `
-            <img src='${window.domainDownload}/${fruit.itemSmall}'
+            <img src='${window.domainDownload}${escapeHtml(fruit.itemSmall)}'
                 alt='${escapeHtml(fruit.name)}'
                 class='thumb'
-                onerror="this.onerror=null;this.src='${window.staticUrl}imgs/devil-fruit/devil-fruit-example.png';" />
+                onerror="this.onerror=null;this.src='${fallbackFruitSrc}';" />
 	`;
     $detail.find('.thumb').replaceWith(imgHtml);
 
@@ -78,9 +83,9 @@ function renderPagination() {
     // Nút Trước
     html += `<li class="prev">`;
     if (currentPage > 1) {
-        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage - 1}"><img src="${window.staticUrl}imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></a>`;
+        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage - 1}"><img src="${arrowLeftSrc}" alt="" width="10px" height="15px"></a>`;
     } else {
-        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-left.png" alt="" width="10px" height="15px"></span>`;
+        html += `<span><img src="${arrowLeftSrc}" alt="" width="10px" height="15px"></span>`;
     }
     html += `</li>`;
 
@@ -109,9 +114,9 @@ function renderPagination() {
     // Nút Tiếp
     html += `<li class="next">`;
     if (currentPage < totalPages) {
-        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage + 1}"><img src="${window.staticUrl}imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></a>`;
+        html += `<a class='d-block w-100 h-100' href="#" data-page="${currentPage + 1}"><img src="${arrowRightSrc}" alt="" width="10px" height="15px"></a>`;
     } else {
-        html += `<span><img src="${window.staticUrl}imgs/icon-arrow-right.png" alt="" width="10px" height="15px"></span>`;
+        html += `<span><img src="${arrowRightSrc}" alt="" width="10px" height="15px"></span>`;
     }
     html += `</li>`;
 
@@ -153,7 +158,7 @@ function renderAllFruits() {
             <li class='fruit-item' data-id="${escapeHtml(fruit.id)}" data-effect="${escapeHtml(effectKey)}">
                 <img src='${window.domainDownload}${escapeHtml(fruit.itemSmall)}'
                     alt='${escapeHtml(fruit.name)}' class='thumb'
-                    onerror="this.onerror=null;this.src='${window.staticUrl}imgs/devil-fruit/devil-fruit-example.png';" />
+                    onerror="this.onerror=null;this.src='${fallbackFruitSrc}';" />
                 <div class='name d-flex flex-column'>${nameSpans}</div>
             </li>
         `;
@@ -203,9 +208,9 @@ function renderFruitsList(fruitsToRender) {
         const effectKey = slugify(fruit.effect || '');
         const nameSpans = formatNameToSpans(fruit.name);
         return `<li class='fruit-item' data-id="${fruit.id}" data-effect="${escapeHtml(effectKey)}">
-            <img src='${window.staticUrl}${fruit.itemSmall}'
+            <img src='${window.domainDownload}${escapeHtml(fruit.itemSmall)}'
                 alt='${escapeHtml(fruit.name)}' class='thumb'
-                onerror="this.onerror=null;this.src='${window.staticUrl}imgs/devil-fruit/devil-fruit-example.png';" />
+                onerror="this.onerror=null;this.src='${fallbackFruitSrc}';" />
             <div class='name d-flex flex-column'>${nameSpans}</div>
         </li>`;
     }).join(''));
@@ -235,6 +240,12 @@ function formatNameToSpanForDetail(name, className) {
 
 
 $(document).ready(function () {
+    if (!fruits.length) {
+        $('#fruit-list').html('<li class="no-data">Không có dữ liệu để hiển thị</li>');
+        $('#pagination').hide();
+        return;
+    }
+
     renderFruitsListByScreen();
     renderFruitDetail(fruits[0]);
     $('.fruit-item').first().addClass('active');

@@ -24,6 +24,10 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    bonuses: {
+        type: Array,
+        default: () => [],
+    },
     historyRoute: {
         type: String,
         default: "#",
@@ -270,6 +274,40 @@ const confirmTopUp = async () => {
                                                 <u>đ</u>
                                             </span>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="package-list w-100 mt-4" v-if="props.bonuses.length">
+                                <label for="">Quà nạp web</label>
+                                <div class="package-container">
+                                    <div
+                                        v-for="bonus in props.bonuses"
+                                        :key="bonus.id"
+                                        class="package-item package-item-limit-1"
+                                    >
+                                        <div class="left">
+                                            <h3 class="name">{{ bonus.name }}</h3>
+                                            <p v-if="bonus.description" class="text-white-50 small mb-3">
+                                                {{ bonus.description }}
+                                            </p>
+                                        </div>
+                                        <div class="right">
+                                            <div class="scroll-package-item">
+                                                <div
+                                                    v-for="reward in bonus.rewards ?? []"
+                                                    :key="`${bonus.id}-${reward.name}`"
+                                                    class="item"
+                                                >
+                                                    <p>
+                                                        <span class="fw-bold">x{{
+                                                            formattedNumber(reward.quantity ?? 1)
+                                                        }}</span>
+                                                    </p>
+                                                    <h6>{{ reward.name }}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

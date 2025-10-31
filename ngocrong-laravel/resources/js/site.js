@@ -56,8 +56,8 @@ export default async function bootstrapSite() {
             moduleSet.add('./modules/giftcode.js');
         }
 
-        if (pageId.startsWith('fruits')) {
-            moduleSet.add('./modules/fruits.js');
+        if (pageId.startsWith('devilfruits')) {
+            moduleSet.add('./modules/devilfruits.js');
         }
 
         if (pageId === 'home') {

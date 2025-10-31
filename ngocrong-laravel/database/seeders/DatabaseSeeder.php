@@ -25,6 +25,9 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             GiftcodeSeeder::class,
             WalletTransactionSeeder::class,
+            CharacterSeeder::class,
+            DevilFruitSeeder::class,
+            TopupBonusSeeder::class,
         ]);
     }
 }
