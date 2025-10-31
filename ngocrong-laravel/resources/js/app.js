@@ -1,27 +1,45 @@
 import '../css/app.css';
-import './bootstrap';
 
-import { createInertiaApp } from '@inertiajs/vue3';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { createApp, h } from 'vue';
-import { ZiggyVue } from '../../vendor/tightenco/ziggy';
+const inertiaRoot = document.getElementById('app');
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+if (inertiaRoot?.dataset?.page) {
+    import('./bootstrap');
+    import('@inertiajs/vue3').then(({ createInertiaApp }) => {
+        Promise.all([
+            import('laravel-vite-plugin/inertia-helpers'),
+            import('vue'),
+            import('../../vendor/tightenco/ziggy'),
+        ]).then(([helpers, vue, ziggy]) => {
+            const { resolvePageComponent } = helpers;
+            const { createApp, h } = vue;
+            const { ZiggyVue } = ziggy;
+            const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
-createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) =>
-        resolvePageComponent(
-            `./Pages/${name}.vue`,
-            import.meta.glob('./Pages/**/*.vue'),
-        ),
-    setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
-    },
-    progress: {
-        color: '#4B5563',
-    },
-});
+            createInertiaApp({
+                title: (title) => `${title} - ${appName}`,
+                resolve: (name) =>
+                    resolvePageComponent(
+                        `./Pages/${name}.vue`,
+                        import.meta.glob('./Pages/**/*.vue'),
+                    ),
+                setup({ el, App, props, plugin }) {
+                    return createApp({ render: () => h(App, props) })
+                        .use(plugin)
+                        .use(ZiggyVue)
+                        .mount(el);
+                },
+                progress: {
+                    color: '#4B5563',
+                },
+            });
+        });
+    });
+} else {
+    import('./site')
+        .then(({ default: bootstrapSite }) => bootstrapSite?.())
+        .catch((error) => {
+            if (import.meta.env.DEV) {
+                console.error('[site] bootstrap failed', error);
+            }
+        });
+}

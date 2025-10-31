@@ -1,22 +1,33 @@
 <?php
 
+use App\Http\Controllers\Account\AccountProfileController;
+use App\Http\Controllers\Account\GiftcodeController;
+use App\Http\Controllers\Account\WalletHistoryController;
+use App\Http\Controllers\Account\WalletTopUpController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\Web\EventController;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\PostController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::get('/', HomeController::class)->name('home');
+Route::get('/landing', [HomeController::class, 'landing'])->name('landing');
+
+Route::prefix('tin-tuc')
+    ->name('news.')
+    ->group(function () {
+        Route::get('/', [PostController::class, 'index'])->name('index');
+        Route::get('/{post:slug}', [PostController::class, 'show'])->name('show');
+    });
+
+Route::get('/su-kien', [EventController::class, 'index'])->name('events.index');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/tai-khoan', [AccountProfileController::class, 'index'])->name('account.profile');
+    Route::get('/giftcode', [GiftcodeController::class, 'index'])->name('giftcode.index');
+    Route::get('/nap-web', [WalletTopUpController::class, 'create'])->name('wallet.topup');
+    Route::get('/lich-su-giao-dich', [WalletHistoryController::class, 'index'])->name('wallet.history');
 });
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

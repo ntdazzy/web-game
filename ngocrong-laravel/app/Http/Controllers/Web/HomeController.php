@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Web;
+
+use App\Http\Controllers\Controller;
+use Illuminate\View\View;
+
+class HomeController extends Controller
+{
+    public function __invoke(): View
+    {
+        return view('pages.home');
+    }
+
+    public function landing(): View
+    {
+        return view('pages.landing');
+    }
+}

@@ -1,0 +1,182 @@
+```text
+# PROMPT: Chuyển đổi source ➜ Laravel 12 (Blade + Vue từng phần, Breeze, Inertia, Sanctum, Vite)
+
+## Bối cảnh
+- Tôi đã có project **Laravel 12** ngocrong-laravel mới tạo, đã cài **Laravel Breeze (Vue)** và **Vite**.
+- Yêu cầu chuyển đổi toàn bộ HTML/CSS/JS/Fonts/Images/Assets từ source cũ (src_gốc) sang cấu trúc Laravel **chuẩn**, **DRY** (không lặp), **UI/UX giống 100%**.
+- Frontend: **Blade + Vue từng phần**.
+  - **Blade**: Trang chủ, Tin tức, Sự kiện, Landing, Bài viết.
+  - **Inertia (Vue)**: Đăng nhập/Đăng ký, Hồ sơ tài khoản, Nhập giftcode, Nạp web, Lịch sử giao dịch.
+- API: scaffold sẵn **routes/controllers mẫu** + bật **Laravel Sanctum** để future dev.
+- Assets phải nằm trong **`resources/*`** (không để ở `public` trừ build output).
+- Nguồn dữ liệu: chuyển sang **động** (migrations + models + seeders tối thiểu) cho Tin tức/Bài viết/Sự kiện/Giao dịch…
+
+## Mục tiêu chất lượng
+1) **UI/UX khớp 100%** so với source gốc (layout, spacing, font, màu, hiệu ứng).
+2) **Không lặp**: meta, CSS, JS, header, footer… được tách partial/stack hợp lý.
+3) **Assets tối ưu**: gộp/đổi tên rõ nghĩa, bỏ trùng, fonts/images chuẩn hoá, đường dẫn Vite ok.
+4) **Kiến trúc rõ ràng**: Blade layout chuẩn, Vue component hoá phần tương tác; Inertia cho flows tài khoản.
+5) **API/DB sẵn sườn**: có migrations + models + routes + controllers mẫu; bật Sanctum.
+6) xóa bỏ các file dư thùa không sử dụng trong src ngocrong-laravel
+
+---
+## Việc cần làm (workflow tuần tự)
+1) **Quét & phân loại source cũ**
+   - Phân rã HTML thành: `head/meta`, `header`, `nav`, `footer`, phần **content** theo từng page.
+   - Thu thập tất cả CSS/JS/Fonts/Images; phát hiện **file trùng nội dung** (hash) hoặc **gần giống** (>95% giống) → đánh dấu để gộp.
+   - Map URL cũ ➜ **tên view**/route mới.
+
+2) **Tạo khung Laravel** (dựa trên project đã có)
+   - Layout chính: `resources/views/layouts/app.blade.php` — chứa `@include('shared.head')`, `@include('partials.header')`, `@yield('content')`, `@include('partials.footer')`, `@stack('scripts')`, và `@vite(['resources/css/app.css','resources/js/app.js'])`.
+   - Partials:
+     - `resources/views/shared/head.blade.php`: chỉ chứa **meta chung** + links/styles chung.
+     - `resources/views/partials/header.blade.php`, `nav.blade.php`, `footer.blade.php`.
+   - Pages (Blade): `resources/views/pages/*.blade.php` (Trang chủ, Tin tức, Sự kiện, Landing, Bài viết).
+
+3) **Tách & gom assets về `resources/` (Vite)**
+   - CSS ➜ `resources/css/`:
+     - Hợp nhất các file **nội dung giống** vào **01 file chính** (VD: `app.css`).
+     - Các biến thể theo trang (nếu khác đáng kể) ➜ `pages/<slug>.css` và **chỉ import khi cần**.
+     - **Rewrite** tất cả `url(...)` trong CSS về đường dẫn tương ứng trong `resources/assets/`.
+   - JS ➜ `resources/js/`:
+     - Gộp các file trùng nội dung vào **01 file** tương ứng theo chức năng; **không để trùng logic**.
+     - Tách module theo chức năng: `modules/` (VD: `modules/slider.js`, `modules/aos.js`, `modules/form-validate.js`).
+     - Entry chính: `app.js` (import Vue + bootstrap) và **import động (dynamic import)** cho các module theo trang/route.
+   - Fonts/Images ➜ `resources/assets/{fonts,images}`:
+     - **Đổi tên rõ nghĩa** (VD: `fa-brands.woff2`, `bg-hero.jpg`), bỏ tên hash khó hiểu.
+     - Cập nhật mọi tham chiếu trong CSS/Blade sang **đường dẫn Vite**.
+
+4) **Chuẩn hoá tên file & loại bỏ trùng**
+   - So khớp theo **hash nội dung** để chỉ giữ **01 bản duy nhất** cho mỗi nội dung.
+   - Nếu nhiều file chỉ khác 1-2 dòng, gộp lại thành 1 file, comment giải thích.
+   - Kết quả cuối cùng: **1 file CSS tổng** cho common, **1 file JS tổng** cho common; phần đặc thù tách theo trang/module.
+
+5) **Mapping pages**
+   - Trang chủ ➜ `pages/home.blade.php`.
+   - Tin tức (list) ➜ `pages/news/index.blade.php`.
+   - Tin tức (chi tiết/bài viết) ➜ `pages/news/show.blade.php`.
+   - Sự kiện (list) ➜ `pages/events/index.blade.php`.
+   - Landing ➜ `pages/landing.blade.php`.
+   - (Có thể bổ sung theo source thực tế nếu có thêm sections.)
+
+6) **Inertia + Vue cho flows tài khoản**
+   - Dùng Breeze (Vue) + Inertia: Tạo pages trong `resources/js/Pages/Account/*`:
+     - `Auth/Login.vue`, `Auth/Register.vue` (giữ UI/UX gốc), `Profile/Index.vue`.
+     - `Wallet/TopUp.vue`, `Wallet/History.vue`.
+     - `Giftcode/Redeem.vue`.
+   - Route Inertia trong `routes/web.php` (nhóm với middleware `auth` khi cần).
+
+7) **DB & Models & Seeders (tối thiểu)**
+   - Migrations + Models (ví dụ):
+     - `posts` (tin tức/bài viết): id, title, slug, excerpt, content, cover_image, published_at, status, author_id, timestamps.
+     - `events`: id, title, slug, content, starts_at, ends_at, banner, status, timestamps.
+     - `wallet_transactions`: id, user_id, type(enum: topup, spend, refund), amount(decimal), ref_code, meta(json), status, timestamps.
+     - `giftcodes`: id, code, type, payload(json), expired_at, max_uses, used_count, status, timestamps.
+   - Seeder mẫu (ít data) để kiểm tra UI.
+
+8) **API scaffold + Sanctum**
+   - Cài & bật **Sanctum**; cấu hình SPA domain nếu cần.
+   - `routes/api.php`: khai báo `Route::apiResource('posts', ...)`, `events`, `wallet-transactions` (chỉ index/show trước), `POST /giftcodes/redeem` (stub controller, check Sanctum auth).
+   - Controller mẫu: trả dữ liệu từ Models (paginate cho list), dùng Resource/Collection khi cần.
+   - Sử dụng file .env để lưu các cấu hình đặc thù cho môi trường (domain, secret keys, endpoint API, v.v.) thay vì hard-code trong code. Ví dụ: thiết lập APP_URL=https://haitacmanhnhat.vn (domain chính)
+     và SANCTUM_STATEFUL_DOMAINS=haitacmanhnhat.vn trong file .env. Đảm bảo các config (như trong config/sanctum.php) sử dụng những biến này cho domain cookie và các thông số bảo mật.
+
+
+9) **Ràng buộc UI/UX**
+   - So sánh DOM/CSS sau build với source gốc: kích thước, font, màu, khoảng cách, icon, hiệu ứng AOS/Swiper… **phải khớp**.
+   - Mọi phần **lặp lại** (meta, favicon, og tags, css/js chung, header/footer) **không được** xuất hiện rải rác ở từng page.
+
+10) **Kiểm thử & Acceptance**
+   - Chạy `npm run build` và `php artisan serve` → duyệt toàn bộ pages.
+   - **Network**: Các CSS/JS common chỉ tải 1 lần; module page chỉ tải ở trang cần.
+   - **Console**: 0 error, 0 warning nghiêm trọng; không event listener bị đăng ký lặp.
+
+---
+## Các tệp chính cần tạo/chỉnh
+- `resources/views/layouts/app.blade.php`
+- `resources/views/shared/head.blade.php`
+- `resources/views/partials/{header,nav,footer}.blade.php`
+- `resources/views/pages/{home,landing}.blade.php`
+- `resources/views/pages/news/{index,show}.blade.php`
+- `resources/views/events/index.blade.php`
+- `resources/css/app.css` (+ optional: `pages/*.css`)
+- `resources/js/app.js` (bootstrap + Vue mount theo data-attr)
+- `resources/js/modules/*.js` (chia nhỏ chức năng: aos, slider, modal, form-validate…)
+- `resources/js/Pages/Account/{Auth,Profile,Giftcode,Wallet}/*.vue` (Inertia)
+- `resources/assets/{images,fonts}/...` (đổi tên rõ nghĩa)
+- `routes/web.php` (Blade + Inertia routes)
+- `routes/api.php` (apiResource + redeem giftcode)
+- `app/Models/{Post,Event,WalletTransaction,Giftcode}.php`
+- `database/migrations/*_create_{posts,events,wallet_transactions,giftcodes}_table.php`
+- `database/seeders/*Seeder.php`
+- `config/sanctum.php` + `AppServiceProvider` (nếu cần SPA/cookie domain)
+
+---
+## Quy tắc chi tiết khi chuyển đổi
+### A) Head & Meta
+- Giữ **một bản** cho: charset, viewport, favicon, theme-color, og:*, twitter:*, canonical.
+- Dùng `@stack('head')` để page **bổ sung** thẻ riêng (nếu có); không lặp thẻ giống nhau giữa các page.
+
+### B) CSS
+- Dò file **trùng nội dung** bằng hash, chỉ giữ 1 file.
+- Nếu nhiều file **gần giống**: gộp vào `app.css`, phần khác biệt đáng kể tách sang `pages/<slug>.css` và chỉ include khi cần (qua `@push('head')`).
+- Rewrite tất cả `url(...)` trong CSS sang `resources/assets/*`; đảm bảo Vite xử lý đúng.
+
+### C) JS
+- Hợp nhất các script **giống nhau** thành 1 module duy nhất.
+- Tách JS theo chức năng vào `resources/js/modules/`:
+  - Ví dụ: `aos.js`, `swiper.js`, `sticky-header.js`, `giftcode-form.js`, `topup-flow.js`…
+- Entry `app.js` chỉ import common (polyfills, bootstrap, init nhẹ). Module nặng **import động** tại page tương ứng.
+- **Không đăng ký event listener lặp**; nếu cần, dùng delegation hoặc kiểm soát bằng data-attr.
+
+### D) Vue partial mount
+- Ở các trang Blade tĩnh, chỉ mount Vue vào các vùng cần tương tác (VD: `<div id="giftcode-app" data-page="giftcode">`), module JS tự mount dựa trên data-attr.
+- Với Inertia pages, render Vue component đầy đủ theo chuẩn Breeze.
+
+### E) Đổi tên assets
+- Tên file hash khó hiểu ➜ đổi thành **tên chức năng** (giữ phần mở rộng đúng: .css/.js/.woff2/.png…)
+- Ảnh gom về `resources/assets/images`, fonts về `resources/assets/fonts`.
+
+### F) DB & API
+- Tạo migrations/model như mục 7.
+- Seeder ít dữ liệu demo để trang list/chi tiết hiển thị động (Posts/Events).
+- API routes mẫu + Controller trả JSON (Resource/Collection nếu cần), bật Sanctum cho nhóm route cần auth.
+
+---
+## Gợi ý triển khai (mẫu code khung)
+### routes/web.php (rút gọn)
+- Blade pages: `/`, `/tin-tuc`, `/tin-tuc/{slug}`, `/su-kien`, `/landing`.
+- Inertia (auth): `/login`, `/register`, `/profile`, `/giftcode`, `/nap-web`, `/lich-su`.
+
+### resources/views/layouts/app.blade.php (rút gọn)
+- Chứa `@include('shared.head')`, partials, `@yield('content')`, `@vite(...)`, `@stack('head')`, `@stack('scripts')`.
+
+### resources/js/app.js
+- Import Vue, createApp; auto-mount theo `[data-vue]` hoặc theo id; import common modules; dynamic import theo `data-page`.
+
+---
+## Acceptance checklist
+- [ ] Giao diện giống bản gốc **pixel-by-pixel** (header/nav/footer, fonts, spacing, breakpoints).
+- [ ] **Không còn lặp** head/meta/CSS/JS giữa các page.
+- [ ] **Network**: chỉ 1 CSS/JS common; module page load đúng lúc.
+- [ ] **Console** sạch; không event lặp.
+- [ ] Routes Blade + Inertia hoạt động; Auth Breeze ok.
+- [ ] API scaffold + Sanctum hoạt động (endpoint trả JSON demo).
+- [ ] Dữ liệu Posts/Events hiển thị từ DB (seeded) trên view.
+- [ ] Cấu hình domain và tham số môi trường: không còn hard-code domain/URL hay config đặc thù trong code (đã đưa vào .env và dùng qua config).
+
+---
+## Đầu vào
+- Thư mục source cũ: `haitacmanhnhat/` (có HTML/CSS/JS/Fonts/Images — nhiều file bị mã hoá tên và bị lặp).
+
+## Đầu ra
+- Cây thư mục & file theo danh sách ở phần "Các tệp chính cần tạo/chỉnh".
+- Code Laravel 12 + Breeze (Vue) + Inertia + Sanctum + Vite **đã clean/DRY**, assets ở `resources/*`, UI/UX giữ nguyên.
+
+# Hãy thực hiện ngay theo đúng checklist trên. Khi xong, in ra:
+- Danh sách file đã tạo/chỉnh (đường dẫn tương đối)
+- Số file CSS/JS trước ➜ sau (đã gộp)
+- Báo cáo asset rename (hash ➜ tên rõ nghĩa)
+- Ghi chú trang nào có CSS/JS đặc thù
+- TODO nhỏ còn lại (nếu có)
+```

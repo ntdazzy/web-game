@@ -1,3 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './vendor/bootstrap.min.css';
+@import './vendor/fontawesome-all.min.css';
+@import './vendor/slick.css';
+@import './vendor/slick-theme.css';
+@import './vendor/daterangepicker.css';
+@import './vendor/letmescroll.css';
+@import './vendor/select2.min.css';
+@import './vendor/jquery.mCustomScrollbar.min.css';
+@import './vendor/aos.css';
+
+@import './site-base.css';
+@import './site-responsive.css';
