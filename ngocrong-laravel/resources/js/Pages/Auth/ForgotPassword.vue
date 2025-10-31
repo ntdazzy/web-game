@@ -1,14 +1,12 @@
 <script setup>
-import GuestLayout from "@/Layouts/GuestLayout.vue";
+import AuthModalLayout from "@/Components/AuthModalLayout.vue";
 import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import { Head, useForm } from "@inertiajs/vue3";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
-defineProps({
+const props = defineProps({
     status: {
         type: String,
+        default: null,
     },
 });
 
@@ -22,44 +20,67 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Forgot Password" />
+    <div class="auth-page">
+        <Head title="Khôi phục mật khẩu" />
 
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email
-            address and we will email you a password reset link that will allow
-            you to choose a new one.
-        </div>
+        <AuthModalLayout
+            title="Khôi phục mật khẩu"
+            :close-href="route('home')"
+            aria-id="pageForgotModalTitle"
+        >
+            <template #default="{ headingId }">
+                <h2 :id="headingId" class="login-modal__title">Khôi phục mật khẩu</h2>
+                <p class="login-modal__subtitle">
+                    Nhập email đã đăng ký, hệ thống sẽ gửi liên kết đặt lại mật khẩu.
+                </p>
 
-        <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
-            {{ status }}
-        </div>
+                <form class="login-modal__form" @submit.prevent="submit">
+                    <div class="login-modal__field">
+                        <label for="forgotEmail" class="login-modal__label">
+                            Email
+                        </label>
+                        <div class="login-modal__input">
+                            <i class="fa-light fa-envelope"></i>
+                            <input
+                                id="forgotEmail"
+                                v-model="form.email"
+                                type="email"
+                                name="email"
+                                autocomplete="email"
+                                placeholder="Nhập email đăng ký"
+                                required
+                            />
+                        </div>
+                        <InputError
+                            class="login-modal__error"
+                            :message="form.errors.email"
+                        />
+                    </div>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
+                    <button
+                        type="submit"
+                        class="login-modal__submit"
+                        :class="{ 'is-loading': form.processing }"
+                        :disabled="form.processing"
+                    >
+                        <span>Gửi yêu cầu</span>
+                        <span class="login-modal__spinner" aria-hidden="true"></span>
+                    </button>
 
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
+                    <p
+                        v-if="props.status"
+                        class="login-modal__status text-success fw-semibold mt-3 text-center"
+                    >
+                        {{ props.status }}
+                    </p>
 
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4 flex items-center justify-end">
-                <PrimaryButton
-                    :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
-                >
-                    Email Password Reset Link
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
+                    <div class="login-modal__links">
+                        <Link :href="route('login')">Đăng nhập</Link>
+                        <span>·</span>
+                        <Link :href="route('register')">Đăng ký</Link>
+                    </div>
+                </form>
+            </template>
+        </AuthModalLayout>
+    </div>
 </template>

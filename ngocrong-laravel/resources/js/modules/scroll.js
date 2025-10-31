@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { onDocumentReady } from '../utils/dom';
+
+onDocumentReady(() => {
     const wrapper = document.querySelector('.wrapper-page');
     const leftMenu = document.querySelector('.left-menu');
     const rightMenu = document.querySelector('.right-menu');

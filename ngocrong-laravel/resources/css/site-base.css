@@ -3585,8 +3585,27 @@ footer .info-group p::before {
     margin-bottom: 24px;
 }
 
+.login-modal__subtitle {
+    text-align: center;
+    font-size: 14px;
+    margin-top: -12px;
+    margin-bottom: 24px;
+    color: #9fd4ff;
+}
+
+.login-modal__status {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
 .login-modal__field {
     margin-bottom: 18px;
+}
+
+.login-modal__form {
+    display: flex;
+    flex-direction: column;
 }
 
 .login-modal__label {
@@ -3713,6 +3732,41 @@ body.modal-open {
     overflow: hidden;
 }
 
+.login-modal--static {
+    position: relative;
+    display: flex;
+    inset: auto;
+}
+
+.login-modal--static .login-modal__backdrop {
+    display: none;
+}
+
+.login-modal--static .login-modal__dialog {
+    width: 480px;
+    max-width: 100%;
+    transform: none;
+}
+
+.auth-modal-page {
+    min-height: 100vh;
+    background: url('../assets/images/bg-main.jpg') top center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.auth-modal-page__wrapper {
+    width: 100%;
+    padding: 160px 16px 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-modal-page .login-modal__dialog {
+    max-width: 460px;
+    width: 100%;
+}
+
 @media (max-width: 576px) {
     .login-modal__dialog {
         padding: 28px 22px 24px;
@@ -3720,6 +3774,10 @@ body.modal-open {
 
     .login-modal__title {
         font-size: 22px;
+    }
+
+    .auth-modal-page__wrapper {
+        padding: 120px 12px 96px;
     }
 }
 

@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { onDocumentReady } from '../utils/dom';
+
+onDocumentReady(() => {
     const modal = document.getElementById('loginModal');
     if (!modal) {
         return;
