@@ -18,6 +18,8 @@ const props = defineProps({
     },
 });
 
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? "";
+
 const form = useForm({
     login: "",
     password: "",
@@ -26,6 +28,7 @@ const form = useForm({
 
 const submit = () => {
     form.transform((data) => ({
+        _token: csrfToken,
         ...data,
         remember: data.remember ? "on" : "",
     })).post(route("login"), {

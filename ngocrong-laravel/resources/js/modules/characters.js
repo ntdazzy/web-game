@@ -528,6 +528,8 @@ const handleResize = (container) => {
     applyTab(container, state.currentTab);
 };
 
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? '';
+
 const fetchDetail = async (heroId, heroSlug) => {
     const response = await fetch(API_ENDPOINT, {
         method: "POST",
@@ -535,6 +537,7 @@ const fetchDetail = async (heroId, heroSlug) => {
             "Content-Type": "application/json",
             Accept: "application/json",
             "X-Requested-With": "XMLHttpRequest",
+            ...(csrfToken ? { "X-CSRF-TOKEN": csrfToken } : {}),
         },
         body: JSON.stringify({ heroId, heroSlug }),
     });

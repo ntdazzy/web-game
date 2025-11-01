@@ -16,6 +16,8 @@ const buildFallbackEmail = (username) => {
     return `${safe}@haitacmanhnhat.local`;
 };
 
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? '';
+
 const postForm = async (form, extraFields = (data) => data) => {
     const formData = new FormData(form);
     extraFields(formData);
@@ -25,6 +27,7 @@ const postForm = async (form, extraFields = (data) => data) => {
         headers: {
             Accept: 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
+            ...(csrfToken ? { 'X-CSRF-TOKEN': csrfToken } : {}),
         },
         credentials: 'include',
         body: formData,

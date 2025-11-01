@@ -17,10 +17,13 @@ const form = useForm({
     agree: false,
 });
 
+const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? "";
+
 const submit = () => {
     form.transform((data) => {
         const username = (data.username || "").trim();
         return {
+            _token: csrfToken,
             name: username,
             login: username,
             email: `${username.replace(/[^a-zA-Z0-9._-]+/g, "").toLowerCase() || "captain"}@haitacmanhnhat.local`,
