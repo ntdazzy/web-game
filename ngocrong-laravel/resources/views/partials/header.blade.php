@@ -124,8 +124,8 @@
                             </ul>
                         </div>
                     </div>
-                    <a href="{{ route('auth.login.vi') }}" class="btn-login login-required"
-                        data-login-modal="true" data-redirect="{{ route('wallet.topup', [], false) }}"></a>
+                    <a href="{{ route('wallet.topup') }}" class="btn-login login-required" data-open-auth="login"
+                        data-redirect="{{ route('wallet.topup') }}"></a>
                 </div>
             </div>
         </div>

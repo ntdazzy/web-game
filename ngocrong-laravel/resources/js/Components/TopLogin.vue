@@ -11,9 +11,7 @@ const accountRoutes = computed(() => ({
     password: route('password.request'),
 }));
 
-const loginRoute = route('auth.login.vi');
-
-const redirectTarget = computed(() => route('wallet.topup', undefined, false));
+const redirectTarget = computed(() => accountRoutes.value.topup);
 </script>
 
 <template>
@@ -69,9 +67,9 @@ const redirectTarget = computed(() => route('wallet.topup', undefined, false));
                 </div>
             </div>
             <a
-                :href="loginRoute"
+                href="#"
                 class="btn-login login-required"
-                data-login-modal="true"
+                data-open-auth="login"
                 :data-redirect="redirectTarget"
             ></a>
         </div>

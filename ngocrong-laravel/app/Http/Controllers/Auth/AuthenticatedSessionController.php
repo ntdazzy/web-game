@@ -21,6 +21,23 @@ class AuthenticatedSessionController extends Controller
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
+            'navItems' => [
+                [
+                    'label' => 'Đăng nhập',
+                    'href' => route('auth.login.vi'),
+                    'active' => true,
+                ],
+                [
+                    'label' => 'Đăng ký',
+                    'href' => route('auth.register.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Quên mật khẩu',
+                    'href' => route('password.request.vi'),
+                    'active' => false,
+                ],
+            ],
             'meta' => [
                 'body_class' => 'wrapper-subpage overflow-y-auto',
                 'page_id' => 'auth-login',

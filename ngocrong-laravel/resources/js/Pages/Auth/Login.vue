@@ -1,8 +1,7 @@
 <script setup>
-import AuthModalLayout from "@/Components/AuthModalLayout.vue";
+import AccountAuthLayout from "@/Components/AccountAuthLayout.vue";
 import InputError from "@/Components/InputError.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
-import { computed } from "vue";
 
 const props = defineProps({
     canResetPassword: {
@@ -13,9 +12,9 @@ const props = defineProps({
         type: String,
         default: null,
     },
-    meta: {
-        type: Object,
-        default: () => ({}),
+    navItems: {
+        type: Array,
+        default: () => [],
     },
 });
 
@@ -24,8 +23,6 @@ const form = useForm({
     password: "",
     remember: false,
 });
-
-const generalError = computed(() => form.errors.general || form.errors.auth);
 
 const submit = () => {
     form.transform((data) => ({
@@ -38,107 +35,74 @@ const submit = () => {
 </script>
 
 <template>
-    <div class="auth-page">
-        <Head title="Đăng nhập" />
-        <AuthModalLayout
-            title="Đăng nhập"
-            :close-href="route('home')"
-            aria-id="pageLoginModalTitle"
-        >
-            <template #default="{ headingId }">
-                <h2 :id="headingId" class="login-modal__title">Đăng nhập</h2>
-
-                <p v-if="status" class="login-modal__status text-success fw-semibold">
-                    {{ status }}
+    <Head title="Đăng nhập" />
+    <AccountAuthLayout :nav-items="navItems">
+        <div class="breadcrumb d-flex flex-column mb-4">
+            <h4 class="text-blue">Đăng nhập</h4>
+            <p>Đăng nhập tài khoản để tiếp tục trải nghiệm Hải Tặc Mạnh Nhất.</p>
+        </div>
+        <div class="col-12 col-sm-6 wrap-form">
+            <form class="form-login" @submit.prevent="submit">
+                <div class="mb-3">
+                    <label class="form-label" for="accountLoginUsername"
+                        >Tên tài khoản</label
+                    >
+                    <input
+                        id="accountLoginUsername"
+                        v-model="form.login"
+                        class="form-control"
+                        name="login"
+                        placeholder="Nhập tên tài khoản"
+                        type="text"
+                        autocomplete="username"
+                        required
+                    />
+                    <InputError class="text-danger small mt-2" :message="form.errors.login" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="accountLoginPassword">Mật khẩu</label>
+                    <input
+                        id="accountLoginPassword"
+                        v-model="form.password"
+                        class="form-control"
+                        name="password"
+                        placeholder="Nhập mật khẩu"
+                        type="password"
+                        autocomplete="current-password"
+                        required
+                    />
+                    <InputError class="text-danger small mt-2" :message="form.errors.password" />
+                </div>
+                <div class="mb-3 form-check">
+                    <input
+                        id="accountLoginRemember"
+                        v-model="form.remember"
+                        class="form-check-input"
+                        type="checkbox"
+                        name="remember"
+                    />
+                    <label class="form-check-label" for="accountLoginRemember">
+                        Lưu thông tin đăng nhập
+                    </label>
+                </div>
+                <button
+                    class="btn btn-secondary"
+                    type="submit"
+                    :disabled="form.processing"
+                >
+                    <span v-if="form.processing" class="spinner-border spinner-border-sm me-2" />
+                    Đăng nhập
+                </button>
+                <p v-if="props.status" class="text-success mt-3">
+                    {{ props.status }}
                 </p>
-
-                <form class="login-modal__form" @submit.prevent="submit">
-                    <div class="login-modal__field">
-                        <label for="pageLoginUsername" class="login-modal__label">
-                            Tên đăng nhập
-                        </label>
-                        <div class="login-modal__input">
-                            <i class="fa-light fa-user"></i>
-                            <input
-                                id="pageLoginUsername"
-                                v-model="form.login"
-                                type="text"
-                                name="login"
-                                autocomplete="username"
-                                placeholder="Tên đăng nhập"
-                                required
-                            />
-                        </div>
-                        <InputError
-                            class="login-modal__error"
-                            :message="form.errors.login"
-                        />
-                    </div>
-
-                    <div class="login-modal__field">
-                        <label for="pageLoginPassword" class="login-modal__label">
-                            Mật khẩu
-                        </label>
-                        <div class="login-modal__input">
-                            <i class="fa-light fa-lock"></i>
-                            <input
-                                id="pageLoginPassword"
-                                v-model="form.password"
-                                type="password"
-                                name="password"
-                                autocomplete="current-password"
-                                placeholder="Mật khẩu"
-                                required
-                            />
-                        </div>
-                        <InputError
-                            class="login-modal__error"
-                            :message="form.errors.password"
-                        />
-                    </div>
-
-                    <div class="login-modal__actions">
-                        <label class="login-modal__checkbox">
-                            <input
-                                id="remember"
-                                v-model="form.remember"
-                                type="checkbox"
-                                name="remember"
-                            />
-                            <span>Lưu thông tin đăng nhập</span>
-                        </label>
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="login-modal__submit"
-                        :class="{ 'is-loading': form.processing }"
-                        :disabled="form.processing"
-                    >
-                        <span>Đăng nhập</span>
-                        <span class="login-modal__spinner" aria-hidden="true"></span>
-                    </button>
-
-                    <p
-                        v-if="generalError"
-                        class="login-modal__error login-modal__error--general"
-                    >
-                        {{ generalError }}
-                    </p>
-
-                    <div class="login-modal__links">
-                        <span>Chưa có tài khoản?</span>
-                        <Link :href="route('register')">Đăng ký ngay</Link>
-                        <span>·</span>
-                        <Link
-                            v-if="canResetPassword"
-                            :href="route('password.request')"
-                        >
-                            Quên mật khẩu?
-                        </Link>
-                    </div>
-                </form>
-            </template>
-        </AuthModalLayout>
-    </div>
+                <p v-if="form.errors.general || form.errors.auth" class="text-danger mt-3">
+                    {{ form.errors.general || form.errors.auth }}
+                </p>
+                <p v-if="canResetPassword" class="mt-3">
+                    <Link :href="route('password.request')">Quên mật khẩu?</Link>
+                </p>
+            </form>
+        </div>
+    </AccountAuthLayout>
 </template>

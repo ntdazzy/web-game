@@ -24,6 +24,27 @@ class NewPasswordController extends Controller
         return Inertia::render('Auth/ResetPassword', [
             'email' => $request->email,
             'token' => $request->route('token'),
+            'navItems' => [
+                [
+                    'label' => 'Đăng nhập',
+                    'href' => route('auth.login.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Đăng ký',
+                    'href' => route('auth.register.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Quên mật khẩu',
+                    'href' => route('password.request.vi'),
+                    'active' => true,
+                ],
+            ],
+            'meta' => [
+                'body_class' => 'wrapper-subpage overflow-y-auto',
+                'page_id' => 'auth-reset',
+            ],
         ]);
     }
 

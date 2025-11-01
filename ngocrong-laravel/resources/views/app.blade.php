@@ -16,6 +16,10 @@
 
 <body {{ $bodyClass !== '' ? 'class="' . $bodyClass . '"' : '' }} {{ $pageId !== '' ? 'data-page="' . $pageId . '"' : '' }}
     data-login-route="{{ $loginRoute }}">
+    <div id="pageLoadingOverlay" class="page-loading-overlay" role="status" aria-live="polite"
+        aria-label="Đang tải nội dung">
+        <div class="page-loading-overlay__spinner" aria-hidden="true"></div>
+    </div>
     <div id="site-root">
         @include('partials.header')
         @include('partials.nav')
@@ -27,7 +31,7 @@
     @include('partials.footer')
 </div>
 
-@include('partials.modals.login')
+@include('partials.modals.auth')
 
 @stack('scripts')
 </body>

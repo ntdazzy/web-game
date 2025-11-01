@@ -21,6 +21,23 @@ class RegisteredUserController extends Controller
     public function create(): Response
     {
         return Inertia::render('Auth/Register', [
+            'navItems' => [
+                [
+                    'label' => 'Đăng nhập',
+                    'href' => route('auth.login.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Đăng ký',
+                    'href' => route('auth.register.vi'),
+                    'active' => true,
+                ],
+                [
+                    'label' => 'Quên mật khẩu',
+                    'href' => route('password.request.vi'),
+                    'active' => false,
+                ],
+            ],
             'meta' => [
                 'body_class' => 'wrapper-subpage overflow-y-auto',
                 'page_id' => 'auth-register',

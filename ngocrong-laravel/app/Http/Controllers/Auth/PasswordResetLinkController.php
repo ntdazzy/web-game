@@ -19,6 +19,27 @@ class PasswordResetLinkController extends Controller
     {
         return Inertia::render('Auth/ForgotPassword', [
             'status' => session('status'),
+            'navItems' => [
+                [
+                    'label' => 'Đăng nhập',
+                    'href' => route('auth.login.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Đăng ký',
+                    'href' => route('auth.register.vi'),
+                    'active' => false,
+                ],
+                [
+                    'label' => 'Quên mật khẩu',
+                    'href' => route('password.request.vi'),
+                    'active' => true,
+                ],
+            ],
+            'meta' => [
+                'body_class' => 'wrapper-subpage overflow-y-auto',
+                'page_id' => 'auth-forgot',
+            ],
         ]);
     }
 

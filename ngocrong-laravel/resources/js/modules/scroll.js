@@ -1,48 +1,52 @@
-// Ported from src_gốc/st-ms/js/scroll.js and modernised with requestAnimationFrame, DOM helpers.
+// Recreates the snapping scroll + fixed menu behaviour from the legacy home page.
 import { onDocumentReady } from '../utils/dom';
 
 onDocumentReady(() => {
-    const wrapper = document.querySelector('.wrapper-page');
+    const isHomePage = document.body.classList.contains('home-page') || document.body.dataset.page === 'home';
+    if (!isHomePage) {
+        return;
+    }
+
     const leftMenu = document.querySelector('.left-menu');
     const rightMenu = document.querySelector('.right-menu');
+    const leftMenuItems = Array.from(document.querySelectorAll('.left-menu ul li'));
     const turnTopButton = document.querySelector('.turn-top');
+    const pages = Array.from(document.querySelectorAll('.wrapper-page .page'));
 
-    if (!wrapper || !leftMenu) {
+    if (!leftMenu || !rightMenu || leftMenuItems.length === 0 || pages.length === 0) {
         return;
     }
 
-    const pages = Array.from(wrapper.querySelectorAll('.page'));
-    if (pages.length === 0) {
-        return;
-    }
+    let pageOffsets = [];
+    let isScrolling = false;
 
-    const menuItems = Array.from(leftMenu.querySelectorAll('li')).slice(0, pages.length);
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-    const getPageIndexFromScroll = () => {
-        const midpoint = window.scrollY + window.innerHeight / 2;
-        let activeIndex = 0;
-
-        pages.forEach((page, index) => {
+    const recomputeOffsets = () => {
+        pageOffsets = pages.map((page) => {
             const rect = page.getBoundingClientRect();
-            const top = rect.top + window.scrollY;
-            const bottom = top + rect.height;
-            if (midpoint >= top && midpoint < bottom) {
-                activeIndex = index;
-            }
+            return rect.top + window.scrollY;
         });
-
-        return activeIndex;
     };
 
-    const syncMenuVisibility = (index) => {
-        if (!rightMenu) {
-            return;
-        }
+    const findCurrentIndex = () => {
+        const viewportMiddle = window.scrollY + window.innerHeight / 2;
+        let index = 0;
+        pageOffsets.forEach((offset, idx) => {
+            if (viewportMiddle >= offset) {
+                index = idx;
+            }
+        });
+        return index;
+    };
+
+    const toggleMenus = (index) => {
+        const lastIndex = pages.length - 1;
 
         if (index <= 0) {
             leftMenu.style.display = 'block';
             rightMenu.style.display = 'none';
-        } else if (index >= pages.length - 1) {
+        } else if (index >= lastIndex) {
             leftMenu.style.display = 'none';
             rightMenu.style.display = 'block';
         } else {
@@ -52,46 +56,65 @@ onDocumentReady(() => {
     };
 
     const setActiveMenu = (index) => {
-        menuItems.forEach((item, idx) => {
+        leftMenuItems.forEach((item, idx) => {
             item.classList.toggle('active', idx === index);
         });
-        syncMenuVisibility(index);
+        toggleMenus(index);
     };
 
-    const handleScroll = () => {
-        window.requestAnimationFrame(() => {
-            const index = getPageIndexFromScroll();
-            setActiveMenu(index);
+    const scrollToIndex = (index) => {
+        const target = clamp(index, 0, pages.length - 1);
+        const offset = pageOffsets[target] ?? 0;
+
+        isScrolling = true;
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth',
         });
+
+        window.setTimeout(() => {
+            isScrolling = false;
+            setActiveMenu(findCurrentIndex());
+        }, 550);
     };
 
-    menuItems.forEach((item, index) => {
+    const handleWheel = (event) => {
+        if (isScrolling) {
+            return;
+        }
+        event.preventDefault();
+        const direction = event.deltaY > 0 ? 1 : -1;
+        const currentIndex = findCurrentIndex();
+        scrollToIndex(currentIndex + direction);
+    };
+
+    const handleResize = () => {
+        recomputeOffsets();
+        setActiveMenu(findCurrentIndex());
+    };
+
+    recomputeOffsets();
+    setActiveMenu(findCurrentIndex());
+
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            setActiveMenu(findCurrentIndex());
+        }
+    });
+
+    leftMenuItems.forEach((item, index) => {
         item.addEventListener('click', (event) => {
             event.preventDefault();
-            const targetPage = pages[index];
-            if (!targetPage) {
-                return;
-            }
-
-            const rect = targetPage.getBoundingClientRect();
-            const targetOffset = rect.top + window.scrollY;
-            window.scrollTo({
-                top: targetOffset,
-                behavior: 'smooth',
-            });
+            scrollToIndex(index);
         });
     });
 
     if (turnTopButton) {
         turnTopButton.addEventListener('click', (event) => {
             event.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            scrollToIndex(0);
         });
     }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-
-    // Khởi tạo trạng thái ban đầu
-    setActiveMenu(getPageIndexFromScroll());
 });

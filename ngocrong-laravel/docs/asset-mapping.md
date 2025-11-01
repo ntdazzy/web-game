@@ -19,7 +19,7 @@ Bảng dưới đây ghi lại việc quy đổi các tệp CSS/JS từ thư m�
 | Giftcode | `st-ms/js/giftcode.script*.js` | `resources/js/modules/giftcode.js`
 | Devil fruit list | `st-ms/js/fruits.js` | `resources/js/modules/devilfruits.js`
 | Scroll menu | `st-ms/js/scroll.js` | `resources/js/modules/scroll.js`
-| Login modal | `st-ms/js/widget.login*.js` | `resources/js/modules/widget-login.js`
+| Login modal | `st-ms/js/widget.login*.js` | `resources/js/modules/auth-modal.js`
 | Runtime loader | `index.html` script stack | `resources/js/site.js`
 | Vendor JS | `st-ms/js/*.js` (jquery, bootstrap, slick, select2, sweetalert2, aos, moment, daterangepicker, letmescroll, loadingoverlay, mCustomScrollbar) | `resources/js/vendor/*.js`
 

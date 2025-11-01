@@ -23,7 +23,8 @@ const vendorScriptLoaders = {
 const moduleLoaders = {
     './site-global.js': () => import('./site-global.js'),
     './site-custom.js': () => import('./site-custom.js'),
-    './modules/widget-login.js': () => import('./modules/widget-login.js'),
+    './modules/page-loading.js': () => import('./modules/page-loading.js'),
+    './modules/auth-modal.js': () => import('./modules/auth-modal.js'),
     './modules/giftcode.js': () => import('./modules/giftcode.js'),
     './modules/devilfruits.js': () => import('./modules/devilfruits.js'),
     './modules/scroll.js': () => import('./modules/scroll.js'),
@@ -109,7 +110,8 @@ export default async function bootstrapSite() {
         const moduleSet = new Set([
             './site-global.js',
             './site-custom.js',
-            './modules/widget-login.js',
+            './modules/page-loading.js',
+            './modules/auth-modal.js',
         ]);
 
         if (pageId === 'giftcode') {

@@ -2,6 +2,7 @@
 
 @section('title', 'Trang chủ')
 @section('page_id', 'home')
+@section('body_class', 'home-page')
 
 @section('content')
     <div id="root" class="d-flex flex-column align-items-center w-100 position-relative">

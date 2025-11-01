@@ -1,12 +1,17 @@
 <script setup>
-import AuthModalLayout from "@/Components/AuthModalLayout.vue";
+import AccountAuthLayout from "@/Components/AccountAuthLayout.vue";
 import InputError from "@/Components/InputError.vue";
 import { Head, Link, useForm } from "@inertiajs/vue3";
+import { computed } from "vue";
 
 const props = defineProps({
     status: {
         type: String,
         default: null,
+    },
+    navItems: {
+        type: Array,
+        default: () => [],
     },
 });
 
@@ -17,70 +22,49 @@ const form = useForm({
 const submit = () => {
     form.post(route("password.email"));
 };
+
+const navItems = computed(() => props.navItems ?? []);
+const statusMessage = computed(() => props.status);
 </script>
 
 <template>
-    <div class="auth-page">
-        <Head title="Khôi phục mật khẩu" />
-
-        <AuthModalLayout
-            title="Khôi phục mật khẩu"
-            :close-href="route('home')"
-            aria-id="pageForgotModalTitle"
-        >
-            <template #default="{ headingId }">
-                <h2 :id="headingId" class="login-modal__title">Khôi phục mật khẩu</h2>
-                <p class="login-modal__subtitle">
-                    Nhập email đã đăng ký, hệ thống sẽ gửi liên kết đặt lại mật khẩu.
+    <Head title="Khôi phục mật khẩu" />
+    <AccountAuthLayout :nav-items="navItems">
+        <div class="breadcrumb d-flex flex-column mb-4">
+            <h4 class="text-blue">Khôi phục mật khẩu</h4>
+            <p>Nhập email đã đăng ký để nhận liên kết đặt lại mật khẩu.</p>
+        </div>
+        <div class="col-12 col-sm-6 wrap-form">
+            <form class="form-login" @submit.prevent="submit">
+                <div class="mb-3">
+                    <label class="form-label" for="accountForgotEmail">Email</label>
+                    <input
+                        id="accountForgotEmail"
+                        v-model="form.email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Nhập email đăng ký"
+                        type="email"
+                        autocomplete="email"
+                        required
+                    />
+                    <InputError class="text-danger small mt-2" :message="form.errors.email" />
+                </div>
+                <button
+                    class="btn btn-secondary"
+                    type="submit"
+                    :disabled="form.processing"
+                >
+                    <span v-if="form.processing" class="spinner-border spinner-border-sm me-2" />
+                    Gửi yêu cầu
+                </button>
+                <p v-if="statusMessage" class="text-success mt-3">{{ statusMessage }}</p>
+                <p class="mt-3">
+                    <Link :href="route('login')">Đăng nhập</Link>
+                    <span class="mx-2">·</span>
+                    <Link :href="route('register')">Đăng ký</Link>
                 </p>
-
-                <form class="login-modal__form" @submit.prevent="submit">
-                    <div class="login-modal__field">
-                        <label for="forgotEmail" class="login-modal__label">
-                            Email
-                        </label>
-                        <div class="login-modal__input">
-                            <i class="fa-light fa-envelope"></i>
-                            <input
-                                id="forgotEmail"
-                                v-model="form.email"
-                                type="email"
-                                name="email"
-                                autocomplete="email"
-                                placeholder="Nhập email đăng ký"
-                                required
-                            />
-                        </div>
-                        <InputError
-                            class="login-modal__error"
-                            :message="form.errors.email"
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        class="login-modal__submit"
-                        :class="{ 'is-loading': form.processing }"
-                        :disabled="form.processing"
-                    >
-                        <span>Gửi yêu cầu</span>
-                        <span class="login-modal__spinner" aria-hidden="true"></span>
-                    </button>
-
-                    <p
-                        v-if="props.status"
-                        class="login-modal__status text-success fw-semibold mt-3 text-center"
-                    >
-                        {{ props.status }}
-                    </p>
-
-                    <div class="login-modal__links">
-                        <Link :href="route('login')">Đăng nhập</Link>
-                        <span>·</span>
-                        <Link :href="route('register')">Đăng ký</Link>
-                    </div>
-                </form>
-            </template>
-        </AuthModalLayout>
-    </div>
+            </form>
+        </div>
+    </AccountAuthLayout>
 </template>

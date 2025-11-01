@@ -177,11 +177,12 @@ const confirmTopUp = async () => {
                             </div>
 
                             <div class="link-to-history w-100 text-center">
-                                <Link
-                                    :href="historyRoute"
-                                    class="login-required"
-                                    data-redirect="qua-nap-web.html"
-                                >
+                            <Link
+                                :href="historyRoute"
+                                class="login-required"
+                                data-open-auth="login"
+                                data-redirect="qua-nap-web.html"
+                            >
                                     Lịch sử nạp
                                 </Link>
                             </div>
