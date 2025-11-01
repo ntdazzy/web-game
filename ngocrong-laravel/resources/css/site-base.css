@@ -535,12 +535,15 @@ li {
 .menu-fixed {
     top: 40%;
     max-width: 3840px;
+    position: fixed;
+    z-index: 20;
 }
 
 .left-menu {
     top: 40%;
     transform: translateX(-50%);
     left: 143px;
+    z-index: 21;
 }
 
 .left-menu li {
@@ -548,6 +551,7 @@ li {
     width: 212px;
     height: 78px;
     cursor: pointer;
+    pointer-events: auto;
 }
 
 .left-menu button {
