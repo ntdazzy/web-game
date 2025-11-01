@@ -5,13 +5,13 @@ import { computed } from 'vue';
 const logoWarning = new URL('../../assets/images/logo-warning.png', import.meta.url).href;
 
 const resolveRoute = (name, params = undefined, absolute = true, defaultValue = '#') => {
-    try {
-        if (typeof route === 'function') {
+    if (typeof route === 'function') {
+        try {
             return route(name, params, absolute);
-        }
-    } catch (error) {
-        if (import.meta.env.DEV) {
-            console.warn(`[TopLogin] route(${name}) unavailable`, error);
+        } catch (error) {
+            if (import.meta.env.DEV) {
+                console.warn(`[TopLogin] route(${name}) unavailable`, error);
+            }
         }
     }
 
@@ -25,6 +25,10 @@ const accountRoutes = computed(() => {
         history: '#',
         password: '#',
     };
+
+    if (typeof route !== 'function') {
+        return fallback;
+    }
 
     return {
         profile: resolveRoute('account.profile', undefined, true, fallback.profile),
