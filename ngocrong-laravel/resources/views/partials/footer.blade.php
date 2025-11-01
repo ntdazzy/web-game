@@ -51,7 +51,7 @@
                     <a href="{{ route('wallet.topup') }}" class="btn-payment btn-pay">Nạp thẻ</a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('news.index') }}">Hướng dẫn tải</a>
+                    <a href="{{ route('news.show', 'huong-dan-tai-va-cai-dat-game') }}">Hướng dẫn tải</a>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('giftcode.index') }}">Nhận code</a>
