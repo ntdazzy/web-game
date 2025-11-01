@@ -63,6 +63,6 @@ class CharacterController extends Controller
             'image' => $character->image_url ?? Vite::asset('resources/assets/images/bg-preview-hero.png'),
             'damage_type' => $rawType,
             'is_active' => $activeId !== null && $activeId === $character->id,
-        };
+        ];
     }
 }
