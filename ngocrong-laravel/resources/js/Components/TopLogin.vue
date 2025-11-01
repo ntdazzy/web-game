@@ -18,12 +18,21 @@ const resolveRoute = (name, params = undefined, absolute = true, defaultValue = 
     return defaultValue;
 };
 
-const accountRoutes = computed(() => ({
-    profile: resolveRoute('account.profile'),
-    topup: resolveRoute('wallet.topup'),
-    history: resolveRoute('wallet.history'),
-    password: resolveRoute('password.request'),
-}));
+const accountRoutes = computed(() => {
+    const fallback = {
+        profile: '#',
+        topup: '#',
+        history: '#',
+        password: '#',
+    };
+
+    return {
+        profile: resolveRoute('account.profile', undefined, true, fallback.profile),
+        topup: resolveRoute('wallet.topup', undefined, true, fallback.topup),
+        history: resolveRoute('wallet.history', undefined, true, fallback.history),
+        password: resolveRoute('password.request', undefined, true, fallback.password),
+    };
+});
 
 const redirectTarget = computed(() => accountRoutes.value.topup || '#');
 </script>

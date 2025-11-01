@@ -22,6 +22,7 @@ Route::get('/id/dat-lai-mat-khau/{token}', function (string $token) {
 Route::get('/', HomeController::class)->name('home');
 Route::get('/landing', [HomeController::class, 'landing'])->name('landing');
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');
+Route::get('/danh-sach-tuong/{character:slug}', [CharacterController::class, 'show'])->name('characters.show');
 Route::get('/trai-ac-quy', [DevilFruitController::class, 'index'])->name('devilfruits.index');
 Route::get('/trai-dung-hop', [DevilFruitController::class, 'fusion'])->name('devilfruits.fusion');
 

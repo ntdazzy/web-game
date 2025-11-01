@@ -1,14 +1,17 @@
-// Recreates the snapping scroll + fixed menu behaviour from the legacy home page.
 import { onDocumentReady } from '../utils/dom';
 
+/**
+ * Port of the legacy homepage scroll snapping + fixed menu logic.
+ * Relies on the original scaling behaviour (window.innerWidth / 1912).
+ */
 onDocumentReady(() => {
-    const isHomePage = document.body.classList.contains('home-page') || document.body.dataset.page === 'home';
-    if (!isHomePage) {
+    const body = document.body;
+    if (!body.classList.contains('home-page') && body.dataset.page !== 'home') {
         return;
     }
 
-    const leftMenu = document.querySelector('.left-menu');
-    const rightMenu = document.querySelector('.right-menu');
+    const leftMenu = document.getElementsByClassName('left-menu')[0];
+    const rightMenu = document.getElementsByClassName('right-menu')[0];
     const leftMenuItems = Array.from(document.querySelectorAll('.left-menu ul li'));
     const turnTopButton = document.querySelector('.turn-top');
 
@@ -16,16 +19,22 @@ onDocumentReady(() => {
         return;
     }
 
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const hasJquery = typeof window.jQuery === 'function';
+
     let pageHeight = 0;
     let isScrolling = false;
-
-    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    let currentIndex = 0;
 
     const updatePageHeight = () => {
-        const firstPage = document.querySelector('.wrapper-page .page');
-        const baseHeight = firstPage ? firstPage.getBoundingClientRect().height : window.innerHeight;
+        const $ = hasJquery ? window.jQuery : null;
+        const $page = $ ? $('.wrapper-page .page').first() : null;
+        const rawHeight = $page && $page.length
+            ? $page.outerHeight()
+            : document.querySelector('.wrapper-page .page')?.getBoundingClientRect().height || window.innerHeight;
+
         const scaleFactor = window.innerWidth / 1912;
-        pageHeight = baseHeight * scaleFactor;
+        pageHeight = rawHeight * scaleFactor;
 
         if (pageHeight > 960) {
             pageHeight = 945;
@@ -35,12 +44,13 @@ onDocumentReady(() => {
     };
 
     const updateActiveMenu = () => {
-        const index = Math.round(window.scrollY / pageHeight);
-        leftMenuItems.forEach((item, idx) => {
-            item.classList.toggle('active', idx === index);
-        });
+        if (pageHeight <= 0) {
+            return;
+        }
 
-        switch (index) {
+        currentIndex = Math.round(window.scrollY / pageHeight);
+
+        switch (currentIndex) {
             case 0:
                 leftMenu.style.display = 'block';
                 rightMenu.style.display = 'none';
@@ -54,16 +64,24 @@ onDocumentReady(() => {
                 rightMenu.style.display = 'block';
                 break;
         }
+
+        leftMenuItems.forEach((item, idx) => {
+            item.classList.toggle('active', idx === currentIndex);
+        });
     };
 
-    const scrollToIndex = (index) => {
+    const scrollToIndex = (targetIndex) => {
+        if (pageHeight <= 0) {
+            return;
+        }
+
         const maxIndex = leftMenuItems.length - 1;
-        const targetIndex = clamp(index, 0, maxIndex);
-        const targetOffset = targetIndex * pageHeight;
+        const index = clamp(targetIndex, 0, maxIndex);
+        const offset = index * pageHeight;
 
         isScrolling = true;
         window.scrollTo({
-            top: targetOffset,
+            top: offset,
             behavior: 'smooth',
         });
 
@@ -74,7 +92,7 @@ onDocumentReady(() => {
     };
 
     const handleWheel = (event) => {
-        if (isScrolling) {
+        if (isScrolling || pageHeight <= 0) {
             return;
         }
 
@@ -110,7 +128,7 @@ onDocumentReady(() => {
     window.setTimeout(() => {
         updatePageHeight();
         updateActiveMenu();
-    }, 200);
+    }, 220);
 
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('resize', () => {

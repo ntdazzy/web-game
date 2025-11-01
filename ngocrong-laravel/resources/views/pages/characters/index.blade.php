@@ -44,8 +44,9 @@
                                 <ul class="d-flex flex-wrap gap-4 listChars">
                                     @forelse ($characters as $character)
                                         <li style="background-image: url('{{ $character['image'] }}')"
-                                            data-name="{{ $character['name'] }}" data-particular="{{ $character['damage_type'] }}">
-                                            <a href="{{ route('characters.index') }}#{{ $character['slug'] }}" title="{{ $character['name'] }}"
+                                            data-name="{{ $character['name'] }}"
+                                            data-particular="{{ $character['damage_type'] }}">
+                                            <a href="{{ route('characters.show', $character['slug']) }}" title="{{ $character['name'] }}"
                                                 class="d-block w-100 h-100" data-name="{{ $character['name'] }}">
                                             </a>
                                         </li>
