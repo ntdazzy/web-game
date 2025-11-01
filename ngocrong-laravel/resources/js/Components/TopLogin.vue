@@ -58,7 +58,7 @@ const redirectTarget = computed(() => accountRoutes.value.topup || '#');
                     </button>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item d-flex align-items-center">
-                            <Link :href="accountRoutes.value.profile">
+                            <Link :href="accountRoutes.profile">
                                 <i class="fa-solid fa-user"></i>
                                 Quản lý tài khoản
                             </Link>
@@ -66,20 +66,20 @@ const redirectTarget = computed(() => accountRoutes.value.topup || '#');
                         <li class="dropdown-item d-flex align-items-center">
                             <Link
                                 class="d-flex justify-content-between"
-                                :href="accountRoutes.value.topup"
+                                :href="accountRoutes.topup"
                             >
                                 <i><span>GEM</span><span>0</span></i>
                                 <button>Nạp</button>
                             </Link>
                         </li>
                         <li class="dropdown-item d-flex align-items-center">
-                            <Link :href="accountRoutes.value.history">
+                            <Link :href="accountRoutes.history">
                                 <i class="fa-solid fa-clock-rotate-left"></i>
                                 Lịch sử nạp
                             </Link>
                         </li>
                         <li class="dropdown-item d-flex align-items-center">
-                            <Link :href="accountRoutes.value.password">
+                            <Link :href="accountRoutes.password">
                                 <i class="fa-solid fa-lock-keyhole-open"></i>
                                 Đổi mật khẩu
                             </Link>

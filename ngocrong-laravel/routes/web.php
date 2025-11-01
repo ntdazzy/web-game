@@ -19,6 +19,8 @@ Route::get('/id/dat-lai-mat-khau/{token}', function (string $token) {
     return redirect()->to('/dat-lai-mat-khau/'.$token);
 })->name('legacy.id.password.reset');
 
+Route::post('/get-hero-detail', [CharacterController::class, 'detail'])->name('characters.detail');
+
 Route::get('/', HomeController::class)->name('home');
 Route::get('/landing', [HomeController::class, 'landing'])->name('landing');
 Route::get('/danh-sach-tuong', [CharacterController::class, 'index'])->name('characters.index');

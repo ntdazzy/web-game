@@ -26,6 +26,23 @@ class Character extends Model
         'metadata' => 'array',
     ];
 
+    public function getHeroIdAttribute(): ?int
+    {
+        $value = data_get($this->metadata, 'hero_id');
+
+        return is_numeric($value) ? (int) $value : null;
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function getDetailAttribute(): ?array
+    {
+        $detail = data_get($this->metadata, 'detail');
+
+        return is_array($detail) ? $detail : null;
+    }
+
     public function getImageUrlAttribute(): ?string
     {
         if (! $this->image) {

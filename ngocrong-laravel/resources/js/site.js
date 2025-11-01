@@ -28,6 +28,7 @@ const moduleLoaders = {
     './modules/giftcode.js': () => import('./modules/giftcode.js'),
     './modules/devilfruits.js': () => import('./modules/devilfruits.js'),
     './modules/scroll.js': () => import('./modules/scroll.js'),
+    './modules/characters.js': () => import('./modules/characters.js'),
 };
 
 const loadScriptAsset = async (relativePath) => {
@@ -124,6 +125,10 @@ export default async function bootstrapSite() {
 
         if (pageId === 'home') {
             moduleSet.add('./modules/scroll.js');
+        }
+
+        if (pageId === 'characters-show') {
+            moduleSet.add('./modules/characters.js');
         }
 
         await loadModuleSequential([...moduleSet]);
