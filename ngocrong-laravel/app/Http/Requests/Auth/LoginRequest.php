@@ -29,6 +29,7 @@ class LoginRequest extends FormRequest
         return [
             'login' => ['required', 'string'],
             'password' => ['required', 'string'],
+            'redirect' => ['nullable', 'string', 'max:2048'],
         ];
     }
 
@@ -86,5 +87,36 @@ class LoginRequest extends FormRequest
     public function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->string('login')).'|'.$this->ip());
+    }
+
+    public function safeRedirect(): ?string
+    {
+        $redirect = $this->string('redirect')->trim()->value();
+
+        if ($redirect === '') {
+            return null;
+        }
+
+        if (Str::startsWith($redirect, ['http://', 'https://'])) {
+            $parsed = parse_url($redirect);
+            $host = $parsed['host'] ?? null;
+            $appHost = parse_url(config('app.url'), PHP_URL_HOST) ?? $this->getHost();
+
+            if ($host && $appHost && strcasecmp($host, $appHost) === 0) {
+                $path = ($parsed['path'] ?? '/') ?: '/';
+                $query = isset($parsed['query']) ? '?'.$parsed['query'] : '';
+                $fragment = isset($parsed['fragment']) ? '#'.$parsed['fragment'] : '';
+
+                return $path.$query.$fragment;
+            }
+
+            return null;
+        }
+
+        if (! Str::startsWith($redirect, '/')) {
+            $redirect = '/'.ltrim($redirect, '/');
+        }
+
+        return $redirect;
     }
 }

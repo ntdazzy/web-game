@@ -7,6 +7,7 @@
 
         <form method="POST" action="{{ route('login') }}" class="login-modal__form" novalidate>
             @csrf
+            <input type="hidden" name="redirect" value="">
             <div class="login-modal__field">
                 <label for="loginModalUsername" class="login-modal__label">Tên đăng nhập</label>
                 <div class="login-modal__input">

@@ -38,11 +38,18 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $redirectTo = route('dashboard', absolute: false);
+        $requestedRedirect = $request->safeRedirect();
 
         if ($request->expectsJson()) {
             return response()->json([
-                'redirect' => url()->intended($redirectTo),
+                'redirect' => $requestedRedirect
+                    ? url($requestedRedirect)
+                    : url()->intended($redirectTo),
             ]);
+        }
+
+        if ($requestedRedirect) {
+            return redirect()->intended($requestedRedirect);
         }
 
         return redirect()->intended($redirectTo);

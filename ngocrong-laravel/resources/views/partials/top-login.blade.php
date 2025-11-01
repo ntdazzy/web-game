@@ -30,5 +30,6 @@
             </ul>
         </div>
     </div>
-    <a href="javascript:void(0)" class="btn-login login-required" data-redirect="{{ route('wallet.topup') }}"></a>
+    <a href="{{ route('auth.login.vi') }}" class="btn-login login-required" data-login-modal="true"
+        data-redirect="{{ route('wallet.topup', [], false) }}"></a>
 </div>

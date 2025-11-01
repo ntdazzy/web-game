@@ -9,9 +9,11 @@
 @php
     $bodyClass = trim($__env->yieldContent('body_class'));
     $pageId = trim($__env->yieldContent('page_id'));
+    $loginRoute = route('auth.login.vi');
 @endphp
 
-<body {{ $bodyClass !== '' ? 'class="' . $bodyClass . '"' : '' }} {{ $pageId !== '' ? 'data-page="' . $pageId . '"' : '' }}>
+<body {{ $bodyClass !== '' ? 'class="' . $bodyClass . '"' : '' }} {{ $pageId !== '' ? 'data-page="' . $pageId . '"' : '' }}
+    data-login-route="{{ $loginRoute }}">
     <div id="site-root">
         @include('partials.header')
         @include('partials.nav')

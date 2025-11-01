@@ -23,8 +23,9 @@ onDocumentReady(() => {
         let activeIndex = 0;
 
         pages.forEach((page, index) => {
-            const top = page.offsetTop;
-            const bottom = top + page.offsetHeight;
+            const rect = page.getBoundingClientRect();
+            const top = rect.top + window.scrollY;
+            const bottom = top + rect.height;
             if (midpoint >= top && midpoint < bottom) {
                 activeIndex = index;
             }
@@ -72,7 +73,8 @@ onDocumentReady(() => {
                 return;
             }
 
-            const targetOffset = targetPage.offsetTop;
+            const rect = targetPage.getBoundingClientRect();
+            const targetOffset = rect.top + window.scrollY;
             window.scrollTo({
                 top: targetOffset,
                 behavior: 'smooth',

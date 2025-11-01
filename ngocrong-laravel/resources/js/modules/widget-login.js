@@ -7,11 +7,16 @@ onDocumentReady(() => {
         return;
     }
 
-    const triggers = document.querySelectorAll('.btn-login, .login-required');
+    const modalTriggers = document.querySelectorAll('[data-login-modal="true"]');
+    const guardedLinks = document.querySelectorAll('.login-required:not([data-login-modal="true"])');
     const closeTriggers = modal.querySelectorAll('[data-login-modal-close]');
     const form = modal.querySelector('form');
     const submitButton = form.querySelector('button[type="submit"]');
     const errorGeneral = modal.querySelector('[data-error-general]');
+    const redirectInput = form.querySelector('input[name="redirect"]');
+    const loginRoute = document.body?.dataset?.loginRoute || '/dang-nhap';
+    let pendingRedirect = null;
+
     const fieldErrors = {
         login: modal.querySelector('[data-error-for="login"]'),
         password: modal.querySelector('[data-error-for="password"]'),
@@ -31,12 +36,21 @@ onDocumentReady(() => {
         submitButton.classList.toggle('is-loading', state);
     };
 
-    const showModal = () => {
+    const applyRedirectValue = (value) => {
+        pendingRedirect = value ?? null;
+        modal.dataset.redirect = pendingRedirect ?? '';
+        if (redirectInput) {
+            redirectInput.value = pendingRedirect ?? '';
+        }
+    };
+
+    const showModal = (redirectTarget) => {
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
         clearErrors();
         form.reset();
+        applyRedirectValue(redirectTarget);
         const loginField = form.querySelector('input[name="login"]');
         setTimeout(() => loginField?.focus(), 100);
     };
@@ -45,13 +59,29 @@ onDocumentReady(() => {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('modal-open');
+        applyRedirectValue(null);
     };
 
-    triggers.forEach((trigger) => {
+    modalTriggers.forEach((trigger) => {
         trigger.addEventListener('click', (event) => {
             event.preventDefault();
-            showModal();
+            const redirectTarget = trigger.dataset.redirect || trigger.getAttribute('data-redirect') || '';
+            showModal(redirectTarget);
         });
+    });
+
+    guardedLinks.forEach((link) => {
+        if (!link.tagName || link.tagName.toLowerCase() !== 'a') {
+            return;
+        }
+
+        const href = link.getAttribute('href');
+        const redirectTarget = link.dataset.redirect || '';
+
+        if ((!href || href === '#' || href.startsWith('javascript')) && redirectTarget) {
+            const encoded = encodeURIComponent(redirectTarget);
+            link.setAttribute('href', `${loginRoute}?redirect=${encoded}`);
+        }
     });
 
     closeTriggers.forEach((trigger) => {
@@ -73,6 +103,11 @@ onDocumentReady(() => {
         setSubmitting(true);
 
         const formData = new FormData(form);
+        if (pendingRedirect && !formData.get('redirect')) {
+            formData.set('redirect', pendingRedirect);
+        } else if (!pendingRedirect && formData.has('redirect') && !formData.get('redirect')) {
+            formData.delete('redirect');
+        }
 
         try {
             const response = await fetch(form.action, {
@@ -86,7 +121,10 @@ onDocumentReady(() => {
 
             if (response.ok) {
                 const payload = await response.json();
-                const redirectUrl = payload?.redirect ?? window.location.href;
+                const redirectUrl =
+                    (payload?.redirect && typeof payload.redirect === 'string' && payload.redirect !== '')
+                        ? payload.redirect
+                        : pendingRedirect || window.location.href;
                 window.location.href = redirectUrl;
                 return;
             }
