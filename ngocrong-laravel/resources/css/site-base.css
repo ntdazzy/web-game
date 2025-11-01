@@ -547,10 +547,12 @@ li {
 }
 
 .left-menu li {
+    display: block;
     margin-bottom: 7px;
     width: 212px;
     height: 78px;
     cursor: pointer;
+    list-style: none;
     pointer-events: auto;
 }
 

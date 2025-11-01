@@ -40,6 +40,8 @@ if "%RUNMODE%"=="" set RUNMODE=1
 if "%RUNMODE%"=="1" (
     echo [1/4] Clearing Laravel caches...
     php artisan optimize:clear >> "%LOGFILE%" 2>&1 || goto :error
+    php artisan config:clear >> "%LOGFILE%" 2>&1 || goto :error
+    php artisan cache:clear >> "%LOGFILE%" 2>&1 || goto :error
 
     echo [2/4] Building frontend assets...
     call npm run build >> "%LOGFILE%" 2>&1 || goto :error
@@ -58,6 +60,8 @@ if "%RUNMODE%"=="1" (
 ) else if "%RUNMODE%"=="2" (
     echo [1/2] Clearing Laravel caches...
     php artisan optimize:clear >> "%LOGFILE%" 2>&1 || goto :error
+    php artisan config:clear >> "%LOGFILE%" 2>&1 || goto :error
+    php artisan cache:clear >> "%LOGFILE%" 2>&1 || goto :error
 
     echo [2/2] Starting dev servers...
     echo [%date% %time%] launching npm run dev >> "%LOGFILE%"
