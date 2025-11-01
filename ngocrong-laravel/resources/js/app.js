@@ -1,5 +1,6 @@
 import "../css/app.css";
 import "./assets-manifest";
+import "./modules/page-loading.js";
 
 const inertiaRoot = document.getElementById("app");
 

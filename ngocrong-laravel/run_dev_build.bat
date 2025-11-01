@@ -4,6 +4,25 @@ setlocal enabledelayedexpansion
 rem Move to the directory of this script (project root)
 pushd "%~dp0"
 
+rem ------------------------------------------------------------
+rem  Đóng các cửa sổ cmd khác và Edge InPrivate trước khi chạy
+rem ------------------------------------------------------------
+
+for /f %%i in ('powershell -NoProfile -Command "$PID"') do set CURRENT_CMD_PID=%%i
+
+echo Dang kiem tra cac cua so cmd khac dang mo...
+for /f %%i in ('powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='cmd.exe'\" | Where-Object { \$_.ProcessId -ne %CURRENT_CMD_PID% } | Select-Object -ExpandProperty ProcessId"') do (
+    echo   -> Dong cua so cmd PID %%i
+    taskkill /PID %%i /F >nul 2>&1
+)
+
+echo Dang kiem tra cac cua so Edge InPrivate...
+for /f %%i in ('powershell -NoProfile -Command "Get-CimInstance Win32_Process -Filter \"Name='msedge.exe'\" -ErrorAction SilentlyContinue | Where-Object { (\$_.CommandLine -like '*--inprivate*') } | Select-Object -ExpandProperty ProcessId"') do (
+    echo   -> Dong Edge InPrivate PID %%i
+    taskkill /PID %%i /F >nul 2>&1
+)
+
+
 for /f %%i in ('powershell -NoProfile -Command "(Get-Date).ToString('yyyyMMdd')"') do set YYYYMMDD=%%i
 set LOGFILE=storage\logs\setup-%YYYYMMDD%.log
 
