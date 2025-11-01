@@ -10,14 +10,30 @@ use App\Http\Controllers\Api\TopupBonusController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function (): void {
-    Route::apiResource('posts', PostController::class)->only(['index', 'show']);
-    Route::apiResource('events', EventController::class)->only(['index', 'show']);
-    Route::apiResource('characters', CharacterController::class)->only(['index', 'show']);
-    Route::apiResource('devil-fruits', DevilFruitController::class)->only(['index', 'show']);
-    Route::apiResource('topup-bonuses', TopupBonusController::class)->only(['index', 'show']);
+    Route::apiResource('posts', PostController::class)
+        ->only(['index', 'show'])
+        ->names('api.posts');
+
+    Route::apiResource('events', EventController::class)
+        ->only(['index', 'show'])
+        ->names('api.events');
+
+    Route::apiResource('characters', CharacterController::class)
+        ->only(['index', 'show'])
+        ->names('api.characters');
+
+    Route::apiResource('devil-fruits', DevilFruitController::class)
+        ->only(['index', 'show'])
+        ->names('api.devil-fruits');
+
+    Route::apiResource('topup-bonuses', TopupBonusController::class)
+        ->only(['index', 'show'])
+        ->names('api.topup-bonuses');
 
     Route::middleware('auth:sanctum')->group(function (): void {
-        Route::apiResource('wallet-transactions', WalletTransactionController::class)->only(['index', 'show']);
-        Route::post('giftcodes/redeem', [GiftcodeController::class, 'redeem'])->name('giftcodes.redeem');
+        Route::apiResource('wallet-transactions', WalletTransactionController::class)
+            ->only(['index', 'show'])
+            ->names('api.wallet-transactions');
+        Route::post('giftcodes/redeem', [GiftcodeController::class, 'redeem'])->name('api.giftcodes.redeem');
     });
 });

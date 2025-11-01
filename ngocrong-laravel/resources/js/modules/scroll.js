@@ -11,96 +11,115 @@ onDocumentReady(() => {
     const rightMenu = document.querySelector('.right-menu');
     const leftMenuItems = Array.from(document.querySelectorAll('.left-menu ul li'));
     const turnTopButton = document.querySelector('.turn-top');
-    const pages = Array.from(document.querySelectorAll('.wrapper-page .page'));
 
-    if (!leftMenu || !rightMenu || leftMenuItems.length === 0 || pages.length === 0) {
+    if (!leftMenu || !rightMenu || leftMenuItems.length === 0) {
         return;
     }
 
-    let pageOffsets = [];
+    let pageHeight = 0;
     let isScrolling = false;
 
     const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-    const recomputeOffsets = () => {
-        pageOffsets = pages.map((page) => {
-            const rect = page.getBoundingClientRect();
-            return rect.top + window.scrollY;
-        });
-    };
+    const updatePageHeight = () => {
+        const firstPage = document.querySelector('.wrapper-page .page');
+        const baseHeight = firstPage ? firstPage.getBoundingClientRect().height : window.innerHeight;
+        const scaleFactor = window.innerWidth / 1912;
+        pageHeight = baseHeight * scaleFactor;
 
-    const findCurrentIndex = () => {
-        const viewportMiddle = window.scrollY + window.innerHeight / 2;
-        let index = 0;
-        pageOffsets.forEach((offset, idx) => {
-            if (viewportMiddle >= offset) {
-                index = idx;
-            }
-        });
-        return index;
-    };
-
-    const toggleMenus = (index) => {
-        const lastIndex = pages.length - 1;
-
-        if (index <= 0) {
-            leftMenu.style.display = 'block';
-            rightMenu.style.display = 'none';
-        } else if (index >= lastIndex) {
-            leftMenu.style.display = 'none';
-            rightMenu.style.display = 'block';
-        } else {
-            leftMenu.style.display = 'block';
-            rightMenu.style.display = 'block';
+        if (pageHeight > 960) {
+            pageHeight = 945;
+        } else if (pageHeight < 400) {
+            pageHeight = Math.max(window.innerHeight - 120, 400);
         }
     };
 
-    const setActiveMenu = (index) => {
+    const updateActiveMenu = () => {
+        const index = Math.round(window.scrollY / pageHeight);
         leftMenuItems.forEach((item, idx) => {
             item.classList.toggle('active', idx === index);
         });
-        toggleMenus(index);
+
+        switch (index) {
+            case 0:
+                leftMenu.style.display = 'block';
+                rightMenu.style.display = 'none';
+                break;
+            case 3:
+                leftMenu.style.display = 'none';
+                rightMenu.style.display = 'block';
+                break;
+            default:
+                leftMenu.style.display = 'block';
+                rightMenu.style.display = 'block';
+                break;
+        }
     };
 
     const scrollToIndex = (index) => {
-        const target = clamp(index, 0, pages.length - 1);
-        const offset = pageOffsets[target] ?? 0;
+        const maxIndex = leftMenuItems.length - 1;
+        const targetIndex = clamp(index, 0, maxIndex);
+        const targetOffset = targetIndex * pageHeight;
 
         isScrolling = true;
         window.scrollTo({
-            top: offset,
+            top: targetOffset,
             behavior: 'smooth',
         });
 
         window.setTimeout(() => {
             isScrolling = false;
-            setActiveMenu(findCurrentIndex());
-        }, 550);
+            updateActiveMenu();
+        }, 520);
     };
 
     const handleWheel = (event) => {
         if (isScrolling) {
             return;
         }
+
         event.preventDefault();
+
         const direction = event.deltaY > 0 ? 1 : -1;
-        const currentIndex = findCurrentIndex();
-        scrollToIndex(currentIndex + direction);
+        const currentScroll = window.scrollY;
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        let scrollAmount = direction * pageHeight;
+
+        if (direction > 0 && currentScroll + scrollAmount > maxScroll) {
+            scrollAmount = maxScroll - currentScroll;
+        } else if (direction < 0) {
+            let remainder = currentScroll % pageHeight;
+            if (Math.abs(remainder) < 1) remainder = 0;
+            scrollAmount = -(remainder || pageHeight);
+        }
+
+        isScrolling = true;
+        window.scrollBy({
+            top: scrollAmount,
+            behavior: 'smooth',
+        });
+
+        window.setTimeout(() => {
+            isScrolling = false;
+            updateActiveMenu();
+        }, 520);
     };
 
-    const handleResize = () => {
-        recomputeOffsets();
-        setActiveMenu(findCurrentIndex());
-    };
-
-    recomputeOffsets();
-    setActiveMenu(findCurrentIndex());
+    updatePageHeight();
+    updateActiveMenu();
+    window.setTimeout(() => {
+        updatePageHeight();
+        updateActiveMenu();
+    }, 200);
 
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('resize', () => {
+        updatePageHeight();
+        updateActiveMenu();
+    });
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
-            setActiveMenu(findCurrentIndex());
+            updateActiveMenu();
         }
     });
 

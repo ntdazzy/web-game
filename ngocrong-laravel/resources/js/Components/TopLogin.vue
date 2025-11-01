@@ -4,14 +4,28 @@ import { computed } from 'vue';
 
 const logoWarning = new URL('../../assets/images/logo-warning.png', import.meta.url).href;
 
+const resolveRoute = (name, params = undefined, absolute = true, defaultValue = '#') => {
+    try {
+        if (typeof route === 'function') {
+            return route(name, params, absolute);
+        }
+    } catch (error) {
+        if (import.meta.env.DEV) {
+            console.warn(`[TopLogin] route(${name}) unavailable`, error);
+        }
+    }
+
+    return defaultValue;
+};
+
 const accountRoutes = computed(() => ({
-    profile: route('account.profile'),
-    topup: route('wallet.topup'),
-    history: route('wallet.history'),
-    password: route('password.request'),
+    profile: resolveRoute('account.profile'),
+    topup: resolveRoute('wallet.topup'),
+    history: resolveRoute('wallet.history'),
+    password: resolveRoute('password.request'),
 }));
 
-const redirectTarget = computed(() => accountRoutes.value.topup);
+const redirectTarget = computed(() => accountRoutes.value.topup || '#');
 </script>
 
 <template>
