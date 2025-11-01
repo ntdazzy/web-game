@@ -4,7 +4,7 @@
 <head>
     @include('shared.head')
     @stack('head')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
 </head>
 @php
     $bodyClass = trim($__env->yieldContent('body_class'));
