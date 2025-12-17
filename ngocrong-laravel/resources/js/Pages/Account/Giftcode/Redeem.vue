@@ -23,10 +23,7 @@ const dropdownRef = ref(null);
 const dropdownOpen = ref(false);
 const historyOpen = ref(false);
 
-const defaultServerValue =
-    props.servers.find((server) => server.value === "0")?.value ??
-    props.servers[0]?.value ??
-    "0";
+const defaultServerValue = props.servers[0]?.value ?? "nro-heroes";
 
 const selectedServerValue = ref(defaultServerValue);
 const selectedCodeTypeId = ref(null);

@@ -17,10 +17,15 @@ const props = defineProps({
 
 const form = useForm({
     email: "",
+    captcha_token: "",
 });
 
 const submit = () => {
-    form.post(route("password.email"));
+    form.post(route("password.email"), {
+        onBefore: () => {
+            form.captcha_token = form.captcha_token || window.__turnstileToken || "";
+        },
+    });
 };
 
 const navItems = computed(() => props.navItems ?? []);

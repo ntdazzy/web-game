@@ -16,6 +16,9 @@ const buildFallbackEmail = (username) => {
     return `${safe}@haitacmanhnhat.local`;
 };
 
+// Modal đã bị vô hiệu hoá; luôn chuyển hướng sang trang đăng nhập/đăng ký của Breeze.
+const AUTH_MODAL_DISABLED = true;
+
 const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? '';
 
 const postForm = async (form, extraFields = (data) => data) => {
@@ -55,6 +58,10 @@ const postForm = async (form, extraFields = (data) => data) => {
 };
 
 onDocumentReady(() => {
+    if (AUTH_MODAL_DISABLED) {
+        return;
+    }
+
     const modal = document.getElementById('authModal');
     if (!modal) {
         return;
@@ -276,4 +283,11 @@ onDocumentReady(() => {
         const redirect = event?.currentTarget?.dataset?.redirect ?? null;
         openModal('login', redirect);
     };
+
+    const params = new URLSearchParams(window.location.search || '');
+    const autoTab = params.get('open_auth');
+    if (autoTab === 'login' || autoTab === 'register') {
+        const redirectParam = params.get('redirect');
+        openModal(autoTab, redirectParam);
+    }
 });

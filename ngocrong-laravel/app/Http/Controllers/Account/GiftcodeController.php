@@ -34,13 +34,13 @@ class GiftcodeController extends Controller
      */
     protected function buildServers(): Collection
     {
-        return collect(config('giftcode.servers', []))
-            ->map(fn (array $server) => [
-                'value' => Arr::get($server, 'value'),
-                'slug' => Arr::get($server, 'slug', Arr::get($server, 'value')),
-                'label' => Arr::get($server, 'label', Arr::get($server, 'title', Arr::get($server, 'value'))),
-                'title' => Arr::get($server, 'title'),
-            ]);
+        // Chỉ dùng 1 server cố định
+        return collect([[
+            'value' => 'nro-heroes',
+            'slug' => 'nro-heroes',
+            'label' => 'NRO Heroes',
+            'title' => 'NRO Heroes',
+        ]]);
     }
 
     /**

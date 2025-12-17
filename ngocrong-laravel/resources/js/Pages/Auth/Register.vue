@@ -8,32 +8,43 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    redirect: {
+        type: String,
+        default: "",
+    },
 });
 
 const form = useForm({
     username: "",
+    email: "",
     password: "",
     password_confirmation: "",
     agree: false,
+    redirect: props.redirect || "",
+    captcha_token: "",
 });
 
 const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? "";
 
 const submit = () => {
-    form.transform((data) => {
-        const username = (data.username || "").trim();
-        return {
-            _token: csrfToken,
-            name: username,
-            login: username,
-            email: `${username.replace(/[^a-zA-Z0-9._-]+/g, "").toLowerCase() || "captain"}@haitacmanhnhat.local`,
-            password: data.password,
-            password_confirmation: data.password_confirmation,
-            agree: data.agree ? "on" : "",
-        };
-    }).post(route("register"), {
-        onFinish: () => form.reset("password", "password_confirmation"),
-    });
+    form
+        .transform((data) => {
+            const username = (data.username || "").trim();
+            const email = (data.email || "").trim().toLowerCase();
+            return {
+                _token: csrfToken,
+                username,
+                email,
+                password: data.password,
+                password_confirmation: data.password_confirmation,
+                agree: data.agree ? "on" : "",
+                redirect: data.redirect || "",
+                captcha_token: data.captcha_token || window.__turnstileToken || "",
+            };
+        })
+        .post(route("register"), {
+            onFinish: () => form.reset("password", "password_confirmation"),
+        });
 };
 </script>
 
@@ -60,7 +71,21 @@ const submit = () => {
                         autocomplete="username"
                         required
                     />
-                    <InputError class="text-danger small mt-2" :message="form.errors.name" />
+                    <InputError class="text-danger small mt-2" :message="form.errors.username" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="accountRegisterEmail">Email</label>
+                    <input
+                        id="accountRegisterEmail"
+                        v-model="form.email"
+                        class="form-control"
+                        name="email"
+                        placeholder="Nhập email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                    />
+                    <InputError class="text-danger small mt-2" :message="form.errors.email" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="accountRegisterPassword">Mật khẩu</label>
@@ -95,7 +120,6 @@ const submit = () => {
                         :message="form.errors.password_confirmation"
                     />
                 </div>
-                <InputError class="text-danger small mb-3" :message="form.errors.email" />
                 <div class="form-check mb-3">
                     <input
                         id="accountRegisterAgree"

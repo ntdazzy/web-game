@@ -4,6 +4,8 @@ import { onDocumentReady } from '../utils/dom';
  * Port of the legacy homepage scroll snapping + fixed menu logic.
  * Relies on the original scaling behaviour (window.innerWidth / 1912).
  */
+const DESIGN_WIDTH = 1905;
+
 onDocumentReady(() => {
     const body = document.body;
     if (!body.classList.contains('home-page') && body.dataset.page !== 'home') {
@@ -33,7 +35,7 @@ onDocumentReady(() => {
             ? $page.outerHeight()
             : document.querySelector('.wrapper-page .page')?.getBoundingClientRect().height || window.innerHeight;
 
-        const scaleFactor = window.innerWidth / 1912;
+        const scaleFactor = window.innerWidth / DESIGN_WIDTH;
         pageHeight = rawHeight * scaleFactor;
 
         if (pageHeight > 960) {

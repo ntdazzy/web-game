@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Account;
 use App\Models\WalletTransaction;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
@@ -14,9 +14,11 @@ class WalletTransactionSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::first() ?? User::factory()->create([
-            'name' => 'Demo Captain',
+        $user = Account::first() ?? Account::create([
+            'username' => 'captain',
             'email' => 'captain@example.com',
+            'password' => '123456',
+            'active' => 1,
         ]);
 
         $transactions = [
@@ -59,7 +61,7 @@ class WalletTransactionSeeder extends Seeder
                     'ref_code' => $transaction['ref_code'],
                 ],
                 [
-                    'user_id' => $user->id,
+                    'account_id' => $user->id,
                     'type' => $transaction['type'],
                     'amount' => $transaction['amount'],
                     'meta' => $transaction['meta'],

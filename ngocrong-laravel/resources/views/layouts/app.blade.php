@@ -29,8 +29,6 @@
     @include('partials.footer', ['pageId' => $pageId])
 </div>
 
-@include('partials.modals.auth')
-
 @stack('scripts')
 </body>
 

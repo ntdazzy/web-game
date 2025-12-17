@@ -24,7 +24,8 @@ const moduleLoaders = {
     './site-global.js': () => import('./site-global.js'),
     './site-custom.js': () => import('./site-custom.js'),
     './modules/page-loading.js': () => import('./modules/page-loading.js'),
-    './modules/auth-modal.js': () => import('./modules/auth-modal.js'),
+    './modules/header-dropdown.js': () => import('./modules/header-dropdown.js'),
+    './modules/turnstile.js': () => import('./modules/turnstile.js'),
     './modules/giftcode.js': () => import('./modules/giftcode.js'),
     './modules/devilfruits.js': () => import('./modules/devilfruits.js'),
     './modules/scroll.js': () => import('./modules/scroll.js'),
@@ -112,7 +113,8 @@ export default async function bootstrapSite() {
             './site-global.js',
             './site-custom.js',
             './modules/page-loading.js',
-            './modules/auth-modal.js',
+            './modules/header-dropdown.js',
+            './modules/turnstile.js',
         ]);
 
         if (pageId === 'giftcode') {

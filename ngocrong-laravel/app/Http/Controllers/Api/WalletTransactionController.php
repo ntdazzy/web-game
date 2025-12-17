@@ -20,7 +20,7 @@ class WalletTransactionController extends Controller
         $perPage = (int) max(1, min(50, $request->integer('per_page', 10)));
 
         $transactions = WalletTransaction::query()
-            ->where('user_id', $user->id)
+            ->where('account_id', $user->id)
             ->when($request->filled('type'), function ($query) use ($request) {
                 $query->where('type', Str::lower($request->input('type')));
             })
@@ -38,7 +38,7 @@ class WalletTransactionController extends Controller
 
     public function show(WalletTransaction $walletTransaction, Request $request)
     {
-        abort_unless($walletTransaction->user_id === $request->user()->id, 404);
+        abort_unless($walletTransaction->account_id === $request->user()->id, 404);
 
         return WalletTransactionResource::make($walletTransaction);
     }

@@ -3,6 +3,7 @@
 
 :root {
     --bg-max-width: 3840px;
+    --design-width: 1905px;
 }
 
 .page-loading-overlay {
@@ -257,6 +258,7 @@ body {
     padding: 0;
     width: 100%;
     background: url('../assets/images/bg-main.jpg') no-repeat center top;
+    overflow-x: hidden;
     font-family: 'Open Sans', sans-serif;
     height: 0;
     transform-origin: 0 0;
@@ -279,9 +281,17 @@ li {
     list-style: none;
 }
 
+#site-root {
+    width: 100%;
+    max-width: var(--design-width);
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
 #root {
-    max-width: 3840px;
-    margin: auto;
+    width: 100%;
+    max-width: var(--design-width);
+    margin: 0 auto;
     overflow-x: hidden;
 }
 /*************************** DEFINE ICON ***************************/
@@ -315,6 +325,10 @@ li {
 .container {
     max-width: 1920px;
 }
+.top-nav .container {
+    max-width: var(--design-width);
+    width: 100%;
+}
 
 .wrapper-page {
     margin-bottom: -48px;
@@ -325,7 +339,7 @@ li {
     background: url('../assets/images/menu/bg-menu.png') no-repeat;
     background-size: auto 100%;
     max-width: var(--bg-max-width);
-    z-index: 3;
+    z-index: 1060;
 }
 
 .top-nav .logo {
@@ -428,6 +442,7 @@ li {
     border: none;
     padding-top: 4px;
     transform: translate(0px, 77px) !important;
+    z-index: 2000;
 }
 
 .top-nav .nav-bar .main-nav .dropdown-menu .dropdown-item {
@@ -456,6 +471,15 @@ li {
     width: 265px;
 }
 
+.top-nav .login .btn-group {
+    position: relative;
+    z-index: 1061;
+}
+
+.top-nav .login .dropdown-menu {
+    z-index: 1062;
+}
+
 .top-nav .login .wrap-login .user-info button.dropdown-toggle {
     background-color: #1fb4ff;
     clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
@@ -473,11 +497,30 @@ li {
     display: none;
 }
 
+.wrap-login-mobile {
+    z-index: 1058;
+}
+
+.wrap-login-mobile .btn-group {
+    position: relative;
+    z-index: 1059;
+}
+
+.wrap-login-mobile .dropdown-menu {
+    z-index: 1060;
+}
+
+.top-login {
+    position: relative;
+    z-index: 1055;
+}
+
 .top-nav .login .user-info .btn-group ul {
     background-color: #292929;
     width: 100%;
     padding: 0;
     border-radius: 2px;
+    z-index: 1001;
 }
 
 .top-nav .login .user-info .btn-group ul li {
@@ -537,6 +580,12 @@ li {
     max-width: 3840px;
     position: fixed;
     z-index: 20;
+}
+
+.menu-fixed.right {
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .left-menu {
@@ -610,14 +659,17 @@ li {
     background: url(../assets/images/btn-page-3.png) top center no-repeat;
 }
 
-.right-menu {
-    transform: translateY(-11%);
+.menu-fixed.right .right-menu {
+    position: fixed;
+    top: 50%;
     right: 0;
+    transform: translateY(-50%);
     width: 255px;
     height: 529px;
     background: url(../assets/images/page2/right-menu/bg-menu.png);
     padding: 20px 10px 42px 36px;
     transition: width 0.5s ease, padding 0.3s ease;
+    pointer-events: auto;
 }
 
 .right-menu .menu-group {}
@@ -773,6 +825,23 @@ li {
 .wrapper-page .page {
     height: 100vh;
     max-height: 945px;
+}
+
+.page-1 .bg-hero {
+    inset: 0;
+    background: url(../assets/images/bg-main.jpg) center center / cover no-repeat;
+}
+
+@media (max-width: 1199.98px) {
+    .page-1 .bg-hero {
+        background-image: url(../assets/images/bg-main-tablet-2.jpg);
+    }
+}
+
+@media (max-width: 991.98px) {
+    .page-1 .bg-hero {
+        background-image: url(../assets/images/bg-main-mobile.png);
+    }
 }
 
 /*************************** FOOTER CSS ***************************/

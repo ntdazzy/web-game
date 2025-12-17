@@ -16,7 +16,7 @@ class WalletHistoryController extends Controller
         $user = Auth::user();
 
         $transactions = WalletTransaction::query()
-            ->where('user_id', $user?->id)
+            ->where('account_id', $user?->id)
             ->latest('processed_at')
             ->latest('created_at')
             ->limit(20)

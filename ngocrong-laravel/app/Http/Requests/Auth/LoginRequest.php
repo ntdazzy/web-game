@@ -2,52 +2,52 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\Account;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            'login' => ['required', 'string'],
+            'login' => ['required_without:username', 'string'],
+            'username' => ['sometimes', 'string'],
             'password' => ['required', 'string'],
             'redirect' => ['nullable', 'string', 'max:2048'],
+            'captcha_token' => ['nullable', 'string'],
         ];
     }
 
-    /**
-     * Attempt to authenticate the request's credentials.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        $loginInput = $this->string('login')->trim()->toString();
-        $credentials = filter_var($loginInput, FILTER_VALIDATE_EMAIL)
-            ? ['email' => $loginInput, 'password' => $this->input('password')]
-            : ['name' => $loginInput, 'password' => $this->input('password')];
+        $loginInput = $this->string('login')->trim()->toString() ?: $this->string('username')->trim()->toString();
+        $password = $this->input('password');
+        $remember = $this->boolean('remember') && Schema::hasColumn('account', 'remember_token');
 
-        if (! Auth::attempt($credentials, $this->boolean('remember'))) {
+        $this->ensureCaptchaPasses($this->string('captcha_token')->toString());
+
+        $account = Account::query()
+            ->where(function ($query) use ($loginInput) {
+                $query->where('username', $loginInput)
+                    ->orWhere('email', $loginInput);
+            })
+            ->first();
+
+        if (! $account || $account->password !== $password) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -55,14 +55,23 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if (! $account->players()->exists()) {
+            throw ValidationException::withMessages([
+                'login' => __('Bạn chưa tạo nhân vật. Vui lòng tạo nhân vật trước khi đăng nhập.'),
+            ]);
+        }
+
+        if ((int) $account->ban === 1) {
+            throw ValidationException::withMessages([
+                'login' => __('TAÿi kho §œn b ¯< khA3a.'),
+            ]);
+        }
+
+        Auth::guard('web')->login($account, $remember);
+
         RateLimiter::clear($this->throttleKey());
     }
 
-    /**
-     * Ensure the login request is not rate limited.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function ensureIsNotRateLimited(): void
     {
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
@@ -81,9 +90,6 @@ class LoginRequest extends FormRequest
         ]);
     }
 
-    /**
-     * Get the rate limiting throttle key for the request.
-     */
     public function throttleKey(): string
     {
         return Str::transliterate(Str::lower($this->string('login')).'|'.$this->ip());
@@ -118,5 +124,35 @@ class LoginRequest extends FormRequest
         }
 
         return $redirect;
+    }
+
+    private function ensureCaptchaPasses(?string $token): void
+    {
+        $enabled = (bool) config('services.turnstile.enabled', false);
+        $secret = config('services.turnstile.secret_key');
+
+        if (! $enabled || ! $secret) {
+            return;
+        }
+
+        if (! $token) {
+            throw ValidationException::withMessages([
+                'captcha' => __('Vui lòng xác thực captcha.'),
+            ]);
+        }
+
+        $response = Http::asForm()
+            ->timeout(8)
+            ->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                'secret' => $secret,
+                'response' => $token,
+                'remoteip' => $this->ip(),
+            ]);
+
+        if (! $response->ok() || ! data_get($response->json(), 'success')) {
+            throw ValidationException::withMessages([
+                'captcha' => __('Captcha không hợp lệ.'),
+            ]);
+        }
     }
 }

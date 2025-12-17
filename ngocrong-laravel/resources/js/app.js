@@ -1,6 +1,8 @@
 import "../css/app.css";
 import "./assets-manifest";
 import "./modules/page-loading.js";
+import "./modules/header-dropdown.js";
+import "./modules/turnstile.js";
 
 const inertiaRoot = document.getElementById("app");
 
@@ -11,7 +13,8 @@ if (inertiaRoot?.dataset?.page) {
         import("laravel-vite-plugin/inertia-helpers"),
         import("vue"),
         import("../../vendor/tightenco/ziggy"),
-    ]).then(([_, inertia, helpers, vue, ziggy]) => {
+        import("./modules/scale-vanilla.js"),
+    ]).then(([_, inertia, helpers, vue, ziggy, scaleVanilla]) => {
         const { createInertiaApp, router } = inertia;
         const { resolvePageComponent } = helpers;
         const { createApp, h } = vue;
@@ -33,10 +36,12 @@ if (inertiaRoot?.dataset?.page) {
                     import.meta.glob("./Pages/**/*.vue")
                 ),
             setup({ el, App, props, plugin }) {
-                return createApp({ render: () => h(App, props) })
+                const mounted = createApp({ render: () => h(App, props) })
                     .use(plugin)
                     .use(ZiggyVue)
                     .mount(el);
+                scaleVanilla?.initScaleForInertia?.();
+                return mounted;
             },
             progress: {
                 color: "#4B5563",

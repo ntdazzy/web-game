@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
@@ -64,12 +63,11 @@ class NewPasswordController extends Controller
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
-        $status = Password::reset(
+        $status = Password::broker('accounts')->reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user) use ($request) {
                 $user->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
+                    'password' => $request->password, // plain-text theo DB account
                 ])->save();
 
                 event(new PasswordReset($user));
@@ -80,11 +78,33 @@ class NewPasswordController extends Controller
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
         if ($status == Password::PASSWORD_RESET) {
+            if ($this->isLegacyAjax($request)) {
+                return response()->json([
+                    'status' => 1,
+                    'msg' => __($status),
+                    'data' => [
+                        'redirect_url' => route('login'),
+                    ],
+                ]);
+            }
+
             return redirect()->route('login')->with('status', __($status));
+        }
+
+        if ($this->isLegacyAjax($request)) {
+            return response()->json([
+                'status' => 0,
+                'msg' => trans($status),
+            ], 422);
         }
 
         throw ValidationException::withMessages([
             'email' => [trans($status)],
         ]);
+    }
+
+    private function isLegacyAjax(Request $request): bool
+    {
+        return ($request->ajax() || $request->expectsJson()) && ! $request->hasHeader('X-Inertia');
     }
 }

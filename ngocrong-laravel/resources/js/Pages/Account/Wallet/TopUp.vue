@@ -32,10 +32,42 @@ const props = defineProps({
         type: String,
         default: "#",
     },
+    activeTab: {
+        type: String,
+        default: "payment",
+    },
+    servers: {
+        type: Array,
+        default: () => [],
+    },
 });
 
 const selectedMethodId = ref(props.paymentMethods[0]?.id ?? null);
 const selectedAmount = ref(props.packages[0]?.amount ?? null);
+const selectedServer = ref(props.servers[0] ?? "");
+
+const activeTabSlug = computed(
+    () =>
+        props.paymentTabs.find((tab) => tab.active)?.slug ??
+        props.activeTab ??
+        "payment"
+);
+const isPaymentTab = computed(() => activeTabSlug.value === "payment");
+const isPackageTab = computed(() => activeTabSlug.value === "package");
+const isConvertTab = computed(() => activeTabSlug.value === "convert");
+const showSubmitButton = computed(
+    () => isPaymentTab.value || isConvertTab.value
+);
+const servers = computed(() => props.servers ?? []);
+const submitLabel = computed(() =>
+    isConvertTab.value ? "Xác nhận quy đổi" : "Xác nhận"
+);
+const submitName = computed(() => (isConvertTab.value ? "fconvert" : "fpay"));
+const pageTitle = computed(() => {
+    if (isPackageTab.value) return "Quà nạp Web";
+    if (isConvertTab.value) return "Từ ví vào Game";
+    return "Nạp tiền vào ví";
+});
 
 const selectedMethod = computed(
     () =>
@@ -53,7 +85,7 @@ const selectedPackage = computed(
 const formattedNumber = (value) =>
     new Intl.NumberFormat("vi-VN").format(Number(value ?? 0));
 
-const formattedCurrency = (value) => `${formattedNumber(value)} ₫`;
+const formattedCurrency = (value) => `${formattedNumber(value)} đ`;
 
 const selectMethod = (methodId) => {
     selectedMethodId.value = methodId;
@@ -77,19 +109,17 @@ const confirmTopUp = async () => {
     const summaryLines = [];
 
     if (selectedMethod.value) {
-        summaryLines.push(`• Hình thức: ${selectedMethod.value.label}`);
+        summaryLines.push(`Phương thức: ${selectedMethod.value.label}`);
     }
 
     if (selectedPackage.value) {
         summaryLines.push(
-            `• Gói nạp: GEM ${formattedNumber(
+            `Gói nạp: GEM ${formattedNumber(
                 selectedPackage.value.gems
-            )} (bonus ${formattedNumber(
-                selectedPackage.value.bonus_gems ?? 0
-            )})`
+            )} (bonus ${formattedNumber(selectedPackage.value.bonus_gems ?? 0)})`
         );
         summaryLines.push(
-            `• Giá trị: ${formattedCurrency(selectedPackage.value.amount)}`
+            `Giá trị: ${formattedCurrency(selectedPackage.value.amount)}`
         );
     }
 
@@ -99,7 +129,7 @@ const confirmTopUp = async () => {
         window.alert(
             summaryLines.length
                 ? summaryLines.join("\n")
-                : "Vui lòng chọn gói nạp và hình thức thanh toán trước khi tiếp tục."
+                : "Vui lòng chọn gói nạp và phương thức thanh toán trước khi tiếp tục."
         );
         return;
     }
@@ -109,15 +139,60 @@ const confirmTopUp = async () => {
         title: "Xác nhận nạp",
         html:
             summaryLines.join("<br>") ||
-            "Vui lòng chọn gói nạp và hình thức thanh toán trước khi tiếp tục.",
-        confirmButtonText: "Đóng",
+            "Vui lòng chọn gói nạp và phương thức thanh toán trước khi tiếp tục.",
+        confirmButtonText: "Đồng ý",
     });
+};
+
+const confirmConvert = async () => {
+    const summaryLines = [];
+
+    if (selectedServer.value) {
+        summaryLines.push(`Server: ${selectedServer.value}`);
+    }
+
+    if (selectedPackage.value) {
+        summaryLines.push(
+            `Quy đổi: ${formattedNumber(selectedPackage.value.gems)} GEM`
+        );
+    }
+
+    const Swal = await loadSwal();
+
+    if (!Swal) {
+        window.alert(
+            summaryLines.length
+                ? summaryLines.join("\n")
+                : "Vui lòng chọn server và gói quy đổi trước khi tiếp tục."
+        );
+        return;
+    }
+
+    Swal.fire({
+        icon: "info",
+        title: "Xác nhận quy đổi",
+        html:
+            summaryLines.join("<br>") ||
+            "Vui lòng chọn server và gói quy đổi trước khi tiếp tục.",
+        confirmButtonText: "Đồng ý",
+    });
+};
+
+const submitAction = async (event) => {
+    event?.stopImmediatePropagation?.();
+    event?.preventDefault?.();
+
+    if (isConvertTab.value) {
+        return confirmConvert();
+    }
+
+    return confirmTopUp();
 };
 </script>
 
 <template>
     <div class="wallet-topup-page">
-        <Head title="Nạp tiền vào ví" />
+        <Head :title="pageTitle" />
         <div
             id="root"
             class="d-flex flex-column align-items-center w-100 position-relative"
@@ -126,7 +201,7 @@ const confirmTopUp = async () => {
             <div class="subpage-container wrapper-id wrapper-payment">
                 <div class="container h-100 position-relative">
                     <div class="d-flex flex-column align-items-center">
-                        <h1 class="page-title">Nạp tiền vào ví</h1>
+                        <h1 class="page-title">{{ pageTitle }}</h1>
                         <div class="payment w-100">
                             <ul class="payment-tab w-100">
                                 <li
@@ -154,17 +229,18 @@ const confirmTopUp = async () => {
                             <div class="payment-userinfo w-100">
                                 <ul>
                                     <li>
-                                        <span class="uname-label"
-                                            >Tài khoản:
+                                        <span class="uname-label">
+                                            Tài khoản:
                                         </span>
-                                        <b class="display-name">{{
-                                            props.user.name
-                                        }}</b>
+                                        <b class="display-name">
+                                            {{ props.user.name }}
+                                        </b>
                                     </li>
                                     <li>
-                                        <span class="gem-label color-blue"
-                                            >GEM</span
-                                        >:
+                                        <span class="gem-label color-blue">
+                                            GEM
+                                        </span>
+                                        :
                                         <b class="display-balance">
                                             {{
                                                 formattedNumber(
@@ -177,109 +253,204 @@ const confirmTopUp = async () => {
                             </div>
 
                             <div class="link-to-history w-100 text-center">
-                            <Link
-                                :href="historyRoute"
-                                class="login-required"
-                                data-open-auth="login"
-                                data-redirect="qua-nap-web.html"
-                            >
+                                <Link :href="historyRoute" class="history-link">
                                     Lịch sử nạp
                                 </Link>
                             </div>
 
-                            <div class="item-list w-100">
-                                <label for="">Chọn hình thức</label>
-                                <div class="item-list-payment-type">
-                                    <a
-                                        v-for="method in paymentMethods"
-                                        :key="method.id"
-                                        href="javascript:void(0)"
-                                        class="item-type"
-                                        :class="{
-                                            active:
-                                                method.id === selectedMethodId,
-                                        }"
-                                        :data-rate="method.rate"
-                                        :data-bonus="method.bonus_rate"
-                                        @click.prevent="selectMethod(method.id)"
-                                    >
-                                        <input
-                                            type="hidden"
-                                            name="ftype"
-                                            :value="method.id"
-                                        />
-                                        <div
-                                            class="img"
-                                            :class="`img-type-${method.image_variant}`"
-                                            :style="{
-                                                backgroundImage: method.image
-                                                    ? `url(${method.image})`
-                                                    : undefined,
-                                            }"
-                                        ></div>
-                                        <h6>{{ method.label }}</h6>
-                                        <span
-                                            v-if="method.ribbon"
-                                            class="ribbon"
-                                            >{{ method.ribbon }}</span
-                                        >
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="item-list w-100">
-                                <label for="">Chọn giá trị</label>
-                                <div class="item-list-slick">
-                                    <div
-                                        v-for="pkg in packages"
-                                        :key="pkg.amount"
-                                        class="item"
-                                    >
+                            <div v-if="isPaymentTab" class="payment-section">
+                                <div class="item-list w-100">
+                                    <label for="">Chọn hình thức</label>
+                                    <div class="item-list-payment-type">
                                         <a
+                                            v-for="method in paymentMethods"
+                                            :key="method.id"
                                             href="javascript:void(0)"
+                                            class="item-type"
                                             :class="{
                                                 active:
-                                                    pkg.amount ===
-                                                    selectedAmount,
+                                                    method.id ===
+                                                    selectedMethodId,
                                             }"
+                                            :data-rate="method.rate"
+                                            :data-bonus="method.bonus_rate"
                                             @click.prevent="
-                                                selectPackage(pkg.amount)
+                                                selectMethod(method.id)
                                             "
                                         >
                                             <input
                                                 type="hidden"
-                                                name="famount"
-                                                :value="pkg.amount"
+                                                name="ftype"
+                                                :value="method.id"
                                             />
-                                            <span class="top">
-                                                GEM
-                                                <b>{{
-                                                    formattedNumber(pkg.gems)
-                                                }}</b>
-                                            </span>
-                                            <span class="middle">
-                                                <b
-                                                    >+
+                                            <div
+                                                class="img"
+                                                :class="`img-type-${method.image_variant}`"
+                                                :style="{
+                                                    backgroundImage: method.image
+                                                        ? `url(${method.image})`
+                                                        : undefined,
+                                                }"
+                                            ></div>
+                                            <h6>{{ method.label }}</h6>
+                                            <span
+                                                v-if="method.ribbon"
+                                                class="ribbon"
+                                                >{{ method.ribbon }}</span
+                                            >
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item-list w-100">
+                                    <label for="">Chọn giá trị</label>
+                                    <div class="item-list-slick">
+                                        <div
+                                            v-for="pkg in packages"
+                                            :key="pkg.amount"
+                                            class="item"
+                                        >
+                                            <a
+                                                href="javascript:void(0)"
+                                                :class="{
+                                                    active:
+                                                        pkg.amount ===
+                                                        selectedAmount,
+                                                }"
+                                                @click.prevent="
+                                                    selectPackage(pkg.amount)
+                                                "
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="famount"
+                                                    :value="pkg.amount"
+                                                />
+                                                <span class="top">
+                                                    GEM
+                                                    <b>{{
+                                                        formattedNumber(
+                                                            pkg.gems
+                                                        )
+                                                    }}</b>
+                                                </span>
+                                                <span class="middle">
+                                                    <b
+                                                        >+
+                                                        {{
+                                                            formattedNumber(
+                                                                pkg.bonus_gems ??
+                                                                    0
+                                                            )
+                                                        }}</b
+                                                    >
+                                                    BONUS
+                                                </span>
+                                                <span class="bot">
                                                     {{
                                                         formattedNumber(
-                                                            pkg.bonus_gems ?? 0
+                                                            pkg.amount
                                                         )
-                                                    }}</b
-                                                >
-                                                BONUS
-                                            </span>
-                                            <span class="bot">
-                                                {{
-                                                    formattedNumber(pkg.amount)
-                                                }}
-                                                <u>đ</u>
-                                            </span>
-                                        </a>
+                                                    }}
+                                                    <u>đ</u>
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="package-list w-100 mt-4" v-if="props.bonuses.length">
+                            <div v-if="isConvertTab" class="convert-section">
+                                <div class="item-list w-100">
+                                    <label for="">Chọn server</label>
+                                    <select
+                                        class="form-control"
+                                        v-model="selectedServer"
+                                    >
+                                        <option value="">-- Chọn server --</option>
+                                        <option
+                                            v-for="server in servers"
+                                            :key="server"
+                                            :value="server"
+                                        >
+                                            {{ server }}
+                                        </option>
+                                    </select>
+                                    <p
+                                        v-if="!servers.length"
+                                        class="text-muted small mt-2"
+                                    >
+                                        Bạn chưa có nhân vật để quy đổi. Vui
+                                        lòng tạo nhân vật trước.
+                                    </p>
+                                </div>
+
+                                <div class="item-list w-100 item-convert-list">
+                                    <label for="">Chọn gói quy đổi</label>
+                                    <div class="item-list-slick">
+                                        <div
+                                            v-for="pkg in packages"
+                                            :key="pkg.amount"
+                                            class="item"
+                                        >
+                                            <a
+                                                href="javascript:void(0)"
+                                                :class="{
+                                                    active:
+                                                        pkg.amount ===
+                                                        selectedAmount,
+                                                }"
+                                                @click.prevent="
+                                                    selectPackage(pkg.amount)
+                                                "
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="famount"
+                                                    :value="pkg.amount"
+                                                />
+                                                <span class="top">
+                                                    GEM
+                                                    <b>{{
+                                                        formattedNumber(
+                                                            pkg.gems
+                                                        )
+                                                    }}</b>
+                                                </span>
+                                                <span class="middle">
+                                                    <b
+                                                        >+
+                                                        {{
+                                                            formattedNumber(
+                                                                pkg.bonus_gems ??
+                                                                    0
+                                                            )
+                                                        }}</b
+                                                    >
+                                                    BONUS
+                                                </span>
+                                                <span class="bot">
+                                                    {{
+                                                        formattedNumber(
+                                                            pkg.amount
+                                                        )
+                                                    }}
+                                                    <u>đ</u>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted small mt-2">
+                                        Số GEM sẽ trừ trực tiếp từ ví sau khi
+                                        xác nhận.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="package-list w-100 mt-4"
+                                v-if="props.bonuses.length && (isPackageTab || isPaymentTab)"
+                            >
                                 <label for="">Quà nạp web</label>
                                 <div class="package-container">
                                     <div
@@ -288,8 +459,13 @@ const confirmTopUp = async () => {
                                         class="package-item package-item-limit-1"
                                     >
                                         <div class="left">
-                                            <h3 class="name">{{ bonus.name }}</h3>
-                                            <p v-if="bonus.description" class="text-white-50 small mb-3">
+                                            <h3 class="name">
+                                                {{ bonus.name }}
+                                            </h3>
+                                            <p
+                                                v-if="bonus.description"
+                                                class="text-white-50 small mb-3"
+                                            >
                                                 {{ bonus.description }}
                                             </p>
                                         </div>
@@ -301,9 +477,14 @@ const confirmTopUp = async () => {
                                                     class="item"
                                                 >
                                                     <p>
-                                                        <span class="fw-bold">x{{
-                                                            formattedNumber(reward.quantity ?? 1)
-                                                        }}</span>
+                                                        <span class="fw-bold">
+                                                            x{{
+                                                                formattedNumber(
+                                                                    reward.quantity ??
+                                                                        1
+                                                                )
+                                                            }}
+                                                        </span>
                                                     </p>
                                                     <h6>{{ reward.name }}</h6>
                                                 </div>
@@ -314,12 +495,13 @@ const confirmTopUp = async () => {
                             </div>
 
                             <button
+                                v-if="showSubmitButton"
                                 type="button"
-                                name="fpay"
+                                :name="submitName"
                                 class="submit form-control"
-                                @click="confirmTopUp"
+                                @click="submitAction"
                             >
-                                Xác nhận
+                                {{ submitLabel }}
                             </button>
                         </div>
                     </div>

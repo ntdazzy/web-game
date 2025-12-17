@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('wallet_transactions')) {
+            return;
+        }
+
         Schema::create('wallet_transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            // Giữ kiểu int cho đồng bộ với bảng account gốc (id int(11))
+            $table->integer('account_id')->index();
             $table->string('type', 20)->index();
             $table->decimal('amount', 12, 2);
             $table->string('ref_code')->nullable()->index();

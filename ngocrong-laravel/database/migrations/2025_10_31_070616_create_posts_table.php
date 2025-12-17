@@ -11,19 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('posts')) {
+            return;
+        }
+
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('type', 30)->default('news')->index();
-            $table->string('excerpt', 500)->nullable();
-            $table->longText('content')->nullable();
-            $table->string('cover_image')->nullable();
-            $table->string('cover_image_url')->nullable();
-            $table->timestamp('published_at')->nullable()->index();
-            $table->foreignId('author_id')->nullable()->constrained('users')->nullOnDelete();
-            $table->string('status', 20)->default('draft')->index();
-            $table->timestamps();
+            $table->string('tieude', 75);
+            $table->longText('noidung')->nullable();
+            $table->string('username', 50)->nullable();
+            $table->timestamp('created_at')->useCurrent();
+            $table->integer('theloai')->default(0);
+            $table->integer('ghimbai')->default(0);
+            $table->string('image', 255)->nullable();
+            $table->integer('trangthai')->default(0);
+            $table->integer('tinhtrang')->default(0);
+            $table->integer('like')->default(0);
+            $table->integer('views')->default(0);
         });
     }
 

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Account;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,16 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::firstOrCreate(
-            ['email' => 'captain@haitacmanhnhat.local'],
+        Account::firstOrCreate(
+            ['username' => 'captain'],
             [
-                'name' => 'Demo Captain',
-                'password' => bcrypt('password'),
+                'email' => 'captain@haitacmanhnhat.local',
+                'password' => 'password',
+                'active' => 1,
             ],
         );
 
         $this->call([
-            PostSeeder::class,
             EventSeeder::class,
             GiftcodeSeeder::class,
             WalletTransactionSeeder::class,

@@ -1,5 +1,9 @@
 // Ported from src_gốc/st-ms/js/custom9101.js and deduplicated across hashed variants.
 const HIDE_FIXED_MENU = 1;
+const DESIGN_WIDTH = 1905;
+const SCALE_MIN_WIDTH = 1200;
+const SCALE_TARGET_MAIN = "#site-root";
+const SCALE_TARGET_FIXED = ".menu-fixed.left, .menu-fixed.right";
 
 var bodyWidth = $("body").width();
 
@@ -19,40 +23,51 @@ function isMobile() {
     return bodyWidth <= 992;
 }
 function scale() {
-    var maxWidth = $(window).width();
-    if (maxWidth >= 1905 || maxWidth <= 1200) {
-        $("#root").css({
-            transform: "unset",
-            width: "unset",
-        });
-        $(".top-nav .container").css({
-            transform: "unset",
-            width: "unset",
-        });
-    } else {
-        $("#root").attr(
-            "style",
-            `
-            transform: scale(${maxWidth / 1905});
-            transform-origin: top left;
-            width: 1905px !important;
-        `
-        );
-        $(".top-nav .container").css({
-            transform: "scale(" + maxWidth / 1905 + ")",
-            "transform-origin": "top left",
-            width: "1905px",
+    const viewportWidth = Math.max($(window).width(), 0);
+    const needsScale =
+        viewportWidth < DESIGN_WIDTH && viewportWidth > SCALE_MIN_WIDTH;
+    const scaleRatio = needsScale ? viewportWidth / DESIGN_WIDTH : 1;
+    const scaledWidth = DESIGN_WIDTH * scaleRatio;
+    const offsetX = needsScale ? (viewportWidth - scaledWidth) / 2 : 0;
+
+    const $main = $(SCALE_TARGET_MAIN);
+    const $fixed = $(SCALE_TARGET_FIXED);
+
+    if (!needsScale) {
+        $main.css({
+            transform: "none",
+            "transform-origin": "",
+            width: "",
+            "max-width": "",
         });
         $(".menu-fixed.left").css({
-            transform: "scale(" + maxWidth / 1905 + ")",
-            "transform-origin": "top left",
-            width: "1905px",
+            transform: "none",
+            "transform-origin": "",
+            left: "",
         });
-
         $(".menu-fixed.right").css({
-            transform: "scale(" + maxWidth / 1905 + ")",
+            transform: "none",
+            "transform-origin": "",
+            right: "",
+        });
+    } else {
+        const transformValue =
+            "translateX(" + offsetX + "px) scale(" + scaleRatio + ")";
+        $main.css({
+            transform: transformValue,
+            "transform-origin": "top left",
+            width: DESIGN_WIDTH + "px",
+            "max-width": DESIGN_WIDTH + "px",
+        });
+        $(".menu-fixed.left").css({
+            transform: "scale(" + scaleRatio + ")",
+            "transform-origin": "top left",
+            left: 0,
+        });
+        $(".menu-fixed.right").css({
+            transform: "scale(" + scaleRatio + ")",
             "transform-origin": "top right",
-            width: "1905px",
+            right: 0,
         });
     }
     if (
@@ -601,9 +616,31 @@ $(document).ready(function () {
         }
     }
 
-    if (typeof widget_login != "undefined") {
-        $(".login-required").click(widget_login);
-    }
+    const loginRoute = document.body?.dataset?.loginRoute || "/dang-nhap";
+    const buildLoginUrl = (redirect) => {
+        if (!redirect) {
+            return loginRoute;
+        }
+        const connector = loginRoute.includes("?") ? "&" : "?";
+        return `${loginRoute}${connector}redirect=${encodeURIComponent(redirect)}`;
+    };
+
+    $(document).on("click", ".login-required", function (event) {
+        const targetHref = $(this).attr("href") || "";
+        const redirect = $(this).data("redirect") || window.location.href;
+
+        // Nếu đã gắn sẵn link đăng nhập hợp lệ thì cho phép điều hướng mặc định
+        if (
+            targetHref &&
+            targetHref !== "#" &&
+            targetHref.indexOf(loginRoute) !== -1
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+        window.location.href = buildLoginUrl(redirect);
+    });
 
     $(".select2.type").select2({
         dropdownParent: $("#select2-type-parent"),

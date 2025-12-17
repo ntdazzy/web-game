@@ -29,13 +29,12 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        $user->username = $request->string('name')->trim()->value();
+        $user->email = $request->string('email')->trim()->lower()->value();
 
-        $request->user()->save();
+        $user->save();
 
         return Redirect::route('profile.edit');
     }
@@ -46,7 +45,11 @@ class ProfileController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         $request->validate([
-            'password' => ['required', 'current_password'],
+            'password' => ['required', function ($attribute, $value, $fail) use ($request) {
+                if ($request->user()->password !== $value) {
+                    $fail(__('Mật khẩu không chính xác.'));
+                }
+            }],
         ]);
 
         $user = $request->user();

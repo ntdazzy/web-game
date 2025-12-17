@@ -16,6 +16,10 @@ const props = defineProps({
         type: Array,
         default: () => [],
     },
+    redirect: {
+        type: String,
+        default: "",
+    },
 });
 
 const csrfToken = document.head.querySelector('meta[name="csrf-token"]')?.content ?? "";
@@ -24,16 +28,37 @@ const form = useForm({
     login: "",
     password: "",
     remember: false,
+    redirect: props.redirect || "",
+    captcha_token: "",
 });
 
 const submit = () => {
-    form.transform((data) => ({
-        _token: csrfToken,
-        ...data,
-        remember: data.remember ? "on" : "",
-    })).post(route("login"), {
-        onFinish: () => form.reset("password"),
-    });
+    form
+        .transform((data) => ({
+            _token: csrfToken,
+            ...data,
+            remember: data.remember ? "on" : "",
+            captcha_token: data.captcha_token || window.__turnstileToken || "",
+        }))
+        .post(route("login"), {
+            onFinish: () => form.reset("password"),
+            // Sau khi đăng nhập thành công, reload để header cập nhật ngay.
+            onSuccess: () => {
+                const target = form.redirect || props.redirect;
+                if (target) {
+                    window.location.href = target;
+                } else {
+                    window.location.reload();
+                }
+            },
+            onError: (errors) => {
+                const msg =
+                    errors?.login ||
+                    errors?.auth ||
+                    "Tài khoản hoặc mật khẩu không đúng. Vui lòng thử lại.";
+                form.setError("auth", msg);
+            },
+        });
 };
 </script>
 
@@ -47,9 +72,9 @@ const submit = () => {
         <div class="col-12 col-sm-6 wrap-form">
             <form class="form-login" @submit.prevent="submit">
                 <div class="mb-3">
-                    <label class="form-label" for="accountLoginUsername"
-                        >Tên tài khoản</label
-                    >
+                    <label class="form-label" for="accountLoginUsername">
+                        Tên tài khoản
+                    </label>
                     <input
                         id="accountLoginUsername"
                         v-model="form.login"

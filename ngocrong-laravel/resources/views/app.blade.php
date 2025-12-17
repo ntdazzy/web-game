@@ -31,8 +31,6 @@
     @include('partials.footer')
 </div>
 
-@include('partials.modals.auth')
-
 @stack('scripts')
 </body>
 

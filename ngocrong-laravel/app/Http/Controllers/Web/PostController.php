@@ -21,11 +21,11 @@ class PostController extends Controller
             ->when($request->filled('search'), function ($query) use ($request) {
                 $term = $request->string('search')->trim()->value();
                 $query->where(function ($inner) use ($term) {
-                    $inner->where('title', 'like', '%' . $term . '%')
-                        ->orWhere('excerpt', 'like', '%' . $term . '%');
+                    $inner->where('tieude', 'like', '%' . $term . '%')
+                        ->orWhere('noidung', 'like', '%' . $term . '%');
                 });
             })
-            ->latest('published_at')
+            ->latest('created_at')
             ->paginate(9);
 
         return view('pages.news.index', [
@@ -40,7 +40,7 @@ class PostController extends Controller
             ->where('id', '!=', $post->id)
             ->published()
             ->ofType($post->type)
-            ->latest('published_at')
+            ->latest('created_at')
             ->limit(3)
             ->get();
 
